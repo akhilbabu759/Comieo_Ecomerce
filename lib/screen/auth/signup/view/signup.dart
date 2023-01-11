@@ -17,7 +17,7 @@ class SignupPage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(child: Column(
         children: [
-          Text('Sign up with Email'),
+          Text('Sign up with Email',style: TextStyle(fontFamily: 'Teko'),),
           Text('Get chatting with friends and family today by \n signing up for our chat app! '),
           Text('Your name'),
               TextFormField(controller: nameController, ),
