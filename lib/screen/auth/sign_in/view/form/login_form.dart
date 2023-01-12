@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class LoginFrom extends StatelessWidget {
-  const LoginFrom({
+   LoginFrom({
     Key? key,
     required this.width,
     required this.emailController,
@@ -9,24 +9,24 @@ class LoginFrom extends StatelessWidget {
     required this.height,
   }) : super(key: key);
 
-  final  width;
+  late double  width;
   final TextEditingController emailController;
   final TextEditingController passwordController;
-  final  height;
+  late double  height;
 
   @override
   Widget build(BuildContext context) {
     return Form(
         child: Column(
       children: [
-        Text('Your email'),
+        const Text('Your email'),
          Padding(
             padding: EdgeInsets.only(left:width*0.05,right: width*0.05),
             child: Container(
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 34, 34, 34),
-                  borderRadius: new BorderRadius.circular(7.0),
-                  boxShadow:[ BoxShadow(spreadRadius: 0.2,
+                  color: const Color.fromARGB(255, 34, 34, 34),
+                  borderRadius: BorderRadius.circular(7.0),
+                  boxShadow:const[ BoxShadow(spreadRadius: 0.2,
                     color: Colors.white54)]
                 ),
                 child: Padding(
@@ -41,9 +41,9 @@ class LoginFrom extends StatelessWidget {
             padding: EdgeInsets.only(left:width*0.05,right: width*0.05),
             child: Container(
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 34, 34, 34),
-                  borderRadius: new BorderRadius.circular(7.0),
-                  boxShadow:[ BoxShadow(spreadRadius: 0.2,
+                  color: const Color.fromARGB(255, 34, 34, 34),
+                  borderRadius:  BorderRadius.circular(7.0),
+                  boxShadow:const[ BoxShadow(spreadRadius: 0.2,
                     color: Colors.white54)]
                 ),
                 child: Padding(
@@ -57,7 +57,7 @@ class LoginFrom extends StatelessWidget {
                     Row(mainAxisAlignment: MainAxisAlignment.end,
                       children: [TextButton(onPressed: () {
                       
-                    }, child: Text('forgot password?'))],),
+                    }, child: const Text('forgot password?'))],),
                     
                     SizedBox(width: width*0.9,
                       child: ElevatedButton(
@@ -67,10 +67,10 @@ class LoginFrom extends StatelessWidget {
       ),
                         onPressed: () {
                         
-                      },child:Text('Login') ),
+                      },child:const Text('Login') ),
                     ),
                     SizedBox(height: height*0.04,),
-                    Text('--------------OR--------------',style: TextStyle(color: Colors.white54),)
+                    const Text('--------------OR--------------',style: TextStyle(color: Colors.white54),)
         // TextButton(onPressed:() {
         //   log('kk');
         //   log(emailController.text);

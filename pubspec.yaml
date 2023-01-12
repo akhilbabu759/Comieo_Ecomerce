@@ -39,6 +39,7 @@ dependencies:
   dio: ^4.0.6
   get: ^4.6.5
   flutter_secure_storage: ^7.0.1
+  flutter_otp_text_field: ^1.1.1
 
 dev_dependencies:
   flutter_test:

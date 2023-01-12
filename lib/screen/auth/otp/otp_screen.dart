@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 
 class OtpScreen extends StatelessWidget {
    OtpScreen({super.key});
@@ -22,9 +21,9 @@ class OtpScreen extends StatelessWidget {
             padding: EdgeInsets.only(left:width*0.05,right: width*0.05),
             child: Container(
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 34, 34, 34),
-                  borderRadius: new BorderRadius.circular(7.0),
-                  boxShadow:[ BoxShadow(spreadRadius: 0.2,
+                  color: const Color.fromARGB(255, 34, 34, 34),
+                  borderRadius: BorderRadius.circular(7.0),
+                  boxShadow:const[ BoxShadow(spreadRadius: 0.2,
                     color: Colors.white54)]
                 ),
                 child: Padding(

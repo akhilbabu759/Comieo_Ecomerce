@@ -28,14 +28,14 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home:  MyHomePage(title: ''),
+      home:   MyHomePage(title: ''),
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key, required this.title});
-  final title;
+   MyHomePage({super.key, required this.title});
+  late String title;
 @override
  Widget build(BuildContext context) {
     return GetMaterialApp(
