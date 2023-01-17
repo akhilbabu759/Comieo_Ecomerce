@@ -11,16 +11,21 @@ class OtpService{
   final apiendUrl =ApiEndsUrl();
   Future<String?> sendOtp(email,context)async
 {
-  log('otp enabled');
+  log('otp enabled'); 
   try{
-    final Response response= await dio.get(apibaseUrl.baseurl+apiendUrl.verifyOtp,
-    queryParameters: {"email":email});
+    log('trye enter');
+    log(email);
+     Response response= await dio.get(apibaseUrl.baseurl+apiendUrl.verifyOtp,
+    queryParameters: {"email":email},);
+    log(response.toString());
+    log(response.statusCode.toString());
     if(response.statusCode==200 || response.statusCode==201){
       log('otp created');
       log('otp done');
       return response.data['message'];
     }
   } on DioError catch(e){
+    // log(response.toString());
     log(e.message,name:'status code' );
     log('otp failed');
     DioException().dioError(e, context);

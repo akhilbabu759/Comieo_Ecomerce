@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SignupController extends GetxController {
+  static final formGlobalKey = GlobalKey<FormState>();
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
@@ -20,8 +21,8 @@ class SignupController extends GetxController {
     log(usernameController.text);
     isLoging = true;
     update();
-    final signupmodel = SignUpModel(fullname: usernameController.text, email: emailController.text, phone: phoneController.text, password: passwordController.text);
-    OtpService().sendOtp(signupmodel, context).then((value) {
+    final signupmodel =  SignUpModel(fullname: usernameController.text, email: emailController.text, phone: phoneController.text, password: passwordController.text);
+    OtpService().sendOtp(signupmodel.email, context).then((value) {
       if(value!=null){
         Get.to(()=>ScreenVerificationCode(model: signupmodel,));
         disposeTextfield();
@@ -87,9 +88,8 @@ class SignupController extends GetxController {
       return 'Please enter your password';
     } else if (value.length < 8) {
       return 'Password must have atleast 8 character';
-    } else if (value.length > 8) {
-      return 'Password exceeds 8 character';
-    }
+    } 
+   
     return null;
   }
 

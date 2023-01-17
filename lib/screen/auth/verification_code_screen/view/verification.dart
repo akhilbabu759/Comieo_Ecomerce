@@ -25,7 +25,8 @@ class ScreenVerificationCode extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: colorWhite,
+
+      backgroundColor: backgroundColorBlack,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         bottom: PreferredSize(
@@ -37,10 +38,7 @@ class ScreenVerificationCode extends StatelessWidget {
                 const Text(
                   'Verification Code',
                   maxLines: 2,
-                  style: TextStyle(
-                      fontSize: 30,
-                      color: colorWhite,
-                      fontWeight: FontWeight.bold),
+                  style:textstyle,
                 ),
                 SizedBox(
                   height: height * 0.08,
@@ -50,7 +48,7 @@ class ScreenVerificationCode extends StatelessWidget {
           ),
         ),
         elevation: 15,
-        backgroundColor: colorWhite,
+        backgroundColor: Color.fromARGB(255, 19, 35, 49),
         shape: const RoundedRectangleBorder(
             borderRadius:
                 BorderRadius.only(bottomRight: Radius.circular(2000))),
@@ -65,7 +63,7 @@ class ScreenVerificationCode extends StatelessWidget {
                 children: const [
                   Text(
                     'Please enter Code sent to',
-                    style: TextStyle(fontSize: 17),
+                    style: TextStyle(fontSize: 17,color: colorWhite),
                   ),
                 ],
               ),
@@ -74,27 +72,27 @@ class ScreenVerificationCode extends StatelessWidget {
                 children: [
                   const Text(
                     'Email id',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16,color: colorWhite),
                   ),
-                  TextButton(
-                    onPressed: () {
-                      // Get.to(() => const ScreenVerification());
-                    },
-                    child: const Text(
-                      'Change Email id',
-                      style: TextStyle(color: Colors.black),
-                    ),
-                  ),
+                  // TextButton(
+                  //   onPressed: () {
+                  //     // Get.to(() => const ScreenVerification());
+                  //   },
+                  //   child: const Text(
+                  //     'Change Email id',
+                  //     style: TextStyle(color: Colors.black),
+                  //   ),
+                  // ),
                 ],
               ),
               textFieldGap,
               GetBuilder<VerifyOtpController>(
                 builder: (controller) {
                   return OtpTextField(
-                    textStyle: const TextStyle(color: Colors.black),
+                    textStyle: const TextStyle(color: colorWhite),
                     numberOfFields: 4,
-                    borderColor: Colors.black,
-                    enabledBorderColor: Colors.black,
+                    borderColor: colorWhite,
+                    enabledBorderColor: Color.fromARGB(255, 242, 239, 239),
                     borderRadius: BorderRadius.circular(12),
                     showFieldAsBox: true,
                     onSubmit: (String verificationCode) {
@@ -132,12 +130,12 @@ class ScreenVerificationCode extends StatelessWidget {
                 },
               ),
               textFieldGap,
-              TextButton(
-                  onPressed: () {},
-                  child: const Text(
-                    'Resend Code',
-                    style: TextStyle(color: colorWhite),
-                  ))
+              // TextButton(
+              //     onPressed: () {},
+              //     child: const Text(
+              //       'Resend Code',
+              //       style: TextStyle(color: colorWhite),
+              //     ))
             ],
           ),
         ),

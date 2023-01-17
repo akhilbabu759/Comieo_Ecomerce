@@ -20,9 +20,9 @@ class SignUpService{
       data: jsonEncode(signupmodel.toJson(),));
       log(response.statusCode.toString());
       if(response.statusCode!>=200 || response.statusCode!<=299){
-        final signupResponse =SignUpTokenModel.fromJson(response.data);
-        log(response.data.toString());
-        return signupResponse;
+       return SignUpTokenModel.fromJson(response.data);
+        // log(response.data.toString());
+        // return signupResponse;
       }else{
         log(response.statusCode.toString());
       }

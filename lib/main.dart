@@ -1,3 +1,4 @@
+import 'package:ecomerce/screen/home/home.dart';
 import 'package:flutter/material.dart';
 
 import 'screen/auth/sign_in/view/signin.dart';
@@ -39,7 +40,7 @@ class MyHomePage extends StatelessWidget {
 @override
  Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: SigninPage(),
+      home: Home(),
     );
 
 }
