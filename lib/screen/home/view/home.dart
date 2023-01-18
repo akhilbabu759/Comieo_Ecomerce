@@ -12,6 +12,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // bottomNavigationBar: BottomNavigator(),
       backgroundColor: backgroundColorBlack,
 
       // body: Scaffold(backgroundColor: backgroundColorBlack,
