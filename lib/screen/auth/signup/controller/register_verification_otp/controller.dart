@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:ecomerce/screen/auth/signup/model/model.dart';
 import 'package:ecomerce/screen/auth/signup/service/sign_up_service/sign_up_service.dart';
 import 'package:ecomerce/screen/auth/verification_code_screen/service/verify_otp_service.dart';
-import 'package:ecomerce/screen/home/home.dart';
+import 'package:ecomerce/screen/home/view/home.dart';
 import 'package:ecomerce/util/dio_exception/error_popup/snack_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
