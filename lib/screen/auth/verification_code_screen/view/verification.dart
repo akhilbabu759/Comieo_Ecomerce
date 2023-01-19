@@ -88,7 +88,7 @@ class ScreenVerificationCode extends StatelessWidget {
               textFieldGap,
               GetBuilder<VerifyOtpController>(
                 builder: (controller) {
-                  return OtpTextField(
+                  return controller.isLoading==true?Center(child: Text('loading',style: textstyle,),): OtpTextField(
                     textStyle: const TextStyle(color: colorWhite),
                     numberOfFields: 4,
                     borderColor: colorWhite,

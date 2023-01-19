@@ -3,9 +3,6 @@ import 'package:flutter/material.dart';
 
 import 'screen/auth/sign_in/view/signin.dart';
 import 'package:get/get.dart';
-
-import 'screen/bottom_navigator/view/bottom_navigator.dart';
-import 'screen/bottom_navigator/view/page_navigation.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -43,7 +40,7 @@ class MyHomePage extends StatelessWidget {
 @override
  Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: ScreenMAinPage(),
+      home: SigninPage(),
     );
 
 }

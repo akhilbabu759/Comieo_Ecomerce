@@ -3,20 +3,21 @@ import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'package:ecomerce/common/api_baseurl.dart';
 import 'package:ecomerce/common/api_endsurl.dart';
+import 'package:ecomerce/screen/auth/signup/model/model.dart';
 import 'package:ecomerce/util/dio_exception/exception.dart';
 
 class OtpService{
   Dio dio =Dio();
   final apibaseUrl =ApiBaseUrl();
   final apiendUrl =ApiEndsUrl();
-  Future<String?> sendOtp(email,context)async
+  Future<String?> sendOtp(SignUpModel mode,context)async
 {
   log('otp enabled'); 
   try{
     log('trye enter');
-    log(email);
+    log(mode.email);
      Response response= await dio.get(apibaseUrl.baseurl+apiendUrl.verifyOtp,
-    queryParameters: {"email":email},);
+    queryParameters: {"email":mode.email},);
     log(response.toString());
     log(response.statusCode.toString());
     if(response.statusCode==200 || response.statusCode==201){

@@ -15,35 +15,43 @@ class SignupController extends GetxController {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController conformpasswordController =
       TextEditingController();
-        bool isLoging = false;
-      final signupS = SignUpService();
-   Future<void> addUser(BuildContext context)async{
+  bool isLoging = false;
+  final signupS = SignUpService();
+  Future<void> addUser(BuildContext context) async {
     log(usernameController.text);
     isLoging = true;
     update();
-    final signupmodel =  SignUpModel(fullname: usernameController.text, email: emailController.text, phone: phoneController.text, password: passwordController.text);
-    OtpService().sendOtp(signupmodel.email, context).then((value) {
-      if(value!=null){
-        Get.to(()=>ScreenVerificationCode(model: signupmodel,));
-        disposeTextfield();
-      }else{
-        return;
-      }
-    },);
+    final signupmodel = SignUpModel(
+        fullname: usernameController.text,
+        email: emailController.text,
+        phone: phoneController.text,
+        password: passwordController.text);
+    OtpService().sendOtp(signupmodel, context).then(
+      (value) {
+        if (value != null) {
+          Get.to(() => ScreenVerificationCode(
+                model: signupmodel,
+              ));
+          disposeTextfield();
+        } else {
+          return;
+        }
+      },
+    );
     isLoging = false;
     update();
+  }
 
-   } 
-   void disposeTextfield() {
+  void disposeTextfield() {
     // usernameController.clear();
     usernameController.clear();
     emailController.clear();
     passwordController.clear();
     phoneController.clear();
     conformpasswordController.clear();
-  }  
+  }
 
-   String? nameValidation(String? value) {
+  String? nameValidation(String? value) {
     if (value == null || value.isEmpty) {
       return 'Please enter the username';
     } else {
@@ -88,8 +96,8 @@ class SignupController extends GetxController {
       return 'Please enter your password';
     } else if (value.length < 8) {
       return 'Password must have atleast 8 character';
-    } 
-   
+    }
+
     return null;
   }
 
@@ -104,5 +112,4 @@ class SignupController extends GetxController {
       return null;
     }
   }
-
 }
