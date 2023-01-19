@@ -11,15 +11,16 @@ import 'form/login_form.dart';
 
 class SigninPage extends StatelessWidget {
    SigninPage({super.key});
-  var emailController = TextEditingController();
-  var passwordController= TextEditingController();
-  dynamic size,height,width;
+  // var emailController = TextEditingController();
+  // var passwordController= TextEditingController();
+  late Size size;
+ late  double height,width;
   
   
 
   @override
   Widget build(BuildContext context) {
-     size = MediaQuery.of(context).size;
+    size = MediaQuery.of(context).size;
     height = size.height;
     width = size.width;
     return Scaffold(backgroundColor: backgroundColorBlack,
@@ -41,7 +42,7 @@ class SigninPage extends StatelessWidget {
           //   style: TextStyle(fontSize: 20),
           // ),
           
-          LoginFrom(width: width, emailController: emailController, passwordController: passwordController, height: height),
+           LoginFrom(width: width,  height: height),
          
           const Text('________or_______'),
           //  Row(
