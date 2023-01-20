@@ -1,5 +1,5 @@
 import 'package:ecomerce/core/text_style.dart';
-import 'package:ecomerce/screen/home/view/cardView/home_card.dart';
+import 'package:ecomerce/screen/home/view/widget/cardView/home_card.dart';
 import 'package:flutter/material.dart';
 
 class CardView extends StatelessWidget {

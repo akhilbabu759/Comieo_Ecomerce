@@ -1,8 +1,8 @@
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
-import 'package:ecomerce/screen/home/view/cardView/list_card.dart';
-import 'package:ecomerce/screen/home/view/carousel_slider/carousel.dart';
-import 'package:ecomerce/screen/home/view/heding/heding.dart';
+import 'package:ecomerce/screen/home/view/widget/cardView/list_card.dart';
+import 'package:ecomerce/screen/home/view/widget/carousel_slider/carousel.dart';
+import 'package:ecomerce/screen/home/view/widget/heding/heding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
