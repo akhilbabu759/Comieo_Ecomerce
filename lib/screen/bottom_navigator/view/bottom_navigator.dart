@@ -10,30 +10,28 @@ import 'package:get/get.dart';
 
 class BottomNavigator extends StatelessWidget {
   BottomController signupController = Get.put(BottomController());
-   BottomNavigator({super.key});
+  BottomNavigator({super.key});
   // final page = [
   //   const Home(),
   //   SignupPage()
-    
+
   // ];
 
   @override
   Widget build(BuildContext context) {
     return Material(
       child: GetBuilder<BottomController>(
-         builder: (controller) =>  
-        BottomNavigationBar(
+        builder: (controller) => BottomNavigationBar(
             unselectedItemColor: Colors.white,
             backgroundColor: const Color.fromARGB(210, 22, 27, 35),
-            onTap: (value)async {
-             controller. indexChange(value);
-             
-             log(signupController.selectedIndex.toString());
-             
+            onTap: (value) async {
+              controller.indexChange(value);
 
-            // selectedIndex.notifyListeners();},
+              log(signupController.selectedIndex.toString());
+
+              // selectedIndex.notifyListeners();},
             },
-            currentIndex:signupController. selectedIndex,
+            currentIndex: signupController.selectedIndex,
             selectedItemColor: const Color.fromARGB(255, 7, 255, 255),
             items: const [
               BottomNavigationBarItem(label: 'Home', icon: Icon(Icons.home)),

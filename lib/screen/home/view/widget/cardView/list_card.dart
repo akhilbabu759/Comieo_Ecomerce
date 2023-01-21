@@ -6,11 +6,11 @@ class CardView extends StatelessWidget {
   const CardView({
     Key? key,
   }) : super(key: key);
- 
 
   @override
   Widget build(BuildContext context) {
-    return LimitedBox(maxHeight: 175,
+    return LimitedBox(
+      maxHeight: 175,
       child: ListView.builder(
           itemCount: 16,
           scrollDirection: Axis.horizontal,
@@ -21,4 +21,3 @@ class CardView extends StatelessWidget {
     );
   }
 }
-

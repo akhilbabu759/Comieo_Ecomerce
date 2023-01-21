@@ -128,11 +128,20 @@ class SignupFrom extends StatelessWidget {
                             right: width * 0.03,
                           ),
                           child: TextFormField(
+                            obscureText: controller.obscureText,
                               validator: ((value) =>
                                   signupController.passwordValdation(value)),
                               style: const TextStyle(color: colorWhite),
                               controller: signupController.passwordController,
-                              decoration: const InputDecoration(
+                              decoration:  InputDecoration(
+                                suffixIcon: IconButton(
+                            onPressed: () {
+                              signupController.visibility();
+
+                            },
+                            icon: signupController.icon,
+                            color: colorWhite,
+                          ),
                                   border: InputBorder.none,
                                   labelText: 'Password',
                                   labelStyle:
@@ -154,12 +163,15 @@ class SignupFrom extends StatelessWidget {
                             right: width * 0.03,
                           ),
                           child: TextFormField(
+                            obscureText: controller.obscureText,
                               validator: ((value) => signupController
                                   .confirmpasswordValdation(value)),
                               style: const TextStyle(color: colorWhite),
                               controller:
                                   signupController.conformpasswordController,
                               decoration: const InputDecoration(
+                                
+
                                   border: InputBorder.none,
                                   labelText: 'Confirm Password',
                                   labelStyle:

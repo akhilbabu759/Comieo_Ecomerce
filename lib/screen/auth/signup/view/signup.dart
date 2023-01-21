@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -34,33 +35,37 @@ class SignupPage extends StatelessWidget {
               height: 100,
             ),
 
-            // Text('Sign up with Email',style: TextStyle(fontFamily: 'Teko'),),
-            // Text('Get chatting with friends and family today by \n signing up for our chat app! '),
-            // Text('Your name'),
+           
 
             SignupFrom(
               height: height * 0.4,
               width: width * 1.01,
             ),
             textFieldGap,
-
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  'already have account ?',
-                  style: TextStyle(color: colorWhite),
-                ),
-                TextButton(
-                    onPressed: () {
-                      Get.back();
-                      log(nameController.text);
-                      log(emailController.text);
-                      log(passwordController.text);
+             RichText(
+            text: TextSpan(
+              text: "already have account? ",
+              
+              children: <TextSpan>[
+                TextSpan(
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () {
+                       Get.back();
+                     
                     },
-                    child: const Text('Login'))
+               
+                  text: 'Signup',
+                  style: const TextStyle(
+                    color: Colors.blue,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                
               ],
             ),
+          )
+
+           
           ],
         )),
       ),

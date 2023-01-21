@@ -23,13 +23,13 @@ class VerifyOtpController extends GetxController{
   }
   void submitOtp(SignUpModel model,code,context){
     if(code.length!=4){
-      SnackBarPop.popUp(context,'Please enter the OTP',Colors.red);
+      SnackBarPop.popUp('Please enter the OTP',Colors.red);
     }else{
       isLoading=true;
       update();
       log(model.email);
       log(code);
-      verifyOtps.verifyOtp(model.email,code,context).then((value){
+      verifyOtps.verifyOtp(model.email,code,).then((value){
         log(value.toString(),name: 'verifyotp');
         if(value!=null){
           SignUpService().signupUser(model,context).then((value){

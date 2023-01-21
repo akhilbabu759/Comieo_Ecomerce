@@ -10,7 +10,7 @@ class OtpService{
   Dio dio =Dio();
   final apibaseUrl =ApiBaseUrl();
   final apiendUrl =ApiEndsUrl();
-  Future<String?> sendOtp(SignUpModel mode,context)async
+  Future<String?> sendOtp(SignUpModel mode,)async
 {
   log('otp enabled'); 
   try{
@@ -29,7 +29,7 @@ class OtpService{
     // log(response.toString());
     log(e.message,name:'status code' );
     log('otp failed');
-    DioException().dioError(e, context);
+    DioException().dioError(e, );
   }
   return null;
 }}

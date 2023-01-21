@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:ecomerce/core/text_style.dart';
 import 'package:ecomerce/screen/auth/signup/model/model.dart';
 import 'package:ecomerce/screen/auth/signup/service/sign_up_service/sign_up_service.dart';
 import 'package:ecomerce/screen/auth/verification_code_screen/service/otp_service.dart';
@@ -26,7 +27,7 @@ class SignupController extends GetxController {
         email: emailController.text,
         phone: phoneController.text,
         password: passwordController.text);
-    OtpService().sendOtp(signupmodel, context).then(
+    OtpService().sendOtp(signupmodel, ).then(
       (value) {
         if (value != null) {
           Get.to(() => ScreenVerificationCode(
@@ -112,4 +113,31 @@ class SignupController extends GetxController {
       return null;
     }
   }
+  
+  bool obscureText = true;
+  Icon icon = const Icon(
+    Icons.visibility_off,
+    color: colorWhite,
+  );
+
+  void visibility() {
+    if (obscureText == false) {
+      icon = const Icon(
+        Icons.visibility_off,
+        color: colorWhite,
+      );
+      obscureText = true;
+      update();
+    } else {
+      icon = const Icon(
+        Icons.visibility,
+        color: colorWhite,
+      );
+      obscureText = false;
+      update();
+    }
+  }
+
+
 }
+

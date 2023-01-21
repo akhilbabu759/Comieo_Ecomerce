@@ -6,27 +6,17 @@ import 'package:ecomerce/screen/home/view/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-
 class ScreenMAinPage extends StatelessWidget {
-  
   ScreenMAinPage({super.key});
-  final page = [
-    const Home(),
-    SignupPage()
-    
-  ];
+  final page = [const Home(), SignupPage()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColorBlack,
-      body: GetBuilder<BottomController>(
-       
-          builder:(controller) {
-            
-         
-            return page[controller.selectedIndex];
-          }),
-      bottomNavigationBar:  BottomNavigator(),
+      body: GetBuilder<BottomController>(builder: (controller) {
+        return page[controller.selectedIndex];
+      }),
+      bottomNavigationBar: BottomNavigator(),
     );
   }
 }
