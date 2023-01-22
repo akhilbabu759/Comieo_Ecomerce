@@ -3,6 +3,7 @@ import 'package:ecomerce/common/api_baseurl.dart';
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
 import 'package:ecomerce/screen/home/controller/home_controll.dart';
+import 'package:ecomerce/screen/home/view/shimmer/carousel_shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -14,9 +15,9 @@ class CarouselHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final carousalC = Get.put(HomeControll(context));
+    final carousalC = Get.put(HomeControll());
     return GetBuilder<HomeControll>(
-      builder: (controller) => CarouselSlider.builder(
+      builder: (controller) =>controller.isLoding==false?CarouselShimmer(): CarouselSlider.builder(
           itemCount: carousalC.carouselList.length,
           itemBuilder: (BuildContext context, int index, int realIndex) =>
               // items: [

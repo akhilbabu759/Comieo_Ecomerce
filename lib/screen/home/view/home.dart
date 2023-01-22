@@ -6,11 +6,19 @@ import 'package:ecomerce/screen/home/view/widget/heding/heding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'widget/home_grideviewe/grid_view.dart';
+
 class Home extends StatelessWidget {
-  const Home({super.key});
+   Home({super.key});
+  late Size size;
+  late double height;
+  late double width;
 
   @override
   Widget build(BuildContext context) {
+        size = MediaQuery.of(context).size;
+    height = size.height;
+    width = size.width;
     return Scaffold(
       // bottomNavigationBar: BottomNavigator(),
       backgroundColor: backgroundColorBlack,
@@ -86,7 +94,7 @@ class Home extends StatelessWidget {
                HomeHeading(
                 tex: 'All shops',
               ),
-              CardView()
+              HomeGridView(height: height*0.1,width: width*0.1,)
             ]),
           ),
         ),

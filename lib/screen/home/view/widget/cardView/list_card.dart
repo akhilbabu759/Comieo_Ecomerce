@@ -1,6 +1,9 @@
 import 'package:ecomerce/core/text_style.dart';
+import 'package:ecomerce/screen/home/controller/home_controll.dart';
+import 'package:ecomerce/screen/home/view/shimmer/category_shimmer.dart';
 import 'package:ecomerce/screen/home/view/widget/cardView/home_card.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CardView extends StatelessWidget {
   const CardView({
@@ -9,7 +12,7 @@ class CardView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LimitedBox(
+    return GetBuilder<HomeControll>(builder: (controller) =>controller.isLoding==false?CategoryShimmer():  LimitedBox(
       maxHeight: 175,
       child: ListView.builder(
           itemCount: 16,
@@ -18,6 +21,6 @@ class CardView extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 10.0, right: 10),
                 child: HomeCard(text: 'speaker'),
               )),
-    );
+    ));
   }
 }

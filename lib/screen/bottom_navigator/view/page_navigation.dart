@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 
 class ScreenMAinPage extends StatelessWidget {
   ScreenMAinPage({super.key});
-  final page = [const Home(), SignupPage()];
+  final page = [ Home(), SignupPage()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(

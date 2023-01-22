@@ -5,23 +5,30 @@ import 'package:ecomerce/screen/home/service/carousel_service.dart';
 import 'package:get/get.dart';
 
 class HomeControll extends GetxController {
-  HomeControll(context) {
+  HomeControll() {
     log('contsrtuct');
-    getCarosel(context);
+    getCarosel();
   }
   List<CarousalModel> carouselList = [];
   CarouselService carousalS = CarouselService();
-  void getCarosel(context) async {
+    bool isLoding = false;
+  void getCarosel() async {
+    isLoding = false;
     log('get call');
-    await carousalS.getCarosel(context).then((value) {
+    await carousalS.getCarosel().then((value) {
       log(value.toString());
       if (value != null) {
         log('carousel list get');
         carouselList = value;
+        isLoding = false;
         update();
       } else {
+        isLoding = false;
+        update();
         log('value empty');
       }
     });
+    isLoding = false;
+    update();
   }
 }

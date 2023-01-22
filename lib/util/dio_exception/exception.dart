@@ -16,7 +16,7 @@ class DioException {
           Colors.red,
         );
       } else if (e.response?.statusCode == 400) {
-        SnackBarPop.popUp( 'All fields required or user already exist', Colors.red);
+        SnackBarPop.popUp( 'All fields required ', Colors.red);
       } else if (e.response?.statusCode == 403) {
         SnackBarPop.popUp( 'Forbidden', Colors.red);
       } else if (e.response?.statusCode == 500) {

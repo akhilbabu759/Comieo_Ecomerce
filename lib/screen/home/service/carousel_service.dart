@@ -11,7 +11,7 @@ class CarouselService {
   final dio = Dio();
   final abaseUrl = ApiBaseUrl();
   final aendUrl = ApiEndsUrl();
-  Future<List<CarousalModel>?> getCarosel(context) async {
+  Future<List<CarousalModel>?> getCarosel() async {
     Dio dio = await ApiInterceptor().getApiUser();
     try {
       Response response = await dio.get(abaseUrl.baseurl + aendUrl.carousal);
