@@ -4,5 +4,6 @@ class ApiEndsUrl{
   String refresh = '/api/v1/auth/refresh';
   String signIn = '/api/v1/auth/login';
   String carousal = '/api/v1/carousal';
+  String category ='/api/v1/category';
 
 }

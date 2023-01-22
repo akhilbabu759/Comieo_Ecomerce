@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecomerce/common/api_baseurl.dart';
 import 'package:ecomerce/core/constent.dart';
@@ -16,8 +18,9 @@ class CarouselHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final carousalC = Get.put(HomeControll());
+    log(carousalC.carouselList.length.toString(),name: 'carouselCaheck');
     return GetBuilder<HomeControll>(
-      builder: (controller) =>controller.isLoding==false?CarouselShimmer(): CarouselSlider.builder(
+      builder: (controller) =>carousalC.isLoding==true?CarouselShimmer(): CarouselSlider.builder(
           itemCount: carousalC.carouselList.length,
           itemBuilder: (BuildContext context, int index, int realIndex) =>
               // items: [
@@ -50,7 +53,7 @@ class CarouselHome extends StatelessWidget {
                             children: [
                               Text('up to'),
                               Text(
-                                '13.7%',
+                                carousalC.carouselList[index].offer+'%',
                                 style:
                                     TextStyle(fontSize: 28, color: Colors.red),
                               ),
@@ -62,7 +65,7 @@ class CarouselHome extends StatelessWidget {
                             child:
                                 // carousalC.carouselList.isEmpty?Text('empty'):
                                 Image.network(
-                              '${ApiBaseUrl().baseurl}/carousals/${carousalC.carouselList[0].image}',
+                              '${ApiBaseUrl().baseurl}/carousals/${carousalC.carouselList[index].image}',
                               height: 140,
                               width: 150,
                               alignment: Alignment(0.2, -9),

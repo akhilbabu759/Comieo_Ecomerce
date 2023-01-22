@@ -12,14 +12,14 @@ class CardView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<HomeControll>(builder: (controller) =>controller.isLoding==false?CategoryShimmer():  LimitedBox(
+    return GetBuilder<HomeControll>(builder: (controller) =>controller.isLoding==true?CategoryShimmer():  LimitedBox(
       maxHeight: 175,
       child: ListView.builder(
-          itemCount: 16,
+          itemCount: controller.categorylList.length,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) => Padding(
                 padding: const EdgeInsets.only(left: 10.0, right: 10),
-                child: HomeCard(text: 'speaker'),
+                child: HomeCard(imag:controller.categorylList[index].image ,text:controller.categorylList[index].name),
               )),
     ));
   }
