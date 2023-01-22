@@ -37,9 +37,9 @@ class HomeGridView extends StatelessWidget {
                   mainAxisSpacing: 5,
                   childAspectRatio: 1 / 1.7),
               itemBuilder: (BuildContext ctx, int index) {
-                return SizedBox(
-                  // width: width * 0.1,
-                  // color: Colors.blue,
+                return ColoredBox(
+                  //  height: height * 0.000001,
+                  color: colorWhite,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
@@ -58,7 +58,7 @@ class HomeGridView extends StatelessWidget {
                                   color: colorWhite,
                                   image: DecorationImage(
                                     image: NetworkImage(''
-                                        // '${apibaseUrl.baseurl}/products/${productC.productList[index].image[0]}'),
+                                         '${apibaseUrl.baseurl}/products/${productC.productList[index].image[0]}'),
                                         // fit: BoxFit.cover,
                                         ),
                                   ),
@@ -88,7 +88,7 @@ class HomeGridView extends StatelessWidget {
                               //     ),
                               //   ),
                               // )
-                            )
+                      
                           ],
                         ),
                         const SizedBox(
@@ -111,19 +111,20 @@ class HomeGridView extends StatelessWidget {
                         //   },
                         // ),
                         Text(
-                          'otty',
-                          // productC.productList[index].description,
+                          // 'otty',
+                           productC.productList[index].description,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(fontWeight: FontWeight.w400),
+                          style: const TextStyle(color: colorWhite,
+                            fontWeight: FontWeight.w400),
                         ),
                         kHeight10,
                         Row(
                           children: [
                             Text(
-                              '50',
-                              // "₹ ${productC.productList[index].price.toString()}",
-                              style: const TextStyle(
+                              // '50',
+                               "₹ ${productC.productList[index].price.toString()}",
+                              style: const TextStyle(color: colorWhite,
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -135,7 +136,7 @@ class HomeGridView extends StatelessWidget {
                   ),
                 );
               },
-              itemCount: 6
+              itemCount: productC.productList.length
               // productC.productList.length,
               ),
     );

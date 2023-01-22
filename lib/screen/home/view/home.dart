@@ -94,7 +94,7 @@ class Home extends StatelessWidget {
                HomeHeading(
                 tex: 'All shops',
               ),
-              HomeGridView(height: height*0.1,width: width*0.1,)
+              HomeGridView(height: height*0.9,width: width*0.9,)
             ]),
           ),
         ),
