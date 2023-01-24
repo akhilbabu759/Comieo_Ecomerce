@@ -1,4 +1,5 @@
 import 'package:ecomerce/screen/home/view/home.dart';
+import 'package:ecomerce/screen/product_details/view/product_details.dart';
 import 'package:flutter/material.dart';
 
 import 'screen/auth/sign_in/view/signin.dart';
@@ -40,7 +41,9 @@ class MyHomePage extends StatelessWidget {
 @override
  Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: SigninPage(),
+      home:
+      MyHomePages(),debugShowCheckedModeBanner: false,
+        // SigninPage(),
     );
 
 }
