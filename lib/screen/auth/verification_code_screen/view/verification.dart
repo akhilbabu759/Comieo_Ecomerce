@@ -1,7 +1,3 @@
-
-
-
-
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
 import 'package:ecomerce/screen/auth/signup/controller/register_verification_otp/controller.dart';
@@ -25,7 +21,6 @@ class ScreenVerificationCode extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
-
       backgroundColor: backgroundColorBlack,
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -38,7 +33,7 @@ class ScreenVerificationCode extends StatelessWidget {
                 const Text(
                   'Verification Code',
                   maxLines: 2,
-                  style:textstyle,
+                  style: textstyle,
                 ),
                 SizedBox(
                   height: height * 0.08,
@@ -53,93 +48,93 @@ class ScreenVerificationCode extends StatelessWidget {
             borderRadius:
                 BorderRadius.only(bottomRight: Radius.circular(2000))),
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Column(
-            children: [
-              textFieldGap,
-              Row(
-                children: const [
-                  Text(
-                    'Please enter Code sent to',
-                    style: TextStyle(fontSize: 17,color: colorWhite),
-                  ),
-                ],
+      body: verifyotpC.isLoading == true
+          ? const Center(
+              child: CircularProgressIndicator(
+                color: colorWhite,
+                backgroundColor: Colors.cyan,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    'Email id',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16,color: colorWhite),
-                  ),
-                  // TextButton(
-                  //   onPressed: () {
-                  //     // Get.to(() => const ScreenVerification());
-                  //   },
-                  //   child: const Text(
-                  //     'Change Email id',
-                  //     style: TextStyle(color: Colors.black),
-                  //   ),
-                  // ),
-                ],
-              ),
-              textFieldGap,
-              GetBuilder<VerifyOtpController>(
-                builder: (controller) {
-                  return controller.isLoading==true?Center(child: Text('loading',style: textstyle,),): OtpTextField(
-                    textStyle: const TextStyle(color: colorWhite),
-                    numberOfFields: 4,
-                    borderColor: colorWhite,
-                    enabledBorderColor: Color.fromARGB(255, 242, 239, 239),
-                    borderRadius: BorderRadius.circular(12),
-                    showFieldAsBox: true,
-                    onSubmit: (String verificationCode) {
-                      verifyotpC.onSubmitCode(verificationCode);
-                      // data.sumbitOtp(value.phoneNo.text, context);
-                    },
-                  );
-                },
-              ),
-              SizedBox(
-                height: height * 0.1,
-              ),
-              GetBuilder<VerifyOtpController>(
-                builder: (controller) {
-                  return ElevatedButton(
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.blue),
-                      fixedSize: MaterialStateProperty.all(
-                        Size(width * 0.8, height * 0.08),
-                      ),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
+            )
+          : SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Column(
+                  children: [
+                    textFieldGap,
+                    Row(
+                      children: const [
+                        Text(
+                          'Please enter Code sent to',
+                          style: TextStyle(fontSize: 17, color: colorWhite),
                         ),
-                      ),
+                      ],
                     ),
-                    onPressed: () {
-                      verifyotpC.submitOtp(model, verifyotpC.code, context);
-                    },
-                    child: const Text(
-                      'Continue',
-                      style: TextStyle(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: const [
+                        Text(
+                          'Email id',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                              color: colorWhite),
+                        ),
+                      ],
                     ),
-                  );
-                },
+                    textFieldGap,
+                    GetBuilder<VerifyOtpController>(
+                      builder: (controller) {
+                        return OtpTextField(
+                          textStyle: const TextStyle(color: colorWhite),
+                          numberOfFields: 4,
+                          borderColor: colorWhite,
+                          enabledBorderColor:
+                              const Color.fromARGB(255, 242, 239, 239),
+                          borderRadius: BorderRadius.circular(12),
+                          showFieldAsBox: true,
+                          onSubmit: (String verificationCode) {
+                            verifyotpC.onSubmitCode(verificationCode);
+                           
+                          },
+                        );
+                      },
+                    ),
+                    SizedBox(
+                      height: height * 0.1,
+                    ),
+                    GetBuilder<VerifyOtpController>(
+                      builder: (controller) {
+                        return ElevatedButton(
+                          style: ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.all(Colors.blue),
+                            fixedSize: MaterialStateProperty.all(
+                              Size(width * 0.8, height * 0.08),
+                            ),
+                            shape: MaterialStateProperty.all<
+                                RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                          ),
+                          onPressed: () {
+                            verifyotpC.submitOtp(
+                                model, verifyotpC.code, context);
+                          },
+                          child: const Text(
+                            'Continue',
+                            style: TextStyle(),
+                          ),
+                        );
+                      },
+                    ),
+                    textFieldGap,
+                    
+                  ],
+                ),
               ),
-              textFieldGap,
-              // TextButton(
-              //     onPressed: () {},
-              //     child: const Text(
-              //       'Resend Code',
-              //       style: TextStyle(color: colorWhite),
-              //     ))
-            ],
-          ),
-        ),
-      ),
+            ),
     );
   }
 }

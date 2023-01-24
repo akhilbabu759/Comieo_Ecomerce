@@ -21,7 +21,7 @@ class HomeControll extends GetxController {
   CarouselService carousalS = CarouselService();
   CategoryService categoryService = CategoryService();
   ProductService productService = ProductService();
-  bool isLoding = false;
+  bool isLoding = true;
   void getProduct() async {
     isLoding = true;
     update();

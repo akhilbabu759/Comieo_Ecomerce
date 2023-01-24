@@ -27,20 +27,24 @@ class SignupController extends GetxController {
         email: emailController.text,
         phone: phoneController.text,
         password: passwordController.text);
-    OtpService().sendOtp(signupmodel, ).then(
+    OtpService()
+        .sendOtp(
+      signupmodel,
+    )
+        .then(
       (value) {
         if (value != null) {
           Get.to(() => ScreenVerificationCode(
                 model: signupmodel,
               ));
+          isLoging = false;
+          update();
           disposeTextfield();
         } else {
           return;
         }
       },
     );
-    isLoging = false;
-    update();
   }
 
   void disposeTextfield() {
@@ -113,7 +117,7 @@ class SignupController extends GetxController {
       return null;
     }
   }
-  
+
   bool obscureText = true;
   Icon icon = const Icon(
     Icons.visibility_off,
@@ -137,7 +141,4 @@ class SignupController extends GetxController {
       update();
     }
   }
-
-
 }
-

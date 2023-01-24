@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
+import 'package:ecomerce/screen/auth/signup/controller/controller.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -20,10 +21,18 @@ class SignupPage extends StatelessWidget {
   var passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    final SignupControl = Get.put(SignupController());
     size = MediaQuery.of(context).size;
     height = size.height;
     width = size.width;
-    return Scaffold(
+    return GetBuilder<SignupController>(builder: (controller) {
+        return SignupControl.isLoging == true
+            ? const Center(
+                child: CircularProgressIndicator(
+                  color: colorWhite,
+                  backgroundColor: Colors.cyan,
+                ),
+              ): Scaffold(
       backgroundColor: backgroundColorBlack,
       // resizeToAvoidBottomInset: false,
       body: SingleChildScrollView(
@@ -69,6 +78,6 @@ class SignupPage extends StatelessWidget {
           ],
         )),
       ),
-    );
+    );});
   }
 }
