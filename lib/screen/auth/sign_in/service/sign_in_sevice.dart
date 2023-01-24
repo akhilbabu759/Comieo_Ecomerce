@@ -16,7 +16,7 @@ class SignInService {
   final apiendUrl = ApiEndsUrl();
   SignInModel? signinModel;
   Future<SigninTokenModel?> signinUser(
-      SignInModel model, BuildContext context) async {
+      SignInModel model, ) async {
     try {
       Response response = await dio.post(
         apibaseUrl.baseurl + apiendUrl.signIn,

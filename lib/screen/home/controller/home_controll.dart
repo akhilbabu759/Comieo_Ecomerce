@@ -23,6 +23,8 @@ class HomeControll extends GetxController {
   ProductService productService = ProductService();
   bool isLoding = false;
   void getProduct() async {
+    isLoding = true;
+    update();
     await productService.getProduct().then((value) {
       log(value.toString());
       if (value != null) {
@@ -37,8 +39,8 @@ class HomeControll extends GetxController {
         log('value empty');
       }
     });
-    isLoding = false;
-    update();
+    // isLoding = false;
+    // update();
   }
 
   void getCategory() async {

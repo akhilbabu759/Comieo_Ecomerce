@@ -42,8 +42,8 @@ class MyHomePage extends StatelessWidget {
  Widget build(BuildContext context) {
     return GetMaterialApp(
       home:
-      MyHomePages(),debugShowCheckedModeBanner: false,
-        // SigninPage(),
+      // ProductDeatails(),debugShowCheckedModeBanner: false,
+         SigninPage(),
     );
 
 }

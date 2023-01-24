@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:developer';
+
 import 'package:ecomerce/core/text_style.dart';
 import 'package:ecomerce/screen/auth/sign_in/model/sign_in_model.dart';
 import 'package:ecomerce/screen/auth/sign_in/service/sign_in_sevice.dart';
@@ -6,35 +9,42 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 
-class SignInController extends GetxController{
+class SignInController extends GetxController {
   static final formGlobalKey = GlobalKey<FormState>();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   FlutterSecureStorage storage = const FlutterSecureStorage();
   SignInService signinS = SignInService();
-  bool isLoading = false; 
+  bool isLoading = false;
 
-  void signIn(BuildContext context) {
+  void signIn() {
     isLoading = true;
     update();
     final signinModel = SignInModel(
       email: emailController.text.trim(),
       password: passwordController.text.trim(),
     );
-    signinS.signinUser(signinModel, context).then(
+    signinS
+        .signinUser(
+      signinModel,
+    )
+        .then(
       (value) {
         if (value != null) {
           storage.write(key: 'token', value: value.accessToken);
           storage.write(key: 'refreshToken', value: value.refreshToken);
-          Get.offAll(() => ScreenMAinPage());
+          Timer(Duration(seconds: 3), ()async {
+           await Get.offAll(() => ScreenMAinPage());
+            isLoading = false;
+            update();
+          });
+
           // disposeTextfield();
         } else {
           return;
         }
       },
     );
-    isLoading = false;
-    update();
   }
 
   // void disposeTextfield() {
@@ -88,5 +98,4 @@ class SignInController extends GetxController{
       update();
     }
   }
-
 }

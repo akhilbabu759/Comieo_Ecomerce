@@ -1,8 +1,8 @@
 import 'package:ecomerce/screen/product_details/view/widget/body.dart';
 import 'package:flutter/material.dart';
 
-class MyHomePages extends StatelessWidget {
-  const MyHomePages({super.key});
+class ProductDeatails extends StatelessWidget {
+  const ProductDeatails({super.key});
 
   @override
   Widget build(BuildContext context) {
