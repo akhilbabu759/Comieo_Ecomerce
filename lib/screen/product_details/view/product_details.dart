@@ -1,8 +1,10 @@
+import 'package:ecomerce/screen/product_details/model/product_model.dart';
 import 'package:ecomerce/screen/product_details/view/widget/body.dart';
 import 'package:flutter/material.dart';
 
 class ProductDeatails extends StatelessWidget {
-  const ProductDeatails({super.key});
+  const ProductDeatails(Key?key, this.model):super(key: key);
+  final ProductDeatailsModel model;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class ProductDeatails extends StatelessWidget {
           ),
         ],
       ),
-      body:  Body(),
+      body:   Body(key, model),
     );
   }
 }

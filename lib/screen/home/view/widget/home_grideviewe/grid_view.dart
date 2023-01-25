@@ -2,6 +2,8 @@ import 'package:ecomerce/common/api_baseurl.dart';
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
 import 'package:ecomerce/screen/home/controller/home_controll.dart';
+import 'package:ecomerce/screen/product_details/model/product_model.dart';
+import 'package:ecomerce/screen/product_details/view/product_details.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -48,7 +50,21 @@ class HomeGridView extends StatelessWidget {
                           children: [
                             InkWell(
                               onTap: () {
-                                // productC.toProdutScreen(index);
+                                final model = ProductDeatailsModel(
+                                    category:
+                                        productC.productList[index].category,
+                                    description:
+                                        productC.productList[index].description,
+                                    discountPrice: productC
+                                        .productList[index].discountPrice,
+                                    id: productC.productList[index].id,
+                                    image: productC.productList[index].image,
+                                    name: productC.productList[index].name,
+                                    offer: productC.productList[index].offer,
+                                    price: productC.productList[index].price,
+                                    rating: productC.productList[index].rating,
+                                    size: productC.productList[index].size);
+                                Get.to(ProductDeatails(key,model));
                               },
                               child: Container(
                                 width: width * 0.5,
@@ -58,37 +74,36 @@ class HomeGridView extends StatelessWidget {
                                   color: colorWhite,
                                   image: DecorationImage(
                                     image: NetworkImage(''
-                                         '${apibaseUrl.baseurl}/products/${productC.productList[index].image[0]}'),
-                                        // fit: BoxFit.cover,
-                                        ),
+                                        '${apibaseUrl.baseurl}/products/${productC.productList[index].image[0]}'),
+                                    // fit: BoxFit.cover,
                                   ),
                                 ),
                               ),
-                              // GetBuilder<WishListController>(
-                              //   builder: (controller) => Positioned(
-                              //     right: 0,
-                              //     bottom: 0,
-                              //     child: IconButton(
-                              //       onPressed: () {
-                              //         wishlistC.addOrRemoveFromWishlist(
-                              //             context,
-                              //             wishlistC.wmodel!.products[index]
-                              //                 .product.id);
-                              //       },
-                              //       icon: Icon(
-                              //         wishlistC.wishList.contains(wishlistC
-                              //                 .wmodel!.products[index].product.id)
-                              //             ? Icons.favorite_border_outlined
-                              //             : Icons.favorite,
-                              //         color: wishlistC.wishList.contains(wishlistC
-                              //                 .wmodel!.products[index].product.id)
-                              //             ? colorWhite
-                              //             : Colors.red,
-                              //       ),
-                              //     ),
-                              //   ),
-                              // )
-                      
+                            ),
+                            // GetBuilder<WishListController>(
+                            //   builder: (controller) => Positioned(
+                            //     right: 0,
+                            //     bottom: 0,
+                            //     child: IconButton(
+                            //       onPressed: () {
+                            //         wishlistC.addOrRemoveFromWishlist(
+                            //             context,
+                            //             wishlistC.wmodel!.products[index]
+                            //                 .product.id);
+                            //       },
+                            //       icon: Icon(
+                            //         wishlistC.wishList.contains(wishlistC
+                            //                 .wmodel!.products[index].product.id)
+                            //             ? Icons.favorite_border_outlined
+                            //             : Icons.favorite,
+                            //         color: wishlistC.wishList.contains(wishlistC
+                            //                 .wmodel!.products[index].product.id)
+                            //             ? colorWhite
+                            //             : Colors.red,
+                            //       ),
+                            //     ),
+                            //   ),
+                            // )
                           ],
                         ),
                         const SizedBox(
@@ -112,19 +127,20 @@ class HomeGridView extends StatelessWidget {
                         // ),
                         Text(
                           // 'otty',
-                           productC.productList[index].description,
+                          productC.productList[index].description,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(color: colorWhite,
-                            fontWeight: FontWeight.w400),
+                          style: const TextStyle(
+                              color: colorWhite, fontWeight: FontWeight.w400),
                         ),
                         kHeight10,
                         Row(
                           children: [
                             Text(
                               // '50',
-                               "₹ ${productC.productList[index].price.toString()}",
-                              style: const TextStyle(color: colorWhite,
+                              "₹ ${productC.productList[index].price.toString()}",
+                              style: const TextStyle(
+                                color: colorWhite,
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
                               ),

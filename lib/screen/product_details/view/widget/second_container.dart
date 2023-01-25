@@ -1,5 +1,6 @@
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
+import 'package:ecomerce/screen/product_details/model/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:share/share.dart';
 
@@ -7,8 +8,9 @@ class SecondContainer extends StatelessWidget {
   const SecondContainer({
     Key? key,
     required this.size,
+    required this.model
   }) : super(key: key);
-
+final ProductDeatailsModel model;
   final Size size;
 
   @override
@@ -55,10 +57,7 @@ class SecondContainer extends StatelessWidget {
                   const SizedBox(
                     width: 10,
                   ),
-                  const Text(
-                    '❤️',
-                    style: TextStyle(fontSize: 27),
-                  ),
+                  
                   SizedBox(
                     height: size.height * 0.05,
                   ),
@@ -68,10 +67,10 @@ class SecondContainer extends StatelessWidget {
             SizedBox(
               height: size.height * 0.03,
             ),
-            const Padding(
+             Padding(
               padding: EdgeInsets.all(5.0),
-              child: Text(
-                'A product detail page (PDP) is a web page on an e - commerce site that presents the description of a specific product in view. The details displayed often include size, color, price, shipping information, reviews, and other relevant information customers may want to know before making a purchase',
+              child: Text(model.description,
+                // 'A product detail page (PDP) is a web page on an e - commerce site that presents the description of a specific product in view. The details displayed often include size, color, price, shipping information, reviews, and other relevant information customers may want to know before making a purchase',
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 16,
@@ -93,39 +92,62 @@ class SecondContainer extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: const [
-                      Text(
-                        'Offer - 15% off',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        'Delivery fee - free',
-                        style: TextStyle(
-                          fontSize: 18,
-                        ),
-                      )
-                    ],
-                  ),
+                  child: 
+                  RichText(
+  text:  TextSpan( 
+    text: 'PRICE ',
+    children: <TextSpan>[
+      TextSpan(style:  TextStyle(
+          color: Colors.green,),
+        text: model.discountPrice.toString()+'% off ',
+      ),
+       TextSpan(
+        text: model.price.toString(),
+        style:  const TextStyle(
+          color: Colors.black87,
+          decoration: TextDecoration.lineThrough,
+        ),
+      ),
+       TextSpan(style:  TextStyle(fontWeight: FontWeight.bold, fontSize: 26,
+          color: Colors.black,),
+        text:  '  ₹'+model.offer.toString(),
+      ),
+    ],
+  ),
+)
+                  // Column(
+                  //   children:  [
+                  //     Text('₹'+
+                  //       model.price.toString()
+                  //     ,
+                  //       style: TextStyle(decoration: TextDecoration.lineThrough,
+                  //         fontSize: 20,
+                  //         fontWeight: FontWeight.bold,
+                  //       ),
+                  //     ),
+                  //     Text(  model.discountPrice.toString()+'% offer',
+                  //       style: TextStyle(
+                  //         fontSize: 18,
+                  //       ),
+                  //     )
+                  //   ],
+                  // ),
                 ),
               ],
             ),
             Row(
-              children: const [
+              children:  [
                 Card(
                   color: Colors.blueGrey,
                   child: Text(
-                    '20',
+                    model.size[0],
                     style: textstyle,
                   ),
                 ),
                 Card(
                   color: Colors.blueGrey,
                   child: Text(
-                    '24',
+                    model.size[1],
                     style: textstyle,
                   ),
                 )
