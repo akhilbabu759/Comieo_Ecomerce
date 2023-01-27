@@ -9,6 +9,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CartController extends GetxController {
+  CartController(){
+    getCart();
+  }
   bool isLoading = false;
   GetCartModel? cartList;
   List<String> cartItemsId = [];
@@ -104,12 +107,18 @@ class CartController extends GetxController {
 
   Future<void> incrementDecrementQty(
       int qty, String productId, int productQuantity, String size) async {
+         log(qty.toString());
+        // if(productQuantity>1){
+        // quantity=quantity+(qty);
+        // log(qty.toString());
+        // }
     final AddCartModel model = AddCartModel(
       size: size.toString(),
-      quantity: quantity,
+      quantity: qty,
       productId: productId,
     );
-    if (qty == 1 && productQuantity >= 1) {
+    qty=1;
+    if (productQuantity >= 1) {
       await CartService().addToCart(model).then(
         (value) async {
           if (value != null) {

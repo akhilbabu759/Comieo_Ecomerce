@@ -1,7 +1,11 @@
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
+import 'package:ecomerce/screen/cart/controller/cart_controller.dart';
+import 'package:ecomerce/screen/cart/view/cart.dart';
 import 'package:ecomerce/screen/product_details/model/product_model.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/get_core.dart';
 import 'package:share/share.dart';
 
 class SecondContainer extends StatelessWidget {
@@ -15,6 +19,7 @@ final ProductDeatailsModel model;
 
   @override
   Widget build(BuildContext context) {
+      final cartC = Get.put(CartController());
     return Container(
       width: size.width,
       margin: EdgeInsets.only(top: size.height * 0.3),
@@ -167,7 +172,11 @@ final ProductDeatailsModel model;
                     border: Border.all(color: Colors.blueGrey),
                   ),
                   child: IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      cartC.addToCart(model.id, model.size.toString());
+
+                      Get.to(CartScreen());
+                    },
                     icon: const Icon(
                       Icons.shop,
                     ),

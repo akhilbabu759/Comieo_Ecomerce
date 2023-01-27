@@ -42,9 +42,14 @@ class MyHomePage extends StatelessWidget {
 @override
  Widget build(BuildContext context) {
     return GetMaterialApp(
-      home:CartScreen()
+      theme: ThemeData(
+        // useMaterial3: true,
+        // colorSchemeSeed: Colors.green
+      ),
+      home:
+      // CartScreen()
       // ProductDeatails(),debugShowCheckedModeBanner: false,
-        //  SigninPage(),
+          SigninPage(),
     );
 
 }
