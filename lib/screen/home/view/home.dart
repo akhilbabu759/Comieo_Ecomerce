@@ -20,7 +20,7 @@ class Home extends StatelessWidget {
       // bottomNavigationBar: BottomNavigator(),
       backgroundColor: backgroundColorBlack,
 
-      // body: Scaffold(backgroundColor: backgroundColorBlack,
+      
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(

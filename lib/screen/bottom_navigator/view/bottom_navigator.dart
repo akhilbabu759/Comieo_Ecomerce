@@ -27,11 +27,26 @@ class BottomNavigator extends StatelessWidget {
             currentIndex: signupController.selectedIndex,
             selectedItemColor: const Color.fromARGB(255, 7, 255, 255),
             items: const [
-              BottomNavigationBarItem(label: 'Home', icon: Icon(Icons.home)),
               BottomNavigationBarItem(
-                  label: 'Category', icon: Icon(Icons.category)),
+                  label: 'Home',
+                  icon: Icon(
+                    Icons.home,
+                  )),
               BottomNavigationBarItem(
-                  label: 'Settings', icon: Icon(Icons.settings))
+                  label: 'Category',
+                  icon: Icon(
+                    Icons.category,
+                  )),
+              BottomNavigationBarItem(
+                  label: 'Account',
+                  icon: Icon(
+                    Icons.account_circle_outlined,
+                  )),
+              BottomNavigationBarItem(
+                  label: 'Cart',
+                  icon: Icon(
+                    Icons.home,
+                  ))
             ]),
       ),
     );
