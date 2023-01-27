@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 
 class ScreenMAinPage extends StatelessWidget {
   ScreenMAinPage({super.key});
-  final page = [ Home(), SignupPage()];
+  final page = [ const Home(), SignupPage()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +16,7 @@ class ScreenMAinPage extends StatelessWidget {
       body: GetBuilder<BottomController>(builder: (controller) {
         return page[controller.selectedIndex];
       }),
-      bottomNavigationBar: BottomNavigator(),
+      bottomNavigationBar: const BottomNavigator(),
     );
   }
 }

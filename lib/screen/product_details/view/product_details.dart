@@ -28,7 +28,7 @@ class ProductDeatails extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {
-              Get.to(CartScreen());
+              Get.to(const CartScreen());
             },
             icon: const Icon(Icons.shopping_bag),
           ),

@@ -1,9 +1,7 @@
-import 'dart:developer';
-
 import 'package:ecomerce/core/text_style.dart';
 import 'package:ecomerce/screen/auth/sign_in/controller/sigin_in_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
+
 import 'package:get/get.dart';
 
 class LoginFrom extends StatelessWidget {
@@ -14,13 +12,12 @@ class LoginFrom extends StatelessWidget {
   }) : super(key: key);
 
   // late
-  double width;
+  final double width;
 
   // late
-  double height;
-  bool passwordVisible = false;
+  final double height;
+  final bool passwordVisible = false;
   final signinController = Get.put(SignInController());
-  // final formGlobalKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -31,14 +28,24 @@ class LoginFrom extends StatelessWidget {
             children: [
               const Text('Your email'),
               Padding(
-                  padding:
-                      EdgeInsets.only(left: width * 0.05, right: width * 0.05),
+                  padding: EdgeInsets.only(
+                    left: width * 0.05,
+                    right: width * 0.05,
+                  ),
                   child: Container(
                       decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 34, 34, 34),
+                          color: const Color.fromARGB(
+                            255,
+                            34,
+                            34,
+                            34,
+                          ),
                           borderRadius: BorderRadius.circular(7.0),
                           boxShadow: const [
-                            BoxShadow(spreadRadius: 0.2, color: Colors.white54)
+                            BoxShadow(
+                              spreadRadius: 0.2,
+                              color: Colors.white54,
+                            )
                           ]),
                       child: Padding(
                           padding: EdgeInsets.only(
@@ -46,23 +53,29 @@ class LoginFrom extends StatelessWidget {
                             right: width * 0.03,
                           ),
                           child: TextFormField(
-                              style: TextStyle(color: colorWhite),
+                              style: const TextStyle(color: colorWhite),
                               controller: controller.emailController,
                               decoration: const InputDecoration(
                                   border: InputBorder.none,
                                   labelText: 'Email',
-                                  labelStyle:
-                                      TextStyle(color: Colors.white60)))))),
+                                  labelStyle: TextStyle(
+                                    color: Colors.white60,
+                                  )))))),
               const Text('Password'),
               Padding(
-                  padding:
-                      EdgeInsets.only(left: width * 0.05, right: width * 0.05),
+                  padding: EdgeInsets.only(
+                    left: width * 0.05,
+                    right: width * 0.05,
+                  ),
                   child: Container(
                       decoration: BoxDecoration(
                           color: const Color.fromARGB(255, 34, 34, 34),
                           borderRadius: BorderRadius.circular(7.0),
                           boxShadow: const [
-                            BoxShadow(spreadRadius: 0.2, color: Colors.white54)
+                            BoxShadow(
+                              spreadRadius: 0.2,
+                              color: Colors.white54,
+                            )
                           ]),
                       child: Padding(
                           padding: EdgeInsets.only(
@@ -71,26 +84,28 @@ class LoginFrom extends StatelessWidget {
                           ),
                           child: TextFormField(
                               obscureText: controller.obscureText,
-                              style: TextStyle(color: colorWhite),
+                              style: const TextStyle(color: colorWhite),
                               controller: controller.passwordController,
-                              decoration:  InputDecoration(
-                                suffixIcon:IconButton(
-                            onPressed: () {
-                              signinController.visibility();
-                            },
-                            icon: signinController.icon,
-                            color: colorWhite,
-                          ) ,
-
+                              decoration: InputDecoration(
+                                  suffixIcon: IconButton(
+                                    onPressed: () {
+                                      signinController.visibility();
+                                    },
+                                    icon: signinController.icon,
+                                    color: colorWhite,
+                                  ),
                                   border: InputBorder.none,
                                   labelText: 'Password',
-                                  labelStyle:
-                                      TextStyle(color: Colors.white60)))))),
+                                  labelStyle: const TextStyle(
+                                      color: Colors.white60)))))),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   TextButton(
-                      onPressed: () {}, child: const Text('Forgot password?'))
+                      onPressed: () {},
+                      child: const Text(
+                        'Forgot password?',
+                      ))
                 ],
               ),
 
@@ -104,7 +119,7 @@ class LoginFrom extends StatelessWidget {
                       if (SignInController.formGlobalKey.currentState!
                           .validate()) {
                         SignInController.formGlobalKey.currentState!.save();
-                        
+
                         signinController.signIn();
                       }
                     },
@@ -114,12 +129,7 @@ class LoginFrom extends StatelessWidget {
                 height: height * 0.04,
               ),
 
-              // TextButton(onPressed:() {
-              //   log('kk');
-              //   log(emailController.text);
-              //   log(passwordController.text);
-
-              // }, child: Text('submit'))
+           
             ],
           )),
     );

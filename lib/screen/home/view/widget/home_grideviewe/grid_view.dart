@@ -26,7 +26,7 @@ class HomeGridView extends StatelessWidget {
     // final wishlistC = Get.put(WishListController(context));
     return GetBuilder<HomeControll>(
       builder: (controller) => productC.isLoding == true
-          ? Center(
+          ? const Center(
               child: Text('empty'),
             )
           : GridView.builder(

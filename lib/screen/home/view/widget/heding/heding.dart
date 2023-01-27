@@ -14,7 +14,7 @@ class HomeHeading extends StatelessWidget {
       Text(tex.toString(),style:homeTextStyle ,),
       TextButton(onPressed: () {
         
-      }, child: Text('See all'))
+      }, child: const Text('See all'))
     ],);
   }
 }

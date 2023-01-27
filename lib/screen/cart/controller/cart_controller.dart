@@ -19,7 +19,7 @@ class CartController extends GetxController {
   int totalproductCount = 1;
   int? totalSave;
   CartService service = CartService();
-  // final bottomC = Get.put(LandingPageController());
+  
 
   void getCart() async {
     isLoading = true;
@@ -108,16 +108,26 @@ class CartController extends GetxController {
   Future<void> incrementDecrementQty(
       int qty, String productId, int productQuantity, String size) async {
          log(qty.toString());
-        // if(productQuantity>1){
-        // quantity=quantity+(qty);
-        // log(qty.toString());
-        // }
+         if(qty==-1 &&productQuantity==1){
+          Get.snackbar(
+            "required minimum quantity",
+            "minimum quantity is 1",
+            colorText: Colors.red,
+            icon: const Icon(
+              Icons.remove_circle,
+              color: Colors.black,
+            ),
+          );
+
+
+         }else{
+       
     final AddCartModel model = AddCartModel(
       size: size.toString(),
       quantity: qty,
       productId: productId,
     );
-    qty=1;
+   
     if (productQuantity >= 1) {
       await CartService().addToCart(model).then(
         (value) async {
@@ -145,14 +155,8 @@ class CartController extends GetxController {
         },
       );
     }
+         }
   }
 
-  // void goToCartFromProduct() {
-  //   getCart();
-  //   Get.to(() => ScreenOrder());
-  // }
-
-  // void toProductScreen(index) {
-  //   Get.toNamed(ScreenProductView.routeName, arguments: cartItemsId[index]);
-  // }
+  
 }

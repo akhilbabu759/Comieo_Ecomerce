@@ -33,8 +33,7 @@ class SignUpService {
       if (response.statusCode! >= 200 || response.statusCode! <= 299) {
         log(response.data.toString());
         return SignUpTokenModel.fromJson(response.data);
-        // log(response.data.toString());
-        // return signupResponse;
+        
       } else {
         log(response.statusCode.toString(), name: 'else');
       }

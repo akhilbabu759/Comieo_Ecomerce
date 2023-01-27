@@ -15,8 +15,8 @@ class RowCart extends StatelessWidget {
 
     final cartcontrol = Get.put(CartController());
 
-    return Dismissible(
-      key: Key('1'),
+    return Dismissible(onDismissed: null,
+      key: const Key('1'),
       child: Row(
         children: [
           SizedBox(
@@ -24,9 +24,9 @@ class RowCart extends StatelessWidget {
             child: AspectRatio(
               aspectRatio: 0.88,
               child: Container(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: Color(0xFFF5F6F9),
+                  color: const Color(0xFFF5F6F9),
                   borderRadius: BorderRadius.circular(15),
                 ),
                 child: Image.network(
@@ -35,7 +35,7 @@ class RowCart extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 20,
           ),
           Column(
@@ -43,20 +43,18 @@ class RowCart extends StatelessWidget {
             children: [
               Text(
                 cartcontrol.cartList!.products[index].product.name,
-                style: TextStyle(fontSize: 16, color: Colors.black),
+                style: const TextStyle(fontSize: 16, color: Colors.black),
                 maxLines: 2,
               ),
               Text.rich(TextSpan(
                   text: cartcontrol.cartList!.products[index].product.price
                       .toString(),
                   style:
-                      TextStyle(fontWeight: FontWeight.w600, color: Colors.red),
+                      const TextStyle(fontWeight: FontWeight.w600, color: Colors.red),
                   children: [
                     TextSpan(
-                        text: "x" +
-                            cartcontrol.cartList!.products[index].qty
-                                .toString(),
-                        style: TextStyle(color: Colors.red))
+                        text: "x${cartcontrol.cartList!.products[index].qty}",
+                        style: const TextStyle(color: Colors.red))
                   ]))
             ],
           ),
@@ -68,7 +66,7 @@ class RowCart extends StatelessWidget {
               ColoredBox(
                 color: Colors.grey,
                 child: GestureDetector(
-                    child: Icon(Icons.add),
+                    child: const Icon(Icons.add),
                     onTap: () {
                       cartcontrol.incrementDecrementQty(
                         1,
@@ -92,7 +90,7 @@ class RowCart extends StatelessWidget {
               ColoredBox(
                 color: Colors.grey,
                 child:
-                    GestureDetector(child: Icon(Icons.remove), onTap: () {
+                    GestureDetector(child: const Icon(Icons.remove), onTap: () {
                       log('remove detected');
                       cartcontrol.incrementDecrementQty(
                         -1,

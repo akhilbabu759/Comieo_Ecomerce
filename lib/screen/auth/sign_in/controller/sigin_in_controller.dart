@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:ecomerce/core/text_style.dart';
 import 'package:ecomerce/screen/auth/sign_in/model/sign_in_model.dart';
@@ -33,24 +32,17 @@ class SignInController extends GetxController {
         if (value != null) {
           storage.write(key: 'token', value: value.accessToken);
           storage.write(key: 'refreshToken', value: value.refreshToken);
-          Timer(Duration(seconds: 3), ()async {
-           await Get.offAll(() => ScreenMAinPage());
+          Timer(const Duration(seconds: 3), () async {
+            await Get.offAll(() => ScreenMAinPage());
             isLoading = false;
             update();
           });
-
-          // disposeTextfield();
         } else {
           return;
         }
       },
     );
   }
-
-  // void disposeTextfield() {
-  //   emailController.clear();
-  //   passwordController.clear();
-  // }
 
   String? passwordValdation(String? value) {
     if (value == null || value.isEmpty) {

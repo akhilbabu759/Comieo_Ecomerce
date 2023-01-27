@@ -1,4 +1,4 @@
-import 'package:ecomerce/core/text_style.dart';
+
 import 'package:ecomerce/screen/home/controller/home_controll.dart';
 import 'package:ecomerce/screen/home/view/shimmer/category_shimmer.dart';
 import 'package:ecomerce/screen/home/view/widget/cardView/home_card.dart';
@@ -12,7 +12,7 @@ class CardView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<HomeControll>(builder: (controller) =>controller.isLoding==true?CategoryShimmer():  LimitedBox(
+    return GetBuilder<HomeControll>(builder: (controller) =>controller.isLoding==true?const CategoryShimmer():  LimitedBox(
       maxHeight: 175,
       child: ListView.builder(
           itemCount: controller.categorylList.length,

@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:ecomerce/common/api_baseurl.dart';
 import 'package:ecomerce/common/api_endsurl.dart';
 import 'package:ecomerce/screen/home/model/carosual_model.dart';
-import 'package:ecomerce/screen/home/model/category_model.dart';
+
 import 'package:ecomerce/util/dio_exception/exception.dart';
 import 'package:ecomerce/util/dio_interceptor/dio_interceptor.dart';
 

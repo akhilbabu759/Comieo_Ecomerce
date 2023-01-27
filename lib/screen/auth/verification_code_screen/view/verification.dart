@@ -43,7 +43,7 @@ class ScreenVerificationCode extends StatelessWidget {
           ),
         ),
         elevation: 15,
-        backgroundColor: Color.fromARGB(255, 19, 35, 49),
+        backgroundColor: const Color.fromARGB(255, 19, 35, 49),
         shape: const RoundedRectangleBorder(
             borderRadius:
                 BorderRadius.only(bottomRight: Radius.circular(2000))),

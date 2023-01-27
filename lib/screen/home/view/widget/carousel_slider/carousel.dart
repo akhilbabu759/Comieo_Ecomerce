@@ -51,15 +51,12 @@ class CarouselHome extends StatelessWidget {
                                   const Text('cash back')
                                 ],
                               ),
-                              Padding(
-                                padding: const EdgeInsets.only(top: 30),
-                                child: Image.network(
-                                  fit: BoxFit.cover,
-                                  '${ApiBaseUrl().baseurl}/carousals/${carousalC.carouselList[index].image}',
-                                  height: 140,
-                                  width: 150,
-                                  alignment: const Alignment(0.2, -9),
-                                ),
+                              Image.network(
+                                fit: BoxFit.cover,
+                                '${ApiBaseUrl().baseurl}/carousals/${carousalC.carouselList[index].image}',
+                                height: 140,
+                                width: 150,
+                                alignment: const Alignment(0.2, -9),
                               )
                             ],
                           ),

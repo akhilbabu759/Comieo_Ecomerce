@@ -1,5 +1,5 @@
 import 'package:ecomerce/core/constent.dart';
-import 'package:ecomerce/core/text_style.dart';
+
 import 'package:ecomerce/screen/home/view/widget/cardView/list_card.dart';
 import 'package:ecomerce/screen/home/view/widget/carousel_slider/carousel.dart';
 import 'package:ecomerce/screen/home/view/widget/heding/heding.dart';
@@ -9,16 +9,13 @@ import 'package:flutter/services.dart';
 import 'widget/home_grideviewe/grid_view.dart';
 
 class Home extends StatelessWidget {
-   Home({super.key});
-  late Size size;
-  late double height;
-  late double width;
-
+  const Home({super.key});
+ 
   @override
   Widget build(BuildContext context) {
-        size = MediaQuery.of(context).size;
-    height = size.height;
-    width = size.width;
+    final Size size = MediaQuery.of(context).size;
+    final double height = size.height;
+    final double width = size.width;
     return Scaffold(
       // bottomNavigationBar: BottomNavigator(),
       backgroundColor: backgroundColorBlack,
@@ -30,8 +27,8 @@ class Home extends StatelessWidget {
             padding: const EdgeInsets.all(13.0),
             child: Column(children: [
               Padding(
-                  padding:
-                      const EdgeInsets.only(left: 1, right: 1, top: 20, bottom: 1),
+                  padding: const EdgeInsets.only(
+                      left: 1, right: 1, top: 20, bottom: 1),
                   child: Container(
                     decoration: BoxDecoration(
                         color: const Color.fromARGB(255, 224, 224, 224),
@@ -67,7 +64,8 @@ class Home extends StatelessWidget {
                                   style: BorderStyle.none),
                               borderRadius: BorderRadius.circular(20.0)),
                           label: const Text('Search'),
-                          hintStyle: const TextStyle(fontWeight: FontWeight.w300),
+                          hintStyle:
+                              const TextStyle(fontWeight: FontWeight.w300),
                           focusedBorder: OutlineInputBorder(
                               borderSide: const BorderSide(
                                   color: Color.fromARGB(255, 241, 241, 241)),
@@ -82,19 +80,22 @@ class Home extends StatelessWidget {
                     ),
                   )),
               textFieldGap,
-              HomeHeading(tex: 'Top Deals'),
+              const HomeHeading(tex: 'Top Deals'),
               textFieldGap,
-              CarouselHome(),
+              const CarouselHome(),
               textFieldGap,
-              HomeHeading(
+              const HomeHeading(
                 tex: 'Shop by Category',
               ),
-              CardView(),
+              const CardView(),
               textFieldGap,
-               HomeHeading(
+              const HomeHeading(
                 tex: 'All shops',
               ),
-              HomeGridView(height: height*0.9,width: width*0.9,)
+              HomeGridView(
+                height: height * 0.9,
+                width: width * 0.9,
+              )
             ]),
           ),
         ),
@@ -103,4 +104,3 @@ class Home extends StatelessWidget {
     );
   }
 }
-

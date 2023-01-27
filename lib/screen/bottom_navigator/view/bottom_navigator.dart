@@ -1,24 +1,17 @@
 import 'dart:developer';
 
-import 'package:ecomerce/screen/auth/signup/view/signup.dart';
 import 'package:ecomerce/screen/bottom_navigator/controller/bottom_controller.dart';
-import 'package:ecomerce/screen/home/view/home.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:get/get.dart';
 
 class BottomNavigator extends StatelessWidget {
-  BottomController signupController = Get.put(BottomController());
-  BottomNavigator({super.key});
-  // final page = [
-  //   const Home(),
-  //   SignupPage()
-
-  // ];
+  const BottomNavigator({super.key});
 
   @override
   Widget build(BuildContext context) {
+    BottomController signupController = Get.put(BottomController());
     return Material(
       child: GetBuilder<BottomController>(
         builder: (controller) => BottomNavigationBar(

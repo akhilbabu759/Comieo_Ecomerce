@@ -5,21 +5,18 @@ import 'package:ecomerce/screen/cart/view/cart.dart';
 import 'package:ecomerce/screen/product_details/model/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/get_core.dart';
+
 import 'package:share/share.dart';
 
 class SecondContainer extends StatelessWidget {
-  const SecondContainer({
-    Key? key,
-    required this.size,
-    required this.model
-  }) : super(key: key);
-final ProductDeatailsModel model;
+  const SecondContainer({Key? key, required this.size, required this.model})
+      : super(key: key);
+  final ProductDeatailsModel model;
   final Size size;
 
   @override
   Widget build(BuildContext context) {
-      final cartC = Get.put(CartController());
+    final cartC = Get.put(CartController());
     return Container(
       width: size.width,
       margin: EdgeInsets.only(top: size.height * 0.3),
@@ -62,7 +59,7 @@ final ProductDeatailsModel model;
                   const SizedBox(
                     width: 10,
                   ),
-                  
+
                   SizedBox(
                     height: size.height * 0.05,
                   ),
@@ -72,11 +69,12 @@ final ProductDeatailsModel model;
             SizedBox(
               height: size.height * 0.03,
             ),
-             Padding(
-              padding: EdgeInsets.all(5.0),
-              child: Text(model.description,
+            Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: Text(
+                model.description,
                 // 'A product detail page (PDP) is a web page on an e - commerce site that presents the description of a specific product in view. The details displayed often include size, color, price, shipping information, reviews, and other relevant information customers may want to know before making a purchase',
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.black,
                   fontSize: 16,
                 ),
@@ -95,53 +93,42 @@ final ProductDeatailsModel model;
                     fontSize: 18,
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: 
-                  RichText(
-  text:  TextSpan( 
-    text: 'PRICE ',
-    children: <TextSpan>[
-      TextSpan(style:  TextStyle(
-          color: Colors.green,),
-        text: model.discountPrice.toString()+'% off ',
-      ),
-       TextSpan(
-        text: model.price.toString(),
-        style:  const TextStyle(
-          color: Colors.black87,
-          decoration: TextDecoration.lineThrough,
-        ),
-      ),
-       TextSpan(style:  TextStyle(fontWeight: FontWeight.bold, fontSize: 26,
-          color: Colors.black,),
-        text:  '  ₹'+model.offer.toString(),
-      ),
-    ],
-  ),
-)
-                  // Column(
-                  //   children:  [
-                  //     Text('₹'+
-                  //       model.price.toString()
-                  //     ,
-                  //       style: TextStyle(decoration: TextDecoration.lineThrough,
-                  //         fontSize: 20,
-                  //         fontWeight: FontWeight.bold,
-                  //       ),
-                  //     ),
-                  //     Text(  model.discountPrice.toString()+'% offer',
-                  //       style: TextStyle(
-                  //         fontSize: 18,
-                  //       ),
-                  //     )
-                  //   ],
-                  // ),
+                Row(mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    RichText(
+                      text: TextSpan(
+                        text: 'PRICE ',
+                        children: <TextSpan>[
+                          TextSpan(
+                            style: const TextStyle(
+                              color: Colors.green,
+                            ),
+                            text: '${model.discountPrice}% off ',
+                          ),
+                          TextSpan(
+                            text: model.price.toString(),
+                            style: const TextStyle(
+                              color: Colors.black87,
+                              decoration: TextDecoration.lineThrough,
+                            ),
+                          ),
+                          TextSpan(
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 26,
+                              color: Colors.black,
+                            ),
+                            text: '  ₹${model.offer}',
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
             Row(
-              children:  [
+              children: [
                 Card(
                   color: Colors.blueGrey,
                   child: Text(
@@ -175,7 +162,7 @@ final ProductDeatailsModel model;
                     onPressed: () {
                       cartC.addToCart(model.id, model.size.toString());
 
-                      Get.to(CartScreen());
+                      Get.to(const CartScreen());
                     },
                     icon: const Icon(
                       Icons.shop,
@@ -191,10 +178,10 @@ final ProductDeatailsModel model;
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20),
                           ),
-                          maximumSize: Size(size.width * 2.001,
-                              size.height * 2.001),
-                          minimumSize: Size(size.width * 0.71,
-                              size.height * 0.001)),
+                          maximumSize:
+                              Size(size.width * 2.001, size.height * 2.001),
+                          minimumSize:
+                              Size(size.width * 0.71, size.height * 0.001)),
                       onPressed: () {},
                       child: const Text(
                         'BUY NOW',
@@ -208,4 +195,3 @@ final ProductDeatailsModel model;
     );
   }
 }
-

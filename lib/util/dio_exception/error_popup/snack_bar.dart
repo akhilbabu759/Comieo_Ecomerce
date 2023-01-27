@@ -1,6 +1,6 @@
 
 
-import 'package:ecomerce/core/text_style.dart';
+
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -14,9 +14,9 @@ class SnackBarPop{
                snackPosition: SnackPosition.BOTTOM,
                backgroundColor: color,
                borderRadius: 20,
-               margin: EdgeInsets.all(15),
+               margin: const EdgeInsets.all(15),
                colorText: Colors.white,
-               duration: Duration(seconds: 4),
+               duration: const Duration(seconds: 4),
                isDismissible: true,
               //  dismissDirection: SnackDismissDirection.HORIZONTAL,
                forwardAnimationCurve: Curves.easeOutBack,

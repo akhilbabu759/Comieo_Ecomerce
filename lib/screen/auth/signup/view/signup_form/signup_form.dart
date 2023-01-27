@@ -5,29 +5,25 @@ import 'package:ecomerce/core/text_style.dart';
 import 'package:ecomerce/screen/auth/signup/controller/controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/get_core.dart';
 
 class SignupFrom extends StatelessWidget {
   SignupFrom({
     Key? key,
     required this.width,
-    // required this.emailController,
-    // required this.passwordController,
     required this.height,
   }) : super(key: key);
 
-  late num width;
-  // final TextEditingController emailController;
-  // final TextEditingController passwordController;
-  late num height;
-  
-  SignupController signupController = Get.put(SignupController());
+  final num width;
+
+  final num height;
+
+ final SignupController signupController = Get.put(SignupController());
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<SignupController>(builder: (controller) {
       return Form(
-          key:SignupController. formGlobalKey,
+          key: SignupController.formGlobalKey,
           child: Column(
             children: [
               Padding(
@@ -83,7 +79,6 @@ class SignupFrom extends StatelessWidget {
                                   labelStyle:
                                       TextStyle(color: Colors.white60)))))),
               textFieldGap,
-
               Padding(
                   padding:
                       EdgeInsets.only(left: width * 0.05, right: width * 0.05),
@@ -111,7 +106,6 @@ class SignupFrom extends StatelessWidget {
                                   labelStyle:
                                       TextStyle(color: Colors.white60)))))),
               textFieldGap,
-
               Padding(
                   padding:
                       EdgeInsets.only(left: width * 0.05, right: width * 0.05),
@@ -128,24 +122,23 @@ class SignupFrom extends StatelessWidget {
                             right: width * 0.03,
                           ),
                           child: TextFormField(
-                            obscureText: controller.obscureText,
+                              obscureText: controller.obscureText,
                               validator: ((value) =>
                                   signupController.passwordValdation(value)),
                               style: const TextStyle(color: colorWhite),
                               controller: signupController.passwordController,
-                              decoration:  InputDecoration(
-                                suffixIcon: IconButton(
-                            onPressed: () {
-                              signupController.visibility();
-
-                            },
-                            icon: signupController.icon,
-                            color: colorWhite,
-                          ),
+                              decoration: InputDecoration(
+                                  suffixIcon: IconButton(
+                                    onPressed: () {
+                                      signupController.visibility();
+                                    },
+                                    icon: signupController.icon,
+                                    color: colorWhite,
+                                  ),
                                   border: InputBorder.none,
                                   labelText: 'Password',
-                                  labelStyle:
-                                      TextStyle(color: Colors.white60)))))),
+                                  labelStyle: const TextStyle(
+                                      color: Colors.white60)))))),
               textFieldGap,
               Padding(
                   padding:
@@ -163,21 +156,18 @@ class SignupFrom extends StatelessWidget {
                             right: width * 0.03,
                           ),
                           child: TextFormField(
-                            obscureText: controller.obscureText,
+                              obscureText: controller.obscureText,
                               validator: ((value) => signupController
                                   .confirmpasswordValdation(value)),
                               style: const TextStyle(color: colorWhite),
                               controller:
                                   signupController.conformpasswordController,
                               decoration: const InputDecoration(
-                                
-
                                   border: InputBorder.none,
                                   labelText: 'Confirm Password',
                                   labelStyle:
                                       TextStyle(color: Colors.white60)))))),
               textFieldGap,
-
               SizedBox(
                 width: width * 0.9,
                 child: ElevatedButton(
@@ -194,8 +184,9 @@ class SignupFrom extends StatelessWidget {
                       log(SignupController().phoneController.text);
                       log(SignupController().passwordController.text);
 
-                      if (SignupController. formGlobalKey.currentState!.validate()) {
-                       SignupController. formGlobalKey.currentState!.save();
+                      if (SignupController.formGlobalKey.currentState!
+                          .validate()) {
+                        SignupController.formGlobalKey.currentState!.save();
                         signupController.addUser(context);
                       }
                     },
@@ -204,13 +195,6 @@ class SignupFrom extends StatelessWidget {
               SizedBox(
                 height: height * 0.04,
               ),
-
-              // TextButton(onPressed:() {
-              //   log('kk');
-              //   log(emailController.text);
-              //   log(passwordController.text);
-
-              // }, child: Text('submit'))
             ],
           ));
     });
