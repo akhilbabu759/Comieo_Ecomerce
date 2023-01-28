@@ -29,36 +29,34 @@ class Home extends StatelessWidget {
       backgroundColor:colorWhite,
 
       
-      body: SingleChildScrollView(
-        child: SafeArea(
-          child: Column(
-            children: [
-              Container( 
-              height: height*0.13,
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                  // SizedBox(width: width*0.04),
-                    Text(
-                            'Comieo',
-                            style: textstyle,
-                          ),
-                          Row(
-                            children: [
-                            IconButton(onPressed: () {
-                              
-                            }, icon:const Icon( Icons.search,color:colorblack,)),
-                             IconButton(onPressed: () {
-                               
-                             }, icon: const Icon( Icons.favorite,color: colorblack,))
-                          ],)
-                ]),
-              ),
+      body: SafeArea(
+        child: Column(
+          children: [
+            Container( 
+            height: height*0.13,
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                // SizedBox(width: width*0.04),
+                  Text(
+                          'Comieo',
+                          style: textstyle,
+                        ),
+                        Row(
+                          children: [
+                          IconButton(onPressed: () {
+                            
+                          }, icon:const Icon( Icons.search,color:colorblack,)),
+                           IconButton(onPressed: () {
+                             
+                           }, icon: const Icon( Icons.favorite,color: colorblack,))
+                        ],)
+              ]),
             ),
-              AfterAppBar(height: height, width: width),
-            ],
           ),
+            Expanded(child: ListView(children:[ AfterAppBar(height: height, width: width)])),
+          ],
         ),
       ),
       // child: Text('home')),
