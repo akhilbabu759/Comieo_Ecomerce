@@ -12,10 +12,11 @@ class ScreenMAinPage extends StatelessWidget {
   final page = [ const Home(), SignupPage(),];
   @override
   Widget build(BuildContext context) {
+    BottomController signupController = Get.put(BottomController());
     return Scaffold(
       backgroundColor: colorWhite,
       body: GetBuilder<BottomController>(builder: (controller) {
-        return page[controller.selectedIndex];
+        return Obx(() =>  page[signupController.selectedIndex.value.toInt()]);
       }),
       bottomNavigationBar: const BottomNavigator(),
     );

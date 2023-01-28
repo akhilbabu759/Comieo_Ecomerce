@@ -26,7 +26,7 @@ class BottomNavigator extends StatelessWidget {
 
               // selectedIndex.notifyListeners();},
             },
-            currentIndex: signupController.selectedIndex,
+            currentIndex: signupController.selectedIndex.value.toInt(),
             selectedItemColor:  Colors.blue,
             items: const [
               BottomNavigationBarItem(
