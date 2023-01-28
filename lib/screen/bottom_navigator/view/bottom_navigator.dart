@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/screen/bottom_navigator/controller/bottom_controller.dart';
 
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ class BottomNavigator extends StatelessWidget {
       child: GetBuilder<BottomController>(
         builder: (controller) => BottomNavigationBar(
             unselectedItemColor: Colors.white,
-            backgroundColor: const Color.fromARGB(210, 22, 27, 35),
+            backgroundColor: backgroundColorBlack,
             onTap: (value) async {
               controller.indexChange(value);
 

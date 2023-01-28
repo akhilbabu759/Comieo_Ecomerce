@@ -46,6 +46,7 @@ dependencies:
   flutter_easyloading: ^3.0.5
   shimmer: ^2.0.0
   share: ^2.0.4
+  side_sheet: ^1.0.3
 
 dev_dependencies:
   flutter_test:

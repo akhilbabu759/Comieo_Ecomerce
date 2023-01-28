@@ -1,4 +1,6 @@
 
+import 'package:ecomerce/screen/bottom_navigator/view/page_navigation.dart';
+import 'package:ecomerce/screen/home/view/home.dart';
 import 'package:flutter/material.dart';
 
 import 'screen/auth/sign_in/view/signin.dart';
@@ -37,7 +39,7 @@ class MyHomePage extends StatelessWidget {
       ),
       home:
      
-          const SigninPage(),
+           ScreenMAinPage(),
     );
 
 }
