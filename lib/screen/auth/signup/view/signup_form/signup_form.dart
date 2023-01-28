@@ -17,7 +17,7 @@ class SignupFrom extends StatelessWidget {
 
   final num height;
 
- final SignupController signupController = Get.put(SignupController());
+  final SignupController signupController = Get.put(SignupController());
 
   @override
   Widget build(BuildContext context) {
@@ -28,11 +28,11 @@ class SignupFrom extends StatelessWidget {
             children: [
               Padding(
                   padding:
-                      EdgeInsets.only(left: width * 0.05, right: width * 0.05),
+                      EdgeInsets.only(left: width * 0.05, right: width * 0.05,top: height*0.03),
                   child: Container(
                       decoration: BoxDecoration(
-                          color: Colors.white10,
-                          borderRadius: BorderRadius.circular(7.0),
+                          color: Colors.blueGrey[50],
+                          borderRadius: BorderRadius.circular(17.0),
                           boxShadow: const [
                             BoxShadow(spreadRadius: 0.2, color: Colors.white54)
                           ]),
@@ -50,17 +50,17 @@ class SignupFrom extends StatelessWidget {
                                   border: InputBorder.none,
                                   labelText: 'Full name',
                                   labelStyle:
-                                      TextStyle(color: Colors.white60)))))),
+                                      TextStyle(color: colorblack)))))),
               textFieldGap,
               Padding(
                   padding:
-                      EdgeInsets.only(left: width * 0.05, right: width * 0.05),
+                      EdgeInsets.only(left: width * 0.05, right: width * 0.05,top: height*0.03),
                   child: Container(
                       decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 34, 34, 34),
-                          borderRadius: BorderRadius.circular(7.0),
+                          color: Colors.blueGrey[50],
+                          borderRadius: BorderRadius.circular(17.0),
                           boxShadow: const [
-                            BoxShadow(spreadRadius: 0.2, color: Colors.white54)
+                            BoxShadow(spreadRadius: 0.2, color: colorblack)
                           ]),
                       child: Padding(
                           padding: EdgeInsets.only(
@@ -71,21 +71,21 @@ class SignupFrom extends StatelessWidget {
                               validator: ((value) =>
                                   signupController.mobileValdation(value)),
                               keyboardType: TextInputType.number,
-                              style: const TextStyle(color: colorWhite),
+                              style: const TextStyle(color: colorblack),
                               controller: signupController.phoneController,
                               decoration: const InputDecoration(
                                   border: InputBorder.none,
                                   labelText: 'Phone',
                                   labelStyle:
-                                      TextStyle(color: Colors.white60)))))),
+                                      TextStyle(color: colorblack)))))),
               textFieldGap,
               Padding(
                   padding:
-                      EdgeInsets.only(left: width * 0.05, right: width * 0.05),
+                      EdgeInsets.only(left: width * 0.05, right: width * 0.05,top: height*0.03),
                   child: Container(
                       decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 34, 34, 34),
-                          borderRadius: BorderRadius.circular(7.0),
+                          color: Colors.blueGrey[50],
+                          borderRadius: BorderRadius.circular(17.0),
                           boxShadow: const [
                             BoxShadow(spreadRadius: 0.2, color: Colors.white54)
                           ]),
@@ -98,21 +98,21 @@ class SignupFrom extends StatelessWidget {
                               validator: ((value) =>
                                   signupController.emailValdation(value)),
                               keyboardType: TextInputType.emailAddress,
-                              style: const TextStyle(color: colorWhite),
+                              style: const TextStyle(color: colorblack),
                               controller: signupController.emailController,
                               decoration: const InputDecoration(
                                   border: InputBorder.none,
                                   labelText: 'Email',
                                   labelStyle:
-                                      TextStyle(color: Colors.white60)))))),
+                                      TextStyle(color: colorblack,)))))),
               textFieldGap,
               Padding(
                   padding:
-                      EdgeInsets.only(left: width * 0.05, right: width * 0.05),
+                      EdgeInsets.only(left: width * 0.05, right: width * 0.05,top: height*0.03),
                   child: Container(
                       decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 34, 34, 34),
-                          borderRadius: BorderRadius.circular(7.0),
+                          color: Colors.blueGrey[50],
+                          borderRadius: BorderRadius.circular(17.0),
                           boxShadow: const [
                             BoxShadow(spreadRadius: 0.2, color: Colors.white54)
                           ]),
@@ -125,7 +125,7 @@ class SignupFrom extends StatelessWidget {
                               obscureText: controller.obscureText,
                               validator: ((value) =>
                                   signupController.passwordValdation(value)),
-                              style: const TextStyle(color: colorWhite),
+                              style: const TextStyle(color: colorblack),
                               controller: signupController.passwordController,
                               decoration: InputDecoration(
                                   suffixIcon: IconButton(
@@ -138,15 +138,15 @@ class SignupFrom extends StatelessWidget {
                                   border: InputBorder.none,
                                   labelText: 'Password',
                                   labelStyle: const TextStyle(
-                                      color: Colors.white60)))))),
+                                      color: colorblack)))))),
               textFieldGap,
               Padding(
                   padding:
-                      EdgeInsets.only(left: width * 0.05, right: width * 0.05),
+                      EdgeInsets.only(left: width * 0.05, right: width * 0.05,top: height*0.03),
                   child: Container(
                       decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 34, 34, 34),
-                          borderRadius: BorderRadius.circular(7.0),
+                          color: Colors.blueGrey[50],
+                          borderRadius: BorderRadius.circular(17.0),
                           boxShadow: const [
                             BoxShadow(spreadRadius: 0.2, color: Colors.white54)
                           ]),
@@ -159,15 +159,17 @@ class SignupFrom extends StatelessWidget {
                               obscureText: controller.obscureText,
                               validator: ((value) => signupController
                                   .confirmpasswordValdation(value)),
-                              style: const TextStyle(color: colorWhite),
+                              style: const TextStyle(color: colorblack),
                               controller:
                                   signupController.conformpasswordController,
                               decoration: const InputDecoration(
                                   border: InputBorder.none,
                                   labelText: 'Confirm Password',
-                                  labelStyle:
-                                      TextStyle(color: Colors.white60)))))),
+                                  labelStyle: TextStyle(
+                                    color: colorblack,
+                                  )))))),
               textFieldGap,
+               textFieldGap,
               SizedBox(
                 width: width * 0.9,
                 child: ElevatedButton(
@@ -190,7 +192,7 @@ class SignupFrom extends StatelessWidget {
                         signupController.addUser(context);
                       }
                     },
-                    child: const Text('Create account')),
+                    child: const Text('Create account',style: TextStyle(color: colorblack),)),
               ),
               SizedBox(
                 height: height * 0.04,

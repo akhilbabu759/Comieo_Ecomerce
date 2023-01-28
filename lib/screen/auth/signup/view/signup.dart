@@ -35,8 +35,11 @@ class SignupPage extends StatelessWidget {
                     child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const SizedBox(
-                      height: 100,
+                     SizedBox(height: 100, 
+
+                      child: Center(child: Text('create a account',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w400),)),  
+                    
+                     
                     ),
                     SignupFrom(
                       height: height * 0.4,
@@ -45,7 +48,7 @@ class SignupPage extends StatelessWidget {
                     textFieldGap,
                     RichText(
                       text: TextSpan(
-                        text: "already have account? ",
+                        text: "already have account? ",style: TextStyle(color: colorblack),
                         children: <TextSpan>[
                           TextSpan(
                             recognizer: TapGestureRecognizer()

@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
 import 'package:ecomerce/screen/auth/signup/model/model.dart';
 import 'package:ecomerce/screen/auth/signup/service/sign_up_service/sign_up_service.dart';
@@ -128,14 +129,14 @@ class SignupController extends GetxController {
     if (obscureText == false) {
       icon = const Icon(
         Icons.visibility_off,
-        color: colorWhite,
+        color: colorblack,
       );
       obscureText = true;
       update();
     } else {
       icon = const Icon(
         Icons.visibility,
-        color: colorWhite,
+        color: colorblack,
       );
       obscureText = false;
       update();
