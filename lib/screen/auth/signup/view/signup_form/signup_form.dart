@@ -31,7 +31,7 @@ class SignupFrom extends StatelessWidget {
                       EdgeInsets.only(left: width * 0.05, right: width * 0.05),
                   child: Container(
                       decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 34, 34, 34),
+                          color: Colors.white10,
                           borderRadius: BorderRadius.circular(7.0),
                           boxShadow: const [
                             BoxShadow(spreadRadius: 0.2, color: Colors.white54)
@@ -44,7 +44,7 @@ class SignupFrom extends StatelessWidget {
                           child: TextFormField(
                               validator: (value) =>
                                   signupController.nameValidation(value),
-                              style: const TextStyle(color: colorWhite),
+                              style: const TextStyle(color: colorblack),
                               controller: signupController.usernameController,
                               decoration: const InputDecoration(
                                   border: InputBorder.none,

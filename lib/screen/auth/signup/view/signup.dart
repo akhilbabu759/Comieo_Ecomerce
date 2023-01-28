@@ -29,7 +29,7 @@ class SignupPage extends StatelessWidget {
               ),
             )
           : Scaffold(
-              backgroundColor: backgroundColorBlack,
+              backgroundColor: colorWhite,
               body: SingleChildScrollView(
                 child: SafeArea(
                     child: Column(

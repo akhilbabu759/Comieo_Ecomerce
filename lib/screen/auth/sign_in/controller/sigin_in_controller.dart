@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
 import 'package:ecomerce/screen/auth/sign_in/model/sign_in_model.dart';
 import 'package:ecomerce/screen/auth/sign_in/service/sign_in_sevice.dart';
@@ -77,14 +78,14 @@ class SignInController extends GetxController {
     if (obscureText == false) {
       icon = const Icon(
         Icons.visibility_off,
-        color: colorWhite,
+        color: colorblack,
       );
       obscureText = true;
       update();
     } else {
       icon = const Icon(
         Icons.visibility,
-        color: colorWhite,
+        color: colorblack,
       );
       obscureText = false;
       update();

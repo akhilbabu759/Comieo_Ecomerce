@@ -19,7 +19,7 @@ class SigninPage extends StatelessWidget {
     final double height = size.height;
     final double width = size.width;
     return Scaffold(
-      backgroundColor: backgroundColorBlack,
+      backgroundColor:colorWhite,
       body: GetBuilder<SignInController>(
         builder: (controller) {
           return signinControl.isLoading == true
@@ -35,20 +35,21 @@ class SigninPage extends StatelessWidget {
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
+                      children:  [
                         Text(
                           'Comieo',
                           style: textstyle,
                         )
                       ],
                     ),
+                    textFieldGap,
                     LoginFrom(width: width, height: height),
                     SizedBox(
                       height: height * 0.03,
                     ),
                     RichText(
                       text: TextSpan(
-                        text: "Don't have account? ",
+                        text: "Don't have account? ",style: TextStyle(color: colorblack),
                         children: <TextSpan>[
                           TextSpan(
                             recognizer: TapGestureRecognizer()

@@ -30,7 +30,7 @@ class ScreenVerificationCode extends StatelessWidget {
             padding: EdgeInsets.only(right: width * 0.25),
             child: Column(
               children: [
-                const Text(
+                 Text(
                   'Verification Code',
                   maxLines: 2,
                   style: textstyle,

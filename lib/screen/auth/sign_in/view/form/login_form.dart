@@ -1,3 +1,4 @@
+import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
 import 'package:ecomerce/screen/auth/sign_in/controller/sigin_in_controller.dart';
 import 'package:flutter/material.dart';
@@ -11,10 +12,8 @@ class LoginFrom extends StatelessWidget {
     required this.height,
   }) : super(key: key);
 
-  // late
   final double width;
 
-  // late
   final double height;
   final bool passwordVisible = false;
   final signinController = Get.put(SignInController());
@@ -26,21 +25,16 @@ class LoginFrom extends StatelessWidget {
           key: SignInController.formGlobalKey,
           child: Column(
             children: [
-              const Text('Your email'),
               Padding(
                   padding: EdgeInsets.only(
+                    top: 10,
                     left: width * 0.05,
                     right: width * 0.05,
                   ),
                   child: Container(
                       decoration: BoxDecoration(
-                          color: const Color.fromARGB(
-                            255,
-                            34,
-                            34,
-                            34,
-                          ),
-                          borderRadius: BorderRadius.circular(7.0),
+                          color: Colors.blueGrey[50],
+                          borderRadius: BorderRadius.circular(17.0),
                           boxShadow: const [
                             BoxShadow(
                               spreadRadius: 0.2,
@@ -53,24 +47,24 @@ class LoginFrom extends StatelessWidget {
                             right: width * 0.03,
                           ),
                           child: TextFormField(
-                              style: const TextStyle(color: colorWhite),
+                              style: const TextStyle(color: colorblack),
                               controller: controller.emailController,
                               decoration: const InputDecoration(
                                   border: InputBorder.none,
                                   labelText: 'Email',
                                   labelStyle: TextStyle(
-                                    color: Colors.white60,
+                                    color: colorblack,
                                   )))))),
-              const Text('Password'),
               Padding(
                   padding: EdgeInsets.only(
+                    top: 20,
                     left: width * 0.05,
                     right: width * 0.05,
                   ),
                   child: Container(
                       decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 34, 34, 34),
-                          borderRadius: BorderRadius.circular(7.0),
+                          color: Colors.blueGrey[50],
+                          borderRadius: BorderRadius.circular(17.0),
                           boxShadow: const [
                             BoxShadow(
                               spreadRadius: 0.2,
@@ -84,7 +78,7 @@ class LoginFrom extends StatelessWidget {
                           ),
                           child: TextFormField(
                               obscureText: controller.obscureText,
-                              style: const TextStyle(color: colorWhite),
+                              style: const TextStyle(color: colorblack),
                               controller: controller.passwordController,
                               decoration: InputDecoration(
                                   suffixIcon: IconButton(
@@ -92,12 +86,13 @@ class LoginFrom extends StatelessWidget {
                                       signinController.visibility();
                                     },
                                     icon: signinController.icon,
-                                    color: colorWhite,
+                                    color: colorblack,
                                   ),
                                   border: InputBorder.none,
                                   labelText: 'Password',
                                   labelStyle: const TextStyle(
-                                      color: Colors.white60)))))),
+                                    color: colorblack,
+                                  )))))),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -108,7 +103,6 @@ class LoginFrom extends StatelessWidget {
                       ))
                 ],
               ),
-
               SizedBox(
                 width: width * 0.9,
                 child: ElevatedButton(
@@ -128,8 +122,6 @@ class LoginFrom extends StatelessWidget {
               SizedBox(
                 height: height * 0.04,
               ),
-
-           
             ],
           )),
     );

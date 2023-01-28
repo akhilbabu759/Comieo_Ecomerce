@@ -1,7 +1,10 @@
 
 
+import 'package:ecomerce/core/constent.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 const colorWhite =Colors.white;
-const textstyle=TextStyle(fontFamily: 'Teko',fontSize: 33, fontWeight: FontWeight.bold,color: colorWhite);
-const homeTextStyle=TextStyle(color: colorWhite,fontSize: 28);
+ final textstyle= GoogleFonts.openSans(fontSize: 30,color:colorblack );
+//  TextStyle( fontWeight: FontWeight.w500,color: Colors.black);
+const homeTextStyle=TextStyle(color: Colors.black,fontSize: 22, );

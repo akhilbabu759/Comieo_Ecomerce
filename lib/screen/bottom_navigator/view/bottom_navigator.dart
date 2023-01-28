@@ -14,9 +14,10 @@ class BottomNavigator extends StatelessWidget {
   Widget build(BuildContext context) {
     BottomController signupController = Get.put(BottomController());
     return Material(
+      // color: backgroundColorBlack,
       child: GetBuilder<BottomController>(
         builder: (controller) => BottomNavigationBar(
-            unselectedItemColor: Colors.white,
+            unselectedItemColor: Colors.black,
             backgroundColor: backgroundColorBlack,
             onTap: (value) async {
               controller.indexChange(value);
@@ -26,7 +27,7 @@ class BottomNavigator extends StatelessWidget {
               // selectedIndex.notifyListeners();},
             },
             currentIndex: signupController.selectedIndex,
-            selectedItemColor: const Color.fromARGB(255, 7, 255, 255),
+            selectedItemColor:  Colors.blue,
             items: const [
               BottomNavigationBarItem(
                   label: 'Home',
