@@ -39,6 +39,11 @@ class SignInController extends GetxController {
             update();
           });
         } else {
+           isLoading = false;
+           update();
+          // Get.snackbar('Something wron!!', 'invalid user name or password');
+         
+
           return;
         }
       },
@@ -71,7 +76,7 @@ class SignInController extends GetxController {
   bool obscureText = true;
   Icon icon = const Icon(
     Icons.visibility_off,
-    color: colorWhite,
+    color: colorblack,
   );
 
   void visibility() {

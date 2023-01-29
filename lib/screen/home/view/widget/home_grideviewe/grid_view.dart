@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:ecomerce/common/api_baseurl.dart';
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
@@ -5,6 +7,7 @@ import 'package:ecomerce/screen/home/controller/home_controll.dart';
 import 'package:ecomerce/screen/product_details/model/product_model.dart';
 import 'package:ecomerce/screen/product_details/view/product_details.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 import 'package:get/get.dart';
 
@@ -109,51 +112,51 @@ class HomeGridView extends StatelessWidget {
                         const SizedBox(
                           height: 5,
                         ),
-                        // RatingBar.builder(
-                        //   initialRating: double.parse(
-                        //       wishlistC.wmodel!.products[index].product.rating),
-                        //   itemSize: 15,
-                        //   minRating: 1,
-                        //   direction: Axis.horizontal,
-                        //   allowHalfRating: true,
-                        //   ignoreGestures: true,
-                        //   itemBuilder: (context, _) => const Icon(
-                        //     Icons.star,
-                        //     color: Colors.amber,
-                        //   ),
-                        //   onRatingUpdate: (startRating) {
-                        //     log(startRating.toString());
-                        //   },
-                        // ),
+                        RatingBar.builder(
+                          initialRating: double.parse(
+                              productC.productList[index].rating),
+                          itemSize: 15,
+                          minRating: 1,
+                          direction: Axis.horizontal,
+                          allowHalfRating: true,
+                          ignoreGestures: true,
+                          itemBuilder: (context, _) => const Icon(
+                            Icons.star,
+                            color: Colors.amber,
+                          ),
+                          onRatingUpdate: (startRating) {
+                            log(startRating.toString());
+                          },
+                        ),
                         Text(
-                          // 'otty',
+                          
                           productC.productList[index].description,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
-                              color: colorWhite, fontWeight: FontWeight.w400),
+                              color: colorblack, fontWeight: FontWeight.w400),
                         ),
                         kHeight10,
                         Row(
                           children: [
                             Text(
-                              // '50',
+                             
                               "₹ ${productC.productList[index].price.toString()}",
                               style: const TextStyle(
-                                color: colorWhite,
+                                color: colorblack,
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                           ],
-                        )
+                        ),
                       ],
                     ),
                   ),
                 );
               },
               itemCount: productC.productList.length
-              // productC.productList.length,
+              
               ),
     );
   }

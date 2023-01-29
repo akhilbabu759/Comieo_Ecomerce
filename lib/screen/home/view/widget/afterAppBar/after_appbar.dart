@@ -76,7 +76,8 @@ class AfterAppBar extends StatelessWidget {
         textFieldGap,
         // const HomeHeading(tex: 'Top Deals'),
         textFieldGap,
-        const CarouselHome(),
+        Card(elevation: 3,
+          child: const CarouselHome()),
         textFieldGap,
         const HomeHeading(
           tex: 'Shop by Category',

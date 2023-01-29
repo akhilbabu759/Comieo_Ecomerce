@@ -122,7 +122,7 @@ class SignupController extends GetxController {
   bool obscureText = true;
   Icon icon = const Icon(
     Icons.visibility_off,
-    color: colorWhite,
+    color: colorblack,
   );
 
   void visibility() {

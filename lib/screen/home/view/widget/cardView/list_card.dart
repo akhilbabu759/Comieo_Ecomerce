@@ -14,7 +14,7 @@ class CardView extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<HomeControll>(builder: (controller) =>controller.isLoding==true?const CategoryShimmer():  LimitedBox(
       maxHeight: 175,
-      child: ListView.builder(
+      child: ListView.builder( 
           itemCount: controller.categorylList.length,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) => Padding(
