@@ -30,7 +30,7 @@ class HomeGridView extends StatelessWidget {
     return GetBuilder<HomeControll>(
       builder: (controller) => productC.isLoding == true
           ? const Center(
-              child: Text('empty'),
+              child: Text('Somthing went wrong'),
             )
           : GridView.builder(
               padding: EdgeInsets.zero,
@@ -40,7 +40,7 @@ class HomeGridView extends StatelessWidget {
                   crossAxisCount: 2,
                   crossAxisSpacing: 5,
                   mainAxisSpacing: 5,
-                  childAspectRatio: 1 / 1.7),
+                  childAspectRatio: 1 / 1.5),
               itemBuilder: (BuildContext ctx, int index) {
                 return ColoredBox(
                   //  height: height * 0.000001,
@@ -67,7 +67,7 @@ class HomeGridView extends StatelessWidget {
                                     price: productC.productList[index].price,
                                     rating: productC.productList[index].rating,
                                     size: productC.productList[index].size);
-                                Get.to(ProductDeatails(key,model));
+                                Get.to(ProductDeatails(key, model));
                               },
                               child: Container(
                                 width: width * 0.5,
@@ -112,24 +112,23 @@ class HomeGridView extends StatelessWidget {
                         const SizedBox(
                           height: 5,
                         ),
-                        RatingBar.builder(
-                          initialRating: double.parse(
-                              productC.productList[index].rating),
-                          itemSize: 15,
-                          minRating: 1,
-                          direction: Axis.horizontal,
-                          allowHalfRating: true,
-                          ignoreGestures: true,
-                          itemBuilder: (context, _) => const Icon(
-                            Icons.star,
-                            color: Colors.amber,
-                          ),
-                          onRatingUpdate: (startRating) {
-                            log(startRating.toString());
-                          },
-                        ),
+                        // RatingBar.builder(
+                        //   initialRating: double.parse(
+                        //       productC.productList[index].rating),
+                        //   itemSize: 15,
+                        //   minRating: 1,
+                        //   direction: Axis.horizontal,
+                        //   allowHalfRating: true,
+                        //   ignoreGestures: true,
+                        //   itemBuilder: (context, _) => const Icon(
+                        //     Icons.star,
+                        //     color: Colors.amber,
+                        //   ),
+                        //   onRatingUpdate: (startRating) {
+                        //     log(startRating.toString());
+                        //   },
+                        // ),
                         Text(
-                          
                           productC.productList[index].description,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
@@ -140,8 +139,7 @@ class HomeGridView extends StatelessWidget {
                         Row(
                           children: [
                             Text(
-                             
-                              "₹ ${productC.productList[index].price.toString()}",
+                              "₹ ${productC.productList[index].offer.toString()}",
                               style: const TextStyle(
                                 color: colorblack,
                                 fontSize: 20,
@@ -150,14 +148,25 @@ class HomeGridView extends StatelessWidget {
                             ),
                           ],
                         ),
+                        Row(
+                          children: [
+                            RichText(
+                              text: TextSpan(
+                                text:
+                                    'Min.${productC.productList[index].discountPrice}% Off',
+                                style: const TextStyle(
+                                  color: Colors.green,
+                                ),
+                              ),
+                            )
+                          ],
+                        )
                       ],
                     ),
                   ),
                 );
               },
-              itemCount: productC.productList.length
-              
-              ),
+              itemCount: productC.productList.length),
     );
   }
 }

@@ -22,9 +22,8 @@ class CarouselHome extends StatelessWidget {
           ? const CarouselShimmer()
           : CarouselSlider.builder(
               itemCount: carousalC.carouselList.length,
-              itemBuilder: (BuildContext context, int index, int realIndex) =>Container(
-                child: Image.network(
-              '${ApiBaseUrl().baseurl}/carousals/${carousalC.carouselList[index].image}')),
+              itemBuilder: (BuildContext context, int index, int realIndex) =>Image.network(
+              '${ApiBaseUrl().baseurl}/carousals/${carousalC.carouselList[index].image}'),
                   // Stack(
                   //   children: [
                   //     Card(
@@ -102,7 +101,7 @@ class CarouselHome extends StatelessWidget {
                 autoPlayCurve: Curves.fastOutSlowIn,
                 enableInfiniteScroll: true,
                 autoPlayAnimationDuration: const Duration(milliseconds: 800),
-                viewportFraction: 0.8,
+                viewportFraction: 1,
               )),
     );
   }

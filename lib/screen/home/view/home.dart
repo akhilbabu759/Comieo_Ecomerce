@@ -33,9 +33,9 @@ class Home extends StatelessWidget {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.only(bottom:8.0),
               child: Container( decoration:BoxDecoration(color: colorWhite,backgroundBlendMode:BlendMode.hardLight ,
-                borderRadius: BorderRadius.circular(20)) ,
+                borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20),bottomRight: Radius.circular(20))) ,
                 // color: Colors.white,
               height: height*0.13,
               child: Padding(

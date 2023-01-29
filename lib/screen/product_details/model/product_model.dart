@@ -16,7 +16,7 @@ class ProductDeatailsModel {
     final String id;
     final String name;
     final int price;
-    final double discountPrice;
+    final int discountPrice;
     final int offer;
     final List<String> size;
     final List<String> image;
@@ -29,7 +29,7 @@ class ProductDeatailsModel {
         id: json["_id"],
         name: json["name"],
         price: json["price"],
-        discountPrice: json["discountPrice"]?.toDouble(),
+        discountPrice: json["discountPrice"],
         offer: json["offer"],
         size: List<String>.from(json["size"].map((x) => x)),
         image: List<String>.from(json["image"].map((x) => x)),
