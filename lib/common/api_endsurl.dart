@@ -7,5 +7,6 @@ class ApiEndsUrl{
   String category ='/api/v1/category';
   String product='/api/v1/products';
   String cart = '/api/v1/cart';
+  String address = '/api/v1/address';
 
 }

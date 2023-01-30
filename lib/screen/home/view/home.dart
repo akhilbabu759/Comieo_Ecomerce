@@ -75,8 +75,11 @@ class Home extends StatelessWidget {
                                       
                                        textFieldGap,
                                       SideSheetRow(icon: Icon(Icons.shopping_basket),text: 'Order',),
+               
                                       textFieldGap,
-                                      SideSheetRow(icon: Icon(Icons.settings),text: 'Settings',),
+                                      SideSheetRow(icon: Icon(Icons.question_answer),text: 'Contact us',),
+                                       textFieldGap,
+                                      SideSheetRow(icon: Icon(Icons.help_center),text: 'Help',),
                                     ],
                                   ),
                                   context: context);
