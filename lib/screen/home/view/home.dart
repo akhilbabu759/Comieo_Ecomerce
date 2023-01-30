@@ -33,7 +33,7 @@ class Home extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(bottom: 8.0),
               child: Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     color: colorWhite,
                     backgroundBlendMode: BlendMode.hardLight,
                     borderRadius: BorderRadius.only(
@@ -58,12 +58,12 @@ class Home extends StatelessWidget {
                                         child: Column(children: [
                                           IconButton(
                                               onPressed: () {},
-                                              icon: Icon(
+                                              icon: const Icon(
                                                 Icons.account_circle_outlined,
                                                 size: 36,
                                               )),
                                           textFieldGap,
-                                          Text(
+                                          const Text(
                                             'Akhil ',
                                             style: TextStyle(
                                                 color: colorblack,
@@ -71,15 +71,15 @@ class Home extends StatelessWidget {
                                           )
                                         ]),
                                       ),
-                                      SideSheetRow(icon: Icon(Icons.favorite),text: 'Wishlist',),
+                                      const SideSheetRow(icon: Icon(Icons.favorite),text: 'Wishlist',),
                                       
                                        textFieldGap,
-                                      SideSheetRow(icon: Icon(Icons.shopping_basket),text: 'Order',),
+                                      const SideSheetRow(icon: Icon(Icons.shopping_basket),text: 'Order',),
                
                                       textFieldGap,
-                                      SideSheetRow(icon: Icon(Icons.question_answer),text: 'Contact us',),
+                                      const SideSheetRow(icon: Icon(Icons.question_answer),text: 'Contact us',),
                                        textFieldGap,
-                                      SideSheetRow(icon: Icon(Icons.help_center),text: 'Help',),
+                                      const SideSheetRow(icon: Icon(Icons.help_center),text: 'Help',),
                                     ],
                                   ),
                                   context: context);
@@ -100,7 +100,7 @@ class Home extends StatelessWidget {
                                 )),
                             InkWell(
                                 onTap: () {
-                                  Get.to(CartScreen());
+                                  Get.to(const CartScreen());
                                 },
                                 child: Image.network(
                                   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVvxBypuP3HbGsifk2_1iJrI8sxn9Gz6d508ZmsAA&s',

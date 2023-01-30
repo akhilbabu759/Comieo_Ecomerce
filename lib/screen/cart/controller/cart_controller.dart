@@ -9,10 +9,18 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CartController extends GetxController {
-  CartController(){
-    getCart();
+  
+  
+  @override
+  void onInit(){
+     getCart();
+    
+    super.onInit();
+  
+    
   }
-  bool isLoading = false;
+ 
+  RxBool isLoading = false.obs;
   GetCartModel? cartList;
   List<String> cartItemsId = [];
   int quantity = 1;
@@ -22,8 +30,8 @@ class CartController extends GetxController {
   
 
   void getCart() async {
-    isLoading = true;
-    update();
+    isLoading = true.obs;
+    // update();
     await service.getCart().then((value) {
       if (value != null) {
         cartList = value;
@@ -32,19 +40,22 @@ class CartController extends GetxController {
         totalSave = (cartList!.totalPrice - cartList!.totalDiscount).toInt();
         totalProductCount();
         update();
-        isLoading = false;
-        update();
+        isLoading = false.obs;
+        // update();
       } else {
-        isLoading = false;
-        update();
+        isLoading = false.obs;
+        // update();
       }
+      isLoading = false.obs;
+        // update();
       return null;
     });
+    isLoading = false.obs;
   }
 
   void addToCart(String productId, String size) async {
     log('here');
-    isLoading = true;
+    isLoading = true.obs;
     update();
     final AddCartModel model = AddCartModel(
       size: size.toString(),
