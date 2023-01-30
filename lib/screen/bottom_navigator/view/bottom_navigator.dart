@@ -18,7 +18,7 @@ class BottomNavigator extends StatelessWidget {
       child: GetBuilder<BottomController>(
         builder: (controller) => BottomNavigationBar(
             unselectedItemColor: Colors.black,
-            backgroundColor: backgroundColorBlack,
+            // backgroundColor: backgroundColorBlack,
             onTap: (value) async {
               controller.indexChange(value);
 
@@ -39,15 +39,11 @@ class BottomNavigator extends StatelessWidget {
                   icon: Icon(
                     Icons.category,
                   )),
+             
               BottomNavigationBarItem(
-                  label: 'Account',
+                  label: 'Settings',
                   icon: Icon(
-                    Icons.account_circle_outlined,
-                  )),
-              BottomNavigationBarItem(
-                  label: 'Cart',
-                  icon: Icon(
-                    Icons.home,
+                    Icons.settings,
                   ))
             ]),
       ),

@@ -15,7 +15,7 @@ class SideSheetRow extends StatelessWidget {
       IconButton(onPressed: () {
         
       }, icon: icon),
-      SizedBox(width: 40,),
+      SizedBox(width: 10,),
       Text(text,style: TextStyle(color: colorblack,fontSize: 17),)
     ],);
   }

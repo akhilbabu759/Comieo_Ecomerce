@@ -1,4 +1,5 @@
 
+import 'package:ecomerce/screen/bottom_navigator/view/page_navigation.dart';
 import 'package:ecomerce/screen/home/view/home.dart';
 import 'package:flutter/material.dart';
 import 'screen/auth/sign_in/view/signin.dart';
@@ -21,28 +22,11 @@ class MyApp extends StatelessWidget {
        
         
       ),
-      home:  Home()
+      home:  ScreenMAinPage()
+      // Home()
       //  SigninPage()
-      //  const MyHomePage(title: ''),
+    
     );
   }
 }
 
-// class MyHomePage extends StatelessWidget {
-//    const MyHomePage({super.key, required this.title});
-//   final String title;
-// @override
-//  Widget build(BuildContext context) {
-//     return GetMaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       theme: ThemeData(
-      
-//       ),
-//       home:
-     
-     
-//           //  ScreenMAinPage(),
-//     );
-
-// }
-// }
