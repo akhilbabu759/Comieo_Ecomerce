@@ -16,15 +16,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
   
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
        
         
       ),
-      home:  ScreenMAinPage()
+      home: 
+      //  ScreenMAinPage()
       // Home()
-      //  SigninPage()
+       SigninPage()
     
     );
   }

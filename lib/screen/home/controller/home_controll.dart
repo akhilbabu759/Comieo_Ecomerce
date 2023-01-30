@@ -3,9 +3,11 @@ import 'dart:developer';
 import 'package:ecomerce/screen/home/model/carosual_model.dart';
 import 'package:ecomerce/screen/home/model/category_model.dart';
 import 'package:ecomerce/screen/home/model/product_model.dart';
+
 import 'package:ecomerce/screen/home/service/carousel_service.dart';
 import 'package:ecomerce/screen/home/service/category_service.dart';
 import 'package:ecomerce/screen/home/service/product_service.dart';
+
 import 'package:get/get.dart';
 
 class HomeControll extends GetxController {
@@ -15,6 +17,7 @@ class HomeControll extends GetxController {
     getCarosel();
     getCategory();
     getProduct();
+    
     
     super.onInit();
   }
@@ -28,6 +31,7 @@ class HomeControll extends GetxController {
   CategoryService categoryService = CategoryService();
   ProductService productService = ProductService();
   bool isLoding = true;
+  
   void getProduct() async {
     isLoding = true;
     update();
@@ -88,4 +92,8 @@ class HomeControll extends GetxController {
     isLoding = false;
     update();
   }
+  
+
+
+
 }
