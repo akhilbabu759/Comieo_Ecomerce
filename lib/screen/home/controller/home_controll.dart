@@ -9,12 +9,18 @@ import 'package:ecomerce/screen/home/service/product_service.dart';
 import 'package:get/get.dart';
 
 class HomeControll extends GetxController {
-  HomeControll() {
-    log('contsrtuct');
+  @override
+  void onInit() {
+     log('contsrtuct');
     getCarosel();
     getCategory();
     getProduct();
+    
+    super.onInit();
   }
+  
+
+  
   List<CarousalModel> carouselList = [];
   List<CategoryModel> categorylList = [];
   List<ProductModel> productList = [];
@@ -39,8 +45,8 @@ class HomeControll extends GetxController {
         log('value empty');
       }
     });
-    // isLoding = false;
-    // update();
+    isLoding = false;
+    update();
   }
 
   void getCategory() async {

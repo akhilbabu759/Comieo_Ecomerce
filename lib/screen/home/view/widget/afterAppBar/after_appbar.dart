@@ -82,13 +82,15 @@ class AfterAppBar extends StatelessWidget {
             
             textFieldGap,
             const HomeHeading(
-              tex: 'Shop by Category',
-            ),
+              tex: 'Top Deals',
+            ),  textFieldGap,
             const CardView(),
+          
             textFieldGap,
             const HomeHeading(
               tex: 'All shops',
             ),
+            textFieldGap, 
             HomeGridView(
               height: height * 0.9,
               width: width * 0.9,

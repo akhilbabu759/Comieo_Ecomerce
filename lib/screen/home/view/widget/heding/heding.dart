@@ -12,9 +12,9 @@ class HomeHeading extends StatelessWidget {
     return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
       Text(tex.toString(),style:homeTextStyle ,),
-      TextButton(onPressed: () {
+      // TextButton(onPressed: () {
         
-      }, child: const Text('See all'))
+      // }, child: const Text('See all'))
     ],);
   }
 }

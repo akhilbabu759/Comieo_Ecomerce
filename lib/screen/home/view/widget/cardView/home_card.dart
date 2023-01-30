@@ -1,6 +1,6 @@
 import 'package:ecomerce/common/api_baseurl.dart';
 import 'package:ecomerce/core/constent.dart';
-import 'package:ecomerce/core/text_style.dart';
+
 import 'package:flutter/material.dart';
 
 class HomeCard extends StatelessWidget {
@@ -11,10 +11,21 @@ class HomeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(borderOnForeground: true,
+    return Card(
+      borderOnForeground: true,
     elevation: 3,
       child: Column(
         children: [
+          Container(height: 27,
+            width: 140,
+            color: Colors.blueGrey[50],
+            child: Center(
+              child: Text(
+                text,
+                style: const TextStyle(color: colorblack),
+              ),
+            ),
+          ),
           SizedBox(
             height: 140,
             width: 140,
@@ -22,16 +33,6 @@ class HomeCard extends StatelessWidget {
               '${ApiBaseUrl().baseurl}/category/$imag',fit: BoxFit.scaleDown,
               // height: 100,
               // width: 150,
-            ),
-          ),
-          Container(height: 27,
-            width: 150,
-            color: Colors.blueGrey[50],
-            child: Center(
-              child: Text(
-                text,
-                style: const TextStyle(color: colorblack),
-              ),
             ),
           )
         ],
