@@ -56,15 +56,15 @@ class FistContiner extends StatelessWidget {
           ),
           Row(
             children: <Widget>[
-              const Text(
-                '❤️',
-                style: TextStyle(fontSize: 27),
-              ),
+              
               const SizedBox(
-                width: 20,
+                width: 90,
               ),
-              Expanded(
-                child: Image.network(
+              Container(width: 184,
+              
+                decoration: const BoxDecoration(borderRadius: BorderRadius.only(bottomLeft: Radius.circular(101),bottomRight: Radius.circular(101)),
+                  boxShadow: [BoxShadow(blurRadius: 9,spreadRadius: -1.0 )]),
+                child: Image.network(height: 184,fit: BoxFit.fitHeight,
                     '${ApiBaseUrl().baseurl}/products/${model.image[0]}'),
               ),
             ],

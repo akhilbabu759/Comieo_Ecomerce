@@ -3,6 +3,7 @@ import 'package:ecomerce/screen/product_details/model/product_model.dart';
 import 'package:ecomerce/screen/product_details/view/widget/body.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:share/share.dart';
 
 class ProductDeatails extends StatelessWidget {
   const ProductDeatails(Key? key, this.model) : super(key: key);
@@ -21,17 +22,19 @@ class ProductDeatails extends StatelessWidget {
           },
           icon: const Icon(Icons.arrow_back_ios),
         ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.search),
-          ),
-          IconButton(
-            onPressed: () {
-              Get.to(const CartScreen());
-            },
-            icon: const Icon(Icons.shopping_bag),
-          ),
+        actions: [GestureDetector(
+                    onTap: () {
+                      Share.share(
+                        'https://play.google.com/store/apps/details?id=com.',
+                      );
+                    },
+                    child: const Icon(
+                      Icons.share,
+                      size: 30,
+                    ),
+                  ),SizedBox(width: 17,)
+          
+          
         ],
       ),
       body: Body(key, model),
