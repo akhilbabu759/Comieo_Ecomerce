@@ -1,7 +1,9 @@
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
+import 'package:ecomerce/screen/Whishlist/controller/wishlist_controller.dart';
 import 'package:ecomerce/screen/cart/controller/cart_controller.dart';
 import 'package:ecomerce/screen/cart/view/cart.dart';
+import 'package:ecomerce/screen/home/controller/home_controll.dart';
 import 'package:ecomerce/screen/product_details/model/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,6 +18,8 @@ class SecondContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final wishlistC =Get.put(WishListController());
+   
     final cartC = Get.put(CartController());
     return Container(
       width: size.width,
@@ -45,15 +49,29 @@ class SecondContainer extends StatelessWidget {
               child: Row(
                 children: [
                   //  Icon(Icons.share,size: 30,),
-                  GestureDetector(
-                    onTap: () {
-                     
-                    },
-                    child:  Icon(color: Colors.red,
-                      Icons.favorite,
-                      size: 37,
-                    ),
-                  ),
+                   GetBuilder<WishListController>(
+                              builder: (controller) =>
+                               IconButton(
+                                 onPressed: () {
+                                   wishlistC.addOrRemoveFromWishlist(
+                                    model.id
+                                       
+                                      //  productC.productList[index].id
+                                           // .product.id
+                                           );
+                                 },
+                                 icon:
+                                  wishlistC.wishList.isEmpty?Icon(Icons.favorite_border_outlined):
+                                  Icon(
+                                   wishlistC.wishList.contains(model.id)
+                                       ? Icons.favorite
+                                       :  Icons.favorite_border_outlined,
+                                   color:wishlistC.wishList.isEmpty?colorblack : wishlistC.wishList.contains(model.id)
+                                       ?  Colors.red
+                                       :colorblack ,
+                                 ),
+                               ),
+                            ),
                   const SizedBox(
                     width: 10,
                   ),
@@ -163,7 +181,7 @@ class SecondContainer extends StatelessWidget {
                       Get.to(const CartScreen());
                     },
                     icon: const Icon(
-                      Icons.shop,
+                      Icons.shopping_cart,
                     ),
                   ),
                 ),

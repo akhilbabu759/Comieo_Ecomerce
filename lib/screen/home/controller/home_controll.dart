@@ -54,6 +54,8 @@ class HomeControll extends GetxController {
   }
 
   void getCategory() async {
+    isLoding = true;
+    update();
     await categoryService.getCategory().then((value) {
       log(value.toString());
       if (value != null) {
