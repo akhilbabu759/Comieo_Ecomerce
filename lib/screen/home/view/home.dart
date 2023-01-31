@@ -1,6 +1,7 @@
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
 import 'package:cupertino_icons/cupertino_icons.dart';
+import 'package:ecomerce/screen/auth/Whishlist/view/wishlist.dart';
 import 'package:ecomerce/screen/cart/view/cart.dart';
 import 'package:ecomerce/screen/home/controller/home_controll.dart';
 import 'package:ecomerce/screen/home/view/widget/afterAppBar/after_appbar.dart';
@@ -71,15 +72,21 @@ class Home extends StatelessWidget {
                                           )
                                         ]),
                                       ),
-                                      const SideSheetRow(icon: Icon(Icons.favorite),text: 'Wishlist',),
+                                       SideSheetRow(icon: IconButton( onPressed: () => Get.to(WishList()),icon: Icon(Icons.favorite)),text: 'Wishlist',),
                                       
                                        textFieldGap,
-                                      const SideSheetRow(icon: Icon(Icons.shopping_basket),text: 'Order',),
+                                       SideSheetRow(icon: IconButton(onPressed: () {
+                                        
+                                      },icon: Icon(Icons.shopping_basket)),text: 'Order',),
                
                                       textFieldGap,
-                                      const SideSheetRow(icon: Icon(Icons.question_answer),text: 'Contact us',),
+                                       SideSheetRow(icon: IconButton(onPressed: () {
+                                        
+                                      },icon: Icon(Icons.question_answer)),text: 'Contact us',),
                                        textFieldGap,
-                                      const SideSheetRow(icon: Icon(Icons.help_center),text: 'Help',),
+                                       SideSheetRow(icon: IconButton(onPressed: () {
+                                        
+                                      },icon: Icon(Icons.help_center)),text: 'Help',),
                                     ],
                                   ),
                                   context: context);
