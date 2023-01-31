@@ -65,18 +65,22 @@ class CartController extends GetxController {
     await service.addToCart(model).then((value) {
       if (value != null) {
         getCart();
-        if (value == "product added to cart successfully") {
-          Get.snackbar(
-            "Added",
-            "Product Added To Cart Successfully",
-            colorText: Colors.green,
-            icon: const Icon(
-              Icons.add_alert_rounded,
-              color: Colors.black,
-            ),
-          );
-        }
+        log(value);
+        // if (value == "product added to cart successfully") {
+          
+        //   Get.snackbar(
+        //        "Added",
+        //     "Product Added To Cart Successfully",
+        //        icon: Icon(
+        //       Icons.add_alert_rounded,
+        //       color: Colors.black,
+        //     ),
+        //        snackPosition: SnackPosition.BOTTOM,
+        //        backgroundColor: Colors.green,
+        //        );
+        // }
       } else {
+         
         null;
       }
     });
