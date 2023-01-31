@@ -3,16 +3,16 @@ import 'dart:developer';
 import 'package:ecomerce/common/api_baseurl.dart';
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
+import 'package:ecomerce/screen/cart/controller/cart_controller.dart';
 import 'package:ecomerce/screen/home/controller/home_controll.dart';
 import 'package:ecomerce/screen/product_details/model/product_model.dart';
 import 'package:ecomerce/screen/product_details/view/product_details.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 import 'package:get/get.dart';
 
-class HomeGridView extends StatelessWidget {
-  HomeGridView({
+class WishlistGridView extends StatelessWidget {
+  WishlistGridView({
     Key? key,
     required this.width,
     required this.height,
@@ -26,6 +26,7 @@ class HomeGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final productC = Get.put(HomeControll());
+    final cartC = Get.put(CartController());
 
     return GetBuilder<HomeControll>(
       builder: (controller) => productC.isLoding == true
@@ -40,7 +41,7 @@ class HomeGridView extends StatelessWidget {
                   crossAxisCount: 2,
                   crossAxisSpacing: 5,
                   mainAxisSpacing: 5,
-                  childAspectRatio: 1 / 1.5),
+                  childAspectRatio: 1 / 1.65),
               itemBuilder: (BuildContext ctx, int index) {
                 return ColoredBox(
                   //  height: height * 0.000001,
@@ -85,10 +86,7 @@ class HomeGridView extends StatelessWidget {
                             ),
                             // GetBuilder<WishListController>(
                             //   builder: (controller) =>
-                               Positioned(
-                                right: 0,
-                                bottom: 0,
-                                child: Text('data')
+                            Positioned(right: 0, bottom: 0, child: Text('data')
                                 // IconButton(
                                 //   onPressed: () {
                                 //     // wishlistC.addOrRemoveFromWishlist(
@@ -107,14 +105,13 @@ class HomeGridView extends StatelessWidget {
                                 //     //     : Colors.red,
                                 //   ),
                                 // ),
-                              // ),
-                            )
+                                // ),
+                                )
                           ],
                         ),
                         const SizedBox(
                           height: 5,
                         ),
-                        
                         Text(
                           productC.productList[index].description,
                           maxLines: 2,
@@ -135,6 +132,9 @@ class HomeGridView extends StatelessWidget {
                             ),
                           ],
                         ),
+                        const SizedBox(
+                          height: 3,
+                        ),
                         Row(
                           children: [
                             RichText(
@@ -147,6 +147,31 @@ class HomeGridView extends StatelessWidget {
                               ),
                             )
                           ],
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        GestureDetector(
+                          onTap: () => cartC.addToCart(
+                              productC.productList[index].id,
+                              productC.productList[index].size.toString()),
+                          child: Card(
+                            elevation: 2,
+                            child: Center(
+                                child: Column(
+                              children: const [
+                                Text(
+                                  'Add to cart',
+                                  style: TextStyle(
+                                      color: Colors.blue,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                SizedBox(
+                                  height: 3,
+                                )
+                              ],
+                            )),
+                          ),
                         )
                       ],
                     ),

@@ -1,7 +1,10 @@
+import 'dart:developer';
+
 import 'package:ecomerce/common/api_baseurl.dart';
 import 'package:ecomerce/core/text_style.dart';
 import 'package:ecomerce/screen/product_details/model/product_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 
 class FistContiner extends StatelessWidget {
@@ -37,12 +40,24 @@ class FistContiner extends StatelessWidget {
               ),
               Column(
                 children: [
-                  const Text(
-                    '⭐⭐⭐⭐',
-                    style: TextStyle(
-                      fontSize: 15,
-                    ),
-                  ),
+                   RatingBar.builder(
+                          initialRating: double.parse(
+                              // productC.productList[index].rating
+                              model.rating
+                              ),
+                          itemSize: 15,
+                          minRating: 1,
+                          direction: Axis.horizontal,
+                          allowHalfRating: true,
+                          ignoreGestures: true,
+                          itemBuilder: (context, _) => const Icon(
+                            Icons.star,
+                            color: Colors.amber,
+                          ),
+                          onRatingUpdate: (startRating) {
+                            log(startRating.toString());
+                          },
+                        ),
                   Text(
                     model.rating,
                     style: textstyle,
@@ -58,15 +73,10 @@ class FistContiner extends StatelessWidget {
             children: <Widget>[
               
               const SizedBox(
-                width: 90,
+                width: 70,
               ),
-              Container(width: 184,
-              
-                decoration: const BoxDecoration(borderRadius: BorderRadius.only(bottomLeft: Radius.circular(101),bottomRight: Radius.circular(101)),
-                  boxShadow: [BoxShadow(blurRadius: 9,spreadRadius: -1.0 )]),
-                child: Image.network(height: 184,fit: BoxFit.fitHeight,
-                    '${ApiBaseUrl().baseurl}/products/${model.image[0]}'),
-              ),
+              Image.network(height: 180,width: 260,
+                  '${ApiBaseUrl().baseurl}/products/${model.image[0]}'),
             ],
           ),
         ],

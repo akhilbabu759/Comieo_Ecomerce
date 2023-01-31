@@ -1,7 +1,7 @@
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
 import 'package:cupertino_icons/cupertino_icons.dart';
-import 'package:ecomerce/screen/auth/Whishlist/view/wishlist.dart';
+import 'package:ecomerce/screen/Whishlist/view/wishlist.dart';
 import 'package:ecomerce/screen/cart/view/cart.dart';
 import 'package:ecomerce/screen/home/controller/home_controll.dart';
 import 'package:ecomerce/screen/home/view/widget/afterAppBar/after_appbar.dart';
