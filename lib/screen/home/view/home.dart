@@ -1,31 +1,29 @@
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
-import 'package:cupertino_icons/cupertino_icons.dart';
+
 import 'package:ecomerce/screen/Whishlist/view/wishlist.dart';
 import 'package:ecomerce/screen/cart/view/cart.dart';
 import 'package:ecomerce/screen/home/controller/home_controll.dart';
 import 'package:ecomerce/screen/home/view/widget/afterAppBar/after_appbar.dart';
-import 'package:ecomerce/screen/home/view/widget/cardView/list_card.dart';
-import 'package:ecomerce/screen/home/view/widget/carousel_slider/carousel.dart';
-import 'package:ecomerce/screen/home/view/widget/heding/heding.dart';
+
 import 'package:ecomerce/screen/home/view/widget/side_Sheet/side_sheet_row.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:side_sheet/side_sheet.dart';
 
-import 'widget/home_grideviewe/grid_view.dart';
+
 
 class Home extends StatelessWidget {
   const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final homeControl = Get.put(HomeControll());
+  
     final Size size = MediaQuery.of(context).size;
     final double height = size.height;
     final double width = size.width;
     return Scaffold(
-      // bottomNavigationBar: BottomNavigator(),
+      
       backgroundColor: Colors.blueGrey[50],
 
       body: SafeArea(
@@ -40,7 +38,7 @@ class Home extends StatelessWidget {
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(20),
                         bottomRight: Radius.circular(20))),
-                // color: Colors.white,
+                
                 height: height * 0.13,
                 child: Padding(
                   padding: const EdgeInsets.all(12.0),
@@ -53,40 +51,41 @@ class Home extends StatelessWidget {
                                   body: Column(
                                     children: [
                                       Container(
-                                        color: Colors.blueGrey[100],
+                                        color: Colors.blueGrey[900],
                                         height: 130,
-                                        width: 292,
-                                        child: Column(children: [
-                                          IconButton(
-                                              onPressed: () {},
-                                              icon: const Icon(
-                                                Icons.account_circle_outlined,
-                                                size: 36,
-                                              )),
-                                          textFieldGap,
-                                          const Text(
-                                            'Akhil ',
-                                            style: TextStyle(
-                                                color: colorblack,
-                                                fontSize: 29),
-                                          )
-                                        ]),
+                                        width: 294,
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(top:40.0),
+                                          child: Column(children: [
+                                            IconButton(
+                                                onPressed: () {},
+                                                icon: const Icon(
+                                                  Icons.account_circle_outlined,
+                                                  size: 36,color: colorWhite,
+                                                )),
+                                    SizedBox(height: 1,),
+                                            const Text(
+                                              'Akhil ',
+                                              style: TextStyle(
+                                                  color: colorWhite,
+                                                  fontSize: 29),
+                                            )
+                                          ]),
+                                        ),
                                       ),
-                                       SideSheetRow(icon: IconButton( onPressed: () => Get.to(WishList()),icon: Icon(Icons.favorite)),text: 'Wishlist',),
+                                       GestureDetector(onTap: () => Get.to(const WishList()) , child: const SideSheetRow(icon:  Icon(Icons.favorite),text: 'Wishlist',)),
                                       
                                        textFieldGap,
-                                       SideSheetRow(icon: IconButton(onPressed: () {
-                                        
-                                      },icon: Icon(Icons.shopping_basket)),text: 'Order',),
+                                       GestureDetector(child: const SideSheetRow(icon:  Icon(Icons.shopping_basket),text: 'Order',)),
                
                                       textFieldGap,
-                                       SideSheetRow(icon: IconButton(onPressed: () {
-                                        
-                                      },icon: Icon(Icons.question_answer)),text: 'Contact us',),
+                                       GestureDetector(
+                                         child: const SideSheetRow(icon:  Icon(Icons.question_answer),text: 'Contact us',),
+                                       ),
                                        textFieldGap,
-                                       SideSheetRow(icon: IconButton(onPressed: () {
-                                        
-                                      },icon: Icon(Icons.help_center)),text: 'Help',),
+                                       GestureDetector(child: const SideSheetRow(icon:  Icon(Icons.help_center),text: 'Help',)),
+                                       SizedBox(height: 300,),
+                                       Text('Version 1.0',style: TextStyle(color: colorblack),)
                                     ],
                                   ),
                                   context: context);
