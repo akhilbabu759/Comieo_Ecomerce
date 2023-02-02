@@ -27,14 +27,14 @@ class CartScreen extends StatelessWidget {
           ),
           height: 174,
           decoration: BoxDecoration(
-              color: Colors.white,
+              color: Colors.blueGrey,
               borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(30), topRight: Radius.circular(30)),
               boxShadow: [
                 BoxShadow(
                     offset: const Offset(0, -1),
                     blurRadius: 20,
-                    color: const Color(0xFFDADADA).withOpacity(0.15))
+                    color: Color.fromARGB(255, 99, 98, 98).withOpacity(0.15))
               ]),
           child: Column(
             children: [

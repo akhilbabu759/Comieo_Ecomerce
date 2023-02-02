@@ -57,8 +57,8 @@ class Home extends StatelessWidget {
                                         child: Padding(
                                           padding: const EdgeInsets.only(top:63.0,left: 10),
                                           child: Column(crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-                                            Text('welcome,',style: TextStyle(color: colorWhite,fontSize: 20),),
+                                            children:  [
+                                            Text('Welcome,',style: TextStyle(color: colorWhite,fontSize: 20),),
                                             // IconButton(
                                             //     onPressed: () {},
                                             //     icon: const Icon(
@@ -66,14 +66,17 @@ class Home extends StatelessWidget {
                                             //       size: 36,color: colorWhite,
                                             //     )),
                                     
-                                            Padding(
-                                              padding: const EdgeInsets.only(left:48.0),
-                                              child: const Text(
-                                                'Akhil ',
-                                                style: TextStyle(
-                                                    color: colorWhite,
-                                                    fontSize: 29),
-                                              ),
+                                            Row(
+                                              children: const [
+                                                Icon(Icons.person,color: Colors.white,),
+                                                SizedBox(width: 10,),
+                                                Text(
+                                                  'Akhil ',
+                                                  style: TextStyle(
+                                                      color: colorWhite,
+                                                      fontSize: 29),
+                                                ),
+                                              ],
                                             )
                                           ]),
                                         ),

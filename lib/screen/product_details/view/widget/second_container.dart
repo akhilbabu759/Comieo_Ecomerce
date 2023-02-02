@@ -180,16 +180,7 @@ class SecondContainer extends StatelessWidget {
                   child: IconButton(
                     onPressed: () {
                       cartC.addToCart(model.id, model.size.toString());
-                      Get.snackbar(
-               "Added",
-            "Product Added To Cart Successfully",
-               icon: const Icon(
-              Icons.add_alert_rounded,
-              color: Colors.black,
-            ),
-               snackPosition: SnackPosition.BOTTOM,
-               backgroundColor: Colors.green,
-               );
+                      
 
                       
                     },

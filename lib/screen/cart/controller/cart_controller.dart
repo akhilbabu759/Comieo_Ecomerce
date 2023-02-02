@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 
+import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/screen/cart/model/add_cart_model.dart';
 import 'package:ecomerce/screen/cart/model/get_cart_model.dart';
 import 'package:ecomerce/screen/cart/service/cart_service.dart';
@@ -31,7 +32,7 @@ class CartController extends GetxController {
 
   void getCart() async {
     isLoading = true.obs;
-    // update();
+   
     await service.getCart().then((value) {
       if (value != null) {
         cartList = value;
@@ -68,17 +69,17 @@ class CartController extends GetxController {
         log(value);
         // if (value == "product added to cart successfully") {
           
-        //   Get.snackbar(
-        //        "Added",
-        //     "Product Added To Cart Successfully",
-        //        icon: Icon(
-        //       Icons.add_alert_rounded,
-        //       color: Colors.black,
-        //     ),
-        //        snackPosition: SnackPosition.BOTTOM,
-        //        backgroundColor: Colors.green,
-        //        );
-        // }
+          Get.snackbar(
+               "Added",
+            "Product Added To Cart Successfully",
+               icon: Icon(
+              Icons.add_alert_rounded,
+              color: Colors.black,
+            ),
+               snackPosition: SnackPosition.BOTTOM,
+               backgroundColor: Colors.green,
+               );
+       
       } else {
          
         null;
@@ -93,16 +94,26 @@ class CartController extends GetxController {
         if (value != null) {
           getCart();
           log(totalSave.toString());
-          Get.back();
-          Get.snackbar(
-            "Remove",
-            "Product removed from cart successfully",
-            colorText: Colors.red,
-            icon: const Icon(
-              Icons.remove_circle,
-              color: Colors.black,
-            ),
-          );
+          // Get.back();
+          // Get.snackbar(
+          //   "Remove",
+          //   "Product removed from cart successfully",
+          //   colorText: Colors.red,
+          //   icon: const Icon(
+          //     Icons.remove_circle,
+          //     color: Colors.black,
+          //   ),
+          // );
+           Get.snackbar(
+              "Remove",
+             "Product removed from cart successfully",
+               icon:  Icon(
+               Icons.remove_circle,
+              color: Colors.black,),backgroundColor: colorRed,
+               snackPosition: SnackPosition.BOTTOM,
+                 
+               );
+
           update();
         } else {
           return;
@@ -123,16 +134,19 @@ class CartController extends GetxController {
   Future<void> incrementDecrementQty(
       int qty, String productId, int productQuantity, String size) async {
          log(qty.toString());
+         log(productQuantity.toString());
          if(qty==-1 &&productQuantity==1){
+         
           Get.snackbar(
-            "required minimum quantity",
-            "minimum quantity is 1",
-            colorText: Colors.red,
-            icon: const Icon(
+               "required minimum quantity",
+            "minimum quantity is 1",backgroundColor: Colors.orangeAccent,
+               icon:  Icon(
               Icons.remove_circle,
               color: Colors.black,
             ),
-          );
+               snackPosition: SnackPosition.BOTTOM,
+                 
+               );
 
 
          }else{
@@ -143,7 +157,7 @@ class CartController extends GetxController {
       productId: productId,
     );
    
-    if (productQuantity >= 1) {
+    if (productQuantity >=1) {
       await CartService().addToCart(model).then(
         (value) async {
           if (value != null) {

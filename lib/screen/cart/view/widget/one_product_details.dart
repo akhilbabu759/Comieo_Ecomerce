@@ -2,6 +2,7 @@ import 'package:ecomerce/common/api_baseurl.dart';
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/screen/cart/controller/cart_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 import 'package:get/get.dart';
 
@@ -26,7 +27,19 @@ class OneProduct extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(left: Get.size.width * 0.497),
                 child: IconButton(
-                    onPressed: () {}, icon: const Icon(Icons.dangerous)),
+                    onPressed: () {
+                      Get.defaultDialog(
+                          title: 'Remove Item',
+                          middleText: 'Are you sure want to remove this item?',
+                          onConfirm: () {
+                            cartcontrol.removeCart(cartcontrol
+                                .cartList!.products[index].product.id);
+                            Get.back();
+                          },
+                          textConfirm: 'Yes',
+                          textCancel: 'No');
+                    },
+                    icon: const Icon(Icons.dangerous)),
               ),
               Text(
                 cartcontrol.cartList!.products[index].product.name,
@@ -36,7 +49,24 @@ class OneProduct extends StatelessWidget {
                 maxLines: 2,
               ),
               textFieldGap,
-              const Text('⭐⭐⭐⭐'),
+              RatingBar.builder(
+                          initialRating: double.parse(
+                               cartcontrol.cartList!.products[index].product.rating
+                              
+                              ),
+                          itemSize: 15,
+                          minRating: 1,
+                          direction: Axis.horizontal,
+                          allowHalfRating: true,
+                          ignoreGestures: true,
+                          itemBuilder: (context, _) => const Icon(
+                            Icons.star,
+                            color: Colors.amber,
+                          ),
+                          onRatingUpdate: (startRating) {
+                           
+                          },
+                        ),
               textFieldGap,
               RichText(
                   text: TextSpan(children: [
@@ -122,7 +152,7 @@ class OneProduct extends StatelessWidget {
                                 child: Text(
                                   cartcontrol.cartList!.products[index].qty
                                       .toString(),
-                                  style: const TextStyle(fontSize: 15),
+                                  style: const TextStyle(fontSize: 17),
                                 ),
                               )
                               // cartcontrol.value.toString()),
