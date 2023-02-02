@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:ecomerce/common/api_baseurl.dart';
+import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
 import 'package:ecomerce/screen/product_details/model/product_model.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class FistContiner extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
+        children: <Widget>[SizedBox(height: 17),
           Container(
             decoration: BoxDecoration(
                 color: Colors.red, borderRadius: BorderRadius.circular(20)),
@@ -34,7 +35,7 @@ class FistContiner extends StatelessWidget {
               Text(
                 model.name,
                 style: const TextStyle(
-                    color: Colors.white,
+                    color: colorblack,
                     fontWeight: FontWeight.bold,
                     fontSize: 20),
               ),
@@ -66,9 +67,7 @@ class FistContiner extends StatelessWidget {
               )
             ],
           ),
-          const SizedBox(
-            height: 5,
-          ),
+          
           Row(
             children: <Widget>[
               

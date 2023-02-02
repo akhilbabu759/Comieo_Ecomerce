@@ -22,8 +22,9 @@ class Body extends StatelessWidget {
             height: size.height,
             child: Stack(
               children: <Widget>[
+                 FistContiner(model: model,),
                 SecondContainer(size: size,model: model),
-                 FistContiner(model: model,)
+                
               ],
             ),
           )

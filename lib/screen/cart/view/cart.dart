@@ -1,5 +1,7 @@
+import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
 import 'package:ecomerce/screen/cart/controller/cart_controller.dart';
+import 'package:ecomerce/screen/cart/view/widget/one_product_details.dart';
 import 'package:ecomerce/screen/cart/view/widget/one_row_product.dart';
 import 'package:flutter/material.dart';
 
@@ -100,25 +102,25 @@ class CartScreen extends StatelessWidget {
               "My Cart",
               style: TextStyle(color: Colors.black),
             ),
-            GetBuilder<CartController>(builder: (controller) {
-              return Text("${cartcontrol.totalproductCount} items",
-                  style: const TextStyle(
-                    color: Colors.black54,
-                  ));
-            })
+            // GetBuilder<CartController>(builder: (controller) {
+            //   return Text("${cartcontrol.totalproductCount} items",
+            //       style: const TextStyle(
+            //         color: Colors.black54,
+            //       ));
+            // })
           ]),
         ),
         body: SafeArea(
             child: Column(
-          children: [
+          children: [textFieldGap,
+           
             Expanded(
               child: GetBuilder<CartController>(
                 builder: (controller) {
                   return ListView.builder(
                     itemCount: controller.cartList!.products.length,
-                    itemBuilder: (context, index) => RowCart(
-                      index: index,
-                    ),
+                    itemBuilder: (context, index) => 
+                     OneProduct(index: index,),
                   );
                 },
               ),

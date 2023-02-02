@@ -1,3 +1,4 @@
+import 'package:ecomerce/core/text_style.dart';
 import 'package:ecomerce/screen/cart/view/cart.dart';
 import 'package:ecomerce/screen/product_details/model/product_model.dart';
 import 'package:ecomerce/screen/product_details/view/widget/body.dart';
@@ -12,7 +13,7 @@ class ProductDeatails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: colorWhite,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.blueGrey,
@@ -32,7 +33,7 @@ class ProductDeatails extends StatelessWidget {
                       Icons.share,
                       size: 30,
                     ),
-                  ),SizedBox(width: 17,)
+                  ),const SizedBox(width: 17,)
           
           
         ],

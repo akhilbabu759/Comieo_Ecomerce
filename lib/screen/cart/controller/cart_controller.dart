@@ -41,13 +41,13 @@ class CartController extends GetxController {
         totalProductCount();
         update();
         isLoading = false.obs;
-        // update();
+        
       } else {
         isLoading = false.obs;
-        // update();
+       
       }
       isLoading = false.obs;
-        // update();
+        
       return null;
     });
     isLoading = false.obs;

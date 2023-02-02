@@ -55,25 +55,33 @@ class Home extends StatelessWidget {
                                         height: 130,
                                         width: 294,
                                         child: Padding(
-                                          padding: const EdgeInsets.only(top:40.0),
-                                          child: Column(children: [
-                                            IconButton(
-                                                onPressed: () {},
-                                                icon: const Icon(
-                                                  Icons.account_circle_outlined,
-                                                  size: 36,color: colorWhite,
-                                                )),
-                                    SizedBox(height: 1,),
-                                            const Text(
-                                              'Akhil ',
-                                              style: TextStyle(
-                                                  color: colorWhite,
-                                                  fontSize: 29),
+                                          padding: const EdgeInsets.only(top:63.0,left: 10),
+                                          child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                            Text('welcome,',style: TextStyle(color: colorWhite,fontSize: 20),),
+                                            // IconButton(
+                                            //     onPressed: () {},
+                                            //     icon: const Icon(
+                                            //       Icons.account_circle_outlined,
+                                            //       size: 36,color: colorWhite,
+                                            //     )),
+                                    
+                                            Padding(
+                                              padding: const EdgeInsets.only(left:48.0),
+                                              child: const Text(
+                                                'Akhil ',
+                                                style: TextStyle(
+                                                    color: colorWhite,
+                                                    fontSize: 29),
+                                              ),
                                             )
                                           ]),
                                         ),
                                       ),
                                        GestureDetector(onTap: () => Get.to(const WishList()) , child: const SideSheetRow(icon:  Icon(Icons.favorite),text: 'Wishlist',)),
+                                      
+                                       textFieldGap,
+                                       GestureDetector(onTap: () => Get.to('') , child: const SideSheetRow(icon:  Icon(Icons.account_circle),text: 'Account',)),
                                       
                                        textFieldGap,
                                        GestureDetector(child: const SideSheetRow(icon:  Icon(Icons.shopping_basket),text: 'Order',)),

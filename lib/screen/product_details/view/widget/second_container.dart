@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
 import 'package:ecomerce/screen/Whishlist/controller/wishlist_controller.dart';
@@ -23,11 +25,12 @@ class SecondContainer extends StatelessWidget {
     final cartC = Get.put(CartController());
     return Container(
       width: size.width,
-      margin: EdgeInsets.only(top: size.height * 0.3),
+      height:size.height ,
+      margin: EdgeInsets.only(top: size.height * 0.387),
       // height: 500,
-      decoration: const BoxDecoration(
-        color: colorWhite,
-        borderRadius: BorderRadius.only(
+      decoration:  BoxDecoration(
+        color:Colors.blueGrey[900],
+        borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(24),
           topRight: Radius.circular(24),
         ),
@@ -66,9 +69,9 @@ class SecondContainer extends StatelessWidget {
                                    wishlistC.wishList.contains(model.id)
                                        ? Icons.favorite
                                        :  Icons.favorite_border_outlined,
-                                   color:wishlistC.wishList.isEmpty?colorblack : wishlistC.wishList.contains(model.id)
+                                   color:wishlistC.wishList.isEmpty?colorWhite : wishlistC.wishList.contains(model.id)
                                        ?  Colors.red
-                                       :colorblack ,
+                                       :colorWhite ,
                                  ),
                                ),
                             ),
@@ -91,7 +94,7 @@ class SecondContainer extends StatelessWidget {
                 model.description,
                 // 'A product detail page (PDP) is a web page on an e - commerce site that presents the description of a specific product in view. The details displayed often include size, color, price, shipping information, reviews, and other relevant information customers may want to know before making a purchase',
                 style: const TextStyle(
-                  color: Colors.black,
+                  color: Colors.white,
                   fontSize: 16,
                 ),
               ),
@@ -104,7 +107,7 @@ class SecondContainer extends StatelessWidget {
               children: [
                 const Text(
                   '  SIZE',
-                  style: TextStyle(
+                  style: TextStyle(color: colorWhite,
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
                   ),
@@ -113,7 +116,7 @@ class SecondContainer extends StatelessWidget {
                   children: [
                     RichText(
                       text: TextSpan(
-                        text: 'PRICE ',
+                        text: 'Price\n ',style: TextStyle(fontSize: 18),
                         children: <TextSpan>[
                           TextSpan(
                             style: const TextStyle(
@@ -124,7 +127,7 @@ class SecondContainer extends StatelessWidget {
                           TextSpan(
                             text: model.price.toString(),
                             style: const TextStyle(
-                              color: Colors.black87,
+                              color: colorWhite,
                               decoration: TextDecoration.lineThrough,
                             ),
                           ),
@@ -132,7 +135,7 @@ class SecondContainer extends StatelessWidget {
                             style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 26,
-                              color: Colors.black,
+                              color: colorWhite,
                             ),
                             text: '  ₹${model.offer}',
                           ),
@@ -146,14 +149,14 @@ class SecondContainer extends StatelessWidget {
             Row(
               children: [
                 Card(
-                  color: Colors.blueGrey,
+                  color: colorWhite,
                   child: Text(
                     model.size[0],
                     style: textstyle,
                   ),
                 ),
                 Card(
-                  color: Colors.blueGrey,
+                  color: colorWhite,
                   child: Text(
                     model.size[1],
                     style: textstyle,
@@ -172,7 +175,7 @@ class SecondContainer extends StatelessWidget {
                   width: 58,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(18),
-                    border: Border.all(color: Colors.blueGrey),
+                    border: Border.all(color: colorWhite),
                   ),
                   child: IconButton(
                     onPressed: () {
@@ -180,7 +183,7 @@ class SecondContainer extends StatelessWidget {
                       Get.snackbar(
                "Added",
             "Product Added To Cart Successfully",
-               icon: Icon(
+               icon: const Icon(
               Icons.add_alert_rounded,
               color: Colors.black,
             ),
@@ -191,7 +194,7 @@ class SecondContainer extends StatelessWidget {
                       
                     },
                     icon: const Icon(
-                      Icons.shopping_cart,
+                      Icons.shopping_cart,color: colorWhite,
                     ),
                   ),
                 ),
@@ -199,7 +202,7 @@ class SecondContainer extends StatelessWidget {
                   height: 50,
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blueGrey,
+                          backgroundColor: colorWhite,
                           elevation: 20,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20),
@@ -210,7 +213,7 @@ class SecondContainer extends StatelessWidget {
                               Size(size.width * 0.71, size.height * 0.001)),
                       onPressed: () {},
                       child: const Text(
-                        'BUY NOW',
+                        'BUY NOW',style: TextStyle(color: colorblack),
                       )),
                 )
               ],
