@@ -95,14 +95,14 @@ class Home extends StatelessWidget {
                                        ),
                                        textFieldGap,
                                        GestureDetector(child: const SideSheetRow(icon:  Icon(Icons.help_center),text: 'Help',)),
-                                       SizedBox(height: 300,),
-                                       Text('Version 1.0',style: TextStyle(color: colorblack),)
+                                       const SizedBox(height: 300,),
+                                       const Text('Version 1.0',style: TextStyle(color: colorblack),)
                                     ],
                                   ),
                                   context: context);
                             },
                             icon: const Icon(Icons.menu)),
-                        // SizedBox(width: width*0.04),
+                       
                         Text(
                           'Comieo',
                           style: textstyle,

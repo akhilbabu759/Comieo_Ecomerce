@@ -25,7 +25,7 @@ class OneProduct extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsets.only(left: Get.size.width * 0.497),
+                padding: EdgeInsets.only(left: Get.size.width * 0.440),
                 child: IconButton(
                     onPressed: () {
                       Get.defaultDialog(

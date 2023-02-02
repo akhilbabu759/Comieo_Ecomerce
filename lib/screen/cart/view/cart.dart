@@ -25,65 +25,54 @@ class CartScreen extends StatelessWidget {
             vertical: 15,
             horizontal: 30,
           ),
-          height: 174,
+          height: 97,
           decoration: BoxDecoration(
-              color: Colors.blueGrey,
+              color: Colors.blueGrey.shade300,
               borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(30), topRight: Radius.circular(30)),
               boxShadow: [
                 BoxShadow(
                     offset: const Offset(0, -1),
                     blurRadius: 20,
-                    color: Color.fromARGB(255, 99, 98, 98).withOpacity(0.15))
+                    color: const Color.fromARGB(255, 99, 98, 98).withOpacity(0.15))
               ]),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Container(
-                    height: 40,
-                    width: 40,
-                    decoration: BoxDecoration(
-                      color: const Color(0xFFF5F6F9),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Image.network(
-                        'https://static.vecteezy.com/system/resources/previews/013/374/462/original/bill-icon-style-free-vector.jpg'),
-                  )
-                ],
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              GetBuilder<CartController>(
-                builder: (controller) {
-                  return Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text.rich(TextSpan(text: 'Total:\n', children: [
-                        TextSpan(
-                            text: "${cartcontrol.cartList!.totalPrice}",
-                            style: const TextStyle(
-                                fontSize: 16, color: Colors.black))
-                      ])),
-                      Container(
-                        height: 50,
-                        width: 160,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(18),
-                          color: Colors.orange[700],
-                        ),
-                        padding: const EdgeInsets.only(left: 40, top: 15),
-                        child: const Text(
-                          'Check out',
-                          style: TextStyle(color: colorWhite),
-                        ),
-                      )
-                    ],
-                  );
-                },
-              )
-            ],
+          child: Padding(
+            padding: const EdgeInsets.all(3.0),
+            child: Column(
+              children: [
+               
+                const SizedBox(
+                  height: 1,
+                ),
+                GetBuilder<CartController>(
+                  builder: (controller) {
+                    return Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("  ₹ ${cartcontrol.cartList!.totalPrice}  ",
+                              style: const TextStyle(
+                                  fontSize: 38, color: colorblack),),
+                        Container(
+                          height: 50,
+                          width: 160,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(18),
+                            color: Colors.orange[700],
+                          ),
+                          // padding: const EdgeInsets.only(left: 4, top: 15),
+                          child: const Center(
+                            child:  Text(
+                              'Check out',
+                              style: TextStyle(color: colorWhite,fontWeight: FontWeight.w500,fontSize: 20),
+                            ),
+                          ),
+                        )
+                      ],
+                    );
+                  },
+                )
+              ],
+            ),
           ),
         ),
         appBar: AppBar(
@@ -120,7 +109,10 @@ class CartScreen extends StatelessWidget {
                   return ListView.builder(
                     itemCount: controller.cartList!.products.length,
                     itemBuilder: (context, index) => 
-                     OneProduct(index: index,),
+                     Padding(
+                       padding: const EdgeInsets.all(8.0),
+                       child: OneProduct(index: index,),
+                     ),
                   );
                 },
               ),

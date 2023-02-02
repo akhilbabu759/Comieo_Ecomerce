@@ -18,27 +18,24 @@ class AfterAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [const Card(elevation: 3,
-          child: CarouselHome()),
+      children: [
+        const Card(elevation: 3, child: CarouselHome()),
         Padding(
           padding: const EdgeInsets.all(13.0),
-          child: Column(children: [ 
-            
+          child: Column(children: [
             textFieldGap,
-            
             textFieldGap,
-            
             textFieldGap,
             const HomeHeading(
               tex: 'Top Deals in',
-            ),  textFieldGap,
+            ),
+            textFieldGap,
             const CardView(),
-          
             textFieldGap,
             const HomeHeading(
               tex: 'All shops',
             ),
-            textFieldGap, 
+            textFieldGap,
             HomeGridView(
               height: height * 0.9,
               width: width * 0.9,
