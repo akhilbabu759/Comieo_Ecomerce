@@ -2,6 +2,7 @@ import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
 import 'package:ecomerce/screen/Whishlist/controller/wishlist_controller.dart';
 import 'package:ecomerce/screen/cart/controller/cart_controller.dart';
+import 'package:ecomerce/screen/product_details/controller/product_controller.dart';
 
 import 'package:ecomerce/screen/product_details/model/product_model.dart';
 import 'package:flutter/material.dart';
@@ -16,13 +17,15 @@ class SecondContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final wishlistC = Get.put(WishListController());
+     final productController = Get.put(ProductController());
 
     final cartC = Get.put(CartController());
     return Container(
       width: size.width,
       height: size.height,
-      margin: EdgeInsets.only(top: size.height * 0.44),
-      // height: 500,
+      margin: EdgeInsets.only(
+        top: size.height * 0.44,
+      ),
       decoration: BoxDecoration(
         color: Colors.blueGrey[900],
         borderRadius: const BorderRadius.only(
@@ -45,25 +48,26 @@ class SecondContainer extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                  //  Icon(Icons.share,size: 30,),
                   GetBuilder<WishListController>(
                     builder: (controller) => IconButton(
                       onPressed: () {
-                        wishlistC.addOrRemoveFromWishlist(model.id
-
-                            //  productC.productList[index].id
-                            // .product.id
-                            );
+                        wishlistC.addOrRemoveFromWishlist(
+                          model.id,
+                        );
                       },
                       icon: wishlistC.wishList.isEmpty
                           ? const Icon(Icons.favorite_border_outlined)
                           : Icon(
-                              wishlistC.wishList.contains(model.id)
+                              wishlistC.wishList.contains(
+                                model.id,
+                              )
                                   ? Icons.favorite
                                   : Icons.favorite_border_outlined,
                               color: wishlistC.wishList.isEmpty
                                   ? colorWhite
-                                  : wishlistC.wishList.contains(model.id)
+                                  : wishlistC.wishList.contains(
+                                      model.id,
+                                    )
                                       ? Colors.red
                                       : colorWhite,
                             ),
@@ -73,7 +77,10 @@ class SecondContainer extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(5.0),
+              padding: const EdgeInsets.only(
+                left: 5.0,
+                right: 5,
+              ),
               child: Text(
                 model.description,
                 style: const TextStyle(
@@ -82,73 +89,86 @@ class SecondContainer extends StatelessWidget {
                 ),
               ),
             ),
-            // SizedBox(
-            //   height: size.height * 0.04,
-            // ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  '  SIZE',
-                  style: TextStyle(
-                    color: colorWhite,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
+                const Padding(
+                  padding: EdgeInsets.only(bottom: 15.0),
+                  child: Text(
+                    '  SIZE',
+                    style: TextStyle(
+                      color: colorWhite,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    RichText(
-                      text: TextSpan(
-                        text: 'Price\n ',
-                        style: const TextStyle(fontSize: 18),
-                        children: <TextSpan>[
-                          TextSpan(
-                            style: const TextStyle(
-                              color: Colors.green,
+                Padding(
+                  padding: const EdgeInsets.only(top: 14.0),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      RichText(
+                        text: TextSpan(
+                          text: 'Price\n ',
+                          style: const TextStyle(fontSize: 18),
+                          children: <TextSpan>[
+                            TextSpan(
+                              style: const TextStyle(
+                                color: Colors.green,
+                              ),
+                              text: '${model.discountPrice}% off ',
                             ),
-                            text: '${model.discountPrice}% off ',
-                          ),
-                          TextSpan(
-                            text: model.price.toString(),
-                            style: const TextStyle(
-                              color: colorWhite,
-                              decoration: TextDecoration.lineThrough,
+                            TextSpan(
+                              text: model.price.toString(),
+                              style: const TextStyle(
+                                color: colorWhite,
+                                decoration: TextDecoration.lineThrough,
+                              ),
                             ),
-                          ),
-                          TextSpan(
-                            style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 26,
-                              color: colorWhite,
+                            TextSpan(
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 26,
+                                color: colorWhite,
+                              ),
+                              text: '  ₹${model.offer}',
                             ),
-                            text: '  ₹${model.offer}',
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ],
             ),
-            Row(
-              children: [
-                Card(
-                  color: colorWhite,
-                  child: Text(
-                    model.size[0],
-                    style: textstyle,
+            GetBuilder<ProductController>(builder: 
+              (controller) {
+                return Row(
+                children: [
+                  
+                  GestureDetector(onTap: () => productController.onSizeSelected(0),
+                    child: Card(
+                      color:productController.cole1,
+                      child: Text(
+                        ' ${model.size[0]} ',
+                        style: textstyle,
+                      ),
+                    ),
                   ),
-                ),
-                Card(
-                  color: colorWhite,
-                  child: Text(
-                    model.size[1],
-                    style: textstyle,
-                  ),
-                )
-              ],
+                  GestureDetector(onTap: () => productController.onSizeSelected(1),
+                    child: Card(
+                      color: productController.cole2,
+                      child: Text(
+                        ' ${model.size[1]} ',
+                        style: textstyle,
+                      ),
+                    ),
+                  )
+                ],
+              );
+              },
             ),
             SizedBox(
               height: size.height * 0.025,
@@ -165,7 +185,10 @@ class SecondContainer extends StatelessWidget {
                   ),
                   child: IconButton(
                     onPressed: () {
-                      cartC.addToCart(model.id, model.size.toString());
+                      cartC.addToCart(
+                        model.id,
+                        model.size[productController.size].toString(),
+                      );
                     },
                     icon: const Icon(
                       Icons.shopping_cart,
@@ -180,16 +203,24 @@ class SecondContainer extends StatelessWidget {
                           backgroundColor: colorWhite,
                           elevation: 20,
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(
+                              20,
+                            ),
                           ),
-                          maximumSize:
-                              Size(size.width * 2.001, size.height * 2.001),
-                          minimumSize:
-                              Size(size.width * 0.71, size.height * 0.001)),
+                          maximumSize: Size(
+                            size.width * 2.001,
+                            size.height * 2.001,
+                          ),
+                          minimumSize: Size(
+                            size.width * 0.71,
+                            size.height * 0.001,
+                          )),
                       onPressed: () {},
                       child: const Text(
                         'BUY NOW',
-                        style: TextStyle(color: colorblack),
+                        style: TextStyle(
+                          color: colorblack,
+                        ),
                       )),
                 )
               ],
