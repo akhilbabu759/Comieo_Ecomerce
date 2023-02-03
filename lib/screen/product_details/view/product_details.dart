@@ -1,5 +1,5 @@
 import 'package:ecomerce/core/text_style.dart';
-import 'package:ecomerce/screen/cart/view/cart.dart';
+
 import 'package:ecomerce/screen/product_details/model/product_model.dart';
 import 'package:ecomerce/screen/product_details/view/widget/body.dart';
 import 'package:flutter/material.dart';

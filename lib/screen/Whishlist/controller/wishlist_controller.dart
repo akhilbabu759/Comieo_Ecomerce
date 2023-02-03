@@ -75,7 +75,7 @@ class WishListController extends GetxController {
                "Item removed from Wishlist",
                icon: const Icon(Icons.remove_circle_outline_rounded),
                snackPosition: SnackPosition.BOTTOM,
-               backgroundColor: Color.fromARGB(255, 172, 73, 66),
+               backgroundColor: const Color.fromARGB(255, 172, 73, 66),
                );
         }
       } else {

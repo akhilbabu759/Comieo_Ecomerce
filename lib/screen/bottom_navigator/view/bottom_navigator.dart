@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/screen/bottom_navigator/controller/bottom_controller.dart';
 
 import 'package:flutter/material.dart';
@@ -27,7 +26,7 @@ class BottomNavigator extends StatelessWidget {
               // selectedIndex.notifyListeners();},
             },
             currentIndex: signupController.selectedIndex.value.toInt(),
-            selectedItemColor:  Colors.blue,
+            selectedItemColor: Colors.blue,
             items: const [
               BottomNavigationBarItem(
                   label: 'Home',
@@ -39,7 +38,6 @@ class BottomNavigator extends StatelessWidget {
                   icon: Icon(
                     Icons.category,
                   )),
-             
               BottomNavigationBarItem(
                   label: 'Settings',
                   icon: Icon(

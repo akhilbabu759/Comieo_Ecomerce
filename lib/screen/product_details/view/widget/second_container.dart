@@ -1,16 +1,14 @@
-import 'dart:ui';
 
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
 import 'package:ecomerce/screen/Whishlist/controller/wishlist_controller.dart';
 import 'package:ecomerce/screen/cart/controller/cart_controller.dart';
-import 'package:ecomerce/screen/cart/view/cart.dart';
-import 'package:ecomerce/screen/home/controller/home_controll.dart';
+
 import 'package:ecomerce/screen/product_details/model/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:share/share.dart';
+
 
 class SecondContainer extends StatelessWidget {
   const SecondContainer({Key? key, required this.size, required this.model})
@@ -25,7 +23,7 @@ class SecondContainer extends StatelessWidget {
     final cartC = Get.put(CartController());
     return Container(
       width: size.width,
-      height:size.height ,
+      height:size.height*0 ,
       margin: EdgeInsets.only(top: size.height * 0.387),
       // height: 500,
       decoration:  BoxDecoration(
@@ -64,7 +62,7 @@ class SecondContainer extends StatelessWidget {
                                            );
                                  },
                                  icon:
-                                  wishlistC.wishList.isEmpty?Icon(Icons.favorite_border_outlined):
+                                  wishlistC.wishList.isEmpty?const Icon(Icons.favorite_border_outlined):
                                   Icon(
                                    wishlistC.wishList.contains(model.id)
                                        ? Icons.favorite
@@ -116,7 +114,7 @@ class SecondContainer extends StatelessWidget {
                   children: [
                     RichText(
                       text: TextSpan(
-                        text: 'Price\n ',style: TextStyle(fontSize: 18),
+                        text: 'Price\n ',style: const TextStyle(fontSize: 18),
                         children: <TextSpan>[
                           TextSpan(
                             style: const TextStyle(

@@ -18,7 +18,7 @@ class FistContiner extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[SizedBox(height: 17),
+        children: <Widget>[const SizedBox(height: 17),
           Container(
             decoration: BoxDecoration(
                 color: Colors.red, borderRadius: BorderRadius.circular(20)),

@@ -1,6 +1,5 @@
 import 'package:ecomerce/common/api_baseurl.dart';
 import 'package:ecomerce/core/constent.dart';
-import 'package:ecomerce/core/text_style.dart';
 
 import 'package:flutter/material.dart';
 

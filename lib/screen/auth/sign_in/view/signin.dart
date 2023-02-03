@@ -49,7 +49,7 @@ class SigninPage extends StatelessWidget {
                     ),
                     RichText(
                       text: TextSpan(
-                        text: "Don't have account? ",style: TextStyle(color: colorblack),
+                        text: "Don't have account? ",style: const TextStyle(color: colorblack),
                         children: <TextSpan>[
                           TextSpan(
                             recognizer: TapGestureRecognizer()

@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:ecomerce/core/constent.dart';
-import 'package:ecomerce/core/text_style.dart';
+
 import 'package:ecomerce/screen/auth/signup/model/model.dart';
 import 'package:ecomerce/screen/auth/signup/service/sign_up_service/sign_up_service.dart';
 import 'package:ecomerce/screen/auth/verification_code_screen/service/otp_service.dart';

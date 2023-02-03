@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:ecomerce/common/api_baseurl.dart';
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
@@ -8,7 +6,6 @@ import 'package:ecomerce/screen/home/controller/home_controll.dart';
 import 'package:ecomerce/screen/product_details/model/product_model.dart';
 import 'package:ecomerce/screen/product_details/view/product_details.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 import 'package:get/get.dart';
 
@@ -26,9 +23,8 @@ class HomeGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-        final wishlistC = Get.put(WishListController());
+    final wishlistC = Get.put(WishListController());
     final productC = Get.put(HomeControll());
-
 
     return GetBuilder<HomeControll>(
       builder: (controller) => productC.isLoding == true
@@ -46,7 +42,6 @@ class HomeGridView extends StatelessWidget {
                   childAspectRatio: 1 / 1.5),
               itemBuilder: (BuildContext ctx, int index) {
                 return ColoredBox(
-                
                   color: colorWhite,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -87,29 +82,32 @@ class HomeGridView extends StatelessWidget {
                               ),
                             ),
                             GetBuilder<WishListController>(
-                              builder: (controller) =>
-                               Positioned(
+                              builder: (controller) => Positioned(
                                 right: 0,
                                 // bottom: 0,
-                                child: 
-                                IconButton(
+                                child: IconButton(
                                   onPressed: () {
                                     wishlistC.addOrRemoveFromWishlist(
-                                        
                                         productC.productList[index].id
-                                            // .product.id
-                                            );
+                                        // .product.id
+                                        );
                                   },
-                                  icon:
-                                   wishlistC.wishList.isEmpty?Icon(Icons.favorite_border_outlined):
-                                   Icon(
-                                    wishlistC.wishList.contains(productC.productList[index].id)
-                                        ? Icons.favorite
-                                        :  Icons.favorite_border_outlined,
-                                    color:wishlistC.wishList.isEmpty?colorblack : wishlistC.wishList.contains(productC.productList[index].id)
-                                        ?  Colors.red
-                                        :colorblack ,
-                                  ),
+                                  icon: wishlistC.wishList.isEmpty
+                                      ? const Icon(Icons.favorite_border_outlined)
+                                      : Icon(
+                                          wishlistC.wishList.contains(productC
+                                                  .productList[index].id)
+                                              ? Icons.favorite
+                                              : Icons.favorite_border_outlined,
+                                          color: wishlistC.wishList.isEmpty
+                                              ? colorblack
+                                              : wishlistC.wishList.contains(
+                                                      productC
+                                                          .productList[index]
+                                                          .id)
+                                                  ? Colors.red
+                                                  : colorblack,
+                                        ),
                                 ),
                               ),
                             )
@@ -118,7 +116,6 @@ class HomeGridView extends StatelessWidget {
                         const SizedBox(
                           height: 5,
                         ),
-                        
                         Text(
                           productC.productList[index].description,
                           maxLines: 2,

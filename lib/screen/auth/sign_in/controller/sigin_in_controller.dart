@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:ecomerce/core/constent.dart';
-import 'package:ecomerce/core/text_style.dart';
+
 import 'package:ecomerce/screen/auth/sign_in/model/sign_in_model.dart';
 import 'package:ecomerce/screen/auth/sign_in/service/sign_in_sevice.dart';
 import 'package:ecomerce/screen/bottom_navigator/view/page_navigation.dart';
@@ -39,10 +39,9 @@ class SignInController extends GetxController {
             update();
           });
         } else {
-           isLoading = false;
-           update();
+          isLoading = false;
+          update();
           // Get.snackbar('Something wron!!', 'invalid user name or password');
-         
 
           return;
         }

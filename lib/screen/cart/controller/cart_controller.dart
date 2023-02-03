@@ -72,7 +72,7 @@ class CartController extends GetxController {
           Get.snackbar(
                "Added",
             "Product Added To Cart Successfully",
-               icon: Icon(
+               icon: const Icon(
               Icons.add_alert_rounded,
               color: Colors.black,
             ),
@@ -107,7 +107,7 @@ class CartController extends GetxController {
            Get.snackbar(
               "Remove",
              "Product removed from cart successfully",
-               icon:  Icon(
+               icon:  const Icon(
                Icons.remove_circle,
               color: Colors.black,),backgroundColor: colorRed,
                snackPosition: SnackPosition.BOTTOM,
@@ -140,7 +140,7 @@ class CartController extends GetxController {
           Get.snackbar(
                "required minimum quantity",
             "minimum quantity is 1",backgroundColor: Colors.orangeAccent,
-               icon:  Icon(
+               icon:  const Icon(
               Icons.remove_circle,
               color: Colors.black,
             ),

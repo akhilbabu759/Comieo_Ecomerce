@@ -18,8 +18,8 @@ class SideSheetRow extends StatelessWidget {
         // IconButton(onPressed: () {
           
         // }, icon: icon),
-        SizedBox(width: 10,),
-        Text(text,style: TextStyle(color: colorblack,fontSize: 17),)
+        const SizedBox(width: 10,),
+        Text(text,style: const TextStyle(color: colorblack,fontSize: 17),)
       ],),
     );
   }
