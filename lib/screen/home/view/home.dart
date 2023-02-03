@@ -2,6 +2,7 @@ import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
 
 import 'package:ecomerce/screen/Whishlist/view/wishlist.dart';
+import 'package:ecomerce/screen/account/view/account.dart';
 import 'package:ecomerce/screen/cart/view/cart.dart';
 
 import 'package:ecomerce/screen/home/view/widget/afterAppBar/after_appbar.dart';
@@ -57,7 +58,7 @@ class Home extends StatelessWidget {
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 const Text(
-                                                  'Welcome,',
+                                                  'Hey!',
                                                   style: TextStyle(
                                                       color: colorWhite,
                                                       fontSize: 20),
@@ -71,12 +72,9 @@ class Home extends StatelessWidget {
 
                                                 Row(
                                                   children: const [
-                                                    Icon(
-                                                      Icons.person,
-                                                      color: Colors.white,
-                                                    ),
+                                                    
                                                     SizedBox(
-                                                      width: 10,
+                                                      width: 30,
                                                     ),
                                                     Text(
                                                       'Akhil ',
@@ -97,7 +95,7 @@ class Home extends StatelessWidget {
                                           )),
                                       textFieldGap,
                                       GestureDetector(
-                                          onTap: () => Get.to(''),
+                                          onTap: () => Get.to(Account()),
                                           child: const SideSheetRow(
                                             icon: Icon(Icons.account_circle),
                                             text: 'Account',
