@@ -16,7 +16,7 @@ class ProductDeatails extends StatelessWidget {
       backgroundColor: colorWhite,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Colors.blueGrey[900],
         leading: IconButton(
           onPressed: () {
             Get.back();

@@ -1,4 +1,3 @@
-
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
 import 'package:ecomerce/screen/Whishlist/controller/wishlist_controller.dart';
@@ -8,8 +7,6 @@ import 'package:ecomerce/screen/product_details/model/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-
-
 class SecondContainer extends StatelessWidget {
   const SecondContainer({Key? key, required this.size, required this.model})
       : super(key: key);
@@ -18,16 +15,16 @@ class SecondContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final wishlistC =Get.put(WishListController());
-   
+    final wishlistC = Get.put(WishListController());
+
     final cartC = Get.put(CartController());
     return Container(
       width: size.width,
-      height:size.height*0 ,
-      margin: EdgeInsets.only(top: size.height * 0.387),
+      height: size.height,
+      margin: EdgeInsets.only(top: size.height * 0.44),
       // height: 500,
-      decoration:  BoxDecoration(
-        color:Colors.blueGrey[900],
+      decoration: BoxDecoration(
+        color: Colors.blueGrey[900],
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(24),
           topRight: Radius.circular(24),
@@ -41,80 +38,71 @@ class SecondContainer extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            textFieldGap,
             Padding(
               padding: const EdgeInsets.only(
                 left: 17.0,
-                top: 15,
+                top: 1,
               ),
               child: Row(
                 children: [
                   //  Icon(Icons.share,size: 30,),
-                   GetBuilder<WishListController>(
-                              builder: (controller) =>
-                               IconButton(
-                                 onPressed: () {
-                                   wishlistC.addOrRemoveFromWishlist(
-                                    model.id
-                                       
-                                      //  productC.productList[index].id
-                                           // .product.id
-                                           );
-                                 },
-                                 icon:
-                                  wishlistC.wishList.isEmpty?const Icon(Icons.favorite_border_outlined):
-                                  Icon(
-                                   wishlistC.wishList.contains(model.id)
-                                       ? Icons.favorite
-                                       :  Icons.favorite_border_outlined,
-                                   color:wishlistC.wishList.isEmpty?colorWhite : wishlistC.wishList.contains(model.id)
-                                       ?  Colors.red
-                                       :colorWhite ,
-                                 ),
-                               ),
-                            ),
-                  const SizedBox(
-                    width: 10,
-                  ),
+                  GetBuilder<WishListController>(
+                    builder: (controller) => IconButton(
+                      onPressed: () {
+                        wishlistC.addOrRemoveFromWishlist(model.id
 
-                  SizedBox(
-                    height: size.height * 0.05,
+                            //  productC.productList[index].id
+                            // .product.id
+                            );
+                      },
+                      icon: wishlistC.wishList.isEmpty
+                          ? const Icon(Icons.favorite_border_outlined)
+                          : Icon(
+                              wishlistC.wishList.contains(model.id)
+                                  ? Icons.favorite
+                                  : Icons.favorite_border_outlined,
+                              color: wishlistC.wishList.isEmpty
+                                  ? colorWhite
+                                  : wishlistC.wishList.contains(model.id)
+                                      ? Colors.red
+                                      : colorWhite,
+                            ),
+                    ),
                   ),
                 ],
               ),
-            ),
-            SizedBox(
-              height: size.height * 0.03,
             ),
             Padding(
               padding: const EdgeInsets.all(5.0),
               child: Text(
                 model.description,
-                // 'A product detail page (PDP) is a web page on an e - commerce site that presents the description of a specific product in view. The details displayed often include size, color, price, shipping information, reviews, and other relevant information customers may want to know before making a purchase',
                 style: const TextStyle(
                   color: Colors.white,
                   fontSize: 16,
                 ),
               ),
             ),
-            SizedBox(
-              height: size.height * 0.04,
-            ),
+            // SizedBox(
+            //   height: size.height * 0.04,
+            // ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
                   '  SIZE',
-                  style: TextStyle(color: colorWhite,
+                  style: TextStyle(
+                    color: colorWhite,
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
                   ),
                 ),
-                Row(mainAxisAlignment: MainAxisAlignment.start,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     RichText(
                       text: TextSpan(
-                        text: 'Price\n ',style: const TextStyle(fontSize: 18),
+                        text: 'Price\n ',
+                        style: const TextStyle(fontSize: 18),
                         children: <TextSpan>[
                           TextSpan(
                             style: const TextStyle(
@@ -178,12 +166,10 @@ class SecondContainer extends StatelessWidget {
                   child: IconButton(
                     onPressed: () {
                       cartC.addToCart(model.id, model.size.toString());
-                      
-
-                      
                     },
                     icon: const Icon(
-                      Icons.shopping_cart,color: colorWhite,
+                      Icons.shopping_cart,
+                      color: colorWhite,
                     ),
                   ),
                 ),
@@ -202,7 +188,8 @@ class SecondContainer extends StatelessWidget {
                               Size(size.width * 0.71, size.height * 0.001)),
                       onPressed: () {},
                       child: const Text(
-                        'BUY NOW',style: TextStyle(color: colorblack),
+                        'BUY NOW',
+                        style: TextStyle(color: colorblack),
                       )),
                 )
               ],
