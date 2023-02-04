@@ -6,15 +6,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ProductController extends GetxController {
-  Color cole1 = Color.fromARGB(255, 236, 113, 154);
+  Color cole1 = const Color.fromARGB(255, 231, 246, 68);
   Color cole2 = colorWhite;
   int size = 0;
   void onSizeSelected(int index) {
     if (index == 1) {
       cole1 = colorWhite;
-      cole2 = Color.fromARGB(255, 224, 120, 155);
+      cole2 = const Color.fromARGB(255, 231, 246, 68);
     } else {
-      cole1 = Color.fromARGB(255, 213, 109, 144);
+      cole1 = const Color.fromARGB(255, 231, 246, 68);
       cole2 = colorWhite;
     }
     log('select size', name: 'size select');

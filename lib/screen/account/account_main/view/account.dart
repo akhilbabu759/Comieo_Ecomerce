@@ -1,9 +1,9 @@
 import 'package:ecomerce/core/constent.dart';
-import 'package:ecomerce/core/text_style.dart';
-import 'package:ecomerce/screen/account/view/widget/row_account.dart';
+
+import 'package:ecomerce/screen/account/account_main/view/widget/row_account.dart';
+import 'package:ecomerce/screen/account/view_acount/all_account_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/get_core.dart';
 
 class Account extends StatelessWidget {
   const Account({super.key});
@@ -47,9 +47,15 @@ class Account extends StatelessWidget {
                     icon: Icon(Icons.shopping_basket),
                   ),
                   textFieldGap,
-                  const RowAccount(
-                    text: 'Saved Addresses',
-                    icon: Icon(Icons.location_on),
+                  GestureDetector(
+                    onTap: () => Get.to(AllAccountView(
+                      width: Get.width,
+                      height: Get.height,
+                    )),
+                    child: const RowAccount(
+                      text: 'Saved Addresses',
+                      icon: Icon(Icons.location_on),
+                    ),
                   )
                 ],
               ),

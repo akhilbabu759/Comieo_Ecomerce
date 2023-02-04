@@ -100,12 +100,6 @@ class CartScreen extends StatelessWidget {
                       "My Cart",
                       style: TextStyle(color: Colors.black),
                     ),
-                    // GetBuilder<CartController>(builder: (controller) {
-                    //   return Text("${cartcontrol.totalproductCount} items",
-                    //       style: const TextStyle(
-                    //         color: Colors.black54,
-                    //       ));
-                    // })
                   ]),
                 ),
                 body: SafeArea(
@@ -115,15 +109,18 @@ class CartScreen extends StatelessWidget {
                     Expanded(
                       child: GetBuilder<CartController>(
                         builder: (controller) {
-                          return ListView.builder(
-                            itemCount: controller.cartList!.products.length,
-                            itemBuilder: (context, index) => Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: OneProduct(
-                                index: index,
-                              ),
-                            ),
-                          );
+                          return controller.cartList!.products.isEmpty
+                              ?const Center(child: Text('Cart is empty'))
+                              : ListView.builder(
+                                  itemCount:
+                                      controller.cartList!.products.length,
+                                  itemBuilder: (context, index) => Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: OneProduct(
+                                      index: index,
+                                    ),
+                                  ),
+                                );
                         },
                       ),
                     ),

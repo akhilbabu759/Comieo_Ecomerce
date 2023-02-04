@@ -2,7 +2,7 @@ import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
 
 import 'package:ecomerce/screen/Whishlist/view/wishlist.dart';
-import 'package:ecomerce/screen/account/view/account.dart';
+import 'package:ecomerce/screen/account/account_main/view/account.dart';
 import 'package:ecomerce/screen/cart/view/cart.dart';
 
 import 'package:ecomerce/screen/home/view/widget/afterAppBar/after_appbar.dart';
@@ -95,7 +95,7 @@ class Home extends StatelessWidget {
                                           )),
                                       textFieldGap,
                                       GestureDetector(
-                                          onTap: () => Get.to(Account()),
+                                          onTap: () => Get.to(const Account()),
                                           child: const SideSheetRow(
                                             icon: Icon(Icons.account_circle),
                                             text: 'Account',

@@ -26,7 +26,7 @@ class CartController extends GetxController {
   List<String> cartItemsId = [];
   int quantity = 1;
   int totalproductCount = 1;
-  int? totalSave;
+   int? totalSave;
   CartService service = CartService();
   
 
@@ -38,7 +38,9 @@ class CartController extends GetxController {
         cartList = value;
         update();
         cartItemsId = cartList!.products.map((e) => e.product.id).toList();
+        update();
         totalSave = (cartList!.totalPrice - cartList!.totalDiscount).toInt();
+        update();
         totalProductCount();
         update();
         isLoading = false.obs;
@@ -67,7 +69,7 @@ class CartController extends GetxController {
       if (value != null) {
         getCart();
         log(value);
-        // if (value == "product added to cart successfully") {
+        
           
           Get.snackbar(
                "Added",
@@ -92,18 +94,10 @@ class CartController extends GetxController {
     service.removeFromCart(productId).then(
       (value) {
         if (value != null) {
+          
           getCart();
           log(totalSave.toString());
-          // Get.back();
-          // Get.snackbar(
-          //   "Remove",
-          //   "Product removed from cart successfully",
-          //   colorText: Colors.red,
-          //   icon: const Icon(
-          //     Icons.remove_circle,
-          //     color: Colors.black,
-          //   ),
-          // );
+          
            Get.snackbar(
               "Remove",
              "Product removed from cart successfully",
@@ -136,17 +130,18 @@ class CartController extends GetxController {
          log(qty.toString());
          log(productQuantity.toString());
          if(qty==-1 &&productQuantity==1){
+          removeCart(productId);
          
-          Get.snackbar(
-               "required minimum quantity",
-            "minimum quantity is 1",backgroundColor: Colors.orangeAccent,
-               icon:  const Icon(
-              Icons.remove_circle,
-              color: Colors.black,
-            ),
-               snackPosition: SnackPosition.BOTTOM,
+          // Get.snackbar(
+          //      "required minimum quantity",
+          //   "minimum quantity is 1",backgroundColor: Colors.orangeAccent,
+          //      icon:  const Icon(
+          //     Icons.remove_circle,
+          //     color: Colors.black,
+          //   ),
+          //      snackPosition: SnackPosition.BOTTOM,
                  
-               );
+          //      );
 
 
          }else{
