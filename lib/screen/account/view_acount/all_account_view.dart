@@ -20,7 +20,6 @@ class AllAccountView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blueGrey[900],
@@ -78,19 +77,27 @@ class AllAccountView extends StatelessWidget {
                           style: textstyle,
                         ),
                       )
-                    : ListView.separated(
+                    : ListView.builder(
                         itemBuilder: (context, index) {
                           return Padding(
-                            padding: const EdgeInsets.all(10.0),
+                            padding: const EdgeInsets.only(
+                              left: 10.0,
+                              right: 10,
+                            ),
                             child: Container(
                               width: double.infinity,
-                              height: height * 0.35,
+                              height: height * 0.258,
                               decoration: BoxDecoration(
                                   color: colorWhite,
                                   borderRadius: BorderRadius.circular(10),
-                                  border: Border.all(color: Colors.white12)),
+                                  border: Border.all(
+                                    color: Colors.white12,
+                                  )),
                               child: Padding(
-                                padding: const EdgeInsets.all(10.0),
+                                padding: const EdgeInsets.only(
+                                  left: 10.0,
+                                  right: 10,
+                                ),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -125,21 +132,24 @@ class AllAccountView extends StatelessWidget {
                                             maximumSize: Size(
                                                 width * 0.37, height * 0.07),
                                             minimumSize: Size(
-                                              width * 0.2,
-                                              height * 0.06,
+                                              width * 0.16,
+                                              height * 0.006,
                                             ),
                                           ),
                                           onPressed: () {
-                                            Get.to(EditAccountPage(
+                                            Get.to(
+                                              EditAccountPage(
                                               height: height,
                                               width: width,
                                               model:
                                                   accountC.addressList[index],
                                             ));
                                           },
-                                          child: Text(
+                                          child: const Text(
                                             'Edit',
-                                            style: textstyle,
+                                            style: TextStyle(
+                                                fontSize: 15,
+                                                color: colorblack),
                                           ),
                                         ),
                                         const SizedBox(
@@ -157,17 +167,20 @@ class AllAccountView extends StatelessWidget {
                                               color: colorblack,
                                             ),
                                             minimumSize: Size(
-                                              width * 0.2,
-                                              height * 0.06,
+                                              width * 0.16,
+                                              height * 0.006,
                                             ),
                                           ),
                                           onPressed: () {
                                             accountC.deleteAddress(
                                                 accountC.addressList[index].id);
                                           },
-                                          child: Text(
+                                          child: const Text(
                                             'Remove',
-                                            style: textstyle,
+                                            style: TextStyle(
+                                              fontSize: 15,
+                                              color: colorblack,
+                                            ),
                                           ),
                                         )
                                       ],
@@ -177,9 +190,6 @@ class AllAccountView extends StatelessWidget {
                               ),
                             ),
                           );
-                        },
-                        separatorBuilder: (context, index) {
-                          return const SizedBox();
                         },
                         itemCount: accountC.addressList.length,
                       );
