@@ -1,4 +1,5 @@
 import 'package:ecomerce/core/constent.dart';
+import 'package:ecomerce/screen/account/account_main/controller/account_controller.dart';
 
 import 'package:ecomerce/screen/account/account_main/view/widget/row_account.dart';
 import 'package:ecomerce/screen/account/view_acount/all_account_view.dart';
@@ -10,6 +11,7 @@ class Account extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final accountC = Get.put(AcountController());
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -108,18 +110,28 @@ class Account extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(10.0),
               child: Column(children: [
-                Row(
-                  children: const [
-                    Icon(
-                      Icons.login,
-                      color: colorRed,
-                    ),
-                    SizedBox(width: 20),
-                    Text(
-                      'LogOut',
-                      style: TextStyle(color: colorRed),
-                    )
-                  ],
+                InkWell(onTap: () =>Get.defaultDialog(
+                  middleText: 'Do you want to Delete !!',
+                  textConfirm: 'Yes',
+                  textCancel: 'No',
+                  onConfirm: () =>accountC.logout() ,
+                  // onCancel: () => Get.back(),
+                  
+                )
+                 ,
+                  child: Row(
+                    children: const [
+                      Icon(
+                        Icons.login,
+                        color: colorRed,
+                      ),
+                      SizedBox(width: 20),
+                      Text(
+                        'LogOut',
+                        style: TextStyle(color: colorRed),
+                      )
+                    ],
+                  ),
                 )
               ]),
             ),
