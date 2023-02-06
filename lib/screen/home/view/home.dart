@@ -1,9 +1,12 @@
+import 'package:badges/badges.dart';
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
 
 import 'package:ecomerce/screen/Whishlist/view/wishlist.dart';
 import 'package:ecomerce/screen/account/account_main/view/account.dart';
+import 'package:ecomerce/screen/cart/controller/cart_controller.dart';
 import 'package:ecomerce/screen/cart/view/cart.dart';
+import 'package:ecomerce/screen/home/controller/home_controll.dart';
 
 import 'package:ecomerce/screen/home/view/widget/afterAppBar/after_appbar.dart';
 
@@ -20,9 +23,9 @@ class Home extends StatelessWidget {
     final Size size = MediaQuery.of(context).size;
     final double height = size.height;
     final double width = size.width;
+    final cartController = Get.put(CartController());
     return Scaffold(
       backgroundColor: Colors.blueGrey[50],
-
       body: SafeArea(
         child: Column(
           children: [
@@ -63,16 +66,8 @@ class Home extends StatelessWidget {
                                                       color: colorWhite,
                                                       fontSize: 20),
                                                 ),
-                                                // IconButton(
-                                                //     onPressed: () {},
-                                                //     icon: const Icon(
-                                                //       Icons.account_circle_outlined,
-                                                //       size: 36,color: colorWhite,
-                                                //     )),
-
                                                 Row(
                                                   children: const [
-                                                    
                                                     SizedBox(
                                                       width: 30,
                                                     ),
@@ -144,15 +139,24 @@ class Home extends StatelessWidget {
                                   color: colorblack,
                                 )),
                             InkWell(
-                                onTap: () {
-                                  Get.to(const CartScreen());
-                                },
-                                child:const Icon(Icons.shopping_cart_outlined)
-                                //  Image.network(
-                                //   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVvxBypuP3HbGsifk2_1iJrI8sxn9Gz6d508ZmsAA&s',
-                                //   height: 24,
-                                // )
-                                )
+                              onTap: () {
+                                Get.to(const CartScreen());
+                              },
+                              child: GetBuilder<CartController >(builder: (controller) {
+                                return 
+                                //  == null
+                                //     ? Icon(Icons.shopping_cart_outlined)
+                                //     : 
+                                    Badge(
+                                        position: BadgePosition.topEnd(
+                                            top: 10, end: 10),
+                                        child: Icon(Icons.shopping_cart_outlined),
+                                        badgeContent: Text(cartController
+                                            .cartList!.products.length
+                                            .toString()));
+                              },
+                              ),
+                            )
                           ],
                         )
                       ]),
@@ -165,7 +169,6 @@ class Home extends StatelessWidget {
           ],
         ),
       ),
-      // child: Text('home')),
     );
   }
 }

@@ -48,6 +48,7 @@ dependencies:
   share: ^2.0.4
   side_sheet: ^1.0.3
   flutter_rating_bar: ^4.0.1
+  badges: ^3.0.2
 
 dev_dependencies:
   flutter_test:
