@@ -17,14 +17,14 @@ class SecondContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final wishlistC = Get.put(WishListController());
-     final productController = Get.put(ProductController());
+    final productController = Get.put(ProductController());
 
     final cartC = Get.put(CartController());
     return Container(
       width: size.width,
       height: size.height,
       margin: EdgeInsets.only(
-        top: size.height * 0.44,
+        top: size.height * 0.48,
       ),
       decoration: BoxDecoration(
         color: Colors.blueGrey[900],
@@ -76,32 +76,44 @@ class SecondContainer extends StatelessWidget {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 5.0,
-                right: 5,
-              ),
-              child: Text(
-                model.description,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
+            SizedBox(height: Get.height*0.1,
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  left: 5.0,
+                  right: 5,
+                ),
+                child: Text(
+                  model.description,maxLines: 3,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
                 ),
               ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Padding(
-                  padding: EdgeInsets.only(bottom: 15.0),
-                  child: Text(
-                    '  SIZE',
-                    style: TextStyle(
-                      color: colorWhite,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
+                Row(
+                  children: const [
+                    Padding(
+                      padding: EdgeInsets.only(
+                        bottom: 1.0,
+                        left: 9,
+                        right: 7,
+                      ),
+                      child: Icon(
+                        Icons.motorcycle_rounded,
+                        color: colorWhite,
+                      ),
                     ),
-                  ),
+                    Text(
+                      'COD Available',
+                      style: TextStyle(
+                        color: colorWhite,
+                      ),
+                    ),
+                  ],
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 14.0),
@@ -143,35 +155,8 @@ class SecondContainer extends StatelessWidget {
                 ),
               ],
             ),
-            GetBuilder<ProductController>(builder: 
-              (controller) {
-                return Row(
-                children: [
-                  
-                  GestureDetector(onTap: () => productController.onSizeSelected(0),
-                    child: Card(
-                      color:productController.cole1,
-                      child: Text(
-                        ' ${model.size[0]} ',
-                        style: textstyle,
-                      ),
-                    ),
-                  ),
-                  GestureDetector(onTap: () => productController.onSizeSelected(1),
-                    child: Card(
-                      color: productController.cole2,
-                      child: Text(
-                        ' ${model.size[1]} ',
-                        style: textstyle,
-                      ),
-                    ),
-                  )
-                ],
-              );
-              },
-            ),
             SizedBox(
-              height: size.height * 0.025,
+              height: size.height * 0.03,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,

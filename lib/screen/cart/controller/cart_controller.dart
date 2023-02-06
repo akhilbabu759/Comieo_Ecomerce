@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/screen/cart/model/add_cart_model.dart';
 import 'package:ecomerce/screen/cart/model/get_cart_model.dart';
@@ -10,29 +9,24 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CartController extends GetxController {
-  
-  
   @override
-  void onInit(){
-     getCart();
-    
+  void onInit() {
+    getCart();
+
     super.onInit();
-  
-    
   }
- 
+
   RxBool isLoading = false.obs;
   GetCartModel? cartList;
   List<String> cartItemsId = [];
   int quantity = 1;
   int totalproductCount = 1;
-   int? totalSave;
+  int? totalSave;
   CartService service = CartService();
-  
 
   void getCart() async {
     isLoading = true.obs;
-   
+
     await service.getCart().then((value) {
       if (value != null) {
         cartList = value;
@@ -44,13 +38,11 @@ class CartController extends GetxController {
         totalProductCount();
         update();
         isLoading = false.obs;
-        
       } else {
         isLoading = false.obs;
-       
       }
       isLoading = false.obs;
-        
+
       return null;
     });
     isLoading = false.obs;
@@ -69,21 +61,18 @@ class CartController extends GetxController {
       if (value != null) {
         getCart();
         log(value);
-        
-          
-          Get.snackbar(
-               "Added",
-            "Product Added To Cart Successfully",
-               icon: const Icon(
-              Icons.add_alert_rounded,
-              color: Colors.black,
-            ),
-               snackPosition: SnackPosition.BOTTOM,
-               backgroundColor: Colors.green,
-               );
-       
+
+        Get.snackbar(
+          "Added",
+          "Product Added To Cart Successfully",
+          icon: const Icon(
+            Icons.add_alert_rounded,
+            color: Colors.black,
+          ),
+          snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: Colors.green,
+        );
       } else {
-         
         null;
       }
     });
@@ -94,19 +83,19 @@ class CartController extends GetxController {
     service.removeFromCart(productId).then(
       (value) {
         if (value != null) {
-          
           getCart();
           log(totalSave.toString());
-          
-           Get.snackbar(
-              "Remove",
-             "Product removed from cart successfully",
-               icon:  const Icon(
-               Icons.remove_circle,
-              color: Colors.black,),backgroundColor: colorRed,
-               snackPosition: SnackPosition.BOTTOM,
-                 
-               );
+
+          Get.snackbar(
+            "Remove",
+            "Product removed from cart successfully",
+            icon: const Icon(
+              Icons.remove_circle,
+              color: Colors.black,
+            ),
+            backgroundColor: colorRed,
+            snackPosition: SnackPosition.BOTTOM,
+          );
 
           update();
         } else {
@@ -127,60 +116,56 @@ class CartController extends GetxController {
 
   Future<void> incrementDecrementQty(
       int qty, String productId, int productQuantity, String size) async {
-         log(qty.toString());
-         log(productQuantity.toString());
-         if(qty==-1 &&productQuantity==1){
-          removeCart(productId);
-         
-          // Get.snackbar(
-          //      "required minimum quantity",
-          //   "minimum quantity is 1",backgroundColor: Colors.orangeAccent,
-          //      icon:  const Icon(
-          //     Icons.remove_circle,
-          //     color: Colors.black,
-          //   ),
-          //      snackPosition: SnackPosition.BOTTOM,
-                 
-          //      );
+    log(qty.toString());
+    log(productQuantity.toString());
+    if (qty == -1 && productQuantity == 1) {
+      removeCart(productId);
 
+      // Get.snackbar(
+      //      "required minimum quantity",
+      //   "minimum quantity is 1",backgroundColor: Colors.orangeAccent,
+      //      icon:  const Icon(
+      //     Icons.remove_circle,
+      //     color: Colors.black,
+      //   ),
+      //      snackPosition: SnackPosition.BOTTOM,
 
-         }else{
-       
-    final AddCartModel model = AddCartModel(
-      size: size.toString(),
-      quantity: qty,
-      productId: productId,
-    );
-   
-    if (productQuantity >=1) {
-      await CartService().addToCart(model).then(
-        (value) async {
-          if (value != null) {
-            await CartService().getCart().then(
-              (value) {
-                if (value != null) {
-                  cartList = value;
-                  update();
-                  totalProductCount();
-                  cartItemsId =
-                      cartList!.products.map((e) => e.product.id).toList();
-                  update();
-                  totalSave = cartList!.totalDiscount.toInt() -
-                      cartList!.totalPrice.toInt();
-                  update();
-                } else {
-                  null;
-                }
-              },
-            );
-          } else {
-            null;
-          }
-        },
+      //      );
+
+    } else {
+      final AddCartModel model = AddCartModel(
+        size: size.toString(),
+        quantity: qty,
+        productId: productId,
       );
-    }
-         }
-  }
 
-  
+      if (productQuantity >= 1) {
+        await CartService().addToCart(model).then(
+          (value) async {
+            if (value != null) {
+              await CartService().getCart().then(
+                (value) {
+                  if (value != null) {
+                    cartList = value;
+                    update();
+                    totalProductCount();
+                    cartItemsId =
+                        cartList!.products.map((e) => e.product.id).toList();
+                    update();
+                    totalSave = cartList!.totalDiscount.toInt() -
+                        cartList!.totalPrice.toInt();
+                    update();
+                  } else {
+                    null;
+                  }
+                },
+              );
+            } else {
+              null;
+            }
+          },
+        );
+      }
+    }
+  }
 }

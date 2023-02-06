@@ -147,10 +147,12 @@ class Home extends StatelessWidget {
                                 onTap: () {
                                   Get.to(const CartScreen());
                                 },
-                                child: Image.network(
-                                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVvxBypuP3HbGsifk2_1iJrI8sxn9Gz6d508ZmsAA&s',
-                                  height: 24,
-                                ))
+                                child:const Icon(Icons.shopping_cart_outlined)
+                                //  Image.network(
+                                //   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVvxBypuP3HbGsifk2_1iJrI8sxn9Gz6d508ZmsAA&s',
+                                //   height: 24,
+                                // )
+                                )
                           ],
                         )
                       ]),
