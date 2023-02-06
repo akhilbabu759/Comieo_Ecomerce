@@ -52,6 +52,7 @@ class EditContoller extends GetxController {
        isLoading = false;
         update();
       }
+      AcountController().getAllAddress();
     });
     return null;
   }

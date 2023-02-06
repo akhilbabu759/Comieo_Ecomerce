@@ -17,9 +17,11 @@ class AllAccountView extends StatelessWidget {
   final double height;
 
   final accountC = Get.put(AcountController());
+  
 
   @override
   Widget build(BuildContext context) {
+    accountC.getAllAddress();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blueGrey[900],
@@ -137,7 +139,7 @@ class AllAccountView extends StatelessWidget {
                                             ),
                                           ),
                                           onPressed: () {
-                                            Get.to(
+                                            Get.off(
                                               EditAccountPage(
                                               height: height,
                                               width: width,

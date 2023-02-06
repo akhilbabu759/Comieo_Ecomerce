@@ -4,6 +4,7 @@ import 'package:ecomerce/screen/account/account_main/controller/account_controll
 
 import 'package:ecomerce/screen/account/account_main/model/get_account_model.dart';
 import 'package:ecomerce/screen/account/edit_account/controller/edit_controller.dart';
+import 'package:ecomerce/screen/account/view_acount/all_account_view.dart';
 
 
 import 'package:ecomerce/util/row_textfield/textfield.dart';
@@ -153,8 +154,8 @@ class EditAccountPage extends StatelessWidget {
                       if (fromKey.currentState!.validate()) {
                         accountC.updateAddress(model.id);
                         
-                        Get.
-                        back();
+                        Get.off(AllAccountView(width: width,height: height,))
+                        ;
                         
                       }
                       AcountController().getAllAddress();
