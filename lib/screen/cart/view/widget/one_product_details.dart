@@ -136,7 +136,7 @@ class OneProduct extends StatelessWidget {
                                         .cartList!.products[index].product.id,
                                     cartcontrol.cartList!.products[index].qty,
                                     cartcontrol
-                                        .cartList!.products[index].product.size
+                                        .cartList!.products[index].product.size[0]
                                         .toString());
                               }
                               // cartcontrol.adding(),
@@ -172,7 +172,7 @@ class OneProduct extends StatelessWidget {
                                         .cartList!.products[index].product.id,
                                     cartcontrol.cartList!.products[index].qty,
                                     cartcontrol
-                                        .cartList!.products[index].product.size
+                                        .cartList!.products[index].product.size[0]
                                         .toString());
                               }
                               //  cartcontrol.deleting(),

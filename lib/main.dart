@@ -1,4 +1,5 @@
 
+import 'package:ecomerce/screen/order_summery/view/order_summery.dart';
 import 'package:flutter/material.dart';
 import 'screen/auth/sign_in/view/signin.dart';
 import 'package:get/get.dart';
@@ -23,8 +24,9 @@ class MyApp extends StatelessWidget {
       home: 
       //  ScreenMAinPage()
       // Home()
+      OrderSummery()
       
-       const SigninPage()
+      //  const SigninPage()
     
     );
   }

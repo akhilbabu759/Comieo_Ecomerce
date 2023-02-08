@@ -6,7 +6,7 @@ import 'package:ecomerce/screen/Whishlist/view/wishlist.dart';
 import 'package:ecomerce/screen/account/account_main/view/account.dart';
 import 'package:ecomerce/screen/cart/controller/cart_controller.dart';
 import 'package:ecomerce/screen/cart/view/cart.dart';
-import 'package:ecomerce/screen/home/controller/home_controll.dart';
+
 
 import 'package:ecomerce/screen/home/view/widget/afterAppBar/after_appbar.dart';
 
@@ -150,10 +150,10 @@ class Home extends StatelessWidget {
                                     Badge(
                                         position: BadgePosition.topEnd(
                                             top: 10, end: 10),
-                                        child: Icon(Icons.shopping_cart_outlined),
                                         badgeContent: Text(cartController
                                             .cartList!.products.length
-                                            .toString()));
+                                            .toString()),
+                                        child: const Icon(Icons.shopping_cart_outlined));
                               },
                               ),
                             )

@@ -24,7 +24,7 @@ class CartController extends GetxController {
   int? totalSave;
   CartService service = CartService();
 
-  void getCart() async {
+  Future<void> getCart() async {
     isLoading = true.obs;
 
     await service.getCart().then((value) {
@@ -115,9 +115,15 @@ class CartController extends GetxController {
   }
 
   Future<void> incrementDecrementQty(
-      int qty, String productId, int productQuantity, String size) async {
+    int qty,
+    String productId,
+    int productQuantity,
+    String size,
+  ) async {
+    await getCart();
     log(qty.toString());
     log(productQuantity.toString());
+    await getCart();
     if (qty == -1 && productQuantity == 1) {
       removeCart(productId);
 
@@ -133,6 +139,8 @@ class CartController extends GetxController {
       //      );
 
     } else {
+      log(qty.toString(), name: 'quantitiy');
+      log(size.toString(), name: 'quantitiy');
       final AddCartModel model = AddCartModel(
         size: size.toString(),
         quantity: qty,

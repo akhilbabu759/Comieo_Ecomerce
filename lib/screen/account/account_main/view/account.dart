@@ -14,7 +14,7 @@ class Account extends StatelessWidget {
      final accountC = Get.put(AcountController());
     return Scaffold(
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+       
         children: [
           const Padding(
             padding: EdgeInsets.only(top: 45.0, left: 10),
@@ -115,7 +115,7 @@ class Account extends StatelessWidget {
                   textConfirm: 'Yes',
                   textCancel: 'No',
                   onConfirm: () =>accountC.logout() ,
-                  // onCancel: () => Get.back(),
+                  
                   
                 )
                  ,
