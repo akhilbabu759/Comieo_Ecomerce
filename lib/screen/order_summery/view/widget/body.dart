@@ -1,9 +1,11 @@
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
+import 'package:ecomerce/screen/account/account_main/controller/account_controller.dart';
 import 'package:ecomerce/screen/cart/controller/cart_controller.dart';
 import 'package:ecomerce/screen/order_summery/view/widget/before_bottom.dart';
 import 'package:ecomerce/screen/order_summery/view/widget/product_deatails.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Body extends StatelessWidget {
   const Body({
@@ -15,6 +17,7 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final addresscontrol = Get.put(AcountController());
     return SingleChildScrollView(
       child: SafeArea(
           child: Column(
@@ -36,9 +39,9 @@ class Body extends StatelessWidget {
                             const Text('Price Details',style: TextStyle(fontSize: 22),),
                             textFieldGap,
                             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children:const [
+                              children: [
                                 Text('Price',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500)),
-                                Text('₹89900',style: TextStyle(color: colorblack,fontSize: 18,fontWeight: FontWeight.w500),)
+                                Text('₹'+cartcontrol.cartList!.totalPrice.toString(),style: TextStyle(color: colorblack,fontSize: 18,fontWeight: FontWeight.w500),)
                               ]
                             ),textFieldGap,
                             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -50,9 +53,9 @@ class Body extends StatelessWidget {
                             Divider(color: Colors.grey.shade200, height: 1.5,thickness: 1,),
                             textFieldGap,
                             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: const[
+                              children: [
                                 Text('Total Amount',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500),),
-                                Text('₹8778',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500))
+                                Text('₹'+cartcontrol.totalSave.toString(),style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500))
                               ],
                             ),
                             const SizedBox(height: 65,),

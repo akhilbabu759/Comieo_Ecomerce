@@ -23,6 +23,7 @@ class CartController extends GetxController {
   int totalproductCount = 1;
   int? totalSave;
   CartService service = CartService();
+  List<String> cartitemsPayId = [];
 
   Future<void> getCart() async {
     isLoading = true.obs;
@@ -33,6 +34,7 @@ class CartController extends GetxController {
         update();
         cartItemsId = cartList!.products.map((e) => e.product.id).toList();
         update();
+        cartitemsPayId = cartList!.products.map((e) => e.id).toList();
         totalSave = (cartList!.totalPrice - cartList!.totalDiscount).toInt();
         update();
         totalProductCount();
