@@ -2,6 +2,7 @@ import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
 import 'package:ecomerce/screen/cart/controller/cart_controller.dart';
 import 'package:ecomerce/screen/cart/view/widget/one_product_details.dart';
+import 'package:ecomerce/screen/order_summery/view/order_summery.dart';
 
 import 'package:flutter/material.dart';
 
@@ -58,21 +59,23 @@ class CartScreen extends StatelessWidget {
                                   style: const TextStyle(
                                       fontSize: 38, color: colorblack),
                                 ),
-                                Container(
-                                  height: 50,
-                                  width: 160,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(18),
-                                    color: Colors.orange[700],
-                                  ),
-                                  // padding: const EdgeInsets.only(left: 4, top: 15),
-                                  child: const Center(
-                                    child: Text(
-                                      'Check out',
-                                      style: TextStyle(
-                                          color: colorWhite,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 20),
+                                GestureDetector(onTap: () => Get.to(OrderSummery()),
+                                  child: Container(
+                                    height: 50,
+                                    width: 160,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(18),
+                                      color: Colors.orange[700],
+                                    ),
+                                    // padding: const EdgeInsets.only(left: 4, top: 15),
+                                    child: const Center(
+                                      child: Text(
+                                        'Check out',
+                                        style: TextStyle(
+                                            color: colorWhite,
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 20),
+                                      ),
                                     ),
                                   ),
                                 )

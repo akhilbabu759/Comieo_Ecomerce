@@ -18,7 +18,7 @@ class ScreenMAinPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: colorWhite,
       body: GetBuilder<BottomController>(builder: (controller) {
-        return Obx(() => page[signupController.selectedIndex.value.toInt()]);
+        return  Obx(() => page[signupController.selectedIndex.value.toInt()]);
       }),
       bottomNavigationBar: const BottomNavigator(),
     );
