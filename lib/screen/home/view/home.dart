@@ -95,13 +95,13 @@ class Home extends StatelessWidget {
                                               icon: Icon(Icons.favorite),
                                               text: 'Wishlist',
                                             )),
-                                        textFieldGap,
-                                        GestureDetector(
-                                            onTap: () => Get.to(const Account()),
-                                            child: const SideSheetRow(
-                                              icon: Icon(Icons.account_circle),
-                                              text: 'Account',
-                                            )),
+                                        // textFieldGap,
+                                        // GestureDetector(
+                                        //     onTap: () => Get.to(const Account()),
+                                        //     child: const SideSheetRow(
+                                        //       icon: Icon(Icons.account_circle),
+                                        //       text: 'Account',
+                                        //     )),
                                         textFieldGap,
                                         GestureDetector(
                                             child: const SideSheetRow(
