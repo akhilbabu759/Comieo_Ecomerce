@@ -1,11 +1,13 @@
 import 'dart:developer';
-// import 'package:fluttertoast/fluttertoast.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+
+import 'package:ecomerce/core/constent.dart';
+import 'package:ecomerce/screen/cart/view/cart.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 import 'package:ecomerce/screen/order_summery/model/order_model.dart';
 import 'package:ecomerce/screen/order_summery/service/order_service.dart';
-import 'package:ecomerce/screen/order_summery/view/order_summery.dart';
+
 
 
 
@@ -16,17 +18,21 @@ class PaymentController extends GetxController {
   String? addressId;
   Map<String, dynamic> options = {};
 
-  void setAddressId(String addressid) {
-    addressId = addressid;
-    update();
-  }
+  // void setAddressId(String addressid) {
+  //   addressId = addressid;
+  //   update();
+  // }
 
   void setTotalAmount(amount, List<String> productIds, address) {
+    log('setTotal');
     final total = "${amount * 100}";
     final amountPayable = total.toString();
+    log(amountPayable);
     openCheckout(amountPayable);
     products = productIds.map((e) => Product(id: e)).toList();
+    log(products.length.toString());
     addressId = address;
+    log(addressId.toString());
     update();
   }
 
@@ -64,21 +70,20 @@ class PaymentController extends GetxController {
   }
 
   void handlePaymentSuccess(PaymentSuccessResponse response) {
-    Fluttertoast.showToast(
-        msg: "SUCCESS:${response.paymentId}", timeInSecForIosWeb: 4);
+    Get.snackbar('payment',"SUCCESS:${response.paymentId}",backgroundColor: Colors.green,snackPosition: SnackPosition.BOTTOM );
+    
     update();
   }
 
   void handlePaymentError(PaymentFailureResponse response) {
-    Fluttertoast.showToast(
-        msg: "ERROR:${response.code} - ${response.message}",
-        timeInSecForIosWeb: 4);
+    Get.snackbar('payment',"ERROR:${response.code} - ${response.message}",backgroundColor: colorRed,snackPosition: SnackPosition.BOTTOM );
+    
     update();
   }
 
   void handleExternalWallet(ExternalWalletResponse response) {
-    Fluttertoast.showToast(
-        msg: "EXTERNAL_WALLET:${response.walletName}", timeInSecForIosWeb: 4);
+     Get.snackbar('payment',"EXTERNAL_WALLET:${response.walletName}",backgroundColor: colorRed,snackPosition: SnackPosition.BOTTOM );
+    
     update();
   }
 
@@ -96,7 +101,7 @@ class PaymentController extends GetxController {
       if (value != null) {
         loading = false;
         update();
-        Get.off(const OrderSummery());
+        Get.off(const CartScreen());
       } else {
         loading = false;
         update();

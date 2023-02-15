@@ -6,6 +6,7 @@ import 'package:ecomerce/screen/Whishlist/view/wishlist.dart';
 import 'package:ecomerce/screen/account/account_main/view/account.dart';
 import 'package:ecomerce/screen/cart/controller/cart_controller.dart';
 import 'package:ecomerce/screen/cart/view/cart.dart';
+import 'package:ecomerce/screen/home/controller/home_controll.dart';
 
 
 import 'package:ecomerce/screen/home/view/widget/afterAppBar/after_appbar.dart';
@@ -25,7 +26,7 @@ class Home extends StatelessWidget {
     final double width = size.width;
     final cartController = Get.put(CartController());
     return GetBuilder<CartController>(builder: (controller) {
-      return cartController.isLoading==true? Center(
+      return cartController.isLoading==true ? Center(
                 child: CircularProgressIndicator(
                   color: colorWhite,
                   backgroundColor: Colors.cyan,

@@ -5,6 +5,7 @@ import 'package:ecomerce/screen/account/account_main/model/edit_account_model.da
 
 import 'package:ecomerce/screen/account/account_main/model/get_account_model.dart';
 import 'package:ecomerce/screen/account/account_main/service/add_account_service.dart';
+import 'package:ecomerce/screen/auth/sign_in/controller/sigin_in_controller.dart';
 import 'package:ecomerce/screen/auth/sign_in/view/signin.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -16,6 +17,7 @@ class AcountController extends GetxController {
     getAllAddress();
     super.onInit();
   }
+  final signup=Get.put(SignInController());
 
   final addressService = AddressService();
 
@@ -119,10 +121,14 @@ class AcountController extends GetxController {
     update();
     await storage.delete(key: 'token');
     await storage.delete(key: 'refreshToken');
-
-    Get.offAll(() => const SigninPage());
-
     isLoading = false;
     update();
+
+    Get.offAll(() => const SigninPage());
+    signup.logoutLaunch();
+    update();
+
+
+    
   }
 }

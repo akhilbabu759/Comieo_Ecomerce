@@ -1,5 +1,7 @@
 
 
+import 'dart:developer';
+
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
 import 'package:ecomerce/screen/account/account_main/controller/account_controller.dart';
@@ -13,7 +15,8 @@ import 'package:get/get.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 
 class OrderSummery extends StatefulWidget {
-  const OrderSummery({super.key});
+   OrderSummery({Key?key,required this.adrresId});
+   String adrresId ;
 
   @override
   State<OrderSummery> createState() => _OrderSummeryState();
@@ -44,107 +47,84 @@ class _OrderSummeryState extends State<OrderSummery> {
     final cartcontrol = Get.put(CartController());
     final adrres = Get.put(AcountController());
     
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: colorWhite,
-        leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            Icons.arrow_back_ios,
-            color: colorblack,
+    return GetBuilder<AcountController>(builder: (controller) {
+      return Scaffold(
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: colorWhite,
+          leading: IconButton(
+            onPressed: () {Get.back();},
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              color: colorblack,
+            ),
+          ),
+          title: const Text(
+            'Order Summary',
+            style: TextStyle(color: colorblack, fontSize: 20),
           ),
         ),
-        title: const Text(
-          'Order Summary',
-          style: TextStyle(color: colorblack, fontSize: 20),
-        ),
-      ),
-      body: Stack(
-        children: [
-          Body(cartcontrol: cartcontrol),
-          Positioned(
-            bottom: Get.height * 0,
-            child: Container(
-              width: Get.width,
-              color: Colors.blueGrey[50],
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(left: 30.0),
-                      child: Text(
-                        '₹' + cartcontrol.totalSave.toString(),
-                        style: TextStyle(
-                          fontSize: 19,
-                          fontWeight: FontWeight.w500,
+        body: Stack(
+          children: [
+            Body(cartcontrol: cartcontrol),
+            Positioned(
+              bottom: Get.height * 0,
+              child: Container(
+                width: Get.width,
+                color: Colors.blueGrey[50],
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(left: 30.0),
+                        child: Text(
+                          '₹' + cartcontrol.totalSave.toString(),
+                          style: TextStyle(
+                            fontSize: 19,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 8.0),
-                      child: ElevatedButton(
-                          style: ButtonStyle(
-                              shape: MaterialStateProperty.all<
-                                      RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15.0),
-                                // side: BorderSide(color: Colors.red)
-                              )),
-                              minimumSize: MaterialStateProperty.all(
-                                  Size(Get.width * 0.4, Get.height * 0.05)),
-                              backgroundColor: MaterialStateProperty.all(
-                                  Colors.yellow.shade600)),
-                          onPressed: () {
-                            paymentController.setTotalAmount(
-                                cartcontrol.cartList!.totalDiscount.toString(),
-                                cartcontrol.cartitemsPayId,
-                                adrres.addressList[0].id);
-                          }
-                          // widget.screenCheck ==
-                          //         OrderScreenEnum
-                          //             .normalOrderScreen
-                          //     ?
-                          //     int.parse((cartcontrol.cartList.totalDiscount.toString()))
-                          //         //         .model!.totalPrice -
-                          //         //     cartController
-                          //         //         .model!.totalDiscount)
-                          //         // .round()
-                          //         // .toString())
-                          //     : int.parse((ordersController
-                          //                 .cartModel[0].price -
-                          //             ordersController
-                          //                 .cartModel[0]
-                          //                 .discountPrice)
-                          //         .round()
-                          //         .toString()),
-                          // widget.screenCheck ==
-                          //         OrderScreenEnum
-                          //             .normalOrderScreen
-                          //     ? cartController.cartitemsPayId
-                          //     : ordersController.productIds,
-                          // addressController
-                          //     .addressList[
-                          //         addressController.selectIndex]
-                          //     .id,
-                          // );
-
-                          // }
-                          ,
-                          child: const Text(
-                            'Continue',
-                            style: TextStyle(color: colorblack, fontSize: 16),
-                          )),
-                    )
-                  ],
+                      Padding(
+                        padding: const EdgeInsets.only(right: 8.0),
+                        child: ElevatedButton(
+                            style: ButtonStyle(
+                                shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15.0),
+                                  // side: BorderSide(color: Colors.red)
+                                )),
+                                minimumSize: MaterialStateProperty.all(
+                                    Size(Get.width * 0.4, Get.height * 0.05)),
+                                backgroundColor: MaterialStateProperty.all(
+                                    Colors.yellow.shade600)),
+                            onPressed: () {
+                              log(cartcontrol.cartItemsId.toString());
+                              log(adrres.addressList[0].id);
+                              paymentController.setTotalAmount(55,
+                                  // cartcontrol.cartList!.totalDiscount.toString(),
+                                  cartcontrol.cartItemsId,
+                                  adrres.addressList[0].id);
+                            }
+                            
+                            ,
+                            child: const Text(
+                              'Continue',
+                              style: TextStyle(color: colorblack, fontSize: 16),
+                            )),
+                      )
+                    ],
+                  ),
                 ),
               ),
-            ),
-          )
-        ],
-      ),
+            )
+          ],
+        ),
+      );
+    },
     );
   }
 }

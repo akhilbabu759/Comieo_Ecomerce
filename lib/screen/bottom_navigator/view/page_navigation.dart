@@ -1,4 +1,5 @@
 import 'package:ecomerce/core/text_style.dart';
+import 'package:ecomerce/screen/account/account_main/view/account.dart';
 import 'package:ecomerce/screen/auth/signup/view/signup.dart';
 import 'package:ecomerce/screen/bottom_navigator/controller/bottom_controller.dart';
 import 'package:ecomerce/screen/bottom_navigator/view/bottom_navigator.dart';
@@ -11,6 +12,7 @@ class ScreenMAinPage extends StatelessWidget {
   final page = [
     const Home(),
     SignupPage(),
+    const Account()
   ];
   @override
   Widget build(BuildContext context) {

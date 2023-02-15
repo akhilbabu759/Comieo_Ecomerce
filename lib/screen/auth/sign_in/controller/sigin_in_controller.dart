@@ -16,6 +16,16 @@ class SignInController extends GetxController {
   FlutterSecureStorage storage = const FlutterSecureStorage();
   SignInService signinS = SignInService();
   bool isLoading = false;
+  logoutLaunch(){
+    isLoading=false;
+    update();
+    emailController.clear();
+    update();
+
+    passwordController.clear();
+    update();
+
+  }
 
   void signIn() {
     isLoading = true;

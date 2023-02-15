@@ -138,8 +138,8 @@ class Account extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.only(
-              left: Get.width * 0.4,
-              top: Get.height * 0.29,
+              left: Get.width * 0.01,
+              top: Get.height * 0.23,
             ),
             child: const Text('Version 1.0.0'),
           )

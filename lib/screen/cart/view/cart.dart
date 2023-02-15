@@ -59,7 +59,7 @@ class CartScreen extends StatelessWidget {
                                   style: const TextStyle(
                                       fontSize: 38, color: colorblack),
                                 ),
-                                GestureDetector(onTap: () => Get.to(OrderSummery()),
+                                GestureDetector(onTap: () => Get.to(OrderSummery(adrresId: 'd',)),
                                   child: Container(
                                     height: 50,
                                     width: 160,
