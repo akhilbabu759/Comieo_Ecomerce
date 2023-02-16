@@ -21,7 +21,7 @@ class CartController extends GetxController {
   List<String> cartItemsId = [];
   int quantity = 1;
   int totalproductCount = 1;
-  int? totalSave;
+   int? totalSave;
   CartService service = CartService();
   List<String> cartitemsPayId = [];
 

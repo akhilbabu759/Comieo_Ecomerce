@@ -2,8 +2,7 @@ import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
 import 'package:ecomerce/screen/home/controller/home_controll.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:get/get.dart';
 
 class CategoryPage extends StatelessWidget {
@@ -12,9 +11,9 @@ class CategoryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final categoC=Get.put(HomeControll());
-    return Scaffold(appBar: PreferredSize(preferredSize: Size.fromHeight(63),
+    return Scaffold(appBar: PreferredSize(preferredSize: const Size.fromHeight(63),
       child: AppBar(elevation: 0,
-        title: Text('Category',style: TextStyle(color: colorblack),),centerTitle: true,
+        title: const Text('Category',style: TextStyle(color: colorblack),),centerTitle: true,
         backgroundColor: colorWhite),
     ),
       backgroundColor: Colors.blueGrey[50],
@@ -23,7 +22,7 @@ class CategoryPage extends StatelessWidget {
         children: [
           Flexible(
             child: GridView.builder(itemCount:categoC.categorylList.length,
-              gridDelegate:SliverGridDelegateWithFixedCrossAxisCount(  
+              gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(  
                     crossAxisCount: 3,  
                     // crossAxisSpacing:1.0,  
                     // mainAxisSpacing: .0  
@@ -32,7 +31,7 @@ class CategoryPage extends StatelessWidget {
              padding: const EdgeInsets.only(left:8.0,right: 8),
              child: Container(
                   width: 100,
-                  decoration: BoxDecoration(boxShadow: [
+                  decoration: const BoxDecoration(boxShadow: [
                     BoxShadow(
                         blurRadius: 50, color: Color.fromARGB(96, 130, 129, 129))
                   ]),
@@ -44,7 +43,7 @@ class CategoryPage extends StatelessWidget {
                         backgroundColor: Colors.blueGrey[50],
                         child: Text(
                           categoC.categorylList[index].name,
-                          style: TextStyle(color: colorblack),
+                          style: const TextStyle(color: colorblack),
                         ),
                       )
                       // Container(width: 20,height: 70,

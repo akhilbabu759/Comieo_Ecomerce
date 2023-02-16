@@ -1,4 +1,4 @@
-import 'package:ecomerce/screen/cart/controller/cart_controller.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -21,7 +21,7 @@ class AddressContainer extends StatelessWidget {
           children: [
             Row(
               children: [
-                Text(addresscontrol.addressList[0].fullName,style: TextStyle(fontSize: 24),),
+                Text(addresscontrol.addressList[0].fullName,style: const TextStyle(fontSize: 24),),
                 Card(
                   
                   color: Colors.white60,

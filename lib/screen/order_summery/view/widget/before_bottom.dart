@@ -1,9 +1,9 @@
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/screen/cart/controller/cart_controller.dart';
 import 'package:ecomerce/screen/order_summery/view/widget/addrees_container.dart';
-import 'package:ecomerce/screen/order_summery/view/widget/product_deatails.dart';
+
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
 
 class BeforeBottom extends StatelessWidget {
   const BeforeBottom({

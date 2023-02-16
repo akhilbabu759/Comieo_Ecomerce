@@ -15,8 +15,8 @@ import 'package:get/get.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 
 class OrderSummery extends StatefulWidget {
-   OrderSummery({Key?key,required this.adrresId});
-   String adrresId ;
+   const OrderSummery({super.key,});
+ 
 
   @override
   State<OrderSummery> createState() => _OrderSummeryState();
@@ -78,10 +78,10 @@ class _OrderSummeryState extends State<OrderSummery> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(left: 30.0),
+                        padding: const EdgeInsets.only(left: 30.0),
                         child: Text(
-                          '₹' + cartcontrol.totalSave.toString(),
-                          style: TextStyle(
+                          '₹${cartcontrol.totalSave}',
+                          style: const TextStyle(
                             fontSize: 19,
                             fontWeight: FontWeight.w500,
                           ),
@@ -106,7 +106,7 @@ class _OrderSummeryState extends State<OrderSummery> {
                               log(adrres.addressList[0].id);
                               paymentController.setTotalAmount(55,
                                   // cartcontrol.cartList!.totalDiscount.toString(),
-                                  cartcontrol.cartItemsId,
+                                  cartcontrol.cartList!.products,
                                   adrres.addressList[0].id);
                             }
                             

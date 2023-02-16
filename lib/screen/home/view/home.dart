@@ -3,10 +3,10 @@ import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
 
 import 'package:ecomerce/screen/Whishlist/view/wishlist.dart';
-import 'package:ecomerce/screen/account/account_main/view/account.dart';
+
 import 'package:ecomerce/screen/cart/controller/cart_controller.dart';
 import 'package:ecomerce/screen/cart/view/cart.dart';
-import 'package:ecomerce/screen/home/controller/home_controll.dart';
+
 
 
 import 'package:ecomerce/screen/home/view/widget/afterAppBar/after_appbar.dart';
@@ -26,7 +26,7 @@ class Home extends StatelessWidget {
     final double width = size.width;
     final cartController = Get.put(CartController());
     return GetBuilder<CartController>(builder: (controller) {
-      return cartController.isLoading==true ? Center(
+      return cartController.isLoading==true.obs ? const Center(
                 child: CircularProgressIndicator(
                   color: colorWhite,
                   backgroundColor: Colors.cyan,
@@ -89,45 +89,53 @@ class Home extends StatelessWidget {
                                                 ]),
                                           ),
                                         ),
-                                        GestureDetector(
-                                            onTap: () => Get.to(const WishList()),
+                                        Padding(
+                                          padding: const EdgeInsets.only(top:15.0,left: 5),
+                                          child: Column(children: [
+                                            GestureDetector(
+                                              onTap: () => Get.to(const WishList()),
+                                              child: const SideSheetRow(
+                                                icon: Icon(Icons.favorite),
+                                                text: 'Wishlist',
+                                              ),),
+                                          // textFieldGap,
+                                          // GestureDetector(
+                                          //     onTap: () => Get.to(const Account()),
+                                          //     child: const SideSheetRow(
+                                          //       icon: Icon(Icons.account_circle),
+                                          //       text: 'Account',
+                                          //     )),
+                                          textFieldGap,
+                                          textFieldGap,
+                                          GestureDetector(
+                                              child: const SideSheetRow(
+                                            icon: Icon(Icons.shopping_basket),
+                                            text: 'Order',
+                                          ),),
+                                          textFieldGap,textFieldGap,
+                                          GestureDetector(
                                             child: const SideSheetRow(
-                                              icon: Icon(Icons.favorite),
-                                              text: 'Wishlist',
-                                            )),
-                                        // textFieldGap,
-                                        // GestureDetector(
-                                        //     onTap: () => Get.to(const Account()),
-                                        //     child: const SideSheetRow(
-                                        //       icon: Icon(Icons.account_circle),
-                                        //       text: 'Account',
-                                        //     )),
-                                        textFieldGap,
-                                        GestureDetector(
-                                            child: const SideSheetRow(
-                                          icon: Icon(Icons.shopping_basket),
-                                          text: 'Order',
-                                        )),
-                                        textFieldGap,
-                                        GestureDetector(
-                                          child: const SideSheetRow(
-                                            icon: Icon(Icons.question_answer),
-                                            text: 'Contact us',
+                                              icon: Icon(Icons.question_answer),
+                                              text: 'Contact us',
+                                            ),
                                           ),
+                                          textFieldGap,textFieldGap,
+                                          GestureDetector(
+                                              child: const SideSheetRow(
+                                            icon: Icon(Icons.help_center),
+                                            text: 'Help',
+                                          )),
+                                          const SizedBox(
+                                            height: 300,
+                                          ),
+                                          const Text(
+                                            'Version 1.0',
+                                            style: TextStyle(color: colorblack),
+                                          ),
+
+                                          ],),
                                         ),
-                                        textFieldGap,
-                                        GestureDetector(
-                                            child: const SideSheetRow(
-                                          icon: Icon(Icons.help_center),
-                                          text: 'Help',
-                                        )),
-                                        const SizedBox(
-                                          height: 300,
-                                        ),
-                                        const Text(
-                                          'Version 1.0',
-                                          style: TextStyle(color: colorblack),
-                                        )
+                                        
                                       ],
                                     ),
                                     context: context);

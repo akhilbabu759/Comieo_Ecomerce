@@ -17,6 +17,8 @@ class OrderService {
         ApiBaseUrl().baseurl + ApiEndsUrl().order,
         data: model.toJson(),
       );
+      log(response.toString());
+
       if (response.statusCode == 200 || response.statusCode == 201) {
         if (response.data == null) {
           return null;

@@ -1,7 +1,10 @@
 import 'dart:developer';
 
 import 'package:ecomerce/core/constent.dart';
+import 'package:ecomerce/screen/cart/controller/cart_controller.dart';
+import 'package:ecomerce/screen/cart/model/get_cart_model.dart';
 import 'package:ecomerce/screen/cart/view/cart.dart';
+import 'package:ecomerce/screen/order_place_page.dart/view/order_place.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
@@ -17,19 +20,21 @@ class PaymentController extends GetxController {
   List<Product> products = [];
   String? addressId;
   Map<String, dynamic> options = {};
+  final cartcotro= Get.put( CartController());
 
   // void setAddressId(String addressid) {
   //   addressId = addressid;
   //   update();
   // }
 
-  void setTotalAmount(amount, List<String> productIds, address) {
+  void setTotalAmount(amount, List<ProductElement> productsList, address) {
     log('setTotal');
     final total = "${amount * 100}";
     final amountPayable = total.toString();
+    // products=productsList;
     log(amountPayable);
     openCheckout(amountPayable);
-    products = productIds.map((e) => Product(id: e)).toList();
+     products = productsList.map((e) => Product(id: e.id)).toList();
     log(products.length.toString());
     addressId = address;
     log(addressId.toString());
@@ -94,14 +99,16 @@ class PaymentController extends GetxController {
     final OrdersModel model = OrdersModel(
       addressId: addressId,
       paymentType: paymentType,
-      products: products,
+      products: products
     );
 
     await OrderService().placeOrder(model).then((value) {
       if (value != null) {
         loading = false;
         update();
-        Get.off(const CartScreen());
+        
+        Get.off( OrderPlace());
+        cartcotro.getCart();
       } else {
         loading = false;
         update();
