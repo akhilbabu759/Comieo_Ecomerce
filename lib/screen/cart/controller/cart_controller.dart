@@ -35,7 +35,8 @@ class CartController extends GetxController {
         cartItemsId = cartList!.products.map((e) => e.product.id).toList();
         update();
         cartitemsPayId = cartList!.products.map((e) => e.id).toList();
-        totalSave = (cartList!.totalPrice - cartList!.totalDiscount).toInt();
+      
+        totalSave = ( (cartList!.totalPrice )- (cartList!.totalDiscount)   ).toInt();
         update();
         totalProductCount();
         update();

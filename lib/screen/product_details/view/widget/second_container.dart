@@ -133,7 +133,7 @@ class SecondContainer extends StatelessWidget {
                               text: '${model.discountPrice}% off ',
                             ),
                             TextSpan(
-                              text: model.price.toString(),
+                              text: model.offer.toString(),
                               style: const TextStyle(
                                 color: colorWhite,
                                 decoration: TextDecoration.lineThrough,
@@ -145,7 +145,7 @@ class SecondContainer extends StatelessWidget {
                                 fontSize: 26,
                                 color: colorWhite,
                               ),
-                              text: '  ₹${model.offer}',
+                              text: '  ₹${model.price}',
                             ),
                           ],
                         ),

@@ -27,7 +27,7 @@ class PaymentController extends GetxController {
   //   update();
   // }
 
-  void setTotalAmount(amount, List<ProductElement> productsList, address) {
+  void setTotalAmount(int amount, List<ProductElement> productsList, address) {
     log('setTotal');
     final total = "${amount * 100}";
     final amountPayable = total.toString();

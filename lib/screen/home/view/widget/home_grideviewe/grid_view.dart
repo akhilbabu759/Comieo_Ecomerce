@@ -127,7 +127,7 @@ class HomeGridView extends StatelessWidget {
                         Row(
                           children: [
                             Text(
-                              "₹ ${productC.productList[index].offer.toString()}",
+                              "₹ ${productC.productList[index].price.toString()}",
                               style: const TextStyle(
                                 color: colorblack,
                                 fontSize: 20,

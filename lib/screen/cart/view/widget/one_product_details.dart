@@ -72,14 +72,14 @@ class OneProduct extends StatelessWidget {
                   text: TextSpan(children: [
                 TextSpan(
                     text:
-                        '₹${cartcontrol.cartList!.products[index].product.price}',
+                        '₹${cartcontrol.cartList!.products[index].product.offer}',
                     style: const TextStyle(
                         decoration: TextDecoration.lineThrough,
                         color: Color.fromARGB(255, 112, 114, 115),
                         fontSize: 15)),
                 TextSpan(
                     text:
-                        ' ₹${cartcontrol.cartList!.products[index].product.offer}',
+                        ' ₹${cartcontrol.cartList!.products[index].product.price}',
                     style: const TextStyle(color: Colors.black, fontSize: 20)),
                 TextSpan(
                     text:

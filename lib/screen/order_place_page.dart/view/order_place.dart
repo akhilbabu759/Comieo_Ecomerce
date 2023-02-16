@@ -1,5 +1,6 @@
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
+import 'package:ecomerce/screen/cart/view/cart.dart';
 
 import 'package:flutter/material.dart';
 
@@ -14,9 +15,12 @@ class OrderPlace extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: colorWhite,
-        leading: const Icon(
-          Icons.arrow_back_ios,
-          color: colorblack,
+        leading: IconButton(onPressed: () => Get.back(),
+          icon: 
+           const Icon(
+            Icons.arrow_back_ios,
+            color: colorblack,
+          ),
         ),
         title: const Text(
           "My Orders",
@@ -24,9 +28,10 @@ class OrderPlace extends StatelessWidget {
               color: colorblack, fontSize: 25, fontWeight: FontWeight.w400),
         ),
         actions:  [
-          const Icon(
-            Icons.shopping_bag_outlined,
-            color: colorblack,
+           IconButton(onPressed:() =>Get.to(const CartScreen()) ,
+            icon: const Icon(
+            Icons.shopping_cart,
+            color: colorblack,)
           ),SizedBox(width: Get.width*0.02,),
         ],
         centerTitle: true,

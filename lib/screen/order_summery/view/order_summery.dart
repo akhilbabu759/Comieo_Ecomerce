@@ -102,10 +102,9 @@ class _OrderSummeryState extends State<OrderSummery> {
                                 backgroundColor: MaterialStateProperty.all(
                                     Colors.yellow.shade600)),
                             onPressed: () {
-                              log(cartcontrol.cartItemsId.toString());
-                              log(adrres.addressList[0].id);
-                              paymentController.setTotalAmount(55,
-                                  // cartcontrol.cartList!.totalDiscount.toString(),
+                              
+                              paymentController.setTotalAmount(
+                                 cartcontrol.cartList!.totalDiscount,
                                   cartcontrol.cartList!.products,
                                   adrres.addressList[0].id);
                             }

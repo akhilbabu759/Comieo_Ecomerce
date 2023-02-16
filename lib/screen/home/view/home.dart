@@ -12,6 +12,7 @@ import 'package:ecomerce/screen/cart/view/cart.dart';
 import 'package:ecomerce/screen/home/view/widget/afterAppBar/after_appbar.dart';
 
 import 'package:ecomerce/screen/home/view/widget/side_Sheet/side_sheet_row.dart';
+import 'package:ecomerce/screen/order_place_page.dart/view/order_place.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:side_sheet/side_sheet.dart';
@@ -98,16 +99,10 @@ class Home extends StatelessWidget {
                                                 icon: Icon(Icons.favorite),
                                                 text: 'Wishlist',
                                               ),),
-                                          // textFieldGap,
-                                          // GestureDetector(
-                                          //     onTap: () => Get.to(const Account()),
-                                          //     child: const SideSheetRow(
-                                          //       icon: Icon(Icons.account_circle),
-                                          //       text: 'Account',
-                                          //     )),
+                                         
                                           textFieldGap,
                                           textFieldGap,
-                                          GestureDetector(
+                                          GestureDetector(onTap: () => Get.to(const OrderPlace()),
                                               child: const SideSheetRow(
                                             icon: Icon(Icons.shopping_basket),
                                             text: 'Order',
