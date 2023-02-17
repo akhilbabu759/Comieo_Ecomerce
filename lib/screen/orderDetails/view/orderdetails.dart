@@ -1,8 +1,7 @@
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:get/get.dart';
 
 class OrderDetails extends StatelessWidget {
@@ -184,8 +183,8 @@ class OrderDetails extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Icon(Icons.share),
-                    SizedBox(
+                    const Icon(Icons.share),
+                    const SizedBox(
                       width: 9,
                     ),
                     Text('Share Order Details',

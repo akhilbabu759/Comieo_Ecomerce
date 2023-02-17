@@ -1,5 +1,7 @@
 
 
+
+
 import 'dart:developer';
 
 import 'package:ecomerce/core/constent.dart';
@@ -48,7 +50,12 @@ class _OrderSummeryState extends State<OrderSummery> {
     final adrres = Get.put(AcountController());
     
     return GetBuilder<AcountController>(builder: (controller) {
-      return Scaffold(
+      return adrres.isLoading==true?const Center(
+                child: CircularProgressIndicator(
+                  color: colorWhite,
+                  backgroundColor: Colors.cyan,
+                ),
+              ): Scaffold(
         appBar: AppBar(
           elevation: 0,
           backgroundColor: colorWhite,
@@ -103,10 +110,12 @@ class _OrderSummeryState extends State<OrderSummery> {
                                     Colors.yellow.shade600)),
                             onPressed: () {
                               
+                              
                               paymentController.setTotalAmount(
-                                 cartcontrol.cartList!.totalDiscount,
+                                 cartcontrol.cartList!.totalPrice,
                                   cartcontrol.cartList!.products,
                                   adrres.addressList[0].id);
+                                  log(cartcontrol.cartList!.totalDiscount);
                             }
                             
                             ,

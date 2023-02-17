@@ -1,10 +1,10 @@
 import 'package:device_preview/device_preview.dart';
-import 'package:ecomerce/screen/orderDetails/view/orderdetails.dart';
+
 import 'package:flutter/material.dart';
 import 'screen/auth/sign_in/view/signin.dart';
 import 'package:get/get.dart';
 
-import 'screen/order_place_page.dart/view/order_place.dart';
+
 
 void main() {
   runApp(DevicePreview(

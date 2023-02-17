@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/screen/cart/controller/cart_controller.dart';
 import 'package:ecomerce/screen/cart/model/get_cart_model.dart';
-import 'package:ecomerce/screen/cart/view/cart.dart';
+
 import 'package:ecomerce/screen/order_place_page.dart/view/order_place.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -107,7 +107,7 @@ class PaymentController extends GetxController {
         loading = false;
         update();
         
-        Get.off( OrderPlace());
+        Get.off( const OrderPlace());
         cartcotro.getCart();
       } else {
         loading = false;

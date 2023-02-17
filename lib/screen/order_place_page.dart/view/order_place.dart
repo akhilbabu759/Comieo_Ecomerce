@@ -1,6 +1,8 @@
+import 'package:ecomerce/common/api_baseurl.dart';
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
 import 'package:ecomerce/screen/cart/view/cart.dart';
+import 'package:ecomerce/screen/order_place_page.dart/controller/all_order_controller.dart';
 
 import 'package:flutter/material.dart';
 
@@ -11,7 +13,14 @@ class OrderPlace extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    final orderC=Get.put(AllOrderController());
+    return GetBuilder<AllOrderController>(builder: (controller) {
+      return orderC.isLoding==true?const Center(
+                child: CircularProgressIndicator(
+                  color: colorWhite,
+                  backgroundColor: Colors.cyan,
+                ),
+              ): Scaffold(
       appBar: AppBar(
         elevation: 0,
         backgroundColor: colorWhite,
@@ -37,7 +46,7 @@ class OrderPlace extends StatelessWidget {
         centerTitle: true,
       ),
       body: ListView.builder(
-        itemCount: 10,
+        itemCount: orderC.orderList.length,
         itemBuilder: (context, index) => Column(
           children: [
             Row(
@@ -48,12 +57,12 @@ class OrderPlace extends StatelessWidget {
                     left: 20.0,
                   ),
                   child: Container(
-                    height: 120,
+                    height: 100,
                     width: 100,
-                    decoration: const BoxDecoration(
+                    decoration:  BoxDecoration(
                       image: DecorationImage(
                         image: NetworkImage(
-                            'https://rukminim1.flixcart.com/image/832/832/xif0q/mobile/m/o/b/-original-imaghx9qkugtbfrn.jpeg?q=70'),
+                            '${ApiBaseUrl().baseurl}/products/${orderC.orderList[index].products[0].product.image[0]}'),
                         fit: BoxFit.fill,
                       ),
                     ),
@@ -63,14 +72,16 @@ class OrderPlace extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 17.0, left: 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
+                    children:  [
                       Text(
-                        'APPLE iphone 14(Blue,128GB)',
-                        style: TextStyle(color: colorblack, fontSize: 20),
+                        orderC.orderList[index].products[0].product.name,
+                        
+                        style: const TextStyle(color: colorblack, fontSize: 20),
                       ),
                       textFieldGap,
-                      Text(
-                        'Delivery Cancelled on 2023-02-14 ',
+                       Text('Delivery Cancelled on'+
+                        orderC.orderList[index].deliveryDate.day.toString()
+                        ,
                         style: TextStyle(color: Colors.grey, fontSize: 15),
                       ),
                     ],
@@ -84,7 +95,8 @@ class OrderPlace extends StatelessWidget {
             )
           ],
         ),
-      ),
+      ),);
+    }
     );
   }
 }
