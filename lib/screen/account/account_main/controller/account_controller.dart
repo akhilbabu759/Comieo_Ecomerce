@@ -17,7 +17,8 @@ class AcountController extends GetxController {
     getAllAddress();
     super.onInit();
   }
-  final signup=Get.put(SignInController());
+
+  final signup = Get.put(SignInController());
 
   final addressService = AddressService();
 
@@ -74,7 +75,7 @@ class AcountController extends GetxController {
       if (value != null) {
         log(value.toString());
         addressList = value;
-         update();
+        update();
         isLoading = false;
         update();
         return 'Done';
@@ -95,14 +96,13 @@ class AcountController extends GetxController {
       if (value != null) {
         getAllAddress();
         Get.back();
-        
+
         Get.snackbar(
-              "Delete",
+          "Delete",
           "Address removed successfully",
-               backgroundColor: colorRed,
-               snackPosition: SnackPosition.BOTTOM,
-                 
-               );
+          backgroundColor: colorRed,
+          snackPosition: SnackPosition.BOTTOM,
+        );
         isLoading = false;
         update();
         log('false');
@@ -127,8 +127,5 @@ class AcountController extends GetxController {
     Get.offAll(() => const SigninPage());
     signup.logoutLaunch();
     update();
-
-
-    
   }
 }

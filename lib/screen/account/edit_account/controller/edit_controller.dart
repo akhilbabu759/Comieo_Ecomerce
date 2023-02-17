@@ -26,9 +26,9 @@ class EditContoller extends GetxController {
   TextEditingController placeC = TextEditingController();
   TextEditingController addressC = TextEditingController();
   TextEditingController landmarkC = TextEditingController();
- bool isLoading = false;
+  bool isLoading = false;
   void updateAddress(String addressId) async {
-   isLoading = true;
+    isLoading = true;
     update();
     final EditAddressModel model = EditAddressModel(
       title: tittleC.text,
@@ -42,14 +42,13 @@ class EditContoller extends GetxController {
     );
     await Editservice().updateAddress(model, addressId).then((value) {
       if (value != null) {
-        
         AcountController().getAllAddress();
         update();
-        
-       isLoading = false;
+
+        isLoading = false;
         update();
       } else {
-       isLoading = false;
+        isLoading = false;
         update();
       }
       AcountController().getAllAddress();

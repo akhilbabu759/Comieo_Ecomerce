@@ -1,18 +1,12 @@
-
-
-
-
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/util/shimmer/shimmer.dart';
 import 'package:flutter/material.dart';
-
 
 class CarouselShimmer extends StatelessWidget {
   const CarouselShimmer({super.key});
 
   @override
   Widget build(BuildContext context) {
-   
     return Stack(
       children: const [
         SizedBox(

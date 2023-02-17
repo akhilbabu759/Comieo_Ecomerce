@@ -17,7 +17,6 @@ class AllAccountView extends StatelessWidget {
   final double height;
 
   final accountC = Get.put(AcountController());
-  
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +45,6 @@ class AllAccountView extends StatelessWidget {
               style: TextStyle(
                 fontSize: 25,
                 letterSpacing: 3,
-                
                 fontWeight: FontWeight.bold,
               )),
           TextSpan(
@@ -139,8 +137,7 @@ class AllAccountView extends StatelessWidget {
                                             ),
                                           ),
                                           onPressed: () {
-                                            Get.off(
-                                              EditAccountPage(
+                                            Get.off(EditAccountPage(
                                               height: height,
                                               width: width,
                                               model:

@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class OrderDetails extends StatelessWidget {
-  const OrderDetails({super.key,required this.model});
+  const OrderDetails({super.key, required this.model});
   final AllOrder model;
 
   @override
@@ -26,7 +26,8 @@ class OrderDetails extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: Column(crossAxisAlignment: CrossAxisAlignment.start,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
             height: 50,
@@ -202,25 +203,24 @@ class OrderDetails extends StatelessWidget {
             height: 45,
             color: Colors.grey.shade200,
             child: const Padding(
-              padding: EdgeInsets.only(left:14.0,top: 13),
+              padding: EdgeInsets.only(left: 14.0, top: 13),
               child: Text('Shopping Details'),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top:10.0,left: 15),
+            padding: const EdgeInsets.only(top: 10.0, left: 15),
             child: RichText(
-                    text: const TextSpan(
-                      text: "AkhilBabu\n",
-                      style: TextStyle(fontSize: 18, color: colorblack),
-                      children: [
-                        TextSpan(
-                            text: "2023-02-14 05:27:45",
-                            style: TextStyle(fontSize: 17))
-                      ],
-                    ),
-                  ),
+              text: const TextSpan(
+                text: "AkhilBabu\n",
+                style: TextStyle(fontSize: 18, color: colorblack),
+                children: [
+                  TextSpan(
+                      text: "2023-02-14 05:27:45",
+                      style: TextStyle(fontSize: 17))
+                ],
+              ),
+            ),
           ),
-          
         ],
       ),
     );

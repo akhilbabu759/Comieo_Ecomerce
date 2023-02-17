@@ -62,27 +62,28 @@ class OrderPlace extends StatelessWidget {
                     GestureDetector(
                       onTap: () {
                         final model = AllOrder(
-                          address: orderC.orderList[index].address,
-                          deliveryDate: orderC.orderList[index].deliveryDate,
-                          fullName: orderC.orderList[index].fullName,
-                          id: orderC.orderList[index].id,
-                          landMark: orderC.orderList[index].landMark,
-                          orderDate: orderC.orderList[index].orderDate,
-                          orderStatus: orderC.orderList[index].orderStatus,
-                          paymentStatus: orderC.orderList[index].paymentStatus,
-                          paymentType: orderC.orderList[index].paymentType,
-                          phone: orderC.orderList[index].phone,
-                          pin: orderC.orderList[index].pin,
-                          place: orderC.orderList[index].place,
-                          products: orderC.orderList[index].products,
-                          state: orderC.orderList[index].state,
-                          totalDiscount: orderC.orderList[index].totalDiscount,
-                          totalPrice: orderC.orderList[index].totalPrice,
-                          userid: orderC.orderList[index].userid,
-                          v: orderC.orderList[index].v,
-                          cancelDate: orderC.orderList[index].cancelDate
-                        );
-                        Get.to(OrderDetails(model:model));
+                            address: orderC.orderList[index].address,
+                            deliveryDate: orderC.orderList[index].deliveryDate,
+                            fullName: orderC.orderList[index].fullName,
+                            id: orderC.orderList[index].id,
+                            landMark: orderC.orderList[index].landMark,
+                            orderDate: orderC.orderList[index].orderDate,
+                            orderStatus: orderC.orderList[index].orderStatus,
+                            paymentStatus:
+                                orderC.orderList[index].paymentStatus,
+                            paymentType: orderC.orderList[index].paymentType,
+                            phone: orderC.orderList[index].phone,
+                            pin: orderC.orderList[index].pin,
+                            place: orderC.orderList[index].place,
+                            products: orderC.orderList[index].products,
+                            state: orderC.orderList[index].state,
+                            totalDiscount:
+                                orderC.orderList[index].totalDiscount,
+                            totalPrice: orderC.orderList[index].totalPrice,
+                            userid: orderC.orderList[index].userid,
+                            v: orderC.orderList[index].v,
+                            cancelDate: orderC.orderList[index].cancelDate);
+                        Get.to(OrderDetails(model: model));
                       },
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,

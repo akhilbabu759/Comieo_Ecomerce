@@ -7,8 +7,8 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 
 class OneProduct extends StatelessWidget {
-     const OneProduct({Key? key, required this.index}) : super(key: key);
- final  int   index;
+  const OneProduct({Key? key, required this.index}) : super(key: key);
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -50,23 +50,19 @@ class OneProduct extends StatelessWidget {
               ),
               textFieldGap,
               RatingBar.builder(
-                          initialRating: double.parse(
-                               cartcontrol.cartList!.products[index].product.rating
-                              
-                              ),
-                          itemSize: 15,
-                          minRating: 1,
-                          direction: Axis.horizontal,
-                          allowHalfRating: true,
-                          ignoreGestures: true,
-                          itemBuilder: (context, _) => const Icon(
-                            Icons.star,
-                            color: Colors.amber,
-                          ),
-                          onRatingUpdate: (startRating) {
-                           
-                          },
-                        ),
+                initialRating: double.parse(
+                    cartcontrol.cartList!.products[index].product.rating),
+                itemSize: 15,
+                minRating: 1,
+                direction: Axis.horizontal,
+                allowHalfRating: true,
+                ignoreGestures: true,
+                itemBuilder: (context, _) => const Icon(
+                  Icons.star,
+                  color: Colors.amber,
+                ),
+                onRatingUpdate: (startRating) {},
+              ),
               textFieldGap,
               RichText(
                   text: TextSpan(children: [
@@ -135,8 +131,8 @@ class OneProduct extends StatelessWidget {
                                     cartcontrol
                                         .cartList!.products[index].product.id,
                                     cartcontrol.cartList!.products[index].qty,
-                                    cartcontrol
-                                        .cartList!.products[index].product.size[0]
+                                    cartcontrol.cartList!.products[index]
+                                        .product.size[0]
                                         .toString());
                               }
                               // cartcontrol.adding(),
@@ -171,8 +167,8 @@ class OneProduct extends StatelessWidget {
                                     cartcontrol
                                         .cartList!.products[index].product.id,
                                     cartcontrol.cartList!.products[index].qty,
-                                    cartcontrol
-                                        .cartList!.products[index].product.size[0]
+                                    cartcontrol.cartList!.products[index]
+                                        .product.size[0]
                                         .toString());
                               }
                               //  cartcontrol.deleting(),

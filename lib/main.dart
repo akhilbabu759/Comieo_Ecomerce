@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'screen/auth/sign_in/view/signin.dart';
 import 'package:get/get.dart';
 
-
-
 void main() {
   runApp(DevicePreview(
     enabled: false,
@@ -33,8 +31,6 @@ class MyApp extends StatelessWidget {
             // Home()
             // OrderSummery()
             // OrderDetails()
-          const SigninPage()
-
-        );
+            const SigninPage());
   }
 }

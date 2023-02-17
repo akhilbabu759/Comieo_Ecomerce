@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 
-
 class FistContiner extends StatelessWidget {
   const FistContiner({Key? key, required this.model}) : super(key: key);
   final ProductDeatailsModel model;
@@ -21,7 +20,8 @@ class FistContiner extends StatelessWidget {
         height: Get.height,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[const SizedBox(height: 22),
+          children: <Widget>[
+            const SizedBox(height: 22),
             Container(
               decoration: BoxDecoration(
                   color: Colors.red, borderRadius: BorderRadius.circular(20)),
@@ -44,24 +44,23 @@ class FistContiner extends StatelessWidget {
                 ),
                 Column(
                   children: [
-                     RatingBar.builder(
-                            initialRating: double.parse(
-                                // productC.productList[index].rating
-                                model.rating
-                                ),
-                            itemSize: 15,
-                            minRating: 1,
-                            direction: Axis.horizontal,
-                            allowHalfRating: true,
-                            ignoreGestures: true,
-                            itemBuilder: (context, _) => const Icon(
-                              Icons.star,
-                              color: Colors.amber,
-                            ),
-                            onRatingUpdate: (startRating) {
-                              log(startRating.toString());
-                            },
-                          ),
+                    RatingBar.builder(
+                      initialRating: double.parse(
+                          // productC.productList[index].rating
+                          model.rating),
+                      itemSize: 15,
+                      minRating: 1,
+                      direction: Axis.horizontal,
+                      allowHalfRating: true,
+                      ignoreGestures: true,
+                      itemBuilder: (context, _) => const Icon(
+                        Icons.star,
+                        color: Colors.amber,
+                      ),
+                      onRatingUpdate: (startRating) {
+                        log(startRating.toString());
+                      },
+                    ),
                     Text(
                       model.rating,
                       style: textstyle,
@@ -70,14 +69,14 @@ class FistContiner extends StatelessWidget {
                 )
               ],
             ),
-            
             Row(
               children: <Widget>[
-                
                 const SizedBox(
                   width: 70,
                 ),
-                Image.network(height: 180,width: 260,
+                Image.network(
+                    height: 180,
+                    width: 260,
                     '${ApiBaseUrl().baseurl}/products/${model.image[0]}'),
               ],
             ),

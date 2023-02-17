@@ -1,33 +1,30 @@
-
-
 class ProductDeatailsModel {
-    ProductDeatailsModel({
-        required this.id,
-        required this.name,
-        required this.price,
-        required this.discountPrice,
-        required this.offer,
-        required this.size,
-        required this.image,
-        required this.category,
-        required this.rating,
-        required this.description,
-        
-    });
+  ProductDeatailsModel({
+    required this.id,
+    required this.name,
+    required this.price,
+    required this.discountPrice,
+    required this.offer,
+    required this.size,
+    required this.image,
+    required this.category,
+    required this.rating,
+    required this.description,
+  });
 
-    final String id;
-    final String name;
-    final int price;
-    final int discountPrice;
-    final int offer;
-    final List<String> size;
-    final List<String> image;
-    final String category;
-    final String rating;
-    final String description;
-  
+  final String id;
+  final String name;
+  final int price;
+  final int discountPrice;
+  final int offer;
+  final List<String> size;
+  final List<String> image;
+  final String category;
+  final String rating;
+  final String description;
 
-    factory ProductDeatailsModel.fromJson(Map<String, dynamic> json) => ProductDeatailsModel(
+  factory ProductDeatailsModel.fromJson(Map<String, dynamic> json) =>
+      ProductDeatailsModel(
         id: json["_id"],
         name: json["name"],
         price: json["price"],
@@ -38,6 +35,5 @@ class ProductDeatailsModel {
         category: json["category"],
         rating: json["rating"],
         description: json["description"],
-        
-    );
+      );
 }

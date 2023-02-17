@@ -10,30 +10,39 @@ class CategoryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final categoC=Get.put(HomeControll());
-    return Scaffold(appBar: PreferredSize(preferredSize: const Size.fromHeight(63),
-      child: AppBar(elevation: 0,
-        title: const Text('Category',style: TextStyle(color: colorblack),),centerTitle: true,
-        backgroundColor: colorWhite),
-    ),
+    final categoC = Get.put(HomeControll());
+    return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(63),
+        child: AppBar(
+            elevation: 0,
+            title: const Text(
+              'Category',
+              style: TextStyle(color: colorblack),
+            ),
+            centerTitle: true,
+            backgroundColor: colorWhite),
+      ),
       backgroundColor: Colors.blueGrey[50],
       body: SafeArea(
           child: Column(
         children: [
           Flexible(
-            child: GridView.builder(itemCount:categoC.categorylList.length,
-              gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(  
-                    crossAxisCount: 3,  
-                    // crossAxisSpacing:1.0,  
-                    // mainAxisSpacing: .0  
-                ) ,itemBuilder: (context, index) => 
-           Padding(
-             padding: const EdgeInsets.only(left:8.0,right: 8),
-             child: Container(
+            child: GridView.builder(
+              itemCount: categoC.categorylList.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                // crossAxisSpacing:1.0,
+                // mainAxisSpacing: .0
+              ),
+              itemBuilder: (context, index) => Padding(
+                padding: const EdgeInsets.only(left: 8.0, right: 8),
+                child: Container(
                   width: 100,
                   decoration: const BoxDecoration(boxShadow: [
                     BoxShadow(
-                        blurRadius: 50, color: Color.fromARGB(96, 130, 129, 129))
+                        blurRadius: 50,
+                        color: Color.fromARGB(96, 130, 129, 129))
                   ]),
                   child: CircleAvatar(
                       minRadius: 50,
@@ -54,7 +63,7 @@ class CategoryPage extends StatelessWidget {
                       //     child: Center(child: Text('dat'))),
                       ),
                 ),
-           ),
+              ),
             ),
           )
         ],

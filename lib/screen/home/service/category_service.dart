@@ -8,11 +8,11 @@ import 'package:ecomerce/util/dio_interceptor/dio_interceptor.dart';
 
 import '../model/category_model.dart';
 
-class CategoryService{
-   final dio = Dio();
+class CategoryService {
+  final dio = Dio();
   final abaseUrl = ApiBaseUrl();
   final aendUrl = ApiEndsUrl();
-  Future<List<CategoryModel>?> getCategory()async{
+  Future<List<CategoryModel>?> getCategory() async {
     Dio dio = await ApiInterceptor().getApiUser();
     try {
       Response response = await dio.get(abaseUrl.baseurl + aendUrl.category);
@@ -34,10 +34,10 @@ class CategoryService{
       }
     } on DioError catch (e) {
       log(e.message);
-      DioException().dioError(e, );
+      DioException().dioError(
+        e,
+      );
     }
     return null;
   }
-
-
 }

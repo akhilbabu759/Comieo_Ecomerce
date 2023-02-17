@@ -12,9 +12,7 @@ class CarouselService {
   final dio = Dio();
   final abaseUrl = ApiBaseUrl();
   final aendUrl = ApiEndsUrl();
-  
 
-  
   Future<List<CarousalModel>?> getCarosel() async {
     Dio dio = await ApiInterceptor().getApiUser();
     try {
@@ -37,7 +35,9 @@ class CarouselService {
       }
     } on DioError catch (e) {
       log(e.message);
-      DioException().dioError(e, );
+      DioException().dioError(
+        e,
+      );
     }
     return null;
   }

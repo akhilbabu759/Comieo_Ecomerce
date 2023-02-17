@@ -1,4 +1,3 @@
-
 import 'package:ecomerce/util/shimmer/shimmer.dart';
 import 'package:flutter/material.dart';
 

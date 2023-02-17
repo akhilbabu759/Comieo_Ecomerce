@@ -1,10 +1,6 @@
-
-
-
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/util/shimmer/shimmer.dart';
 import 'package:flutter/material.dart';
-
 
 class CategoryShimmer extends StatelessWidget {
   const CategoryShimmer({super.key});

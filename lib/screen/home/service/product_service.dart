@@ -7,11 +7,11 @@ import 'package:ecomerce/screen/home/model/product_model.dart';
 import 'package:ecomerce/util/dio_exception/exception.dart';
 import 'package:ecomerce/util/dio_interceptor/dio_interceptor.dart';
 
-class ProductService{
+class ProductService {
   final dio = Dio();
   final abaseUrl = ApiBaseUrl();
   final aendUrl = ApiEndsUrl();
-   Future<List<ProductModel>?> getProduct()async{
+  Future<List<ProductModel>?> getProduct() async {
     Dio dio = await ApiInterceptor().getApiUser();
     try {
       Response response = await dio.get(abaseUrl.baseurl + aendUrl.product);
@@ -33,9 +33,10 @@ class ProductService{
       }
     } on DioError catch (e) {
       log(e.message);
-      DioException().dioError(e, );
+      DioException().dioError(
+        e,
+      );
     }
     return null;
   }
-
 }

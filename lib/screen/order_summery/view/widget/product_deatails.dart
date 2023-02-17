@@ -7,8 +7,8 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 
 class ProductDeatails extends StatelessWidget {
-     const ProductDeatails({Key? key, required this.index}) : super(key: key);
- final  int   index;
+  const ProductDeatails({Key? key, required this.index}) : super(key: key);
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class ProductDeatails extends StatelessWidget {
             width: 150,
           ),
           Padding(
-            padding: const EdgeInsets.only(top:13.0),
+            padding: const EdgeInsets.only(top: 13.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -52,45 +52,43 @@ class ProductDeatails extends StatelessWidget {
                 ),
                 textFieldGap,
                 RatingBar.builder(
-                            initialRating: double.parse(
-                                 cartcontrol.cartList!.products[index].product.rating
-                                
-                                ),
-                            itemSize: 15,
-                            minRating: 1,
-                            direction: Axis.horizontal,
-                            allowHalfRating: true,
-                            ignoreGestures: true,
-                            itemBuilder: (context, _) => const Icon(
-                              Icons.star,
-                              color: Colors.amber,
-                            ),
-                            onRatingUpdate: (startRating) {
-                             
-                            },
-                          ),
+                  initialRating: double.parse(
+                      cartcontrol.cartList!.products[index].product.rating),
+                  itemSize: 15,
+                  minRating: 1,
+                  direction: Axis.horizontal,
+                  allowHalfRating: true,
+                  ignoreGestures: true,
+                  itemBuilder: (context, _) => const Icon(
+                    Icons.star,
+                    color: Colors.amber,
+                  ),
+                  onRatingUpdate: (startRating) {},
+                ),
                 textFieldGap,
                 RichText(
-                    text: TextSpan(children: [
-                  TextSpan(
-                      text:
-                          '₹${cartcontrol.cartList!.products[index].product.offer}',
-                      style: const TextStyle(
-                          decoration: TextDecoration.lineThrough,
-                          color: Color.fromARGB(255, 112, 114, 115),
-                          fontSize: 15)),
-                  TextSpan(
-                      text:
-                          ' ₹${cartcontrol.cartList!.products[index].product.price}',
-                      style: const TextStyle(color: Colors.black, fontSize: 20)),
-                  TextSpan(
-                      text:
-                          ' ${cartcontrol.cartList!.products[index].product.discountPrice}% off',
-                      style: const TextStyle(
-                        color: Colors.green,
-                        fontSize: 20,
-                      ))
-                ]),),
+                  text: TextSpan(children: [
+                    TextSpan(
+                        text:
+                            '₹${cartcontrol.cartList!.products[index].product.offer}',
+                        style: const TextStyle(
+                            decoration: TextDecoration.lineThrough,
+                            color: Color.fromARGB(255, 112, 114, 115),
+                            fontSize: 15)),
+                    TextSpan(
+                        text:
+                            ' ₹${cartcontrol.cartList!.products[index].product.price}',
+                        style:
+                            const TextStyle(color: Colors.black, fontSize: 20)),
+                    TextSpan(
+                        text:
+                            ' ${cartcontrol.cartList!.products[index].product.discountPrice}% off',
+                        style: const TextStyle(
+                          color: Colors.green,
+                          fontSize: 20,
+                        ))
+                  ]),
+                ),
                 textFieldGap,
                 RichText(
                     text: const TextSpan(children: [
@@ -116,9 +114,8 @@ class ProductDeatails extends StatelessWidget {
           )
         ]),
         Padding(
-          padding: const EdgeInsets.only(left:30 ),
+          padding: const EdgeInsets.only(left: 30),
           child: Row(
-            
             children: [
               Card(
                 elevation: 3,

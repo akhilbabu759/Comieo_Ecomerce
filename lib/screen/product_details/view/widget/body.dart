@@ -11,9 +11,7 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return ListView(
-      physics: const NeverScrollableScrollPhysics(),
-      children: [
+    return ListView(physics: const NeverScrollableScrollPhysics(), children: [
       Column(
         children: <Widget>[
           SizedBox(

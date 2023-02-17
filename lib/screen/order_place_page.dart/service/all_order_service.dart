@@ -7,11 +7,11 @@ import 'package:ecomerce/screen/order_place_page.dart/model/all_order_deateals.d
 import 'package:ecomerce/util/dio_exception/exception.dart';
 import 'package:ecomerce/util/dio_interceptor/dio_interceptor.dart';
 
-class AllOrderService{
-   final dio = Dio();
+class AllOrderService {
+  final dio = Dio();
   final abaseUrl = ApiBaseUrl();
   final aendUrl = ApiEndsUrl();
-  Future<List<AllOrder>?> getOrder()async{
+  Future<List<AllOrder>?> getOrder() async {
     Dio dio = await ApiInterceptor().getApiUser();
     try {
       Response response = await dio.get(abaseUrl.baseurl + aendUrl.order);
@@ -33,10 +33,10 @@ class AllOrderService{
       }
     } on DioError catch (e) {
       log(e.message);
-      DioException().dioError(e, );
+      DioException().dioError(
+        e,
+      );
     }
     return null;
   }
-
-
 }

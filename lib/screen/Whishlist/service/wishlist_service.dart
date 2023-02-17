@@ -7,11 +7,10 @@ import 'package:ecomerce/screen/Whishlist/model/wishlist_mode.dart';
 import 'package:ecomerce/util/dio_exception/exception.dart';
 import 'package:ecomerce/util/dio_interceptor/dio_interceptor.dart';
 
-
 class WishlistService {
   final apibaseUrl = ApiBaseUrl();
   final apiendUrl = ApiEndsUrl();
-  Future<int?> addOrRemoveWishlist( productId) async {
+  Future<int?> addOrRemoveWishlist(productId) async {
     Dio dio = await ApiInterceptor().getApiUser();
     try {
       Response response =
@@ -27,7 +26,9 @@ class WishlistService {
       }
     } on DioError catch (e) {
       log(e.message);
-      DioException().dioError(e, );
+      DioException().dioError(
+        e,
+      );
     }
     return null;
   }

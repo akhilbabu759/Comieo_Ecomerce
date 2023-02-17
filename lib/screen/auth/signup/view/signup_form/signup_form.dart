@@ -27,8 +27,10 @@ class SignupFrom extends StatelessWidget {
           child: Column(
             children: [
               Padding(
-                  padding:
-                      EdgeInsets.only(left: width * 0.05, right: width * 0.05,top: height*0.03),
+                  padding: EdgeInsets.only(
+                      left: width * 0.05,
+                      right: width * 0.05,
+                      top: height * 0.03),
                   child: Container(
                       decoration: BoxDecoration(
                           color: Colors.blueGrey[50],
@@ -49,12 +51,13 @@ class SignupFrom extends StatelessWidget {
                               decoration: const InputDecoration(
                                   border: InputBorder.none,
                                   labelText: 'Full name',
-                                  labelStyle:
-                                      TextStyle(color: colorblack)))))),
+                                  labelStyle: TextStyle(color: colorblack)))))),
               textFieldGap,
               Padding(
-                  padding:
-                      EdgeInsets.only(left: width * 0.05, right: width * 0.05,top: height*0.03),
+                  padding: EdgeInsets.only(
+                      left: width * 0.05,
+                      right: width * 0.05,
+                      top: height * 0.03),
                   child: Container(
                       decoration: BoxDecoration(
                           color: Colors.blueGrey[50],
@@ -76,12 +79,13 @@ class SignupFrom extends StatelessWidget {
                               decoration: const InputDecoration(
                                   border: InputBorder.none,
                                   labelText: 'Phone',
-                                  labelStyle:
-                                      TextStyle(color: colorblack)))))),
+                                  labelStyle: TextStyle(color: colorblack)))))),
               textFieldGap,
               Padding(
-                  padding:
-                      EdgeInsets.only(left: width * 0.05, right: width * 0.05,top: height*0.03),
+                  padding: EdgeInsets.only(
+                      left: width * 0.05,
+                      right: width * 0.05,
+                      top: height * 0.03),
                   child: Container(
                       decoration: BoxDecoration(
                           color: Colors.blueGrey[50],
@@ -103,12 +107,15 @@ class SignupFrom extends StatelessWidget {
                               decoration: const InputDecoration(
                                   border: InputBorder.none,
                                   labelText: 'Email',
-                                  labelStyle:
-                                      TextStyle(color: colorblack,)))))),
+                                  labelStyle: TextStyle(
+                                    color: colorblack,
+                                  )))))),
               textFieldGap,
               Padding(
-                  padding:
-                      EdgeInsets.only(left: width * 0.05, right: width * 0.05,top: height*0.03),
+                  padding: EdgeInsets.only(
+                      left: width * 0.05,
+                      right: width * 0.05,
+                      top: height * 0.03),
                   child: Container(
                       decoration: BoxDecoration(
                           color: Colors.blueGrey[50],
@@ -137,12 +144,14 @@ class SignupFrom extends StatelessWidget {
                                   ),
                                   border: InputBorder.none,
                                   labelText: 'Password',
-                                  labelStyle: const TextStyle(
-                                      color: colorblack)))))),
+                                  labelStyle:
+                                      const TextStyle(color: colorblack)))))),
               textFieldGap,
               Padding(
-                  padding:
-                      EdgeInsets.only(left: width * 0.05, right: width * 0.05,top: height*0.03),
+                  padding: EdgeInsets.only(
+                      left: width * 0.05,
+                      right: width * 0.05,
+                      top: height * 0.03),
                   child: Container(
                       decoration: BoxDecoration(
                           color: Colors.blueGrey[50],
@@ -169,7 +178,7 @@ class SignupFrom extends StatelessWidget {
                                     color: colorblack,
                                   )))))),
               textFieldGap,
-               textFieldGap,
+              textFieldGap,
               SizedBox(
                 width: width * 0.9,
                 child: ElevatedButton(
@@ -192,7 +201,10 @@ class SignupFrom extends StatelessWidget {
                         signupController.addUser(context);
                       }
                     },
-                    child: const Text('Create account',style: TextStyle(color: colorblack),)),
+                    child: const Text(
+                      'Create account',
+                      style: TextStyle(color: colorblack),
+                    )),
               ),
               SizedBox(
                 height: height * 0.04,

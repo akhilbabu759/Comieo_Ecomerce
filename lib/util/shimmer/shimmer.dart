@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
-class   ShimmerWidget extends StatelessWidget {
+class ShimmerWidget extends StatelessWidget {
   const ShimmerWidget.rectangle({
     super.key,
     required this.height,

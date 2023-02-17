@@ -1,4 +1,3 @@
-
 import 'package:ecomerce/screen/home/model/product_model.dart';
 
 class GetCartModel {
@@ -12,7 +11,7 @@ class GetCartModel {
   String id;
   String userId;
   List<ProductElement> products;
-   int totalPrice;
+  int totalPrice;
   dynamic totalDiscount;
 
   factory GetCartModel.fromJson(Map<String, dynamic> json) => GetCartModel(

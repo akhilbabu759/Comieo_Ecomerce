@@ -9,11 +9,12 @@ import 'package:ecomerce/screen/cart/model/get_cart_model.dart';
 import 'package:ecomerce/util/dio_exception/exception.dart';
 import 'package:ecomerce/util/dio_interceptor/dio_interceptor.dart';
 
-
 class CartService {
   final apibaseUrl = ApiBaseUrl();
   final apiendUrl = ApiEndsUrl();
-  Future<String?> addToCart(AddCartModel model, ) async {
+  Future<String?> addToCart(
+    AddCartModel model,
+  ) async {
     Dio dio = await ApiInterceptor().getApiUser();
     try {
       Response response = await dio.post(apibaseUrl.baseurl + apiendUrl.cart,
@@ -54,7 +55,7 @@ class CartService {
     return null;
   }
 
-  Future<String?> removeFromCart( String id) async {
+  Future<String?> removeFromCart(String id) async {
     Dio dio = await ApiInterceptor().getApiUser();
     try {
       Response responce = await dio
@@ -67,6 +68,6 @@ class CartService {
       log(e.message);
       DioException().dioError(e);
     }
-    return null;    
+    return null;
   }
 }

@@ -1,4 +1,3 @@
-
 import 'package:ecomerce/screen/home/model/product_model.dart';
 
 class WishlistModel {

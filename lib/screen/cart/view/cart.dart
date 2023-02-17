@@ -59,7 +59,8 @@ class CartScreen extends StatelessWidget {
                                   style: const TextStyle(
                                       fontSize: 38, color: colorblack),
                                 ),
-                                GestureDetector(onTap: () => Get.to(const OrderSummery()),
+                                GestureDetector(
+                                  onTap: () => Get.to(const OrderSummery()),
                                   child: Container(
                                     height: 50,
                                     width: 160,
@@ -113,7 +114,7 @@ class CartScreen extends StatelessWidget {
                       child: GetBuilder<CartController>(
                         builder: (controller) {
                           return controller.cartList!.products.isEmpty
-                              ?const Center(child: Text('Cart is empty'))
+                              ? const Center(child: Text('Cart is empty'))
                               : ListView.builder(
                                   itemCount:
                                       controller.cartList!.products.length,

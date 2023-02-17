@@ -15,13 +15,15 @@ class SignUpService {
   final aendUrl = ApiEndsUrl();
   Future<SignUpTokenModel?> signupUser(
       SignUpModel signupmodel, BuildContext context) async {
-        log(signupmodel.toString());
-        log(signupmodel.toJson().toString());
-        log(signupmodel.email);
-        log(signupmodel.fullname);
-        log(signupmodel.password);
-        log(signupmodel.phone);
-        log(abaseurl.baseurl + aendUrl.sgnup,);
+    log(signupmodel.toString());
+    log(signupmodel.toJson().toString());
+    log(signupmodel.email);
+    log(signupmodel.fullname);
+    log(signupmodel.password);
+    log(signupmodel.phone);
+    log(
+      abaseurl.baseurl + aendUrl.sgnup,
+    );
     try {
       Response response = await dio.post(
         abaseurl.baseurl + aendUrl.sgnup,
@@ -33,13 +35,14 @@ class SignUpService {
       if (response.statusCode! >= 200 || response.statusCode! <= 299) {
         log(response.data.toString());
         return SignUpTokenModel.fromJson(response.data);
-        
       } else {
         log(response.statusCode.toString(), name: 'else');
       }
     } on DioError catch (e) {
       log(e.message);
-      DioException().dioError(e, );
+      DioException().dioError(
+        e,
+      );
     }
     return null;
   }

@@ -76,14 +76,16 @@ class SecondContainer extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: Get.height*0.1,
+            SizedBox(
+              height: Get.height * 0.1,
               child: Padding(
                 padding: const EdgeInsets.only(
                   left: 5.0,
                   right: 5,
                 ),
                 child: Text(
-                  model.description,maxLines: 3,
+                  model.description,
+                  maxLines: 3,
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 16,

@@ -30,7 +30,7 @@ class ScreenVerificationCode extends StatelessWidget {
             padding: EdgeInsets.only(right: width * 0.25),
             child: Column(
               children: [
-                 Text(
+                Text(
                   'Verification Code',
                   maxLines: 2,
                   style: textstyle,
@@ -94,7 +94,6 @@ class ScreenVerificationCode extends StatelessWidget {
                           showFieldAsBox: true,
                           onSubmit: (String verificationCode) {
                             verifyotpC.onSubmitCode(verificationCode);
-                           
                           },
                         );
                       },
@@ -130,7 +129,6 @@ class ScreenVerificationCode extends StatelessWidget {
                       },
                     ),
                     textFieldGap,
-                    
                   ],
                 ),
               ),

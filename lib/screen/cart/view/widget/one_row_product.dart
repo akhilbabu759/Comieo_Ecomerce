@@ -15,7 +15,8 @@ class RowCart extends StatelessWidget {
 
     final cartcontrol = Get.put(CartController());
 
-    return Dismissible(onDismissed: null,
+    return Dismissible(
+      onDismissed: null,
       key: const Key('1'),
       child: Row(
         children: [
@@ -49,8 +50,8 @@ class RowCart extends StatelessWidget {
               Text.rich(TextSpan(
                   text: cartcontrol.cartList!.products[index].product.price
                       .toString(),
-                  style:
-                      const TextStyle(fontWeight: FontWeight.w600, color: Colors.red),
+                  style: const TextStyle(
+                      fontWeight: FontWeight.w600, color: Colors.red),
                   children: [
                     TextSpan(
                         text: "x${cartcontrol.cartList!.products[index].qty}",
@@ -69,11 +70,11 @@ class RowCart extends StatelessWidget {
                     child: const Icon(Icons.add),
                     onTap: () {
                       cartcontrol.incrementDecrementQty(
-                        1,
-                        cartcontrol.cartList!.products[index].product.id,
-                        cartcontrol.cartList!.products[index].qty,
-                        cartcontrol.cartList!.products[index].product.size
-                            .toString());
+                          1,
+                          cartcontrol.cartList!.products[index].product.id,
+                          cartcontrol.cartList!.products[index].qty,
+                          cartcontrol.cartList!.products[index].product.size
+                              .toString());
                     }
                     // cartcontrol.adding(),
                     ),
@@ -89,18 +90,19 @@ class RowCart extends StatelessWidget {
               ),
               ColoredBox(
                 color: Colors.grey,
-                child:
-                    GestureDetector(child: const Icon(Icons.remove), onTap: () {
+                child: GestureDetector(
+                    child: const Icon(Icons.remove),
+                    onTap: () {
                       log('remove detected');
                       cartcontrol.incrementDecrementQty(
-                        -1,
-                        cartcontrol.cartList!.products[index].product.id,
-                        cartcontrol.cartList!.products[index].qty,
-                        cartcontrol.cartList!.products[index].product.size
-                            .toString());
+                          -1,
+                          cartcontrol.cartList!.products[index].product.id,
+                          cartcontrol.cartList!.products[index].qty,
+                          cartcontrol.cartList!.products[index].product.size
+                              .toString());
                     }
-                        //  cartcontrol.deleting(),
-                        ),
+                    //  cartcontrol.deleting(),
+                    ),
               )
             ],
           )

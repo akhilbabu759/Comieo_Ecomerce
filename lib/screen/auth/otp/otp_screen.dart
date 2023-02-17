@@ -39,7 +39,6 @@ class OtpScreen extends StatelessWidget {
                         right: width * 0.03,
                       ),
                       child: TextFormField(
-                          
                           decoration: const InputDecoration(
                               border: InputBorder.none,
                               labelText: 'Email',

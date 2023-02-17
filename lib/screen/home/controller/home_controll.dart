@@ -13,17 +13,14 @@ import 'package:get/get.dart';
 class HomeControll extends GetxController {
   @override
   void onInit() {
-     log('contsrtuct');
+    log('contsrtuct');
     getCarosel();
     getCategory();
     getProduct();
-    
-    
+
     super.onInit();
   }
-  
 
-  
   List<CarousalModel> carouselList = [];
   List<CategoryModel> categorylList = [];
   List<ProductModel> productList = [];
@@ -31,7 +28,7 @@ class HomeControll extends GetxController {
   CategoryService categoryService = CategoryService();
   ProductService productService = ProductService();
   bool isLoding = true;
-  
+
   void getProduct() async {
     isLoding = true;
     update();
@@ -94,8 +91,4 @@ class HomeControll extends GetxController {
     isLoding = false;
     update();
   }
-  
-
-
-
 }
