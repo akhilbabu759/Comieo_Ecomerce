@@ -1,11 +1,13 @@
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
+import 'package:ecomerce/screen/order_place_page.dart/model/all_order_deateals.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
 class OrderDetails extends StatelessWidget {
-  const OrderDetails({super.key});
+  const OrderDetails({super.key,required this.model});
+  final AllOrder model;
 
   @override
   Widget build(BuildContext context) {

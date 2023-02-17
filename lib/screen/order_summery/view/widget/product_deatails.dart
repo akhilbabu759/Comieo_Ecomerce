@@ -7,8 +7,8 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 
 class ProductDeatails extends StatelessWidget {
-     ProductDeatails({Key? key, required this.index}) : super(key: key);
-   int   index;
+     const ProductDeatails({Key? key, required this.index}) : super(key: key);
+ final  int   index;
 
   @override
   Widget build(BuildContext context) {

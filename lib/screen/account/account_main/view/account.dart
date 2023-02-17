@@ -3,6 +3,7 @@ import 'package:ecomerce/screen/account/account_main/controller/account_controll
 
 import 'package:ecomerce/screen/account/account_main/view/widget/row_account.dart';
 import 'package:ecomerce/screen/account/view_acount/all_account_view.dart';
+import 'package:ecomerce/screen/order_place_page.dart/view/order_place.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -44,9 +45,11 @@ class Account extends StatelessWidget {
                     ],
                   ),
                   textFieldGap,
-                  const RowAccount(
-                    text: ' Orders',
-                    icon: Icon(Icons.shopping_basket),
+                  GestureDetector(onTap: () => const OrderPlace(),
+                    child: const RowAccount(
+                      text: ' Orders',
+                      icon: Icon(Icons.shopping_basket),
+                    ),
                   ),
                   textFieldGap,
                   GestureDetector(

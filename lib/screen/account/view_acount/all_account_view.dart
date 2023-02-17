@@ -46,7 +46,7 @@ class AllAccountView extends StatelessWidget {
               style: TextStyle(
                 fontSize: 25,
                 letterSpacing: 3,
-                color: Colors.yellow,
+                
                 fontWeight: FontWeight.bold,
               )),
           TextSpan(
