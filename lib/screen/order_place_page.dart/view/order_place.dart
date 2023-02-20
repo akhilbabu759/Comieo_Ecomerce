@@ -83,7 +83,7 @@ class OrderPlace extends StatelessWidget {
                             userid: orderC.orderList[index].userid,
                             v: orderC.orderList[index].v,
                             cancelDate: orderC.orderList[index].cancelDate);
-                        Get.to(OrderDetails(model: model));
+                        Get.to(OrderDetails(model: model,index: index,));
                       },
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -117,7 +117,7 @@ class OrderPlace extends StatelessWidget {
                                 ),
                                 textFieldGap,
                                 Text(
-                                  'Delivery Cancelled on${orderC.orderList[index].deliveryDate.day}',
+                                  'Delivery date ${orderC.orderList[index].deliveryDate.day}',
                                   style: const TextStyle(
                                       color: Colors.grey, fontSize: 15),
                                 ),

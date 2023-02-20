@@ -45,7 +45,7 @@ class Account extends StatelessWidget {
                     ],
                   ),
                   textFieldGap,
-                  GestureDetector(onTap: () => const OrderPlace(),
+                  GestureDetector(onTap: () =>  Get.to( const OrderPlace()),
                     child: const RowAccount(
                       text: ' Orders',
                       icon: Icon(Icons.shopping_basket),

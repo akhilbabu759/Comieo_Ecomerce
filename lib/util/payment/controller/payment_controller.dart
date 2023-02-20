@@ -18,16 +18,13 @@ class PaymentController extends GetxController {
   Map<String, dynamic> options = {};
   final cartcotro = Get.put(CartController());
 
-  // void setAddressId(String addressid) {
-  //   addressId = addressid;
-  //   update();
-  // }
+ 
 
   void setTotalAmount(int amount, List<ProductElement> productsList, address) {
     log('setTotal');
     final total = "${amount * 100}";
     final amountPayable = total.toString();
-    // products=productsList;
+    
     log(amountPayable);
     openCheckout(amountPayable);
     products = productsList.map((e) => Product(id: e.id)).toList();
@@ -105,6 +102,13 @@ class PaymentController extends GetxController {
 
         Get.off(const OrderPlace());
         cartcotro.getCart();
+        Get.snackbar(
+          'Order Placed',
+          'Order placed succefully',
+          backgroundColor: Colors.green,
+          colorText: colorblack,
+          snackPosition: SnackPosition.BOTTOM
+        );
       } else {
         loading = false;
         update();

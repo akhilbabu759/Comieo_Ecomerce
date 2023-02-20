@@ -1,6 +1,7 @@
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
 import 'package:ecomerce/screen/home/controller/home_controll.dart';
+import 'package:ecomerce/screen/home/view/widget/cardView/home_card.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -12,62 +13,42 @@ class CategoryPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final categoC = Get.put(HomeControll());
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(63),
-        child: AppBar(
-            elevation: 0,
-            title: const Text(
-              'Category',
-              style: TextStyle(color: colorblack),
-            ),
-            centerTitle: true,
-            backgroundColor: colorWhite),
-      ),
-      backgroundColor: Colors.blueGrey[50],
-      body: SafeArea(
-          child: Column(
-        children: [
-          Flexible(
-            child: GridView.builder(
-              itemCount: categoC.categorylList.length,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
-                // crossAxisSpacing:1.0,
-                // mainAxisSpacing: .0
+        appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(63),
+          child: AppBar(
+              elevation: 0,
+              title: const Text(
+                'Category',
+                style: TextStyle(color: colorblack),
               ),
-              itemBuilder: (context, index) => Padding(
-                padding: const EdgeInsets.only(left: 8.0, right: 8),
-                child: Container(
-                  width: 100,
-                  decoration: const BoxDecoration(boxShadow: [
-                    BoxShadow(
-                        blurRadius: 50,
-                        color: Color.fromARGB(96, 130, 129, 129))
-                  ]),
-                  child: CircleAvatar(
-                      minRadius: 50,
-                      backgroundColor: colorWhite,
-                      child: CircleAvatar(
-                        maxRadius: 47,
-                        backgroundColor: Colors.blueGrey[50],
-                        child: Text(
-                          categoC.categorylList[index].name,
-                          style: const TextStyle(color: colorblack),
-                        ),
-                      )
-                      // Container(width: 20,height: 70,
-                      //     decoration: BoxDecoration(
-                      //         borderRadius: BorderRadius.circular(20),
-                      //         color: Color.fromARGB(255, 101, 103, 104)
-                      //         ),
-                      //     child: Center(child: Text('dat'))),
+              centerTitle: true,
+              backgroundColor: colorWhite),
+        ),
+        backgroundColor: Colors.blueGrey[50],
+        body: SafeArea(
+          child: Column(
+            children: [
+              textFieldGap,
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 3.0, right: 2),
+                  child: GridView.builder(
+                      itemCount: categoC.categorylList.length,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 3,
+                              mainAxisSpacing: 0,
+                              childAspectRatio: 1 / 1.3),
+                      itemBuilder: (context, index) => HomeCard(
+                            imag: categoC.categorylList[index].image,
+                            text: categoC.categorylList[index].name,
+                          )
+                    
                       ),
                 ),
               ),
-            ),
-          )
-        ],
-      )),
-    );
+            ],
+          ),
+        ));
   }
 }
