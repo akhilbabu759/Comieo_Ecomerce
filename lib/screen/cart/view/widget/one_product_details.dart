@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:ecomerce/common/api_baseurl.dart';
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/screen/cart/controller/cart_controller.dart';
@@ -134,6 +136,8 @@ class OneProduct extends StatelessWidget {
                                     cartcontrol.cartList!.products[index]
                                         .product.size[0]
                                         .toString());
+                                          log( cartcontrol.cartList!.products[index]
+                                        .product.size[0],name: 'size check');
                               }
                               // cartcontrol.adding(),
                               ),
@@ -170,6 +174,8 @@ class OneProduct extends StatelessWidget {
                                     cartcontrol.cartList!.products[index]
                                         .product.size[0]
                                         .toString());
+                                        log( cartcontrol.cartList!.products[index]
+                                        .product.size[0],name: 'size check');
                               }
                               //  cartcontrol.deleting(),
                               ),

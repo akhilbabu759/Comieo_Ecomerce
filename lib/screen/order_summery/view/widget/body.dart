@@ -84,7 +84,7 @@ class Body extends StatelessWidget {
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
                     ),
-                    Text('₹${cartcontrol.totalSave}',
+                    Text('₹${cartcontrol.cartList!.totalPrice}',
                         style: const TextStyle(
                             fontSize: 20, fontWeight: FontWeight.w500))
                   ],

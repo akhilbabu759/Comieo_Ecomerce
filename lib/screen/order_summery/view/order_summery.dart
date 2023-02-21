@@ -89,7 +89,7 @@ class _OrderSummeryState extends State<OrderSummery> {
                               Padding(
                                 padding: const EdgeInsets.only(left: 30.0),
                                 child: Text(
-                                  '₹${cartcontrol.totalSave}',
+                                  '₹${cartcontrol.cartList!.totalPrice}',
                                   style: const TextStyle(
                                     fontSize: 19,
                                     fontWeight: FontWeight.w500,

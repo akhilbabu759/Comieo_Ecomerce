@@ -1,4 +1,5 @@
 import 'package:ecomerce/core/constent.dart';
+import 'package:ecomerce/screen/account/about/about.dart';
 import 'package:ecomerce/screen/account/account_main/controller/account_controller.dart';
 
 import 'package:ecomerce/screen/account/account_main/view/widget/row_account.dart';
@@ -96,10 +97,12 @@ class Account extends StatelessWidget {
                   ),
                 ),
                 textFieldGap,
-                const RowAccount(
-                  text: 'About',
-                  icon: Icon(
-                    Icons.info,
+                GestureDetector(onTap: () => Get.to(const AboutPage()),
+                  child: const RowAccount(
+                    text: 'About',
+                    icon: Icon(
+                      Icons.info,
+                    ),
                   ),
                 )
               ]),
