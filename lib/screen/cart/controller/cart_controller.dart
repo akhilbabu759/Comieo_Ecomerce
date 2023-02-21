@@ -127,7 +127,7 @@ class CartController extends GetxController {
     await getCart();
     log(qty.toString());
     log(productQuantity.toString());
-    await getCart();
+    // await getCart(); this is need ,because 
     if (qty == -1 && productQuantity == 1) {
       removeCart(productId);
 
