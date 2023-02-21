@@ -6,6 +6,7 @@ import 'package:ecomerce/screen/Whishlist/view/wishlist.dart';
 
 import 'package:ecomerce/screen/cart/controller/cart_controller.dart';
 import 'package:ecomerce/screen/cart/view/cart.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 
 
@@ -109,6 +110,7 @@ class Home extends StatelessWidget {
                                           ),),
                                           textFieldGap,textFieldGap,
                                           GestureDetector(
+                                            onTap: () => launchUr(Uri.parse('mailto:akhilb4001@gmail.com?subject=Help me&body=need help')),
                                             child: const SideSheetRow(
                                               icon: Icon(Icons.question_answer),
                                               text: 'Contact us',
@@ -182,5 +184,10 @@ class Home extends StatelessWidget {
       );
     },
     );
+  }
+   Future<void> launchUr(Uri url) async {
+    if (!await launchUrl(url)) {
+      throw 'Could not launch ';
+    }
   }
 }
