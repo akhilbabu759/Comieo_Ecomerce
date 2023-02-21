@@ -17,7 +17,11 @@ class AcountController extends GetxController {
     getAllAddress();
     super.onInit();
   }
-
+  int change=0;
+  void changeinde(index){
+    change=index;
+    update();
+  }
   final signup = Get.put(SignInController());
 
   final addressService = AddressService();

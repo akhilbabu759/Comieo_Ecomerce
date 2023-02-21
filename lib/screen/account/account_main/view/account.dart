@@ -13,10 +13,9 @@ class Account extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     final accountC = Get.put(AcountController());
+    final accountC = Get.put(AcountController());
     return Scaffold(
       body: Column(
-       
         children: [
           const Padding(
             padding: EdgeInsets.only(top: 45.0, left: 10),
@@ -46,7 +45,8 @@ class Account extends StatelessWidget {
                     ],
                   ),
                   textFieldGap,
-                  GestureDetector(onTap: () =>  Get.to( const OrderPlace()),
+                  GestureDetector(
+                    onTap: () => Get.to(const OrderPlace()),
                     child: const RowAccount(
                       text: ' Orders',
                       icon: Icon(Icons.shopping_basket),
@@ -86,18 +86,25 @@ class Account extends StatelessWidget {
                   ],
                 ),
                 textFieldGap,
-                const RowAccount(
-                    text: 'Terms and conditions',
-                    icon: Icon(Icons.my_library_books)),
+                GestureDetector(
+                  onTap: () => Get.to(const AboutPage()),
+                  child: const RowAccount(
+                      text: 'Terms and conditions',
+                      icon: Icon(Icons.my_library_books)),
+                ),
                 textFieldGap,
-                const RowAccount(
-                  text: 'Privice police',
-                  icon: Icon(
-                    Icons.privacy_tip,
+                GestureDetector(
+                  onTap: () => Get.to(const AboutPage()),
+                  child: const RowAccount(
+                    text: 'Privice police',
+                    icon: Icon(
+                      Icons.privacy_tip,
+                    ),
                   ),
                 ),
                 textFieldGap,
-                GestureDetector(onTap: () => Get.to(const AboutPage()),
+                GestureDetector(
+                  onTap: () => Get.to(const AboutPage()),
                   child: const RowAccount(
                     text: 'About',
                     icon: Icon(
@@ -116,15 +123,13 @@ class Account extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(10.0),
               child: Column(children: [
-                InkWell(onTap: () =>Get.defaultDialog(
-                  middleText: 'Do you want to Delete !!',
-                  textConfirm: 'Yes',
-                  textCancel: 'No',
-                  onConfirm: () =>accountC.logout() ,
-                  
-                  
-                )
-                 ,
+                InkWell(
+                  onTap: () => Get.defaultDialog(
+                    middleText: 'Do you want to Delete !!',
+                    textConfirm: 'Yes',
+                    textCancel: 'No',
+                    onConfirm: () => accountC.logout(),
+                  ),
                   child: Row(
                     children: const [
                       Icon(
