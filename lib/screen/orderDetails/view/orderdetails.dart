@@ -4,6 +4,7 @@ import 'package:ecomerce/common/api_baseurl.dart';
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
 import 'package:ecomerce/screen/orderDetails/controller/order_details.dart';
+import 'package:ecomerce/screen/order_place_page.dart/controller/all_order_controller.dart';
 import 'package:ecomerce/screen/order_place_page.dart/model/all_order_deateals.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,8 @@ class OrderDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ordeCanceController = Get.put(OrderDetailsController());
+    final orderC = Get.put(AllOrderController());
+    final ordeCanceController=Get.put(OrderDetailsController());
     log(model.orderStatus);
     return Scaffold(
       appBar: AppBar(
@@ -112,175 +114,188 @@ class OrderDetails extends StatelessWidget {
               ),
             ),
             const Divider(thickness: 2, height: 0),
-            Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 15, left: 20),
-                  child: Row(
-                    children: [
-                      const Icon(
-                        Icons.verified_rounded,
-                        color: Colors.green,
-                        size: 28,
-                      ),
-                      const SizedBox(
-                        width: 15,
-                      ),
-                      RichText(
-                        text: TextSpan(
-                          text: "Order confirmed\n",
-                          style:
-                              const TextStyle(fontSize: 18, color: colorblack),
-                          children: [
-                            TextSpan(
-                                text:
-                                    '${model.orderDate.day}/${model.orderDate.month}/${model.orderDate.year}',
-                                style: const TextStyle(fontSize: 17))
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 15, left: 20),
-                  child: model.orderStatus == 'CANCELED'
-                      ? Row(
-                          children: [
-                            SizedBox(
-                              width: 6,
-                            ),
-                            CircleAvatar(
-                              radius: 10,
-                              backgroundColor: colorRed,
-                            ),
-                            // Icon(
-                            //   Icons.verified_rounded,
-                            //   color: Colors.red,
-                            //   size: 28,
-                            // ),
-                            SizedBox(
-                              width: 15,
-                            ),
-                            RichText(
-                              text: TextSpan(
-                                text: "Order Cancelled\n",
-                                style: const TextStyle(
-                                    fontSize: 18, color: colorblack),
-                                children: [
-                                  TextSpan(
-                                      text:
-                                          '${model.cancelDate.toString().substring(8, 10)}/${model.cancelDate.toString().substring(6, 8)}/${model.cancelDate.toString().substring(0, 4)}',
-                                      // model.cancelDate.toString().substring(, 10),
-
-                                      // '${model.cancelDate}',
-                                      style: const TextStyle(fontSize: 17))
-                                ],
-                              ),
-                            ),
-                          ],
-                        )
-                      : Row(
-                          children: const [
-                            Icon(
-                              Icons.radio_button_off,
-                              color: Colors.grey,
-                              size: 28,
-                            ),
-                            SizedBox(
-                              width: 15,
-                            ),
-                            Text(
-                              'Order Shipped',
-                              style:
-                                  TextStyle(color: Colors.grey, fontSize: 18),
-                            ),
-                          ],
-                        ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                model.orderStatus == 'CANCELED'
-                    ? const Text('')
-                    : Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(top: 15, left: 20),
-                            child: Row(
-                              children: const [
-                                Icon(
-                                  Icons.radio_button_off,
-                                  color: Colors.grey,
-                                  size: 28,
-                                ),
-                                SizedBox(
-                                  width: 15,
-                                ),
-                                Text(
-                                  'Order Delivered',
-                                  style: TextStyle(
-                                      color: Colors.grey, fontSize: 18),
-                                ),
-                              ],
-                            ),
-                          ),
-                          textFieldGap,
-                          textFieldGap,
-                          textFieldGap,
-                        ],
-                      ),
-              ],
-            ),
-            Container(
-              width: Get.width,
-              height: 70,
-              color: Colors.grey.shade300,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+            GetBuilder<AllOrderController>(
+              builder: (controller) {
+                log(orderC.orderList[index].cancelDate.toString());
+                log(orderC.orderList[index].orderStatus);
+                return Column(
                 children: [
-                  GestureDetector(
-                    onTap: () {
-                      Get.defaultDialog(
-                        onConfirm: () {
-                          ordeCanceController.cancelOrder(model.id);
-                          Get.back();
-                        },
-                        textConfirm: 'Yes',
-                        title: 'Do you want to cancel',
-                        textCancel: 'No',
-                        // onCancel: () =>Get.back() ,
-                      );
-                    },
-                    child: Text(
-                      'Cancel',
-                      style:
-                          TextStyle(fontSize: 19, color: Colors.grey.shade700),
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Share.share(
-                        'https://play.google.com/store/apps/details?id=com.',
-                      );
-                    },
+                  Padding(
+                    padding: const EdgeInsets.only(top: 15, left: 20),
                     child: Row(
                       children: [
-                        const Icon(Icons.share),
-                        const SizedBox(
-                          width: 9,
+                        const Icon(
+                          Icons.verified_rounded,
+                          color: Colors.green,
+                          size: 28,
                         ),
-                        Text('Share Order Details',
-                            style: TextStyle(
-                                fontSize: 19, color: Colors.grey.shade700))
+                        const SizedBox(
+                          width: 15,
+                        ),
+                        RichText(
+                          text: TextSpan(
+                            text: "Order confirmed\n",
+                            style: const TextStyle(
+                                fontSize: 18, color: colorblack),
+                            children: [
+                              TextSpan(
+                                  text:
+                                      '${model.orderDate.day}/${model.orderDate.month}/${model.orderDate.year}',
+                                  style: const TextStyle(fontSize: 17))
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 15, left: 20),
+                        child: orderC.orderList[index].orderStatus == 'CANCELED'
+                            ? Row(
+                                children: [
+                                  const SizedBox(
+                                    width: 6,
+                                  ),
+                                  const CircleAvatar(
+                                    radius: 10,
+                                    backgroundColor: colorRed,
+                                  ),
+                                  const SizedBox(
+                                    width: 15,
+                                  ),
+                                  RichText(
+                                    text: TextSpan(
+                                      text: "Order Cancelled\n",
+                                      style: const TextStyle(
+                                          fontSize: 18, color: colorblack),
+                                      children: [
+                                        TextSpan(
+                                            text:
+                                                 '${orderC.orderList[index].cancelDate.toString().substring(8, 10)}/${orderC.orderList[index].cancelDate.toString().substring(6, 7)}/${orderC.orderList[index].cancelDate.toString().substring(0, 4)}',
+                                            style:
+                                                const TextStyle(fontSize: 17))
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              )
+                            : Row(
+                                children: const [
+                                  Icon(
+                                    Icons.radio_button_off,
+                                    color: Colors.grey,
+                                    size: 28,
+                                  ),
+                                  SizedBox(
+                                    width: 15,
+                                  ),
+                                  Text(
+                                    'Order Shipped',
+                                    style: TextStyle(
+                                        color: Colors.grey, fontSize: 18),
+                                  ),
+                                ],
+                              ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      orderC.orderList[index].orderStatus == 'CANCELED'
+                          ? const Text('')
+                          : Column(
+                              children: [
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.only(top: 15, left: 20),
+                                  child: Row(
+                                    children: const [
+                                      Icon(
+                                        Icons.radio_button_off,
+                                        color: Colors.grey,
+                                        size: 28,
+                                      ),
+                                      SizedBox(
+                                        width: 15,
+                                      ),
+                                      Text(
+                                        'Order Delivered',
+                                        style: TextStyle(
+                                            color: Colors.grey, fontSize: 18),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                textFieldGap,
+                                textFieldGap,
+                                textFieldGap,
+                              ],
+                            ),
+                    ],
+                  ),
+                  Container(
+                    width: Get.width,
+                    height: 70,
+                    color: Colors.grey.shade300,
+                    child: orderC.orderList[index].orderStatus == 'CANCELED'
+                        ? const Center(
+                            child: Text(
+                              'Need help?',
+                              style: TextStyle(fontSize: 20),
+                            ),
+                          )
+                        : Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  Get.defaultDialog(
+                                    onConfirm: () {
+                                      ordeCanceController.cancelOrder(model.id);
+                                      Get.back();
+                                    },
+                                    textConfirm: 'Yes',
+                                    title: 'Do you want to cancel',
+                                    textCancel: 'No',
+                                    // onCancel: () =>Get.back() ,
+                                  );
+                                },
+                                child: Text(
+                                  'Cancel',
+                                  style: TextStyle(
+                                      fontSize: 19,
+                                      color: Colors.grey.shade700),
+                                ),
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  Share.share(
+                                    'https://play.google.com/store/apps/details?id=com.',
+                                  );
+                                },
+                                child: Row(
+                                  children: [
+                                    const Icon(Icons.share),
+                                    const SizedBox(
+                                      width: 9,
+                                    ),
+                                    Text('Share Order Details',
+                                        style: TextStyle(
+                                            fontSize: 19,
+                                            color: Colors.grey.shade700))
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                  )
                 ],
-              ),
+              );
+              },
             ),
             Container(
               width: Get.width,
@@ -300,16 +315,16 @@ class OrderDetails extends StatelessWidget {
                   children: [
                     TextSpan(
                         text: '${model.place}\n',
-                        style: TextStyle(fontSize: 17)),
+                        style: const TextStyle(fontSize: 17)),
                     TextSpan(
                         text: '${model.landMark}\n',
-                        style: TextStyle(fontSize: 17)),
+                        style: const TextStyle(fontSize: 17)),
                     TextSpan(
-                        text: model.state + ':-' + model.pin,
-                        style: TextStyle(fontSize: 17)),
+                        text: '${model.state}:-${model.pin}',
+                        style: const TextStyle(fontSize: 17)),
                     TextSpan(
-                        text: '\nPhone Number:-' + model.phone,
-                        style: TextStyle(fontSize: 17))
+                        text: '\nPhone Number:-${model.phone}',
+                        style: const TextStyle(fontSize: 17))
                   ],
                 ),
               ),

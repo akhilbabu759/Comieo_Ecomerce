@@ -83,7 +83,10 @@ class OrderPlace extends StatelessWidget {
                             userid: orderC.orderList[index].userid,
                             v: orderC.orderList[index].v,
                             cancelDate: orderC.orderList[index].cancelDate);
-                        Get.to(OrderDetails(model: model,index: index,));
+                        Get.to(OrderDetails(
+                          model: model,
+                          index: index,
+                        ));
                       },
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -116,11 +119,18 @@ class OrderPlace extends StatelessWidget {
                                       color: colorblack, fontSize: 20),
                                 ),
                                 textFieldGap,
-                                Text(
-                                  'Delivery date ${orderC.orderList[index].deliveryDate.day}',
-                                  style: const TextStyle(
-                                      color: Colors.grey, fontSize: 15),
-                                ),
+                                orderC.orderList[index].orderStatus ==
+                                        'CANCELED'
+                                    ? Text(
+                                        'Cancel date ${orderC.orderList[index].cancelDate.toString().substring(8, 10)}/${orderC.orderList[index].cancelDate.toString().substring(6, 7)}/${orderC.orderList[index].cancelDate.toString().substring(0, 4)}',
+                                        style: const TextStyle(
+                                            color: Colors.grey, fontSize: 15),
+                                      )
+                                    : Text(
+                                        'Delivery date ${orderC.orderList[index].deliveryDate.day}/${orderC.orderList[index].deliveryDate.month}/${orderC.orderList[index].deliveryDate.year}',
+                                        style: const TextStyle(
+                                            color: Colors.grey, fontSize: 15),
+                                      ),
                               ],
                             ),
                           ),
