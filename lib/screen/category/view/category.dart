@@ -1,5 +1,6 @@
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
+import 'package:ecomerce/screen/allProduct/view/all_product_view.dart';
 import 'package:ecomerce/screen/home/controller/home_controll.dart';
 import 'package:ecomerce/screen/home/view/widget/cardView/home_card.dart';
 import 'package:flutter/material.dart';
@@ -39,10 +40,12 @@ class CategoryPage extends StatelessWidget {
                               crossAxisCount: 3,
                               mainAxisSpacing: 0,
                               childAspectRatio: 1 / 1.3),
-                      itemBuilder: (context, index) => HomeCard(
-                            imag: categoC.categorylList[index].image,
-                            text: categoC.categorylList[index].name,
-                          )
+                      itemBuilder: (context, index) => GestureDetector(onTap: () =>Get.to( AllProductViewCategory(categerId:categoC.categorylList[index].id ),),
+                        child: HomeCard(
+                              imag: categoC.categorylList[index].image,
+                              text: categoC.categorylList[index].name,
+                            ),
+                      )
                     
                       ),
                 ),

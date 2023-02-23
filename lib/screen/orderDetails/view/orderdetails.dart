@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:share/share.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class OrderDetails extends StatelessWidget {
   const OrderDetails({super.key, required this.model, required this.index});
@@ -242,10 +243,12 @@ class OrderDetails extends StatelessWidget {
                     height: 70,
                     color: Colors.grey.shade300,
                     child: orderC.orderList[index].orderStatus == 'CANCELED'
-                        ? const Center(
-                            child: Text(
-                              'Need help?',
-                              style: TextStyle(fontSize: 20),
+                        ?  Center(
+                            child: GestureDetector(onTap: () => launchUr(Uri.parse('mailto:akhilb4001@gmail.com?subject=Help me&body=need help')),
+                              child: const Text(
+                                'Need help?',
+                                style: TextStyle(fontSize: 20),
+                              ),
                             ),
                           )
                         : Row(
@@ -335,5 +338,10 @@ class OrderDetails extends StatelessWidget {
         ),
       ),
     );
+  }
+  Future<void> launchUr(Uri url) async {
+    if (!await launchUrl(url)) {
+      throw 'Could not launch ';
+    }
   }
 }

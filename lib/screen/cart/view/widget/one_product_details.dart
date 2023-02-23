@@ -19,7 +19,7 @@ class OneProduct extends StatelessWidget {
       child: Column(children: [
         Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Image.network(
-            '${ApiBaseUrl().baseurl}/products/${cartcontrol.cartList!.products[index].product.image[0]}',
+            '${ApiBaseUrl().baseurl}/products/${cartcontrol.reversedProcuct[index].product.image[0]}',
             height: 150,
             width: 150,
           ),
@@ -35,7 +35,7 @@ class OneProduct extends StatelessWidget {
                           middleText: 'Are you sure want to remove this item?',
                           onConfirm: () {
                             cartcontrol.removeCart(cartcontrol
-                                .cartList!.products[index].product.id);
+                                .reversedProcuct[index].product.id);
                             Get.back();
                           },
                           textConfirm: 'Yes',
@@ -44,7 +44,7 @@ class OneProduct extends StatelessWidget {
                     icon: const Icon(Icons.dangerous)),
               ),
               Text(
-                cartcontrol.cartList!.products[index].product.name,
+                cartcontrol.reversedProcuct[index].product.name,
                 style: const TextStyle(
                   fontSize: 21,
                 ),
@@ -53,7 +53,7 @@ class OneProduct extends StatelessWidget {
               textFieldGap,
               RatingBar.builder(
                 initialRating: double.parse(
-                    cartcontrol.cartList!.products[index].product.rating),
+                    cartcontrol.reversedProcuct[index].product.rating),
                 itemSize: 15,
                 minRating: 1,
                 direction: Axis.horizontal,
@@ -70,18 +70,18 @@ class OneProduct extends StatelessWidget {
                   text: TextSpan(children: [
                 TextSpan(
                     text:
-                        '₹${cartcontrol.cartList!.products[index].product.offer}',
+                        '₹${cartcontrol.reversedProcuct[index].product.offer}',
                     style: const TextStyle(
                         decoration: TextDecoration.lineThrough,
                         color: Color.fromARGB(255, 112, 114, 115),
                         fontSize: 15)),
                 TextSpan(
                     text:
-                        ' ₹${cartcontrol.cartList!.products[index].product.price}',
+                        ' ₹${cartcontrol.reversedProcuct[index].product.price}',
                     style: const TextStyle(color: Colors.black, fontSize: 20)),
                 TextSpan(
                     text:
-                        ' ${cartcontrol.cartList!.products[index].product.discountPrice}% off',
+                        ' ${cartcontrol.reversedProcuct[index].product.discountPrice}% off',
                     style: const TextStyle(
                       color: Colors.green,
                       fontSize: 20,
@@ -125,22 +125,22 @@ class OneProduct extends StatelessWidget {
                         elevation: 3,
                         child: ColoredBox(
                           color: Colors.grey,
-                          child: GestureDetector(
-                              child: const Icon(Icons.add, size: 30),
+                          child:GestureDetector(
+                              child: const Icon(Icons.remove, size: 30),
                               onTap: () {
                                 cartcontrol.incrementDecrementQty(
-                                    1,
+                                    -1,
                                     cartcontrol
-                                        .cartList!.products[index].product.id,
-                                    cartcontrol.cartList!.products[index].qty,
-                                    cartcontrol.cartList!.products[index]
+                                        .reversedProcuct[index].product.id,
+                                    cartcontrol.reversedProcuct[index].qty,
+                                    cartcontrol.reversedProcuct[index]
                                         .product.size[0]
                                         .toString());
-                                          log( cartcontrol.cartList!.products[index]
+                                        log( cartcontrol.reversedProcuct[index]
                                         .product.size[0],name: 'size check');
                               }
-                              // cartcontrol.adding(),
-                              ),
+                              //  cartcontrol.deleting(),
+                              ) ,
                         ),
                       ),
                       GetBuilder<CartController>(
@@ -150,7 +150,7 @@ class OneProduct extends StatelessWidget {
                               height: 24,
                               child: Center(
                                 child: Text(
-                                  cartcontrol.cartList!.products[index].qty
+                                  cartcontrol.reversedProcuct[index].qty
                                       .toString(),
                                   style: const TextStyle(fontSize: 17),
                                 ),
@@ -164,20 +164,20 @@ class OneProduct extends StatelessWidget {
                         child: ColoredBox(
                           color: Colors.grey,
                           child: GestureDetector(
-                              child: const Icon(Icons.remove, size: 30),
+                              child: const Icon(Icons.add, size: 30),
                               onTap: () {
                                 cartcontrol.incrementDecrementQty(
-                                    -1,
+                                    1,
                                     cartcontrol
-                                        .cartList!.products[index].product.id,
-                                    cartcontrol.cartList!.products[index].qty,
-                                    cartcontrol.cartList!.products[index]
+                                        .reversedProcuct[index].product.id,
+                                    cartcontrol.reversedProcuct[index].qty,
+                                    cartcontrol.reversedProcuct[index]
                                         .product.size[0]
                                         .toString());
-                                        log( cartcontrol.cartList!.products[index]
+                                          log( cartcontrol.reversedProcuct[index]
                                         .product.size[0],name: 'size check');
                               }
-                              //  cartcontrol.deleting(),
+                              // cartcontrol.adding(),
                               ),
                         ),
                       ),

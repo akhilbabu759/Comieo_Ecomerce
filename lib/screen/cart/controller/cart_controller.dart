@@ -24,6 +24,7 @@ class CartController extends GetxController {
   int? totalSave;
   CartService service = CartService();
   List<String> cartitemsPayId = [];
+  List<ProductElement> reversedProcuct = [];
 
   Future<void> getCart() async {
     isLoading = true.obs;
@@ -41,6 +42,9 @@ class CartController extends GetxController {
         update();
         totalProductCount();
         update();
+
+        reversedProcuct = List.from(cartList!.products.reversed);
+        update();
         isLoading = false.obs;
       } else {
         isLoading = false.obs;
@@ -52,7 +56,7 @@ class CartController extends GetxController {
     isLoading = false.obs;
   }
 
-  void addToCart(String productId, String size) async {
+  Future<void> addToCart(String productId, String size, int optionCheck) async {
     log('here');
     isLoading = true.obs;
     update();
@@ -66,16 +70,18 @@ class CartController extends GetxController {
         getCart();
         log(value);
 
-        Get.snackbar(
-          "Added",
-          "Product Added To Cart Successfully",
-          icon: const Icon(
-            Icons.add_alert_rounded,
-            color: Colors.black,
-          ),
-          snackPosition: SnackPosition.BOTTOM,
-          backgroundColor: Colors.green,
-        );
+        optionCheck == 1
+            ? ''
+            : Get.snackbar(
+                "Added",
+                "Product Added To Cart Successfully",
+                icon: const Icon(
+                  Icons.add_alert_rounded,
+                  color: Colors.black,
+                ),
+                snackPosition: SnackPosition.BOTTOM,
+                backgroundColor: Colors.green,
+              );
       } else {
         null;
       }
@@ -85,9 +91,17 @@ class CartController extends GetxController {
   void removeCart(productId) {
     log('get in to remove controller');
     service.removeFromCart(productId).then(
-      (value) {
+      (value) async {
         if (value != null) {
-          getCart();
+          await service.getCart().then((value) {
+            if (value != null) {
+              cartList = value;
+
+              update();
+              reversedProcuct = List.from(cartList!.products.reversed);
+              update();
+            }
+          });
           log(totalSave.toString());
 
           Get.snackbar(
@@ -127,7 +141,7 @@ class CartController extends GetxController {
     await getCart();
     log(qty.toString());
     log(productQuantity.toString());
-    // await getCart(); this is need ,because 
+    // await getCart(); this is need ,because
     if (qty == -1 && productQuantity == 1) {
       removeCart(productId);
 
@@ -159,6 +173,8 @@ class CartController extends GetxController {
                 (value) {
                   if (value != null) {
                     cartList = value;
+                    update();
+                    reversedProcuct = List.from(cartList!.products.reversed);
                     update();
                     totalProductCount();
                     cartItemsId =

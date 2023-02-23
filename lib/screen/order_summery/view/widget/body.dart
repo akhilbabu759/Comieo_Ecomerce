@@ -1,20 +1,26 @@
 import 'package:ecomerce/core/constent.dart';
+import 'package:ecomerce/screen/account/account_main/controller/account_controller.dart';
 
 import 'package:ecomerce/screen/cart/controller/cart_controller.dart';
 import 'package:ecomerce/screen/order_summery/view/widget/before_bottom.dart';
 import 'package:ecomerce/screen/order_summery/view/widget/product_deatails.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Body extends StatelessWidget {
   const Body({
     Key? key,
     required this.cartcontrol,
+    required this.page
   }) : super(key: key);
+  final int page;
 
   final CartController cartcontrol;
+  
 
   @override
   Widget build(BuildContext context) {
+    final adrres = Get.put(AcountController());
     return SingleChildScrollView(
       child: SafeArea(
           child: Column(
@@ -24,10 +30,10 @@ class Body extends StatelessWidget {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             // physics: NeverScrollableScrollPhysics(),
-            itemCount: cartcontrol.cartList!.products.length,
+            itemCount:page==1?1: cartcontrol.cartList!.products.length,
             itemBuilder: (context, index) => Padding(
               padding: const EdgeInsets.only(left: 10.0, right: 10),
-              child: ProductDeatails(index: index),
+              child: ProductDeatails(index: index, page:page),
             ),
           ),
           Padding(
@@ -47,7 +53,7 @@ class Body extends StatelessWidget {
                       const Text('Price',
                           style: TextStyle(
                               fontSize: 20, fontWeight: FontWeight.w500)),
-                      Text(
+                      Text(page==1?'₹${adrres.model.price}':
                         '₹${cartcontrol.cartList!.totalPrice}',
                         style: const TextStyle(
                             color: colorblack,
@@ -84,7 +90,8 @@ class Body extends StatelessWidget {
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
                     ),
-                    Text('₹${cartcontrol.cartList!.totalPrice}',
+                    Text(page==1?'₹${adrres.model.price}':
+                      '₹${cartcontrol.cartList!.totalPrice}',
                         style: const TextStyle(
                             fontSize: 20, fontWeight: FontWeight.w500))
                   ],

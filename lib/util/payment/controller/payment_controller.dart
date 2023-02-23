@@ -20,16 +20,21 @@ class PaymentController extends GetxController {
 
  
 
-  void setTotalAmount(int amount, List<ProductElement> productsList, address) {
+  void setTotalAmount(int amount, List<ProductElement> productsList, address,int page) {
     log('setTotal');
     final total = "${amount * 100}";
     final amountPayable = total.toString();
+    update();
+    products = productsList.map((e) => Product(id: e.id)).toList();
+    update();
     
     log(amountPayable);
     openCheckout(amountPayable);
-    products = productsList.map((e) => Product(id: e.id)).toList();
+    
     log(products.length.toString());
+    log(products[0].id.toString());
     addressId = address;
+    update();
     log(addressId.toString());
     update();
   }
@@ -90,12 +95,20 @@ class PaymentController extends GetxController {
 
   bool loading = false;
   Future<void> orderProducts(String addressId, paymentType) async {
+    log(addressId);
+    log(paymentType);
+    log(products[0].id);
+    
     loading = true;
     update();
     final OrdersModel model = OrdersModel(
         addressId: addressId, paymentType: paymentType, products: products);
+        log(addressId);
+    log(paymentType);
+    log(products[0].id);
 
     await OrderService().placeOrder(model).then((value) {
+      
       if (value != null) {
         loading = false;
         update();

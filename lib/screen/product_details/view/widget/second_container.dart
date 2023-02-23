@@ -1,8 +1,13 @@
+import 'dart:developer';
+
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
 import 'package:ecomerce/screen/Whishlist/controller/wishlist_controller.dart';
+import 'package:ecomerce/screen/account/account_main/controller/account_controller.dart';
 import 'package:ecomerce/screen/cart/controller/cart_controller.dart';
-import 'package:ecomerce/screen/product_details/controller/product_controller.dart';
+import 'package:ecomerce/screen/home/model/product_model.dart';
+
+import 'package:ecomerce/screen/order_summery/view/order_summery.dart';
 
 import 'package:ecomerce/screen/product_details/model/product_model.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +22,8 @@ class SecondContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final wishlistC = Get.put(WishListController());
-    final productController = Get.put(ProductController());
+    // final productController = Get.put(ProductController());
+    final orderSummeryc = Get.put(AcountController());
 
     final cartC = Get.put(CartController());
     return Container(
@@ -172,10 +178,7 @@ class SecondContainer extends StatelessWidget {
                   ),
                   child: IconButton(
                     onPressed: () {
-                      cartC.addToCart(
-                        model.id,
-                        model.size[productController.size].toString(),
-                      );
+                      cartC.addToCart(model.id, model.size[0].toString(), 0);
                     },
                     icon: const Icon(
                       Icons.shopping_cart,
@@ -202,7 +205,26 @@ class SecondContainer extends StatelessWidget {
                             size.width * 0.71,
                             size.height * 0.001,
                           )),
-                      onPressed: () {},
+                      onPressed: () {
+                        cartC.addToCart(model.id, model.size[0].toString(), 1);
+                        final productmodel = ProductModel(
+                            category: model.category,
+                            description: model.description,
+                            discountPrice: model.discountPrice,
+                            id: model.id,
+                            image: model.image,
+                            name: model.name,
+                            offer: model.offer,
+                            price: model.price,
+                            rating: model.rating,
+                            size: model.size);
+                        log(productmodel.name, name: 'cbeck model');
+                        orderSummeryc.productModelForOneProdBuy(productmodel);
+
+                        Get.to(const OrderSummery(
+                          page: 1,
+                        ));
+                      },
                       child: const Text(
                         'BUY NOW',
                         style: TextStyle(

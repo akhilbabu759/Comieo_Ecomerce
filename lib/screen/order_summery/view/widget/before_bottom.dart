@@ -41,7 +41,7 @@ class BeforeBottom extends StatelessWidget {
                   ))
             ],
           ),
-          AddressContainer(),
+          const AddressContainer(),
         ],
       ),
     );

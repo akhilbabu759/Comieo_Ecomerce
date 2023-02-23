@@ -1,9 +1,11 @@
-import 'dart:developer';
+
 
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
 import 'package:ecomerce/screen/account/account_main/controller/account_controller.dart';
 import 'package:ecomerce/screen/cart/controller/cart_controller.dart';
+import 'package:ecomerce/screen/cart/model/get_cart_model.dart';
+import 'package:ecomerce/screen/order_summery/controller/order_controller.dart';
 
 import 'package:ecomerce/screen/order_summery/view/widget/body.dart';
 
@@ -13,9 +15,8 @@ import 'package:get/get.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 
 class OrderSummery extends StatefulWidget {
-  const OrderSummery({
-    super.key,
-  });
+  const OrderSummery({super.key, required this.page});
+  final int page;
 
   @override
   State<OrderSummery> createState() => _OrderSummeryState();
@@ -23,6 +24,7 @@ class OrderSummery extends StatefulWidget {
 
 class _OrderSummeryState extends State<OrderSummery> {
   PaymentController paymentController = PaymentController();
+   
   @override
   void initState() {
     final razorpay = paymentController.razorpay;
@@ -45,6 +47,8 @@ class _OrderSummeryState extends State<OrderSummery> {
   Widget build(BuildContext context) {
     final cartcontrol = Get.put(CartController());
     final adrres = Get.put(AcountController());
+    final orderCOntrollerSummery = Get.put(OrderCOntrollerSummery());
+     
 
     return GetBuilder<AcountController>(
       builder: (controller) {
@@ -75,7 +79,7 @@ class _OrderSummeryState extends State<OrderSummery> {
                 ),
                 body: Stack(
                   children: [
-                    Body(cartcontrol: cartcontrol),
+                    Body(cartcontrol: cartcontrol, page: widget.page),
                     Positioned(
                       bottom: Get.height * 0,
                       child: Container(
@@ -89,7 +93,9 @@ class _OrderSummeryState extends State<OrderSummery> {
                               Padding(
                                 padding: const EdgeInsets.only(left: 30.0),
                                 child: Text(
-                                  '₹${cartcontrol.cartList!.totalPrice}',
+                                  widget.page == 1
+                                      ? '₹${adrres.model.price}'
+                                      : '₹${cartcontrol.cartList!.totalPrice}',
                                   style: const TextStyle(
                                     fontSize: 19,
                                     fontWeight: FontWeight.w500,
@@ -114,11 +120,60 @@ class _OrderSummeryState extends State<OrderSummery> {
                                             MaterialStateProperty.all(
                                                 Colors.yellow.shade600)),
                                     onPressed: () {
-                                      paymentController.setTotalAmount(
-                                          cartcontrol.cartList!.totalPrice,
-                                          cartcontrol.cartList!.products,
-                                          adrres.addressList[0].id);
-                                      log(cartcontrol.cartList!.totalDiscount);
+                                      //  ProductElement prodmodel;
+   List<ProductElement> model = [cartcontrol.reversedProcuct[0]];
+  //  if (widget.page == 1) {
+                                        // log('message', name: 'if check');
+                                        // prodmodel = ProductElement(
+                                        //     product: adrres.model,
+                                        //     size: adrres.model.size[0],
+                                        //     qty: 1,
+                                        //     price: adrres.model.price,
+                                        //     discountPrice:
+                                        //         adrres.model.discountPrice,
+                                        //     id: cartcontrol.cartList!.id);
+                                        // 
+                                      // }
+                                      
+                                      // model =[adrres.prodmodel];
+                                     
+                                      // log(widget.page.toString());
+                                      // log(adrres.prodmodel.price.toString(),name: 'name');
+                                      // log(orderCOntrollerSummery
+                                      //                     .index.toString());
+                                      //                     log(model[0].product.name,name: '');
+
+                                      widget.page == 1
+                                          ? paymentController.setTotalAmount(
+                                            int.parse(  cartcontrol.reversedProcuct[0].price.toString()),
+                                              model,
+                                              adrres
+                                                  .addressList[
+                                                      orderCOntrollerSummery
+                                                          .index]
+                                                  .id,
+                                              widget.page)
+                                          : paymentController.setTotalAmount(
+                                              cartcontrol.cartList!.totalPrice,
+                                              cartcontrol.cartList!.products,
+                                              adrres
+                                                  .addressList[
+                                                      orderCOntrollerSummery
+                                                          .index]
+                                                  .id,
+                                              widget.page);
+                                      // log(adrres.model.price.toString(),
+                                      //     name: 'after setTotal');
+                                      // log(model[0].discountPrice.toString(),
+                                      //     name: 'after setTotal');
+                                      // log(
+                                      //     adrres
+                                      //         .addressList[
+                                      //             orderCOntrollerSummery.index]
+                                      //         .id
+                                      //         .toString(),
+                                      //     name: 'after setTotal');
+                                      // log(cartcontrol.cartList!.totalDiscount);
                                     },
                                     child: const Text(
                                       'Continue',

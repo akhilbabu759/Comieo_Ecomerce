@@ -7,6 +7,8 @@ import 'package:ecomerce/screen/account/account_main/model/get_account_model.dar
 import 'package:ecomerce/screen/account/account_main/service/add_account_service.dart';
 import 'package:ecomerce/screen/auth/sign_in/controller/sigin_in_controller.dart';
 import 'package:ecomerce/screen/auth/sign_in/view/signin.dart';
+import 'package:ecomerce/screen/cart/model/get_cart_model.dart';
+import 'package:ecomerce/screen/home/model/product_model.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
@@ -34,12 +36,31 @@ class AcountController extends GetxController {
   final TextEditingController placeC = TextEditingController();
   final TextEditingController addressC = TextEditingController();
   final TextEditingController landmarkC = TextEditingController();
+  late ProductModel model;
 
   bool isLoading = false;
 
   List<GetAddressModel> addressList = [];
+  late ProductElement  prodmodel;
 
   FlutterSecureStorage storage = const FlutterSecureStorage();
+   void productModelForOneProdBuy(modele){
+    model=modele;
+    update();
+    log(model.name,name:'productModelForOneProdBuy' );
+    prodmodel = ProductElement(
+                                            product: model,
+                                            size: model.size[0],
+                                            qty: 1,
+                                            price: model.price,
+                                            discountPrice:
+                                                model.discountPrice,
+                                            id:model.id);
+  
+    
+
+
+  }
 
   void addAccount() async {
     isLoading = true;

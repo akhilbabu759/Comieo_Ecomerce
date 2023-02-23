@@ -60,7 +60,7 @@ class CartScreen extends StatelessWidget {
                                       fontSize: 38, color: colorblack),
                                 ),
                                 GestureDetector(
-                                  onTap: () => Get.to(const OrderSummery()),
+                                  onTap: () => Get.to(const OrderSummery(page: 0,)),
                                   child: Container(
                                     height: 50,
                                     width: 160,

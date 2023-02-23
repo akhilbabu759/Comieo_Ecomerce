@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import '../../../account/account_main/controller/account_controller.dart';
 
 class AddressContainer extends StatelessWidget {
-  AddressContainer({
+  const AddressContainer({
     Key? key,
   }) : super(key: key);
   

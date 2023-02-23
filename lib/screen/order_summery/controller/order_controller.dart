@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 class OrderCOntrollerSummery extends GetxController {
   int index=0;
+ 
   @override
   void onInit() {
     index=0;
@@ -16,6 +17,7 @@ class OrderCOntrollerSummery extends GetxController {
     update();
 
   }
+  
 
   
 }

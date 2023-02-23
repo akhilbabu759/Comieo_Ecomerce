@@ -1,5 +1,6 @@
 import 'package:ecomerce/common/api_baseurl.dart';
 import 'package:ecomerce/core/constent.dart';
+import 'package:ecomerce/screen/account/account_main/controller/account_controller.dart';
 import 'package:ecomerce/screen/cart/controller/cart_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -7,16 +8,19 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 
 class ProductDeatails extends StatelessWidget {
-  const ProductDeatails({Key? key, required this.index}) : super(key: key);
+  const ProductDeatails({Key? key, required this.index,required this.page}) : super(key: key);
   final int index;
+  final int page;
 
   @override
   Widget build(BuildContext context) {
     final cartcontrol = Get.put(CartController());
+    final adrres = Get.put(AcountController());
     return Card(
       child: Column(children: [
         Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Image.network(
+            page==1?'${ApiBaseUrl().baseurl}/products/${adrres.model.image[0]}' :
             '${ApiBaseUrl().baseurl}/products/${cartcontrol.cartList!.products[index].product.image[0]}',
             height: 150,
             width: 150,
@@ -43,7 +47,7 @@ class ProductDeatails extends StatelessWidget {
                 //       },
                 //       icon: const Icon(Icons.dangerous)),
                 // ),
-                Text(
+                Text(page==1? adrres.model.name:
                   cartcontrol.cartList!.products[index].product.name,
                   style: const TextStyle(
                     fontSize: 21,
@@ -52,7 +56,7 @@ class ProductDeatails extends StatelessWidget {
                 ),
                 textFieldGap,
                 RatingBar.builder(
-                  initialRating: double.parse(
+                  initialRating: double.parse(page==1? adrres.model.rating:
                       cartcontrol.cartList!.products[index].product.rating),
                   itemSize: 15,
                   minRating: 1,
@@ -69,19 +73,19 @@ class ProductDeatails extends StatelessWidget {
                 RichText(
                   text: TextSpan(children: [
                     TextSpan(
-                        text:
+                        text:page==1?'₹${adrres.model.offer}' :
                             '₹${cartcontrol.cartList!.products[index].product.offer}',
                         style: const TextStyle(
                             decoration: TextDecoration.lineThrough,
                             color: Color.fromARGB(255, 112, 114, 115),
                             fontSize: 15)),
                     TextSpan(
-                        text:
+                        text:page==1?'₹${adrres.model.price}' :
                             ' ₹${cartcontrol.cartList!.products[index].product.price}',
                         style:
                             const TextStyle(color: Colors.black, fontSize: 20)),
                     TextSpan(
-                        text:
+                        text:page==1?' ${adrres.model.discountPrice}% off' :
                             ' ${cartcontrol.cartList!.products[index].product.discountPrice}% off',
                         style: const TextStyle(
                           color: Colors.green,
@@ -147,7 +151,7 @@ class ProductDeatails extends StatelessWidget {
                             width: 44,
                             height: 24,
                             child: Center(
-                              child: Text(
+                              child: Text(page==1?'1':
                                 cartcontrol.cartList!.products[index].qty
                                     .toString(),
                                 style: const TextStyle(fontSize: 17),
