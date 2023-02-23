@@ -10,17 +10,17 @@ import 'package:ecomerce/util/dio_interceptor/dio_interceptor.dart';
 
 class OrderService {
   Future<String?> placeOrder(OrdersModel model) async {
-    log('message',name: 'cart');
-    log(model.paymentType,name: 'cart');
+    log('message', name: 'cart');
+    log(model.paymentType, name: 'cart');
     final Dio dios = await ApiInterceptor().getApiUser();
-    log('message2',name: 'cart');
+    log('message2', name: 'cart');
 
     try {
       final Response response = await dios.post(
         ApiBaseUrl().baseurl + ApiEndsUrl().order,
-        data:model.toJson() ,
+        data: model.toJson(),
       );
-      log('message3',name: 'cart');
+      log('message3', name: 'cart');
       log(response.toString());
 
       if (response.statusCode == 200 || response.statusCode == 201) {

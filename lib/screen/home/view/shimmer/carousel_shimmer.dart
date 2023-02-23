@@ -14,19 +14,6 @@ class CarouselShimmer extends StatelessWidget {
           child: ShimmerWidget.rectangle(height: 150, width: double.infinity),
         ),
         kHeight10,
-        // Positioned(
-        //   top: 128,
-        //   left: 150,
-        //   child: AnimatedSmoothIndicator(
-        //     activeIndex: value.activeIndex,
-        //     count: value.carousalList.length,
-        //     effect: const WormEffect(
-        //         dotHeight: 10,
-        //         dotWidth: 10,
-        //         dotColor: kWhite,
-        //         activeDotColor: kTextfieldColor),
-        //   ),
-        // ),
       ],
     );
   }

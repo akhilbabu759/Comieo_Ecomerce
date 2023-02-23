@@ -16,23 +16,21 @@ class AllOrderController extends GetxController {
     super.onInit();
   }
 
-  
   List<AllOrder> orderList = [];
   void getorder() async {
     isLoding = true;
     update();
     await AllOrderService().getOrder().then((value) {
       if (value != null) {
-        orderList =List.from(value.reversed) ;
+        orderList = List.from(value.reversed);
         update();
         log(orderList[0].products[0].discountPrice.toString());
-       
+
         isLoding = false;
         update();
       } else {
         return null;
       }
     });
-   
   }
 }

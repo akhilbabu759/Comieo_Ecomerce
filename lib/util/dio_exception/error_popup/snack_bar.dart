@@ -7,7 +7,6 @@ class SnackBarPop {
     Get.snackbar(
       text,
       "",
-      
       snackPosition: SnackPosition.BOTTOM,
       backgroundColor: color,
       borderRadius: 20,
@@ -15,9 +14,7 @@ class SnackBarPop {
       colorText: Colors.white,
       duration: const Duration(seconds: 4),
       isDismissible: true,
-      
       forwardAnimationCurve: Curves.easeOutBack,
     );
-    
   }
 }

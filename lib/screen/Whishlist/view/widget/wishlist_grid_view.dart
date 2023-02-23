@@ -193,7 +193,8 @@ class WishlistGridView extends StatelessWidget {
                               onTap: () => cartC.addToCart(
                                   wishlistC.wmodel!.products[index].product.id,
                                   wishlistC.wmodel!.products[index].product.size
-                                      .toString(),0),
+                                      .toString(),
+                                  0),
                               child: Card(
                                 elevation: 2,
                                 child: Center(

@@ -13,19 +13,28 @@ class AllProductViewCategory extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final homeC=Get.put(HomeControll());
-    final productCategoryController=Get.put(ProductCategoryController());
-    productCategoryController.findCategoryId(categerId,homeC.productList);
-    
-    final categoryName= homeC.categorylList.where((element) =>element.id.contains(categerId)).toList();
+    final homeC = Get.put(HomeControll());
+    final productCategoryController = Get.put(ProductCategoryController());
+    productCategoryController.findCategoryId(categerId, homeC.productList);
+
+    final categoryName = homeC.categorylList
+        .where((element) => element.id.contains(categerId))
+        .toList();
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(63),
-        child: AppBar(leading: IconButton(onPressed: () =>Get.back() ,icon: const Icon(Icons.arrow_back_ios,color: colorblack,),),
+        child: AppBar(
+            leading: IconButton(
+              onPressed: () => Get.back(),
+              icon: const Icon(
+                Icons.arrow_back_ios,
+                color: colorblack,
+              ),
+            ),
             elevation: 0,
-            title:  Text(
+            title: Text(
               categoryName[0].name,
-              // 'Category',
+             
               style: const TextStyle(color: colorblack),
             ),
             centerTitle: true,

@@ -34,8 +34,8 @@ class OneProduct extends StatelessWidget {
                           title: 'Remove Item',
                           middleText: 'Are you sure want to remove this item?',
                           onConfirm: () {
-                            cartcontrol.removeCart(cartcontrol
-                                .reversedProcuct[index].product.id);
+                            cartcontrol.removeCart(
+                                cartcontrol.reversedProcuct[index].product.id);
                             Get.back();
                           },
                           textConfirm: 'Yes',
@@ -125,7 +125,7 @@ class OneProduct extends StatelessWidget {
                         elevation: 3,
                         child: ColoredBox(
                           color: Colors.grey,
-                          child:GestureDetector(
+                          child: GestureDetector(
                               child: const Icon(Icons.remove, size: 30),
                               onTap: () {
                                 cartcontrol.incrementDecrementQty(
@@ -133,14 +133,16 @@ class OneProduct extends StatelessWidget {
                                     cartcontrol
                                         .reversedProcuct[index].product.id,
                                     cartcontrol.reversedProcuct[index].qty,
-                                    cartcontrol.reversedProcuct[index]
-                                        .product.size[0]
+                                    cartcontrol
+                                        .reversedProcuct[index].product.size[0]
                                         .toString());
-                                        log( cartcontrol.reversedProcuct[index]
-                                        .product.size[0],name: 'size check');
+                                log(
+                                    cartcontrol
+                                        .reversedProcuct[index].product.size[0],
+                                    name: 'size check');
                               }
                               //  cartcontrol.deleting(),
-                              ) ,
+                              ),
                         ),
                       ),
                       GetBuilder<CartController>(
@@ -171,14 +173,14 @@ class OneProduct extends StatelessWidget {
                                     cartcontrol
                                         .reversedProcuct[index].product.id,
                                     cartcontrol.reversedProcuct[index].qty,
-                                    cartcontrol.reversedProcuct[index]
-                                        .product.size[0]
+                                    cartcontrol
+                                        .reversedProcuct[index].product.size[0]
                                         .toString());
-                                          log( cartcontrol.reversedProcuct[index]
-                                        .product.size[0],name: 'size check');
-                              }
-                              // cartcontrol.adding(),
-                              ),
+                                log(
+                                    cartcontrol
+                                        .reversedProcuct[index].product.size[0],
+                                    name: 'size check');
+                              }),
                         ),
                       ),
                     ],

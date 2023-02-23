@@ -22,7 +22,7 @@ class SecondContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final wishlistC = Get.put(WishListController());
-    // final productController = Get.put(ProductController());
+
     final orderSummeryc = Get.put(AcountController());
 
     final cartC = Get.put(CartController());

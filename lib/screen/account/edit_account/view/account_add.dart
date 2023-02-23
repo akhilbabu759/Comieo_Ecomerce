@@ -6,7 +6,6 @@ import 'package:ecomerce/screen/account/account_main/model/get_account_model.dar
 import 'package:ecomerce/screen/account/edit_account/controller/edit_controller.dart';
 import 'package:ecomerce/screen/account/view_acount/all_account_view.dart';
 
-
 import 'package:ecomerce/util/row_textfield/textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -42,10 +41,8 @@ class EditAccountPage extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-           
           ],
         ),
-        
       ),
       body: SafeArea(
           child: GetBuilder<EditContoller>(
@@ -65,7 +62,9 @@ class EditAccountPage extends StatelessWidget {
                     icon: const Icon(Icons.person),
                     text: 'Tittle',
                   ),
-                  const SizedBox(height: 30,),
+                  const SizedBox(
+                    height: 30,
+                  ),
                   TextFromFieldWidget(
                     textController: accountC.fullNameC,
                     textInputType: TextInputType.name,
@@ -74,7 +73,9 @@ class EditAccountPage extends StatelessWidget {
                     icon: const Icon(Icons.person),
                     text: 'Full Name',
                   ),
-                  const SizedBox(height: 30,),
+                  const SizedBox(
+                    height: 30,
+                  ),
                   TextFromFieldWidget(
                     textController: accountC.phoneC,
                     textInputType: TextInputType.number,
@@ -83,7 +84,9 @@ class EditAccountPage extends StatelessWidget {
                     icon: const Icon(Icons.phone),
                     text: 'Phone Number',
                   ),
-                 const SizedBox(height: 30,),
+                  const SizedBox(
+                    height: 30,
+                  ),
                   TextFromFieldWidget(
                     textController: accountC.pinC,
                     textInputType: TextInputType.number,
@@ -92,7 +95,9 @@ class EditAccountPage extends StatelessWidget {
                     icon: const Icon(Icons.pin),
                     text: 'PinCode',
                   ),
-                 const SizedBox(height: 30,),
+                  const SizedBox(
+                    height: 30,
+                  ),
                   TextFromFieldWidget(
                     textController: accountC.stateC,
                     textInputType: TextInputType.name,
@@ -101,7 +106,9 @@ class EditAccountPage extends StatelessWidget {
                     icon: const Icon(Icons.public),
                     text: 'State',
                   ),
-                 const SizedBox(height: 30,),
+                  const SizedBox(
+                    height: 30,
+                  ),
                   TextFromFieldWidget(
                     textController: accountC.placeC,
                     textInputType: TextInputType.name,
@@ -110,7 +117,9 @@ class EditAccountPage extends StatelessWidget {
                     icon: const Icon(Icons.location_on),
                     text: 'Place',
                   ),
-                 const SizedBox(height: 30,),
+                  const SizedBox(
+                    height: 30,
+                  ),
                   TextFromFieldWidget(
                     textController: accountC.addressC,
                     textInputType: TextInputType.streetAddress,
@@ -119,7 +128,9 @@ class EditAccountPage extends StatelessWidget {
                     icon: const Icon(Icons.contact_mail),
                     text: 'Address',
                   ),
-                 const SizedBox(height: 30,),
+                  const SizedBox(
+                    height: 30,
+                  ),
                   TextFromFieldWidget(
                     textController: accountC.landmarkC,
                     textInputType: TextInputType.name,
@@ -128,7 +139,9 @@ class EditAccountPage extends StatelessWidget {
                     icon: const Icon(Icons.emoji_flags),
                     text: 'Delivary Location',
                   ),
-                 const SizedBox(height: 30,),
+                  const SizedBox(
+                    height: 30,
+                  ),
                   ElevatedButton(
                     style: ButtonStyle(
                       fixedSize: MaterialStateProperty.all(
@@ -143,10 +156,11 @@ class EditAccountPage extends StatelessWidget {
                     onPressed: () {
                       if (fromKey.currentState!.validate()) {
                         accountC.updateAddress(model.id);
-                        
-                        Get.off(AllAccountView(width: width,height: height,))
-                        ;
-                        
+
+                        Get.off(AllAccountView(
+                          width: width,
+                          height: height,
+                        ));
                       }
                       AcountController().getAllAddress();
                     },

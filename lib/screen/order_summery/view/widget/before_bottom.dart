@@ -33,7 +33,11 @@ class BeforeBottom extends StatelessWidget {
                       side: MaterialStateProperty.all(
                           const BorderSide(color: colorblack))),
                   onPressed: () {
-                    Get.to(AllAccountView(height: Get.height,width: Get.width,key: key,));
+                    Get.to(AllAccountView(
+                      height: Get.height,
+                      width: Get.width,
+                      key: key,
+                    ));
                   },
                   child: const Text(
                     'Change',

@@ -141,21 +141,9 @@ class CartController extends GetxController {
     await getCart();
     log(qty.toString());
     log(productQuantity.toString());
-    // await getCart(); this is need ,because
+
     if (qty == -1 && productQuantity == 1) {
       removeCart(productId);
-
-      // Get.snackbar(
-      //      "required minimum quantity",
-      //   "minimum quantity is 1",backgroundColor: Colors.orangeAccent,
-      //      icon:  const Icon(
-      //     Icons.remove_circle,
-      //     color: Colors.black,
-      //   ),
-      //      snackPosition: SnackPosition.BOTTOM,
-
-      //      );
-
     } else {
       log(qty.toString(), name: 'quantitiy');
       log(size.toString(), name: 'quantitiy');

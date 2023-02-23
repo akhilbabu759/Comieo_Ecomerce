@@ -50,7 +50,6 @@ class SignInController extends GetxController {
         } else {
           isLoading = false;
           update();
-          // Get.snackbar('Something wron!!', 'invalid user name or password');
 
           return;
         }

@@ -8,15 +8,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class Body extends StatelessWidget {
-  const Body({
-    Key? key,
-    required this.cartcontrol,
-    required this.page
-  }) : super(key: key);
+  const Body({Key? key, required this.cartcontrol, required this.page})
+      : super(key: key);
   final int page;
 
   final CartController cartcontrol;
-  
 
   @override
   Widget build(BuildContext context) {
@@ -30,10 +26,10 @@ class Body extends StatelessWidget {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             // physics: NeverScrollableScrollPhysics(),
-            itemCount:page==1?1: cartcontrol.cartList!.products.length,
+            itemCount: page == 1 ? 1 : cartcontrol.cartList!.products.length,
             itemBuilder: (context, index) => Padding(
               padding: const EdgeInsets.only(left: 10.0, right: 10),
-              child: ProductDeatails(index: index, page:page),
+              child: ProductDeatails(index: index, page: page),
             ),
           ),
           Padding(
@@ -53,8 +49,10 @@ class Body extends StatelessWidget {
                       const Text('Price',
                           style: TextStyle(
                               fontSize: 20, fontWeight: FontWeight.w500)),
-                      Text(page==1?'₹${adrres.model.price}':
-                        '₹${cartcontrol.cartList!.totalPrice}',
+                      Text(
+                        page == 1
+                            ? '₹${adrres.model.price}'
+                            : '₹${cartcontrol.cartList!.totalPrice}',
                         style: const TextStyle(
                             color: colorblack,
                             fontSize: 18,
@@ -90,8 +88,10 @@ class Body extends StatelessWidget {
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
                     ),
-                    Text(page==1?'₹${adrres.model.price}':
-                      '₹${cartcontrol.cartList!.totalPrice}',
+                    Text(
+                        page == 1
+                            ? '₹${adrres.model.price}'
+                            : '₹${cartcontrol.cartList!.totalPrice}',
                         style: const TextStyle(
                             fontSize: 20, fontWeight: FontWeight.w500))
                   ],

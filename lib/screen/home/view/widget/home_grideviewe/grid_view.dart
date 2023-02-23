@@ -93,7 +93,8 @@ class HomeGridView extends StatelessWidget {
                                         );
                                   },
                                   icon: wishlistC.wishList.isEmpty
-                                      ? const Icon(Icons.favorite_border_outlined)
+                                      ? const Icon(
+                                          Icons.favorite_border_outlined)
                                       : Icon(
                                           wishlistC.wishList.contains(productC
                                                   .productList[index].id)

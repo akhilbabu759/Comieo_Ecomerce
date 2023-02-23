@@ -18,19 +18,18 @@ class PaymentController extends GetxController {
   Map<String, dynamic> options = {};
   final cartcotro = Get.put(CartController());
 
- 
-
-  void setTotalAmount(int amount, List<ProductElement> productsList, address,int page) {
+  void setTotalAmount(
+      int amount, List<ProductElement> productsList, address, int page) {
     log('setTotal');
     final total = "${amount * 100}";
     final amountPayable = total.toString();
     update();
     products = productsList.map((e) => Product(id: e.id)).toList();
     update();
-    
+
     log(amountPayable);
     openCheckout(amountPayable);
-    
+
     log(products.length.toString());
     log(products[0].id.toString());
     addressId = address;
@@ -98,30 +97,26 @@ class PaymentController extends GetxController {
     log(addressId);
     log(paymentType);
     log(products[0].id);
-    
+
     loading = true;
     update();
     final OrdersModel model = OrdersModel(
         addressId: addressId, paymentType: paymentType, products: products);
-        log(addressId);
+    log(addressId);
     log(paymentType);
     log(products[0].id);
 
     await OrderService().placeOrder(model).then((value) {
-      
       if (value != null) {
         loading = false;
         update();
 
         Get.off(const OrderPlace());
         cartcotro.getCart();
-        Get.snackbar(
-          'Order Placed',
-          'Order placed succefully',
-          backgroundColor: Colors.green,
-          colorText: colorblack,
-          snackPosition: SnackPosition.BOTTOM
-        );
+        Get.snackbar('Order Placed', 'Order placed succefully',
+            backgroundColor: Colors.green,
+            colorText: colorblack,
+            snackPosition: SnackPosition.BOTTOM);
       } else {
         loading = false;
         update();

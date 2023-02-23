@@ -7,11 +7,11 @@ import 'package:ecomerce/screen/account/edit_account/model/edit_account_model.da
 import 'package:ecomerce/util/dio_exception/exception.dart';
 import 'package:ecomerce/util/dio_interceptor/dio_interceptor.dart';
 
-class Editservice{
+class Editservice {
   final apibaseUrl = ApiBaseUrl();
   final apiendUrl = ApiEndsUrl();
   Future<String?> updateAddress(
-     EditAddressModel model, String addressId) async {
+      EditAddressModel model, String addressId) async {
     Dio dios = await ApiInterceptor().getApiUser();
     try {
       log('try');
@@ -36,5 +36,4 @@ class Editservice{
     }
     return null;
   }
-
 }

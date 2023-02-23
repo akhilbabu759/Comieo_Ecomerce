@@ -32,7 +32,6 @@ class RowCart extends StatelessWidget {
                 ),
                 child: Image.network(
                     '${ApiBaseUrl().baseurl}/products/${cartcontrol.cartList!.products[index].product.image[0]}'),
-                // 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png'),
               ),
             ),
           ),
@@ -75,17 +74,13 @@ class RowCart extends StatelessWidget {
                           cartcontrol.cartList!.products[index].qty,
                           cartcontrol.cartList!.products[index].product.size
                               .toString());
-                    }
-                    // cartcontrol.adding(),
-                    ),
+                    }),
               ),
               GetBuilder<CartController>(
                 builder: (controller) {
                   return SizedBox(
-                      child: Text(
-                          cartcontrol.cartList!.products[index].qty.toString())
-                      // cartcontrol.value.toString()),
-                      );
+                      child: Text(cartcontrol.cartList!.products[index].qty
+                          .toString()));
                 },
               ),
               ColoredBox(
@@ -100,9 +95,7 @@ class RowCart extends StatelessWidget {
                           cartcontrol.cartList!.products[index].qty,
                           cartcontrol.cartList!.products[index].product.size
                               .toString());
-                    }
-                    //  cartcontrol.deleting(),
-                    ),
+                    }),
               )
             ],
           )

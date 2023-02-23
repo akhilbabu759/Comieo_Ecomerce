@@ -6,9 +6,8 @@ import 'package:ecomerce/screen/Whishlist/view/wishlist.dart';
 
 import 'package:ecomerce/screen/cart/controller/cart_controller.dart';
 import 'package:ecomerce/screen/cart/view/cart.dart';
+import 'package:ecomerce/screen/home/view/widget/search/search.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-
 
 import 'package:ecomerce/screen/home/view/widget/afterAppBar/after_appbar.dart';
 
@@ -27,165 +26,197 @@ class Home extends StatelessWidget {
     final double height = size.height;
     final double width = size.width;
     final cartController = Get.put(CartController());
-    return GetBuilder<CartController>(builder: (controller) {
-      return cartController.isLoading==true.obs ? const Center(
+    return GetBuilder<CartController>(
+      builder: (controller) {
+        return cartController.isLoading == true.obs
+            ? const Center(
                 child: CircularProgressIndicator(
                   color: colorWhite,
                   backgroundColor: Colors.cyan,
                 ),
-              ): Scaffold(
-        backgroundColor: Colors.blueGrey[50],
-        body: SafeArea(
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(bottom: 8.0),
-                child: Container(
-                  decoration: const BoxDecoration(
-                      color: colorWhite,
-                      backgroundBlendMode: BlendMode.hardLight,
-                      borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(20),
-                          bottomRight: Radius.circular(20))),
-                  height: height * 0.13,
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          IconButton(
-                              onPressed: () {
-                                SideSheet.left(
-                                    body: Column(
-                                      children: [
-                                        Container(
-                                          color: Colors.blueGrey[900],
-                                          height: 130,
-                                          width: 294,
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(
-                                                top: 63.0, left: 10),
-                                            child: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  const Text(
-                                                    'Hey!',
-                                                    style: TextStyle(
-                                                        color: colorWhite,
-                                                        fontSize: 20),
+              )
+            : Scaffold(
+                backgroundColor: Colors.blueGrey[50],
+                body: SafeArea(
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 8.0),
+                        child: Container(
+                          decoration: const BoxDecoration(
+                              color: colorWhite,
+                              backgroundBlendMode: BlendMode.hardLight,
+                              borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(20),
+                                  bottomRight: Radius.circular(20))),
+                          height: height * 0.13,
+                          child: Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  IconButton(
+                                      onPressed: () {
+                                        SideSheet.left(
+                                            body: Column(
+                                              children: [
+                                                Container(
+                                                  color: Colors.blueGrey[900],
+                                                  height: 130,
+                                                  width: 294,
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            top: 63.0,
+                                                            left: 10),
+                                                    child: Column(
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          const Text(
+                                                            'Hey!',
+                                                            style: TextStyle(
+                                                                color:
+                                                                    colorWhite,
+                                                                fontSize: 20),
+                                                          ),
+                                                          Row(
+                                                            children: const [
+                                                              SizedBox(
+                                                                width: 30,
+                                                              ),
+                                                              Text(
+                                                                'Akhil ',
+                                                                style: TextStyle(
+                                                                    color:
+                                                                        colorWhite,
+                                                                    fontSize:
+                                                                        29),
+                                                              ),
+                                                            ],
+                                                          )
+                                                        ]),
                                                   ),
-                                                  Row(
-                                                    children: const [
-                                                      SizedBox(
-                                                        width: 30,
+                                                ),
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          top: 15.0, left: 5),
+                                                  child: Column(
+                                                    children: [
+                                                      GestureDetector(
+                                                        onTap: () => Get.to(
+                                                            const WishList()),
+                                                        child:
+                                                            const SideSheetRow(
+                                                          icon: Icon(
+                                                              Icons.favorite),
+                                                          text: 'Wishlist',
+                                                        ),
                                                       ),
-                                                      Text(
-                                                        'Akhil ',
+                                                      textFieldGap,
+                                                      textFieldGap,
+                                                      GestureDetector(
+                                                        onTap: () => Get.to(
+                                                            const OrderPlace()),
+                                                        child:
+                                                            const SideSheetRow(
+                                                          icon: Icon(Icons
+                                                              .shopping_basket),
+                                                          text: 'Order',
+                                                        ),
+                                                      ),
+                                                      textFieldGap,
+                                                      textFieldGap,
+                                                      GestureDetector(
+                                                        onTap: () => launchUr(
+                                                            Uri.parse(
+                                                                'mailto:akhilb4001@gmail.com?subject=Help me&body=need help')),
+                                                        child:
+                                                            const SideSheetRow(
+                                                          icon: Icon(Icons
+                                                              .question_answer),
+                                                          text: 'Contact us',
+                                                        ),
+                                                      ),
+                                                      textFieldGap,
+                                                      textFieldGap,
+                                                      GestureDetector(
+                                                          child:
+                                                              const SideSheetRow(
+                                                        icon: Icon(
+                                                            Icons.help_center),
+                                                        text: 'Help',
+                                                      )),
+                                                      const SizedBox(
+                                                        height: 300,
+                                                      ),
+                                                      const Text(
+                                                        'Version 1.0',
                                                         style: TextStyle(
-                                                            color: colorWhite,
-                                                            fontSize: 29),
+                                                            color: colorblack),
                                                       ),
                                                     ],
-                                                  )
-                                                ]),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(top:15.0,left: 5),
-                                          child: Column(children: [
-                                            GestureDetector(
-                                              onTap: () => Get.to(const WishList()),
-                                              child: const SideSheetRow(
-                                                icon: Icon(Icons.favorite),
-                                                text: 'Wishlist',
-                                              ),),
-                                         
-                                          textFieldGap,
-                                          textFieldGap,
-                                          GestureDetector(onTap: () => Get.to(const OrderPlace()),
-                                              child: const SideSheetRow(
-                                            icon: Icon(Icons.shopping_basket),
-                                            text: 'Order',
-                                          ),),
-                                          textFieldGap,textFieldGap,
-                                          GestureDetector(
-                                            onTap: () => launchUr(Uri.parse('mailto:akhilb4001@gmail.com?subject=Help me&body=need help')),
-                                            child: const SideSheetRow(
-                                              icon: Icon(Icons.question_answer),
-                                              text: 'Contact us',
+                                                  ),
+                                                ),
+                                              ],
                                             ),
-                                          ),
-                                          textFieldGap,textFieldGap,
-                                          GestureDetector(
-                                              child: const SideSheetRow(
-                                            icon: Icon(Icons.help_center),
-                                            text: 'Help',
+                                            context: context);
+                                      },
+                                      icon: const Icon(Icons.menu)),
+                                  Text(
+                                    'Comieo',
+                                    style: textstyle,
+                                  ),
+                                  Row(
+                                    children: [
+                                      IconButton(
+                                          onPressed: () {
+                                            Get.to(const SearchPage());
+                                          },
+                                          icon: const Icon(
+                                            Icons.search,
+                                            color: colorblack,
                                           )),
-                                          const SizedBox(
-                                            height: 300,
-                                          ),
-                                          const Text(
-                                            'Version 1.0',
-                                            style: TextStyle(color: colorblack),
-                                          ),
-
-                                          ],),
+                                      InkWell(
+                                        onTap: () {
+                                          Get.to(const CartScreen());
+                                        },
+                                        child: GetBuilder<CartController>(
+                                          builder: (controller) {
+                                            return Badge(
+                                                position: BadgePosition.topEnd(
+                                                    top: 10, end: 10),
+                                                badgeContent: Text(
+                                                    cartController.cartList!
+                                                        .products.length
+                                                        .toString()),
+                                                child: const Icon(Icons
+                                                    .shopping_cart_outlined));
+                                          },
                                         ),
-                                        
-                                      ],
-                                    ),
-                                    context: context);
-                              },
-                              icon: const Icon(Icons.menu)),
-                          Text(
-                            'Comieo',
-                            style: textstyle,
+                                      )
+                                    ],
+                                  )
+                                ]),
                           ),
-                          Row(
-                            children: [
-                              IconButton(
-                                  onPressed: () {},
-                                  icon: const Icon(
-                                    Icons.search,
-                                    color: colorblack,
-                                  )),
-                              InkWell(
-                                onTap: () {
-                                  Get.to(const CartScreen());
-                                },
-                                child: GetBuilder<CartController >(builder: (controller) {
-                                  return 
-                                  //  == null
-                                  //     ? Icon(Icons.shopping_cart_outlined)
-                                  //     : 
-                                      Badge(
-                                          position: BadgePosition.topEnd(
-                                              top: 10, end: 10),
-                                          badgeContent: Text(cartController
-                                              .cartList!.products.length
-                                              .toString()),
-                                          child: const Icon(Icons.shopping_cart_outlined));
-                                },
-                                ),
-                              )
-                            ],
-                          )
-                        ]),
+                        ),
+                      ),
+                      Expanded(
+                          child: ListView(children: [
+                        AfterAppBar(height: height, width: width)
+                      ])),
+                    ],
                   ),
                 ),
-              ),
-              Expanded(
-                  child: ListView(
-                      children: [AfterAppBar(height: height, width: width)])),
-            ],
-          ),
-        ),
-      );
-    },
+              );
+      },
     );
   }
-   Future<void> launchUr(Uri url) async {
+
+  Future<void> launchUr(Uri url) async {
     if (!await launchUrl(url)) {
       throw 'Could not launch ';
     }

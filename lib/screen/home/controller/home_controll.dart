@@ -7,6 +7,7 @@ import 'package:ecomerce/screen/home/model/product_model.dart';
 import 'package:ecomerce/screen/home/service/carousel_service.dart';
 import 'package:ecomerce/screen/home/service/category_service.dart';
 import 'package:ecomerce/screen/home/service/product_service.dart';
+import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
@@ -28,6 +29,8 @@ class HomeControll extends GetxController {
   CategoryService categoryService = CategoryService();
   ProductService productService = ProductService();
   bool isLoding = true;
+  List<ProductModel> seachResult = [];
+  TextEditingController searchController = TextEditingController();
 
   void getProduct() async {
     isLoding = true;
@@ -89,6 +92,24 @@ class HomeControll extends GetxController {
       }
     });
     isLoding = false;
+    update();
+  }
+
+  void search(String keyboard) {
+    List<ProductModel> results = [];
+    if (keyboard.isEmpty) {
+      results = productList;
+    } else {
+      results = productList
+          .where(
+            (element) => element.name.toLowerCase().contains(
+                  keyboard.toLowerCase(),
+                ),
+          )
+          .toList();
+    }
+
+    seachResult = results;
     update();
   }
 }

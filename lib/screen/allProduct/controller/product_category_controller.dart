@@ -4,18 +4,18 @@ import 'package:get/get.dart';
 class ProductCategoryController extends GetxController {
   @override
   void onInit() {
-    isLoding=true;
+    isLoding = true;
     super.onInit();
   }
+
   late List<ProductModel> productlist;
-  bool isLoding=true;
-  
-  
+  bool isLoding = true;
 
   void findCategoryId(String categoryId, List<ProductModel> list) {
-    productlist =list.where((element) => element.category.contains(categoryId)).toList();
+    productlist =
+        list.where((element) => element.category.contains(categoryId)).toList();
     update();
-    isLoding=false;
+    isLoding = false;
     update();
   }
 }

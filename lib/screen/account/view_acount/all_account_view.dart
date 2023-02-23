@@ -18,7 +18,7 @@ class AllAccountView extends StatelessWidget {
   final double height;
 
   final accountC = Get.put(AcountController());
-  final orderSummerC=Get.put(OrderCOntrollerSummery());
+  final orderSummerC = Get.put(OrderCOntrollerSummery());
 
   @override
   Widget build(BuildContext context) {
@@ -85,15 +85,18 @@ class AllAccountView extends StatelessWidget {
                               left: 10.0,
                               right: 10,
                             ),
-                            child: GestureDetector(onTap: () {
-                              orderSummerC.indexChange(index);
-                              accountC.changeinde(index);
-                            } ,
+                            child: GestureDetector(
+                              onTap: () {
+                                orderSummerC.indexChange(index);
+                                accountC.changeinde(index);
+                              },
                               child: Container(
                                 width: double.infinity,
                                 height: height * 0.258,
                                 decoration: BoxDecoration(
-                                    color:orderSummerC.index==index?Colors.blueGrey[50]: colorWhite,
+                                    color: orderSummerC.index == index
+                                        ? Colors.blueGrey[50]
+                                        : colorWhite,
                                     borderRadius: BorderRadius.circular(10),
                                     border: Border.all(
                                       color: Colors.white12,
@@ -104,7 +107,8 @@ class AllAccountView extends StatelessWidget {
                                     right: 10,
                                   ),
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       const Divider(
                                         thickness: 2,
@@ -176,8 +180,8 @@ class AllAccountView extends StatelessWidget {
                                               ),
                                             ),
                                             onPressed: () {
-                                              accountC.deleteAddress(
-                                                  accountC.addressList[index].id);
+                                              accountC.deleteAddress(accountC
+                                                  .addressList[index].id);
                                             },
                                             child: const Text(
                                               'Remove',

@@ -25,8 +25,8 @@ class CardView extends StatelessWidget {
                     itemBuilder: (context, index) => Padding(
                           padding: const EdgeInsets.only(left: 10.0, right: 10),
                           child: GestureDetector(
-                            onTap: () => Get.to(AllProductViewCategory(categerId: productC.categorylList[index].id,
-                              
+                            onTap: () => Get.to(AllProductViewCategory(
+                              categerId: productC.categorylList[index].id,
                             )),
                             child: SizedBox(
                                 width: 170,

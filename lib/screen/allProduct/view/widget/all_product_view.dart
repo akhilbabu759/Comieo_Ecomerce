@@ -25,8 +25,8 @@ class AllProductViewGride extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final wishlistC = Get.put(WishListController());
-    // final productC = Get.put(HomeControll());
-    final productC=Get.put(ProductCategoryController());
+
+    final productC = Get.put(ProductCategoryController());
 
     return GetBuilder<ProductCategoryController>(
       builder: (controller) => productC.isLoding == true
@@ -78,7 +78,6 @@ class AllProductViewGride extends StatelessWidget {
                                   image: DecorationImage(
                                     image: NetworkImage(''
                                         '${apibaseUrl.baseurl}/products/${productC.productlist[index].image[0]}'),
-                                    // fit: BoxFit.cover,
                                   ),
                                 ),
                               ),
@@ -86,16 +85,14 @@ class AllProductViewGride extends StatelessWidget {
                             GetBuilder<WishListController>(
                               builder: (controller) => Positioned(
                                 right: 0,
-                                // bottom: 0,
                                 child: IconButton(
                                   onPressed: () {
                                     wishlistC.addOrRemoveFromWishlist(
-                                        productC.productlist[index].id
-                                        // .product.id
-                                        );
+                                        productC.productlist[index].id);
                                   },
                                   icon: wishlistC.wishList.isEmpty
-                                      ? const Icon(Icons.favorite_border_outlined)
+                                      ? const Icon(
+                                          Icons.favorite_border_outlined)
                                       : Icon(
                                           wishlistC.wishList.contains(productC
                                                   .productlist[index].id)

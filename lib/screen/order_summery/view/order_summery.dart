@@ -1,5 +1,3 @@
-
-
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
 import 'package:ecomerce/screen/account/account_main/controller/account_controller.dart';
@@ -24,7 +22,7 @@ class OrderSummery extends StatefulWidget {
 
 class _OrderSummeryState extends State<OrderSummery> {
   PaymentController paymentController = PaymentController();
-   
+
   @override
   void initState() {
     final razorpay = paymentController.razorpay;
@@ -48,7 +46,6 @@ class _OrderSummeryState extends State<OrderSummery> {
     final cartcontrol = Get.put(CartController());
     final adrres = Get.put(AcountController());
     final orderCOntrollerSummery = Get.put(OrderCOntrollerSummery());
-     
 
     return GetBuilder<AcountController>(
       builder: (controller) {
@@ -121,22 +118,24 @@ class _OrderSummeryState extends State<OrderSummery> {
                                                 Colors.yellow.shade600)),
                                     onPressed: () {
                                       //  ProductElement prodmodel;
-   List<ProductElement> model = [cartcontrol.reversedProcuct[0]];
-  //  if (widget.page == 1) {
-                                        // log('message', name: 'if check');
-                                        // prodmodel = ProductElement(
-                                        //     product: adrres.model,
-                                        //     size: adrres.model.size[0],
-                                        //     qty: 1,
-                                        //     price: adrres.model.price,
-                                        //     discountPrice:
-                                        //         adrres.model.discountPrice,
-                                        //     id: cartcontrol.cartList!.id);
-                                        // 
+                                      List<ProductElement> model = [
+                                        cartcontrol.reversedProcuct[0]
+                                      ];
+                                      //  if (widget.page == 1) {
+                                      // log('message', name: 'if check');
+                                      // prodmodel = ProductElement(
+                                      //     product: adrres.model,
+                                      //     size: adrres.model.size[0],
+                                      //     qty: 1,
+                                      //     price: adrres.model.price,
+                                      //     discountPrice:
+                                      //         adrres.model.discountPrice,
+                                      //     id: cartcontrol.cartList!.id);
+                                      //
                                       // }
-                                      
+
                                       // model =[adrres.prodmodel];
-                                     
+
                                       // log(widget.page.toString());
                                       // log(adrres.prodmodel.price.toString(),name: 'name');
                                       // log(orderCOntrollerSummery
@@ -145,7 +144,9 @@ class _OrderSummeryState extends State<OrderSummery> {
 
                                       widget.page == 1
                                           ? paymentController.setTotalAmount(
-                                            int.parse(  cartcontrol.reversedProcuct[0].price.toString()),
+                                              int.parse(cartcontrol
+                                                  .reversedProcuct[0].price
+                                                  .toString()),
                                               model,
                                               adrres
                                                   .addressList[

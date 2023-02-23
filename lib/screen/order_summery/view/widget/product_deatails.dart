@@ -8,7 +8,8 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 
 class ProductDeatails extends StatelessWidget {
-  const ProductDeatails({Key? key, required this.index,required this.page}) : super(key: key);
+  const ProductDeatails({Key? key, required this.index, required this.page})
+      : super(key: key);
   final int index;
   final int page;
 
@@ -20,8 +21,9 @@ class ProductDeatails extends StatelessWidget {
       child: Column(children: [
         Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Image.network(
-            page==1?'${ApiBaseUrl().baseurl}/products/${adrres.model.image[0]}' :
-            '${ApiBaseUrl().baseurl}/products/${cartcontrol.cartList!.products[index].product.image[0]}',
+            page == 1
+                ? '${ApiBaseUrl().baseurl}/products/${adrres.model.image[0]}'
+                : '${ApiBaseUrl().baseurl}/products/${cartcontrol.cartList!.products[index].product.image[0]}',
             height: 150,
             width: 150,
           ),
@@ -47,8 +49,10 @@ class ProductDeatails extends StatelessWidget {
                 //       },
                 //       icon: const Icon(Icons.dangerous)),
                 // ),
-                Text(page==1? adrres.model.name:
-                  cartcontrol.cartList!.products[index].product.name,
+                Text(
+                  page == 1
+                      ? adrres.model.name
+                      : cartcontrol.cartList!.products[index].product.name,
                   style: const TextStyle(
                     fontSize: 21,
                   ),
@@ -56,8 +60,9 @@ class ProductDeatails extends StatelessWidget {
                 ),
                 textFieldGap,
                 RatingBar.builder(
-                  initialRating: double.parse(page==1? adrres.model.rating:
-                      cartcontrol.cartList!.products[index].product.rating),
+                  initialRating: double.parse(page == 1
+                      ? adrres.model.rating
+                      : cartcontrol.cartList!.products[index].product.rating),
                   itemSize: 15,
                   minRating: 1,
                   direction: Axis.horizontal,
@@ -73,20 +78,23 @@ class ProductDeatails extends StatelessWidget {
                 RichText(
                   text: TextSpan(children: [
                     TextSpan(
-                        text:page==1?'₹${adrres.model.offer}' :
-                            '₹${cartcontrol.cartList!.products[index].product.offer}',
+                        text: page == 1
+                            ? '₹${adrres.model.offer}'
+                            : '₹${cartcontrol.cartList!.products[index].product.offer}',
                         style: const TextStyle(
                             decoration: TextDecoration.lineThrough,
                             color: Color.fromARGB(255, 112, 114, 115),
                             fontSize: 15)),
                     TextSpan(
-                        text:page==1?'₹${adrres.model.price}' :
-                            ' ₹${cartcontrol.cartList!.products[index].product.price}',
+                        text: page == 1
+                            ? '₹${adrres.model.price}'
+                            : ' ₹${cartcontrol.cartList!.products[index].product.price}',
                         style:
                             const TextStyle(color: Colors.black, fontSize: 20)),
                     TextSpan(
-                        text:page==1?' ${adrres.model.discountPrice}% off' :
-                            ' ${cartcontrol.cartList!.products[index].product.discountPrice}% off',
+                        text: page == 1
+                            ? ' ${adrres.model.discountPrice}% off'
+                            : ' ${cartcontrol.cartList!.products[index].product.discountPrice}% off',
                         style: const TextStyle(
                           color: Colors.green,
                           fontSize: 20,
@@ -125,76 +133,25 @@ class ProductDeatails extends StatelessWidget {
                 elevation: 3,
                 child: Row(
                   children: [
-                    // Card(
-                    //   elevation: 3,
-                    //   child: ColoredBox(
-                    //     color: Colors.grey,
-                    //     child: GestureDetector(
-                    //         child: const Icon(Icons.add, size: 30),
-                    //         onTap: () {
-                    //           cartcontrol.incrementDecrementQty(
-                    //               1,
-                    //               cartcontrol
-                    //                   .cartList!.products[index].product.id,
-                    //               cartcontrol.cartList!.products[index].qty,
-                    //               cartcontrol
-                    //                   .cartList!.products[index].product.size[0]
-                    //                   .toString());
-                    //         }
-                    //         // cartcontrol.adding(),
-                    //         ),
-                    //   ),
-                    // ),
                     GetBuilder<CartController>(
                       builder: (controller) {
                         return SizedBox(
                             width: 44,
                             height: 24,
                             child: Center(
-                              child: Text(page==1?'1':
-                                cartcontrol.cartList!.products[index].qty
-                                    .toString(),
+                              child: Text(
+                                page == 1
+                                    ? '1'
+                                    : cartcontrol.cartList!.products[index].qty
+                                        .toString(),
                                 style: const TextStyle(fontSize: 17),
                               ),
-                            )
-                            // cartcontrol.value.toString()),
-                            );
+                            ));
                       },
                     ),
-                    // Card(
-                    //   elevation: 3,
-                    //   child: ColoredBox(
-                    //     color: Colors.grey,
-                    //     child: GestureDetector(
-                    //         child: const Icon(Icons.remove, size: 30),
-                    //         onTap: () {
-                    //           cartcontrol.incrementDecrementQty(
-                    //               -1,
-                    //               cartcontrol
-                    //                   .cartList!.products[index].product.id,
-                    //               cartcontrol.cartList!.products[index].qty,
-                    //               cartcontrol
-                    //                   .cartList!.products[index].product.size[0]
-                    //                   .toString());
-                    //         }
-                    //         //  cartcontrol.deleting(),
-                    //         ),
-                    //   ),
-                    // ),
                   ],
                 ),
               ),
-              // const Card(
-              //   elevation: 3,
-              //   child: SizedBox(
-              //     height: 27,
-              //     child: Center(
-              //         child: Text(
-              //       '  See more like this  ',
-              //       style: TextStyle(fontSize: 13),
-              //     )),
-              //   ),
-              // )
             ],
           ),
         ),
