@@ -117,10 +117,13 @@ class _OrderSummeryState extends State<OrderSummery> {
                                             MaterialStateProperty.all(
                                                 Colors.yellow.shade600)),
                                     onPressed: () {
-                                      //  ProductElement prodmodel;
+                                       ProductElement prodmodel;
                                       List<ProductElement> model = [
                                         cartcontrol.reversedProcuct[0]
                                       ];
+                                      // List<ProductElement> model = [
+                                      //   adrres.prodmodel
+                                      // ];
                                       //  if (widget.page == 1) {
                                       // log('message', name: 'if check');
                                       // prodmodel = ProductElement(
@@ -143,7 +146,18 @@ class _OrderSummeryState extends State<OrderSummery> {
                                       //                     log(model[0].product.name,name: '');
 
                                       widget.page == 1
-                                          ? paymentController.setTotalAmount(
+                                          ?
+                                          // paymentController.setTotalAmount(
+                                          //     int.parse(adrres.prodmodel.price
+                                          //         .toString()),
+                                          //     model,
+                                          //     adrres
+                                          //         .addressList[
+                                          //             orderCOntrollerSummery
+                                          //                 .index]
+                                          //         .id,
+                                          //     widget.page)
+                                           paymentController.setTotalAmount(
                                               int.parse(cartcontrol
                                                   .reversedProcuct[0].price
                                                   .toString()),

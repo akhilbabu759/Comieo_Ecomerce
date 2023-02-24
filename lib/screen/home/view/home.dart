@@ -3,9 +3,11 @@ import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
 
 import 'package:ecomerce/screen/Whishlist/view/wishlist.dart';
+import 'package:ecomerce/screen/account/account_main/controller/account_controller.dart';
 
 import 'package:ecomerce/screen/cart/controller/cart_controller.dart';
 import 'package:ecomerce/screen/cart/view/cart.dart';
+import 'package:ecomerce/screen/home/controller/home_controll.dart';
 import 'package:ecomerce/screen/home/view/widget/search/search.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -26,6 +28,7 @@ class Home extends StatelessWidget {
     final double height = size.height;
     final double width = size.width;
     final cartController = Get.put(CartController());
+    final accountC=Get.put(AcountController());
     return GetBuilder<CartController>(
       builder: (controller) {
         return cartController.isLoading == true.obs
@@ -143,13 +146,38 @@ class Home extends StatelessWidget {
                                                       ),
                                                       textFieldGap,
                                                       textFieldGap,
-                                                      GestureDetector(
-                                                          child:
-                                                              const SideSheetRow(
-                                                        icon: Icon(
-                                                            Icons.help_center),
-                                                        text: 'Help',
-                                                      )),
+                                                      Container(
+            color: colorWhite,
+            height: 49,
+            width: Get.width,
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(children: [
+                InkWell(
+                  onTap: () => Get.defaultDialog(
+                    middleText: 'Do you want to Delete !!',
+                    textConfirm: 'Yes',
+                    textCancel: 'No',
+                    onConfirm: () => accountC.logout(),
+                  ),
+                  child: Row(
+                    children: const [
+                      Icon(
+                        Icons.login,
+                        color: colorRed,
+                      ),
+                      SizedBox(width: 20),
+                      Text(
+                        'LogOut',
+                        style: TextStyle(color: colorRed),
+                      )
+                    ],
+                  ),
+                )
+              ]),
+            ),
+          ),
+                                                      
                                                       const SizedBox(
                                                         height: 300,
                                                       ),
@@ -177,7 +205,7 @@ class Home extends StatelessWidget {
                                             Get.to(const SearchPage());
                                           },
                                           icon: const Icon(
-                                            Icons.search,
+                                            Icons.search_outlined,
                                             color: colorblack,
                                           )),
                                       InkWell(

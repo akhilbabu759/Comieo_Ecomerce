@@ -44,18 +44,21 @@ class AcountController extends GetxController {
   late ProductElement  prodmodel;
 
   FlutterSecureStorage storage = const FlutterSecureStorage();
-   void productModelForOneProdBuy(modele){
+   void productModelForOneProdBuy(modele,prodmodels){
     model=modele;
     update();
+    prodmodel=prodmodels;
+    update();
+
     log(model.name,name:'productModelForOneProdBuy' );
-    prodmodel = ProductElement(
-                                            product: model,
-                                            size: model.size[0],
-                                            qty: 1,
-                                            price: model.price,
-                                            discountPrice:
-                                                model.discountPrice,
-                                            id:model.id);
+    // prodmodel = ProductElement(
+    //                                         product: model,
+    //                                         size: model.size[0],
+    //                                         qty: 1,
+    //                                         price: model.price,
+    //                                         discountPrice:
+    //                                             model.discountPrice,
+    //                                         id:model.id);
   
     
 

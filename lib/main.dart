@@ -1,4 +1,5 @@
 import 'package:device_preview/device_preview.dart';
+import 'package:ecomerce/screen/splash/view/splashview.dart';
 
 import 'package:flutter/material.dart';
 import 'screen/auth/sign_in/view/signin.dart';
@@ -25,6 +26,6 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(),
-        home: const SigninPage());
+        home:  SplashScreen());
   }
 }

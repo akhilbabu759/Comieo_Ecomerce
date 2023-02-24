@@ -3,6 +3,8 @@ import 'package:ecomerce/screen/account/about/about.dart';
 import 'package:ecomerce/screen/account/account_main/controller/account_controller.dart';
 
 import 'package:ecomerce/screen/account/account_main/view/widget/row_account.dart';
+import 'package:ecomerce/screen/account/privacy_police/privacy.dart';
+import 'package:ecomerce/screen/account/terms_and_Condtion/terms_and_condition.dart';
 import 'package:ecomerce/screen/account/view_acount/all_account_view.dart';
 import 'package:ecomerce/screen/order_place_page.dart/view/order_place.dart';
 import 'package:flutter/material.dart';
@@ -87,16 +89,16 @@ class Account extends StatelessWidget {
                 ),
                 textFieldGap,
                 GestureDetector(
-                  onTap: () => Get.to(const AboutPage()),
+                  onTap: () => Get.to(const TermsAndCondion()),
                   child: const RowAccount(
                       text: 'Terms and conditions',
                       icon: Icon(Icons.my_library_books)),
                 ),
                 textFieldGap,
                 GestureDetector(
-                  onTap: () => Get.to(const AboutPage()),
+                  onTap: () => Get.to(const Privice()),
                   child: const RowAccount(
-                    text: 'Privice police',
+                    text: 'Privacy policy',
                     icon: Icon(
                       Icons.privacy_tip,
                     ),

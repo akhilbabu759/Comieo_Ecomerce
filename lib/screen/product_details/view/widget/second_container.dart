@@ -5,6 +5,7 @@ import 'package:ecomerce/core/text_style.dart';
 import 'package:ecomerce/screen/Whishlist/controller/wishlist_controller.dart';
 import 'package:ecomerce/screen/account/account_main/controller/account_controller.dart';
 import 'package:ecomerce/screen/cart/controller/cart_controller.dart';
+import 'package:ecomerce/screen/cart/model/get_cart_model.dart';
 import 'package:ecomerce/screen/home/model/product_model.dart';
 
 import 'package:ecomerce/screen/order_summery/view/order_summery.dart';
@@ -218,8 +219,16 @@ class SecondContainer extends StatelessWidget {
                             price: model.price,
                             rating: model.rating,
                             size: model.size);
+                           ProductElement  prodmodel = ProductElement(
+                                            product: productmodel,
+                                            size: model.size[0],
+                                            qty: 1,
+                                            price: model.price,
+                                            discountPrice:
+                                                model.discountPrice,
+                                            id:model.id);
                         log(productmodel.name, name: 'cbeck model');
-                        orderSummeryc.productModelForOneProdBuy(productmodel);
+                        orderSummeryc.productModelForOneProdBuy(productmodel,prodmodel);
 
                         Get.to(const OrderSummery(
                           page: 1,
