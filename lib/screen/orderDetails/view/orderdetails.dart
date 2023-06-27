@@ -185,8 +185,8 @@ class OrderDetails extends StatelessWidget {
                                     ),
                                   ],
                                 )
-                              : Row(
-                                  children: const [
+                              : const Row(
+                                  children: [
                                     Icon(
                                       Icons.radio_button_off,
                                       color: Colors.grey,
@@ -208,13 +208,13 @@ class OrderDetails extends StatelessWidget {
                         ),
                         orderC.orderList[index].orderStatus == 'CANCELED'
                             ? const Text('')
-                            : Column(
+                            : const Column(
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.only(
+                                    padding: EdgeInsets.only(
                                         top: 15, left: 20),
                                     child: Row(
-                                      children: const [
+                                      children: [
                                         Icon(
                                           Icons.radio_button_off,
                                           color: Colors.grey,

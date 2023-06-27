@@ -37,9 +37,9 @@ class Account extends StatelessWidget {
               padding: const EdgeInsets.all(10.0),
               child: Column(
                 children: [
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: const [
+                    children: [
                       Text(
                         'Account Settings',
                         style: TextStyle(fontSize: 18),
@@ -77,8 +77,8 @@ class Account extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(10.0),
               child: Column(children: [
-                Row(
-                  children: const [
+                const Row(
+                  children: [
                     Text(
                       'feedBack & Information',
                       style: TextStyle(
@@ -132,8 +132,8 @@ class Account extends StatelessWidget {
                     textCancel: 'No',
                     onConfirm: () => accountC.logout(),
                   ),
-                  child: Row(
-                    children: const [
+                  child: const Row(
+                    children: [
                       Icon(
                         Icons.login,
                         color: colorRed,

@@ -195,11 +195,11 @@ class WishlistGridView extends StatelessWidget {
                                   wishlistC.wmodel!.products[index].product.size[0]
                                       .toString(),
                                   0),
-                              child: Card(
+                              child: const Card(
                                 elevation: 2,
                                 child: Center(
                                     child: Column(
-                                  children: const [
+                                  children: [
                                     Text(
                                       'Add to cart',
                                       style: TextStyle(

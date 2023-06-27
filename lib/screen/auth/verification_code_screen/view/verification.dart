@@ -61,17 +61,17 @@ class ScreenVerificationCode extends StatelessWidget {
                 child: Column(
                   children: [
                     textFieldGap,
-                    Row(
-                      children: const [
+                    const Row(
+                      children: [
                         Text(
                           'Please enter Code sent to',
                           style: TextStyle(fontSize: 17, color: colorWhite),
                         ),
                       ],
                     ),
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
+                      children: [
                         Text(
                           'Email id',
                           style: TextStyle(

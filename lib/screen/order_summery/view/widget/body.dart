@@ -59,9 +59,9 @@ class Body extends StatelessWidget {
                       )
                     ]),
                 textFieldGap,
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children: [
                     Text(
                       'Delivery Charge',
                       style: TextStyle(fontSize: 20),

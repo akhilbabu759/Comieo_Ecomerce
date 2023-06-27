@@ -72,9 +72,9 @@ class Home extends StatelessWidget {
                                                   color: Colors.blueGrey[900],
                                                   height: 130,
                                                   width: 294,
-                                                  child: Padding(
+                                                  child: const Padding(
                                                     padding:
-                                                        const EdgeInsets.only(
+                                                        EdgeInsets.only(
                                                             top: 63.0,
                                                             left: 10),
                                                     child: Column(
@@ -82,7 +82,7 @@ class Home extends StatelessWidget {
                                                             CrossAxisAlignment
                                                                 .start,
                                                         children: [
-                                                          const Text(
+                                                          Text(
                                                             'Hey!',
                                                             style: TextStyle(
                                                                 color:
@@ -90,7 +90,7 @@ class Home extends StatelessWidget {
                                                                 fontSize: 20),
                                                           ),
                                                           Row(
-                                                            children: const [
+                                                            children: [
                                                               SizedBox(
                                                                 width: 30,
                                                               ),
@@ -173,8 +173,8 @@ class Home extends StatelessWidget {
                                                                     accountC
                                                                         .logout(),
                                                               ),
-                                                              child: Row(
-                                                                children: const [
+                                                              child: const Row(
+                                                                children: [
                                                                   Icon(
                                                                     Icons.login,
                                                                     color:

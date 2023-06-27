@@ -30,9 +30,9 @@ class EditAccountPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.blueGrey[900],
         centerTitle: true,
-        title: Row(
+        title: const Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
+          children: [
             Text(
               'Edit Address',
               style: TextStyle(

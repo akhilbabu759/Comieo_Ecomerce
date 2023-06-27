@@ -100,7 +100,7 @@ class CartScreen extends StatelessWidget {
                   elevation: 0,
                   backgroundColor: Colors.white,
                   centerTitle: true,
-                  title: Column(children: const [
+                  title: const Column(children: [
                     Text(
                       "My Cart",
                       style: TextStyle(color: Colors.black),
