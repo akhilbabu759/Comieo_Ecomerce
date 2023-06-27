@@ -65,12 +65,11 @@ class CartScreen extends StatelessWidget {
                                   )),
                                   child: Container(
                                     height: 50,
-                                    width: 160,
+                                    width: MediaQuery.of(context).size.width*0.36,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(18),
                                       color: Colors.orange[700],
                                     ),
-                                    // padding: const EdgeInsets.only(left: 4, top: 15),
                                     child: const Center(
                                       child: Text(
                                         'Check out',

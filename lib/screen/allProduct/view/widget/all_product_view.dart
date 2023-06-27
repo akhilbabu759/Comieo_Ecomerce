@@ -71,7 +71,7 @@ class AllProductViewGride extends StatelessWidget {
                               },
                               child: Container(
                                 width: width * 0.5,
-                                height: height * 0.28,
+                                height: height * 0.22,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(20),
                                   color: colorWhite,

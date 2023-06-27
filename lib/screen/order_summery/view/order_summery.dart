@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
 import 'package:ecomerce/screen/account/account_main/controller/account_controller.dart';
@@ -108,7 +110,6 @@ class _OrderSummeryState extends State<OrderSummery> {
                                             RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(15.0),
-                                          // side: BorderSide(color: Colors.red)
                                         )),
                                         minimumSize: MaterialStateProperty.all(
                                             Size(Get.width * 0.4,
@@ -117,47 +118,13 @@ class _OrderSummeryState extends State<OrderSummery> {
                                             MaterialStateProperty.all(
                                                 Colors.yellow.shade600)),
                                     onPressed: () {
-                                       ProductElement prodmodel;
+                                      log(widget.page.toString());
                                       List<ProductElement> model = [
                                         cartcontrol.reversedProcuct[0]
                                       ];
-                                      // List<ProductElement> model = [
-                                      //   adrres.prodmodel
-                                      // ];
-                                      //  if (widget.page == 1) {
-                                      // log('message', name: 'if check');
-                                      // prodmodel = ProductElement(
-                                      //     product: adrres.model,
-                                      //     size: adrres.model.size[0],
-                                      //     qty: 1,
-                                      //     price: adrres.model.price,
-                                      //     discountPrice:
-                                      //         adrres.model.discountPrice,
-                                      //     id: cartcontrol.cartList!.id);
-                                      //
-                                      // }
-
-                                      // model =[adrres.prodmodel];
-
-                                      // log(widget.page.toString());
-                                      // log(adrres.prodmodel.price.toString(),name: 'name');
-                                      // log(orderCOntrollerSummery
-                                      //                     .index.toString());
-                                      //                     log(model[0].product.name,name: '');
 
                                       widget.page == 1
-                                          ?
-                                          // paymentController.setTotalAmount(
-                                          //     int.parse(adrres.prodmodel.price
-                                          //         .toString()),
-                                          //     model,
-                                          //     adrres
-                                          //         .addressList[
-                                          //             orderCOntrollerSummery
-                                          //                 .index]
-                                          //         .id,
-                                          //     widget.page)
-                                           paymentController.setTotalAmount(
+                                          ? paymentController.setTotalAmount(
                                               int.parse(cartcontrol
                                                   .reversedProcuct[0].price
                                                   .toString()),
@@ -177,18 +144,6 @@ class _OrderSummeryState extends State<OrderSummery> {
                                                           .index]
                                                   .id,
                                               widget.page);
-                                      // log(adrres.model.price.toString(),
-                                      //     name: 'after setTotal');
-                                      // log(model[0].discountPrice.toString(),
-                                      //     name: 'after setTotal');
-                                      // log(
-                                      //     adrres
-                                      //         .addressList[
-                                      //             orderCOntrollerSummery.index]
-                                      //         .id
-                                      //         .toString(),
-                                      //     name: 'after setTotal');
-                                      // log(cartcontrol.cartList!.totalDiscount);
                                     },
                                     child: const Text(
                                       'Continue',

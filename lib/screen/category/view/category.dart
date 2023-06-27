@@ -39,7 +39,7 @@ class CategoryPage extends StatelessWidget {
                           const SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 3,
                               mainAxisSpacing: 0,
-                              childAspectRatio: 1 / 1.3),
+                              childAspectRatio: 1 / 1.36),
                       itemBuilder: (context, index) => GestureDetector(
                             onTap: () => Get.to(
                               AllProductViewCategory(

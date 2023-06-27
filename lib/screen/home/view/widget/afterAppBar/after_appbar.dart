@@ -37,7 +37,7 @@ class AfterAppBar extends StatelessWidget {
             ),
             textFieldGap,
             HomeGridView(
-              height: height * 0.9,
+              height: height ,
               width: width * 0.9,
             )
           ]),

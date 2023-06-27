@@ -29,7 +29,6 @@ class OtpService {
         return response.data['message'];
       }
     } on DioError catch (e) {
-      // log(response.toString());
       log(e.message, name: 'status code');
       log('otp failed');
       DioException().dioError(

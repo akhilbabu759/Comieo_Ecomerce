@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 class TermsAndCondion extends StatelessWidget {
   const TermsAndCondion({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +25,8 @@ class TermsAndCondion extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Container(
                 color: Colors.blueGrey[50],
-                child: RichText(textAlign: TextAlign.justify,
+                child: RichText(
+                  textAlign: TextAlign.justify,
                   text: const TextSpan(children: [
                     TextSpan(
                         text:
@@ -38,23 +38,25 @@ class TermsAndCondion extends StatelessWidget {
                       style: TextStyle(color: colorblack, fontSize: 16),
                     ),
                     TextSpan(
-                        text:"\nYour Account\n1 To use certain features of Comieo, you may be required to create an account.\n2 You agree to provide accurate, complete, and updated information for your account, and to keep it current and accurate.\n3 You are solely responsible for maintaining the confidentiality of your account and password, and for restricting access to your account. You agree to accept responsibility for all activities that occur under your account or password.",
+                        text:
+                            "\nYour Account\n1 To use certain features of Comieo, you may be required to create an account.\n2 You agree to provide accurate, complete, and updated information for your account, and to keep it current and accurate.\n3 You are solely responsible for maintaining the confidentiality of your account and password, and for restricting access to your account. You agree to accept responsibility for all activities that occur under your account or password.",
                         style: TextStyle(color: colorblack, fontSize: 16)),
                     TextSpan(
-                        text:"\nProducts and Services\n1 Comieo allows you to browse and purchase products from various sellers.\n2 We do not own or control the products or services provided by sellers. As such, we make no representations or warranties about the quality, safety, legality, or accuracy of the products or services.\n3 All transactions made through Comieo are solely between you and the seller. We are not responsible for any disputes, losses, or damages arising from such transactions.",
+                        text:
+                            "\nProducts and Services\n1 Comieo allows you to browse and purchase products from various sellers.\n2 We do not own or control the products or services provided by sellers. As such, we make no representations or warranties about the quality, safety, legality, or accuracy of the products or services.\n3 All transactions made through Comieo are solely between you and the seller. We are not responsible for any disputes, losses, or damages arising from such transactions.",
                         style: TextStyle(color: colorblack, fontSize: 16)),
-                        TextSpan(
-                        text:"\nPayment and Fees\n1 Comieo allows you to purchase products or services from sellers through various payment methods.\n2 You agree to pay all fees and charges associated with your use of Comieo and the products or services you purchase.\n3 We reserve the right to modify our fees and charges, at any time and without prior notice.",
+                    TextSpan(
+                        text:
+                            "\nPayment and Fees\n1 Comieo allows you to purchase products or services from sellers through various payment methods.\n2 You agree to pay all fees and charges associated with your use of Comieo and the products or services you purchase.\n3 We reserve the right to modify our fees and charges, at any time and without prior notice.",
                         style: TextStyle(color: colorblack, fontSize: 16)),
-                        TextSpan(
-                        text:"\nIntellectual Property\n1 All content and materials on Comieo, including but not limited to text, graphics, logos, images, and software, are the property of Comieo or its licensors.",
+                    TextSpan(
+                        text:
+                            "\nIntellectual Property\n1 All content and materials on Comieo, including but not limited to text, graphics, logos, images, and software, are the property of Comieo or its licensors.",
                         style: TextStyle(color: colorblack, fontSize: 16)),
                   ]),
                 ),
               ),
             ),
-            
-           
           ]),
         ),
       ),

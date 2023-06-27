@@ -45,9 +45,7 @@ class FistContiner extends StatelessWidget {
                 Column(
                   children: [
                     RatingBar.builder(
-                      initialRating: double.parse(
-                          // productC.productList[index].rating
-                          model.rating),
+                      initialRating: double.parse(model.rating),
                       itemSize: 15,
                       minRating: 1,
                       direction: Axis.horizontal,
@@ -71,12 +69,12 @@ class FistContiner extends StatelessWidget {
             ),
             Row(
               children: <Widget>[
-                const SizedBox(
-                  width: 70,
+                 SizedBox(
+                  width:MediaQuery.of(context).size.width* 0.08 ,
                 ),
                 Image.network(
                     height: 180,
-                    width: 260,
+                    width:MediaQuery.of(context).size.width* 0.7,
                     '${ApiBaseUrl().baseurl}/products/${model.image[0]}'),
               ],
             ),

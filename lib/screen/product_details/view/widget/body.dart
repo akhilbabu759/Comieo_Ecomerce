@@ -21,7 +21,8 @@ class Body extends StatelessWidget {
                 FistContiner(
                   model: model,
                 ),
-                SecondContainer(size: size, model: model),
+                Positioned(top: MediaQuery.of(context).size.height*0.01,
+                  child: SecondContainer(size: size, model: model)),
               ],
             ),
           )

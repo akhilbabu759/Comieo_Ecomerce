@@ -127,7 +127,7 @@ class Account extends StatelessWidget {
               child: Column(children: [
                 InkWell(
                   onTap: () => Get.defaultDialog(
-                    middleText: 'Do you want to Delete !!',
+                    middleText: 'Do you want to logout !!',
                     textConfirm: 'Yes',
                     textCancel: 'No',
                     onConfirm: () => accountC.logout(),

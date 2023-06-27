@@ -34,7 +34,6 @@ class AllProductViewCategory extends StatelessWidget {
             elevation: 0,
             title: Text(
               categoryName[0].name,
-             
               style: const TextStyle(color: colorblack),
             ),
             centerTitle: true,

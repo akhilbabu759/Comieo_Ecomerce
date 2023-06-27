@@ -18,7 +18,8 @@ class HomeControll extends GetxController {
     getCarosel();
     getCategory();
     getProduct();
-    search( '');
+    search('');
+     
 
     super.onInit();
   }
@@ -97,7 +98,9 @@ class HomeControll extends GetxController {
   }
 
   void search(String keyboard) {
-    isLoding=true;
+          searchResult = productList;
+          update();
+    isLoding = true;
     update();
     List<ProductModel> results = [];
     if (keyboard.isEmpty) {
@@ -110,13 +113,12 @@ class HomeControll extends GetxController {
                 ),
           )
           .toList();
-          update();
+      update();
     }
-    // log(results[0].name);
 
     searchResult = results;
     update();
-     isLoding=false;
+    isLoding = false;
     update();
   }
 }

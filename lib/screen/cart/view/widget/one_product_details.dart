@@ -21,7 +21,7 @@ class OneProduct extends StatelessWidget {
           Image.network(
             '${ApiBaseUrl().baseurl}/products/${cartcontrol.reversedProcuct[index].product.image[0]}',
             height: 150,
-            width: 150,
+            width: MediaQuery.of(context).size.width*0.368,
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,7 +32,7 @@ class OneProduct extends StatelessWidget {
                     onPressed: () {
                       Get.defaultDialog(
                           title: 'Remove Item',
-                          middleText: 'Are you sure want to remove this item?',
+                          middleText: 'Are you sure, Do you want to remove this item?',
                           onConfirm: () {
                             cartcontrol.removeCart(
                                 cartcontrol.reversedProcuct[index].product.id);
@@ -140,9 +140,7 @@ class OneProduct extends StatelessWidget {
                                     cartcontrol
                                         .reversedProcuct[index].product.size[0],
                                     name: 'size check');
-                              }
-                              //  cartcontrol.deleting(),
-                              ),
+                              }),
                         ),
                       ),
                       GetBuilder<CartController>(
@@ -156,9 +154,7 @@ class OneProduct extends StatelessWidget {
                                       .toString(),
                                   style: const TextStyle(fontSize: 17),
                                 ),
-                              )
-                              // cartcontrol.value.toString()),
-                              );
+                              ));
                         },
                       ),
                       Card(

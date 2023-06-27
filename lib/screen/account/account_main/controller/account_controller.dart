@@ -19,11 +19,13 @@ class AcountController extends GetxController {
     getAllAddress();
     super.onInit();
   }
-  int change=0;
-  void changeinde(index){
-    change=index;
+
+  int change = 0;
+  void changeinde(index) {
+    change = index;
     update();
   }
+
   final signup = Get.put(SignInController());
 
   final addressService = AddressService();
@@ -41,28 +43,16 @@ class AcountController extends GetxController {
   bool isLoading = false;
 
   List<GetAddressModel> addressList = [];
-  late ProductElement  prodmodel;
+  late ProductElement prodmodel;
 
   FlutterSecureStorage storage = const FlutterSecureStorage();
-   void productModelForOneProdBuy(modele,prodmodels){
-    model=modele;
+  void productModelForOneProdBuy(modele, prodmodels) {
+    model = modele;
     update();
-    prodmodel=prodmodels;
+    prodmodel = prodmodels;
     update();
 
-    log(model.name,name:'productModelForOneProdBuy' );
-    // prodmodel = ProductElement(
-    //                                         product: model,
-    //                                         size: model.size[0],
-    //                                         qty: 1,
-    //                                         price: model.price,
-    //                                         discountPrice:
-    //                                             model.discountPrice,
-    //                                         id:model.id);
-  
-    
-
-
+    log(model.name, name: 'productModelForOneProdBuy');
   }
 
   void addAccount() async {

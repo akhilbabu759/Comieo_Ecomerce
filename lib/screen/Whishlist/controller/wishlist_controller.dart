@@ -60,12 +60,6 @@ class WishListController extends GetxController {
             backgroundColor: Colors.green,
           );
         } else if (value == 204) {
-          // Get.snackbar(
-          //   "Remove",
-          //   "Item removed from Wishlist",
-          //   colorText: Colors.red,
-          //   icon: const Icon(Icons.remove_circle_outline_rounded),
-          // );
           Get.snackbar(
             "Remove",
             "Item removed from Wishlist",
@@ -80,9 +74,4 @@ class WishListController extends GetxController {
       }
     });
   }
-
-  // void toProductScreen(index) {
-  //   Get.toNamed(ScreenProductView.routeName,arguments: wishList[index]);
-
-  // }
 }

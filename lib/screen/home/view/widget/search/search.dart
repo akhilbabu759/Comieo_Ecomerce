@@ -2,10 +2,9 @@ import 'package:ecomerce/common/api_baseurl.dart';
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
 import 'package:ecomerce/screen/Whishlist/controller/wishlist_controller.dart';
-import 'package:ecomerce/screen/allProduct/view/all_product_view.dart';
+
 import 'package:ecomerce/screen/home/controller/home_controll.dart';
-import 'package:ecomerce/screen/home/view/widget/cardView/home_card.dart';
-import 'package:ecomerce/screen/home/view/widget/home_grideviewe/grid_view.dart';
+
 import 'package:ecomerce/screen/product_details/model/product_model.dart';
 import 'package:ecomerce/screen/product_details/view/product_details.dart';
 import 'package:flutter/cupertino.dart';
@@ -20,17 +19,12 @@ class SearchPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final categoC = Get.put(HomeControll());
     final wishlistC = Get.put(WishListController());
+     
     return Scaffold(
         backgroundColor: Colors.blueGrey[50],
         body: SingleChildScrollView(
           child: SafeArea(
-            child: categoC.searchResult.isEmpty
-                ? const Center(
-                    child: Text(
-                    'Search result is empty',
-                    style: TextStyle(color: colorblack),
-                  ))
-                : Padding(
+            child:  Padding(
                     padding: const EdgeInsets.only(top: 8.0),
                     child: Column(
                       children: [
@@ -47,13 +41,18 @@ class SearchPage extends StatelessWidget {
                             },
                           ),
                         ),
-                        // textFieldGap,
+                        
                         GetBuilder<HomeControll>(
-                          builder: (controller) => categoC.isLoding == true
-                              ? const Center(
-                                  child: Text('Somthing went wrong'),
-                                )
-                              : GridView.builder(
+                          builder: (controller) => categoC.searchResult.isEmpty
+                ? const Padding(
+                  padding: EdgeInsets.only(top:318.0),
+                  child: Center(
+                      child: Text(
+                      'Search result is empty',
+                      style: TextStyle(color: colorblack),
+                    )),
+                )
+                : GridView.builder(
                                   padding: EdgeInsets.zero,
                                   physics: const NeverScrollableScrollPhysics(),
                                   shrinkWrap: true,

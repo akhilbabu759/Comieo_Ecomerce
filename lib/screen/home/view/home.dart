@@ -1,4 +1,6 @@
+import 'package:badges/badges.dart' as badges;
 import 'package:badges/badges.dart';
+
 import 'package:ecomerce/core/constent.dart';
 import 'package:ecomerce/core/text_style.dart';
 
@@ -8,6 +10,7 @@ import 'package:ecomerce/screen/account/account_main/controller/account_controll
 import 'package:ecomerce/screen/cart/controller/cart_controller.dart';
 import 'package:ecomerce/screen/cart/view/cart.dart';
 import 'package:ecomerce/screen/home/controller/home_controll.dart';
+
 import 'package:ecomerce/screen/home/view/widget/search/search.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -29,6 +32,7 @@ class Home extends StatelessWidget {
     final double width = size.width;
     final cartController = Get.put(CartController());
     final accountC = Get.put(AcountController());
+    final homeC=Get.put(HomeControll());
     return GetBuilder<CartController>(
       builder: (controller) {
         return cartController.isLoading == true.obs
@@ -191,8 +195,8 @@ class Home extends StatelessWidget {
                                                           ]),
                                                         ),
                                                       ),
-                                                      const SizedBox(
-                                                        height: 300,
+                                                       SizedBox(
+                                                        height:MediaQuery.of(context).size.height*0.54 ,
                                                       ),
                                                       const Text(
                                                         'Version 1.0',
@@ -206,7 +210,7 @@ class Home extends StatelessWidget {
                                             ),
                                             context: context);
                                       },
-                                      icon: const Icon(Icons.menu)),
+                                      icon:  Icon(Icons.menu,size: height*0.042,)),
                                   Text(
                                     'Comieo',
                                     style: textstyle,
@@ -216,10 +220,12 @@ class Home extends StatelessWidget {
                                       IconButton(
                                           onPressed: () {
                                             Get.to(const SearchPage());
+                                            homeC.search('');
+                                            
                                           },
-                                          icon: const Icon(
+                                          icon:  Icon(
                                             Icons.search_outlined,
-                                            color: colorblack,
+                                            color: colorblack,size: height*0.037,
                                           )),
                                       InkWell(
                                         onTap: () {
@@ -227,15 +233,16 @@ class Home extends StatelessWidget {
                                         },
                                         child: GetBuilder<CartController>(
                                           builder: (controller) {
-                                            return Badge(
+                                            return
+                                             badges.Badge(
                                                 position: BadgePosition.topEnd(
                                                     top: 10, end: 10),
                                                 badgeContent: Text(
                                                     cartController.cartList!
                                                         .products.length
                                                         .toString()),
-                                                child: const Icon(Icons
-                                                    .shopping_cart_outlined));
+                                                child:  Icon(Icons
+                                                    .shopping_cart_outlined,size: height*0.037,));
                                           },
                                         ),
                                       )

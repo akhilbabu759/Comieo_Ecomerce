@@ -23,7 +23,8 @@ class Privice extends StatelessWidget {
               color: Colors.blueGrey[50],
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
-                child: RichText(textAlign: TextAlign.justify,
+                child: RichText(
+                  textAlign: TextAlign.justify,
                   text: const TextSpan(children: [
                     TextSpan(
                         text:

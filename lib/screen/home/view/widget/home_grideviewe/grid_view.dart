@@ -35,11 +35,12 @@ class HomeGridView extends StatelessWidget {
               padding: EdgeInsets.zero,
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 5,
                   mainAxisSpacing: 5,
-                  childAspectRatio: 1 / 1.5),
+                  childAspectRatio: height*2 / height * 0.33),
+              
               itemBuilder: (BuildContext ctx, int index) {
                 return ColoredBox(
                   color: colorWhite,
@@ -69,14 +70,13 @@ class HomeGridView extends StatelessWidget {
                               },
                               child: Container(
                                 width: width * 0.5,
-                                height: height * 0.28,
+                                height: height * 0.19,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(20),
                                   color: colorWhite,
                                   image: DecorationImage(
-                                    image: NetworkImage(''
-                                        '${apibaseUrl.baseurl}/products/${productC.productList[index].image[0]}'),
-                                    // fit: BoxFit.cover,
+                                    image: NetworkImage(
+                                        '${apibaseUrl.baseurl}/products/${productC.productList[index].image[0]}',),
                                   ),
                                 ),
                               ),
@@ -84,13 +84,10 @@ class HomeGridView extends StatelessWidget {
                             GetBuilder<WishListController>(
                               builder: (controller) => Positioned(
                                 right: 0,
-                                // bottom: 0,
                                 child: IconButton(
                                   onPressed: () {
                                     wishlistC.addOrRemoveFromWishlist(
-                                        productC.productList[index].id
-                                        // .product.id
-                                        );
+                                        productC.productList[index].id);
                                   },
                                   icon: wishlistC.wishList.isEmpty
                                       ? const Icon(

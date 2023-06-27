@@ -25,7 +25,6 @@ class Body extends StatelessWidget {
           ListView.builder(
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
-            // physics: NeverScrollableScrollPhysics(),
             itemCount: page == 1 ? 1 : cartcontrol.cartList!.products.length,
             itemBuilder: (context, index) => Padding(
               padding: const EdgeInsets.only(left: 10.0, right: 10),

@@ -25,7 +25,10 @@ class SplashScreen extends GetView {
                 const SizedBox(
                   height: 120,
                 ),
-                Image.asset("lib/images/22380-e-commerce.gif",scale: 2.5,),
+                Image.asset(
+                  "lib/images/22380-e-commerce.gif",
+                  scale: 2.5,
+                ),
                 const SizedBox(
                   height: 50,
                 ),
@@ -37,14 +40,17 @@ class SplashScreen extends GetView {
                       color: Colors.black,
                       fontWeight: FontWeight.bold),
                 ),
-                 Padding(
-                  padding: EdgeInsets.only(top:15.0),
+                Padding(
+                  padding: const EdgeInsets.only(top: 15.0),
                   child: Text(
                     'With long experience in the electronics industry,we create the best quality products.',
-                    style: TextStyle(color: Colors.grey.shade700,fontSize: 17),textAlign: TextAlign.justify,
+                    style: TextStyle(color: Colors.grey.shade700, fontSize: 17),
+                    textAlign: TextAlign.justify,
                   ),
                 ),
-                const SizedBox(height: 40,),
+                const SizedBox(
+                  height: 40,
+                ),
               ],
             ),
           ),

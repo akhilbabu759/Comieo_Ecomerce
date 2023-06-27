@@ -49,7 +49,6 @@ class SignupController extends GetxController {
   }
 
   void disposeTextfield() {
-    // usernameController.clear();
     usernameController.clear();
     emailController.clear();
     passwordController.clear();

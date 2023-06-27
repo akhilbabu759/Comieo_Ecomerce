@@ -1,3 +1,7 @@
+import 'dart:developer';
+
+import 'package:ecomerce/screen/order_summery/model/order_model.dart';
+import 'package:ecomerce/screen/order_summery/service/order_service.dart';
 import 'package:get/get.dart';
 
 class OrderCOntrollerSummery extends GetxController {
@@ -14,4 +18,15 @@ class OrderCOntrollerSummery extends GetxController {
     index = value;
     update();
   }
+ Future< void> orderPlace(OrdersModel model)async{
+
+  await OrderService().placeOrder(model).then((value) {
+    if(value !=null){
+      log('orderplaced successful');
+    }
+    return ;
+  });
+
+
+ }
 }

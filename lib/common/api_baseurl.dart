@@ -1,9 +1,3 @@
-class ApiBaseUrl{
-
-
-    String baseurl ='http://10.4.4.210:5000';
-      
- 
-  
-  
+class ApiBaseUrl {
+  String baseurl = 'https://api-comieo-serve.onrender.com';
 }

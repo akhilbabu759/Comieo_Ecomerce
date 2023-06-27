@@ -93,7 +93,7 @@ class WishlistGridView extends StatelessWidget {
                                   },
                                   child: Container(
                                     width: width * 0.5,
-                                    height: height * 0.28,
+                                    height: height * 0.2,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(20),
                                       color: colorWhite,
@@ -192,7 +192,7 @@ class WishlistGridView extends StatelessWidget {
                             GestureDetector(
                               onTap: () => cartC.addToCart(
                                   wishlistC.wmodel!.products[index].product.id,
-                                  wishlistC.wmodel!.products[index].product.size
+                                  wishlistC.wmodel!.products[index].product.size[0]
                                       .toString(),
                                   0),
                               child: Card(

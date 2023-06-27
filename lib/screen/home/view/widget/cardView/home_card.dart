@@ -41,9 +41,8 @@ class HomeCard extends StatelessWidget {
               height: 140,
               width: 140,
               child: Image.network(
-                '${ApiBaseUrl().baseurl}/category/$imag', fit: BoxFit.scaleDown,
-                // height: 100,
-                // width: 150,
+                '${ApiBaseUrl().baseurl}/category/$imag',
+                fit: BoxFit.scaleDown,
               ),
             )
           ],

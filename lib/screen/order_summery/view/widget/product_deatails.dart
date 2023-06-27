@@ -32,23 +32,6 @@ class ProductDeatails extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Padding(
-                //   padding: EdgeInsets.only(left: Get.size.width * 0.440),
-                //   child: IconButton(
-                //       onPressed: () {
-                //         Get.defaultDialog(
-                //             title: 'Remove Item',
-                //             middleText: 'Are you sure want to remove this item?',
-                //             onConfirm: () {
-                //               cartcontrol.removeCart(cartcontrol
-                //                   .cartList!.products[index].product.id);
-                //               Get.back();
-                //             },
-                //             textConfirm: 'Yes',
-                //             textCancel: 'No');
-                //       },
-                //       icon: const Icon(Icons.dangerous)),
-                // ),
                 Text(
                   page == 1
                       ? adrres.model.name

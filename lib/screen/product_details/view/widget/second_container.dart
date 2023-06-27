@@ -219,16 +219,16 @@ class SecondContainer extends StatelessWidget {
                             price: model.price,
                             rating: model.rating,
                             size: model.size);
-                           ProductElement  prodmodel = ProductElement(
-                                            product: productmodel,
-                                            size: model.size[0],
-                                            qty: 1,
-                                            price: model.price,
-                                            discountPrice:
-                                                model.discountPrice,
-                                            id:model.id);
+                        ProductElement prodmodel = ProductElement(
+                            product: productmodel,
+                            size: model.size[0],
+                            qty: 1,
+                            price: model.price,
+                            discountPrice: model.discountPrice,
+                            id: model.id);
                         log(productmodel.name, name: 'cbeck model');
-                        orderSummeryc.productModelForOneProdBuy(productmodel,prodmodel);
+                        orderSummeryc.productModelForOneProdBuy(
+                            productmodel, prodmodel);
 
                         Get.to(const OrderSummery(
                           page: 1,
