@@ -28,7 +28,7 @@ class Home extends StatelessWidget {
     final double height = size.height;
     final double width = size.width;
     final cartController = Get.put(CartController());
-    final accountC=Get.put(AcountController());
+    final accountC = Get.put(AcountController());
     return GetBuilder<CartController>(
       builder: (controller) {
         return cartController.isLoading == true.obs
@@ -147,37 +147,50 @@ class Home extends StatelessWidget {
                                                       textFieldGap,
                                                       textFieldGap,
                                                       Container(
-            color: colorWhite,
-            height: 49,
-            width: Get.width,
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Column(children: [
-                InkWell(
-                  onTap: () => Get.defaultDialog(
-                    middleText: 'Do you want to Delete !!',
-                    textConfirm: 'Yes',
-                    textCancel: 'No',
-                    onConfirm: () => accountC.logout(),
-                  ),
-                  child: Row(
-                    children: const [
-                      Icon(
-                        Icons.login,
-                        color: colorRed,
-                      ),
-                      SizedBox(width: 20),
-                      Text(
-                        'LogOut',
-                        style: TextStyle(color: colorRed),
-                      )
-                    ],
-                  ),
-                )
-              ]),
-            ),
-          ),
-                                                      
+                                                        color: colorWhite,
+                                                        height: 49,
+                                                        width: Get.width,
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .all(10.0),
+                                                          child:
+                                                              Column(children: [
+                                                            InkWell(
+                                                              onTap: () => Get
+                                                                  .defaultDialog(
+                                                                middleText:
+                                                                    'Do you want to Logout !!',
+                                                                textConfirm:
+                                                                    'Yes',
+                                                                textCancel:
+                                                                    'No',
+                                                                onConfirm: () =>
+                                                                    accountC
+                                                                        .logout(),
+                                                              ),
+                                                              child: Row(
+                                                                children: const [
+                                                                  Icon(
+                                                                    Icons.login,
+                                                                    color:
+                                                                        colorRed,
+                                                                  ),
+                                                                  SizedBox(
+                                                                      width:
+                                                                          20),
+                                                                  Text(
+                                                                    'LogOut',
+                                                                    style: TextStyle(
+                                                                        color:
+                                                                            colorRed),
+                                                                  )
+                                                                ],
+                                                              ),
+                                                            )
+                                                          ]),
+                                                        ),
+                                                      ),
                                                       const SizedBox(
                                                         height: 300,
                                                       ),

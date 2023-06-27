@@ -22,8 +22,10 @@ class CarouselHome extends StatelessWidget {
           : CarouselSlider.builder(
               itemCount: carousalC.carouselList.length,
               itemBuilder: (BuildContext context, int index, int realIndex) =>
-                  Image.network(
-                      '${ApiBaseUrl().baseurl}/carousals/${carousalC.carouselList[index].image}'),
+                  carousalC.carouselList.isEmpty
+                      ? const CarouselShimmer()
+                      : Image.network(
+                          '${ApiBaseUrl().baseurl}/carousals/${carousalC.carouselList[index].image}'),
               options: CarouselOptions(
                 height: 180.0,
                 enlargeCenterPage: true,

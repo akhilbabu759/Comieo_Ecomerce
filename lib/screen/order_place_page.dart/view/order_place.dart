@@ -46,7 +46,7 @@ class OrderPlace extends StatelessWidget {
                   IconButton(
                       onPressed: () => Get.to(const CartScreen()),
                       icon: const Icon(
-                        Icons.shopping_cart,
+                        Icons.shopping_cart_outlined,
                         color: colorblack,
                       )),
                   SizedBox(
